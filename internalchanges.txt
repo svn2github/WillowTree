@@ -1,0 +1,89 @@
+Changes made since version 2.0 Beta 11:
+
+I made a significant amount of change to the code in WillowSaveGame.cs, a lot of which is under the hood and of whose value is not immediately apparent.  My main goal was to fix some usually minor file reading/writing issues in WIllowTree# beta 11.  Along the way I found that some of the code is overly complex so I tried to make the main reading and writing sections of the code clearer so they are not as confusing to read.  There's more that can be done in that regard, but I think this is a good starting point that has fixed all the remaining file reading/writing bugs that I know of in WillowTree#.
+
+WillowTree# beta 11 could already read the average data file and write it back in a way that would work in game.  Most of the time the only corruption that would occur was to the number of bank slots when you started with a save with only one echo list.  After the first time you used it, it would create a second echo list and you shouldn't get further corruption.  However, it was quite difficult to verify whether WillowTree# had corrupted your game data or not because of the changes it made to the location of inventory items in the data file.  Every time a significant code change is made it needs to be re-verified that WillowTree is not corrupting data and that just wasn't easy the way WillowTree# beta 11 relocated the inventory items in a way inconsistent with the current version of Borderlands.  I ended up rewriting a lot more than I otherwise would have had to in order to make WillowTree# produce outbut in a way I could be it sure was not corrupting anything.
+ That problem was probably not apparent to the average user, but I hope these changes have fixed it.
+
+There has also been some internal functionality implemented that I hope in the future will allow WillowTree to load a PS3 savegame and save it as a PC savegame and vice versa.  This is faily close and just needs a few more things to be implemented in the code.
+
+
+Here is a detailed list of the modifications made:
+
+Modified WriteString() and ReadString() to account for null strings in the same way as Borderlands does so that several individual null checks around the code could be removed.
+
+Reorganized the code in ReadWSG and SaveWSG that checked for the null strings that are handled automatically now in WriteString and ReadStrings.  This makes the code neater and easier to understand.
+
+Revamped pretty much all of the code in ReadWSG and SaveWSG after Color3 to properly read and write the promo code data, echo lists, and DLC data.  The old DLC code was completely scrapped.  The new code understands the DLC data format better and can rewrite everything it understands in either big endian or little endian format.  It no longer relies on loose sanity checks and sliding buffers to try to find the data because it knows the exact format of the DLC data region.  The DLC writing code writes back only the same DLC sections that it read, again so that the file will be byte-identical to the original hopefully.  WillowTree# beta 11 puts all weapons and items in the primary pack which is not the way Borderlands 1.41 does it, so beta 11 will usually not ever write a file that can be byte-verified if you have any items obtained in DLC areas or items obtained after level 50.  If you edit a file that was last edited by an earlier version of WillowTree# and not actually saved by Borderlands it will probably not byte-verify since it will rearrange the inventory into the Borderlands 1.41 data format.
+
+Removed the two byte order input variables from ReadWSG and made it automatically determine the byte order from the data in the savegame file.
+
+Changed all instances of the variable EndianFormat to EndianWSG in ReadWSG to make the names in ReadWSG and SaveWSG consistent.
+
+Rewrote the code of Items() and Weapons() in a more compact format with less branching and in a way that they can be used to process both the DLC backpack and the primary inventory.
+
+Removed GetDLCItems() and GetDLCWeapons() since they are no longer needed.
+
+Moved initialization of Itemstrings, WeaponValues, ItemStrings, and ItemValues from default data initialization to ReadWSG because they should be set each time someone reads a file, not when the WillowSaveGame class is created.  Otherwise, if someone reads two files in a row without recreating the WillowSaveGame object there will be left over data in these that may commingle.
+
+Added method SplitInventoryIntoPacks() to parse the master item and weapon lists and separate the items into the primary pack and secondary DLC pack in the same way as the current version of Borderlands (1.41) so that if a version 1.41 file is loaded then saved it should be byte-identical to the original.
+
+
+Added several variables to the DLC_Data class to store the values from the DLC data section.
+
+variables renamed in class WillowSaveGame:
+
+unknown1 -> Unknown1 
+unknown2 -> Vehi1Color
+unknown3 -> Vehi2Color
+unknown4 -> Vehi1Type
+unknown5 -> Vehi2Type
+unknown6 -> Unknown2 
+unknown7 -> NumberofPromoCodesUsed
+unknown8 -> NumberofPromoCodesRequiringNotification
+unknown9 -> NumberOfEchoLists
+unknown10 -> EchoIndex0
+unknown11 -> EchoIndex1
+UnknownPT1Value -> UnknownPT1QuestValue 
+UnknownQuestValue -> UnknownPT2QuestValue
+unknownSavevalue -> TotalPlayTime
+
+The last two on the list appear to be the same variable in two sections quest data.  These hold the value of 1 for PT1 and 2 for PT2 unless the character is Mordecai then they are zero.  My guess is that these data are not used for anything and are just indexes which are somehow corrupted if you play Mordecai.  Whatever the case I thought the names should be similar since they appear to be the same variable.  They are mixed with other quest values so I am calling them quest values.
+
+Since most of the unknowns have names now, I renamed the old unknowns and started the count at 1 again.  To make sure that any code that used the old renumbered value breaks I renamed them with uppercase U.
+
+No longer needed public variables deleted in class WillowSaveGame:
+
+HasOddNullsInQuest
+SometimesNull
+SometimesNullsRevenge
+wasNull
+
+Changed Color1, Color2, and Color3 from Byte[] to int so they will be written/read as the same value on little endian and big endian machines.  Nothing in WillowTree# currently uses this data so I don't think it matters whether it is in byte[] or int format.
+
+Added bool variable ContainsRawData to keep track of when any part of the savegame data is written in raw format and thus is machine byte order dependent.  The idea behind this change is that when every part of the data is parsed so it can be stored in a chosen byte order then ContainsRawData will be false.  WillowTree# will then know that the PC file can be successfully written back in the PS3 byte order or vice versa.  The only parts of the data still read in raw format are extra data at the end of known DLC sections (there should be none of this in a typical file, but the code keeps track of it in case there is), all the data in DLC sections with an unknown ID (there also should be none of this in a typical file), and bank inventory (some saves have this).  Once the bank inventory is parsed instead of read in raw format it should be possible to save most PC files as PS3 files and vice versa by setting EndianWSG before calling SaveWSG as long as you check to make sure that ContainsRawData is false.
+
+Reformatted some code and removed some extra blank line blocks I found while navigating the code of WillowSaveGame.cs.
+
+Removed a number of instances of legacy code in WillowSaveGame.cs that was previously commented out but is no longer useful with or is not compatible at all with the current code so is not likely to ever be uncommented.
+
+Some minor changes were made to WillowTreeMain.cs.  The changes related to some debugging output strings that printed out the value of SometimesNull (deleted), unknown1 (renamed) and UnknownQuestValue (renamed).
+
+Implemented methods to read and write the challenge data in a way that can be written back in a chosen machine byte order.
+
+Reorganized the source code folders to move the data into a subfolder of the source code instead of in the binary folder.  Installed a post build event to copy it to the binary folders so that it only has to be updated in one spot now instead of two.  Moved dependent DLLs into DLLDependencies folder.  Moved all icons into Resources folder.  Deleted some junk files laying around.
+
+Changed the site check for version updates to willowtree.sourceforge.net/version.txt.  Changed the code a bit so it fetches the name of the download along with the version.
+
+Fixed failure of the locker to save imported item level, quality, ammo, etc. when importing from the clipboard.
+
+Fixed failure of the weapon and item item panel to save imported item level on items imported from clipboard.
+
+Added sliders to the locker the same as the item and weapon panels so the interface is consistent.
+
+Renamed several controls in the UI.  All the controls related to overriding the locker export value are called overrideBlahblah now instead of lockerBlahlblah.  The controls for the normal locker values are now called Locker<something> instead of locker<something>saved.  These are the primary values and they should get the Locker prefix and since the other values are not the actual locker values but some overrides  they get the override prefix.
+
+Revised almost every clipboard and file import and insert function in the UI to add error checking to prevent crashes or data corruption.  Made fixes to many of the clipboard and file export functions also when I found that they were not exporting all the data or they were bugged and exporting corrupted data.
+
+
+

@@ -800,7 +800,7 @@ namespace WindowsFormsApplication1
             MemoryStream stream = new MemoryStream();
             BinaryWriter br = new BinaryWriter(stream);
 
-            br.Write(InputString.Length + 1);
+            Write(br, InputString.Length + 1, Endian);
             foreach (char ch in InputString)
                 br.Write((byte)ch);
             br.Write((byte)0);

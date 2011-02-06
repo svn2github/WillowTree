@@ -1,3 +1,7 @@
+Changes made since 2.1:
+
+Revised Writestring and ReadString to work with non-English strings (the name) present in some international versions.  In the French version there is a character (i with two dots over it) in the default name for Mordecai and that character could not be read by the old routine.  The new one is uglier and slower, but I couldn't find any support in C# for strings other than UTF8 and ASCII encoding and it is read improperly by both in BinaryReader.ReadString().  UTF8 causes an exception and ASCII reads it as ? instead of the I with the two dots.  There must be a way to improve this code, but this will work for now.
+
 Changes made since version 2.0 Beta 11:
 
 I made a significant amount of change to the code in WillowSaveGame.cs, a lot of which is under the hood and of whose value is not immediately apparent.  My main goal was to fix some usually minor file reading/writing issues in WIllowTree# beta 11.  Along the way I found that some of the code is overly complex so I tried to make the main reading and writing sections of the code clearer so they are not as confusing to read.  There's more that can be done in that regard, but I think this is a good starting point that has fixed all the remaining file reading/writing bugs that I know of in WillowTree#.

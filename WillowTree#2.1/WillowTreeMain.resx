@@ -231,7 +231,7 @@
 </value>
   </data>
   <data name="textBoxX1.Text" xml:space="preserve">
-    <value>WillowTree# v2.1.0 
+    <value>WillowTree# v2.1.1
 ------------------------
 Version 2.1 revisions performed by matt911
 
@@ -242,6 +242,9 @@ Major revisions by JackSchitt
 
 WillowTree# is an open source project.  Visit the development site at willowtree.sourceforge.net.
 --------------------------
+
+Update v2.1.1:
+- Rewrote string handling to work with non-English strings.  I had made a hotvix version 2.1.0.40 but it broke the PS3/XBox string handling.  This fixes that.  Because of the possibility of 2.1.0.40 to corrupt old saves I am pushing the new version in the update check.
 
 Update v2.1.0:
 - Complete rewrite of the DLC block load/save code

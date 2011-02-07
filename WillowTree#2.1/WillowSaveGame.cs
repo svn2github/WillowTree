@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections;
+using System.IO;
 using System.Linq;
 using System.Text;
 using X360.IO;
 using X360.STFS;
-using System.IO;
 
-namespace WindowsFormsApplication1
+namespace WillowTree
 {
 
     // Fun fun fun time. Okay, well after I decided to ditch using DJsIO I ran into a number of problems.
@@ -17,30 +16,37 @@ namespace WindowsFormsApplication1
     // can edit specific parts of the save without requiring a complete rebuild. For example, if you just 
     // (want to) edit a weapon, it rebuilds the weapon list only.
 
+    public enum ByteOrder
+    {
+        LittleEndian,
+        BigEndian
+    }
 
     public class WillowSaveGame
     {
-        //Yay, code from Google.
-        public enum ByteOrder : int
-        {
-            LittleEndian,
-            BigEndian
-        }
-
         public static byte[] ReadBytes(BinaryReader reader, int fieldSize, ByteOrder byteOrder)
         {
-            byte[] bytes = new byte[fieldSize];
-            if (byteOrder == ByteOrder.LittleEndian)
-                return reader.ReadBytes(fieldSize);
+            byte[] bytes = reader.ReadBytes(fieldSize);
+            if (bytes.Length != fieldSize)
+                throw new EndOfStreamException();
+
+            if (BitConverter.IsLittleEndian)
+            {
+                if (byteOrder == ByteOrder.BigEndian)
+                    Array.Reverse(bytes);
+            }
             else
             {
-                for (int i = fieldSize - 1; i > -1; i--)
-                    bytes[i] = reader.ReadByte();
-                return bytes;
+                if (byteOrder == ByteOrder.LittleEndian)
+                    Array.Reverse(bytes);
             }
+
+            return bytes;
         }
         public static byte[] ReadBytes(byte[] inBytes, int fieldSize, ByteOrder byteOrder)
         {
+            if (inBytes.Length < fieldSize)
+                throw new ArgumentException("Input bytes length is less than the field size.");
             byte[] bytes = new byte[fieldSize];
             if (byteOrder == ByteOrder.LittleEndian)
                 return inBytes;
@@ -58,16 +64,16 @@ namespace WindowsFormsApplication1
 
         public static int ReadInt32(BinaryReader reader, ByteOrder Endian)
         {
-            return BitConverter.ToInt32(ReadBytes(reader, 4, Endian), 0);
+            return BitConverter.ToInt32(ReadBytes(reader, sizeof(int), Endian), 0);
         }
-        public static Int16 ReadInt16(BinaryReader reader, ByteOrder Endian)
+        public static short ReadInt16(BinaryReader reader, ByteOrder Endian)
         {
-            return BitConverter.ToInt16(ReadBytes(reader, 2, Endian), 0);
+            return BitConverter.ToInt16(ReadBytes(reader, sizeof(short), Endian), 0);
         }
-        public static List<Int32> ReadListInt32(BinaryReader reader, ByteOrder Endian)
+        public static List<int> ReadListInt32(BinaryReader reader, ByteOrder Endian)
         {
-            List<Int32> list = new List<Int32>();
             int count = ReadInt32(reader, Endian);
+            List<int> list = new List<int>(count);
             for (int i = 0; i < count; i++)
             {
                 int value = ReadInt32(reader, Endian);
@@ -78,15 +84,15 @@ namespace WindowsFormsApplication1
 
         public static void WriteInt32(int inInt, BinaryWriter writer, ByteOrder Endian)
         {
-            writer.Write(BitConverter.ToInt32(ReadBytes(BitConverter.GetBytes(inInt), 4, Endian), 0));
+            writer.Write(BitConverter.ToInt32(ReadBytes(BitConverter.GetBytes(inInt), sizeof(int), Endian), 0));
         }
         public static void WriteInt16(short inInt, BinaryWriter writer, ByteOrder Endian)
         {
-            writer.Write(ReadBytes(BitConverter.GetBytes((short)inInt), 2, Endian));
+            writer.Write(ReadBytes(BitConverter.GetBytes((short)inInt), sizeof(short), Endian));
         }
         public static byte[] Int32ToBtyes(int inInt, ByteOrder Endian)
         {
-            return ReadBytes(BitConverter.GetBytes(inInt), 4, Endian);
+            return ReadBytes(BitConverter.GetBytes(inInt), sizeof(int), Endian);
         }
         public static byte[] Int16ToBtyes(int inInt, ByteOrder Endian)
         {
@@ -97,20 +103,49 @@ namespace WindowsFormsApplication1
         {
             int TempLengthValue = ReadInt32(reader, Endian);
             if (TempLengthValue == 0)
-                return "";
+                return string.Empty;
+
+            string value;
+
+            // Read string data (either ASCII or Unicode).
+            if (TempLengthValue < 0)
+            {
+                // Convert the length value into a unicode byte count.
+                TempLengthValue = -TempLengthValue * 2;
+
+                // Read the byte data (and ensure that the number of bytes
+                // read matches the number of bytes it was supposed to read--BinaryReader may not return the number of bytes read).
+                byte[] data = reader.ReadBytes(TempLengthValue);
+                if (data.Length != TempLengthValue)
+                    throw new EndOfStreamException();
+
+                value = Encoding.Unicode.GetString(data);
+            }
             else
             {
-                StringBuilder sb = new StringBuilder(TempLengthValue);
-                byte[] inBytes = reader.ReadBytes(TempLengthValue - 1);
-                char[] outChars = new char[TempLengthValue - 1];
+                byte[] data = reader.ReadBytes(TempLengthValue);
+                if (data.Length != TempLengthValue)
+                    throw new EndOfStreamException();
 
-                for (int i = 0; i < TempLengthValue - 1; i++)
-                    outChars[i] = (Char)inBytes[i];
-                reader.ReadByte();
-                return new string(outChars);
+                value = Encoding.ASCII.GetString(data);
             }
+
+            // Look for the null terminator character. If not found, return
+            // the entire string.
+            int nullTerminatorIndex = value.IndexOf('\0');
+            if (nullTerminatorIndex < 0)
+                return value;
+
+            // If the null terminator is the first character in the string,
+            // then return an empty string (small reference optimization).
+            if (nullTerminatorIndex == 0)
+                return string.Empty;
+
+            // Return a portion of the string, excluding the null terminator
+            // and any character after the null terminator.
+            return value.Substring(0, nullTerminatorIndex);
         }
- 
+
         public static void Write(BinaryWriter writer, int outInt, ByteOrder Endian)
         {
             writer.Write(Int32ToBtyes(outInt, Endian));
@@ -125,26 +160,10 @@ namespace WindowsFormsApplication1
         }
 
         //Checks if the byte/array is null.
-        public static bool isNotNull(byte[] array)
+        public static bool isNotNull<T>(T[] array)
         {
-            try
-            {
-                if (array.Length > 0)
-                    return true;
-                else return false;
-            }
-            catch { return false; }
+            return array != null && array.Length > 0;
         }
-        //public static bool isNotNull(byte inByte)
-        //{
-        //    try
-        //    {
-        //        if (inByte != null)
-        //            return true;
-        //        else return false;
-        //    }
-        //    catch { return false; }
-        //}
 
         public bool WSGEndian;
         public ByteOrder EndianWSG;
@@ -198,7 +217,7 @@ namespace WindowsFormsApplication1
         public int ChallengeDataBlockId;
         public int ChallengeDataLength;
         public Int16 ChallengeDataEntries;
-        public struct ChallengeDataEntry 
+        public struct ChallengeDataEntry
         {
             public Int16 Id;
             public Byte TypeId;
@@ -399,26 +418,26 @@ namespace WindowsFormsApplication1
         {
             //try
             //{
-                DJsIO Reader = new DJsIO(InputFile, DJFileMode.Open, true);
-                Platform = WSGType(Reader.ReadStream());
+            DJsIO Reader = new DJsIO(InputFile, DJFileMode.Open, true);
+            Platform = WSGType(Reader.ReadStream());
 
-                if (Platform == "X360")
-                {
-                    Reader.Close();
-                    ReadWSG(WSGExtract(InputFile));
+            if (Platform == "X360")
+            {
+                Reader.Close();
+                ReadWSG(WSGExtract(InputFile));
 
-                }
-                else if (Platform == "PS3")
-                {
-                    ReadWSG(Reader.ReadStream());
-                    Reader.Close();
-                }
-                else if (Platform == "PC")
-                {
-                    ReadWSG(Reader.ReadStream());
-                    Reader.Close();
-                }
-                OpenedWSG = InputFile;
+            }
+            else if (Platform == "PS3")
+            {
+                ReadWSG(Reader.ReadStream());
+                Reader.Close();
+            }
+            else if (Platform == "PC")
+            {
+                ReadWSG(Reader.ReadStream());
+                Reader.Close();
+            }
+            OpenedWSG = InputFile;
             //}
 
             //catch { }
@@ -429,7 +448,7 @@ namespace WindowsFormsApplication1
         {
             bool isBigEndian;
             BinaryReader TestReader = new BinaryReader(new MemoryStream(FileArray));
-            
+
             ContainsRawData = false;
             MagicHeader = new string(TestReader.ReadChars(3));
             VersionNumber = TestReader.ReadInt32();
@@ -548,7 +567,7 @@ namespace WindowsFormsApplication1
                     Section.Id = ReadInt32(TestReader, EndianWSG);
                     int SectionLength = ReadInt32(TestReader, EndianWSG);
                     long SectionStartPos = (int)TestReader.BaseStream.Position;
-                    switch(Section.Id)
+                    switch (Section.Id)
                     {
                         case DLC_Data.Section1Id:
                             DLC.HasSection1 = true;
@@ -793,7 +812,7 @@ namespace WindowsFormsApplication1
             byte[] outBytes;
             if (InputString == "")
             {
-                outBytes = new Byte[] {0,0,0,0}; 
+                outBytes = new Byte[] { 0, 0, 0, 0 };
                 return outBytes;
             }
 
@@ -851,7 +870,7 @@ namespace WindowsFormsApplication1
                 Write(Out, PoolLevels[Progress], EndianWSG);
             }
 
-            Write(Out, ItemStrings1.Count, EndianWSG);       
+            Write(Out, ItemStrings1.Count, EndianWSG);
             for (int Progress = 0; Progress < ItemStrings1.Count; Progress++) //Write Items
             {
                 for (int TotalStrings = 0; TotalStrings < 9; TotalStrings++)
@@ -871,7 +890,7 @@ namespace WindowsFormsApplication1
             {
                 for (int TotalStrings1 = 0; TotalStrings1 < 14; TotalStrings1++)
                     Write(Out, WriteString(WeaponStrings1[Progress][TotalStrings1], EndianWSG), EndianWSG);
-                
+
                 Write(Out, WeaponValues1[Progress][0], EndianWSG);
                 Int32 tempLevelQuality = WeaponValues1[Progress][1] + WeaponValues1[Progress][3] * 65536;
                 Write(Out, tempLevelQuality, EndianWSG);
@@ -915,7 +934,7 @@ namespace WindowsFormsApplication1
                 Write(Out, WriteString(PT1Strings[Progress], EndianWSG), EndianWSG);
                 for (int TotalValues = 0; TotalValues < 4; TotalValues++)
                     Write(Out, PT1Values[Progress, TotalValues], EndianWSG);
-                
+
                 if (PT1Values[Progress, 3] > 0) //Checks for subfolders
                 {
                     for (int ExtraValues = 0; ExtraValues < PT1Values[Progress, 3]; ExtraValues++)
@@ -923,7 +942,7 @@ namespace WindowsFormsApplication1
                         Write(Out, WriteString(PT1Subfolders[Progress, ExtraValues], EndianWSG), EndianWSG); //Write Subfolder
                         Write(Out, PT1Values[Progress, ExtraValues + 4], EndianWSG); //Write Subfolder value
                     }
-                }  
+                }
             }
             Write(Out, UnknownPT1QuestValue, EndianWSG);
 
@@ -1109,7 +1128,7 @@ namespace WindowsFormsApplication1
             int ItemCount = ItemStrings.Count;
             for (int i = 0; i < ItemCount; i++)
             {
-                if ((ItemValues[i][3] == 0) && (ItemStrings[i][0].Substring(0,3) != "dlc"))
+                if ((ItemValues[i][3] == 0) && (ItemStrings[i][0].Substring(0, 3) != "dlc"))
                 {
                     ItemStrings1.Add(ItemStrings[i]);
                     ItemValues1.Add(ItemValues[i]);
@@ -1129,7 +1148,7 @@ namespace WindowsFormsApplication1
             int WeaponCount = WeaponStrings.Count;
             for (int i = 0; i < WeaponCount; i++)
             {
-                if ((WeaponValues[i][3] == 0) && (WeaponStrings[i][0].Substring(0,3) != "dlc"))
+                if ((WeaponValues[i][3] == 0) && (WeaponStrings[i][0].Substring(0, 3) != "dlc"))
                 {
                     WeaponStrings1.Add(WeaponStrings[i]);
                     WeaponValues1.Add(WeaponValues[i]);

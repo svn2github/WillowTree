@@ -18,7 +18,7 @@ using System.Diagnostics;
 //using System.Collections.Specialized;
 
 
-namespace WindowsFormsApplication1
+namespace WillowTree
 {
 
 
@@ -32,7 +32,7 @@ namespace WindowsFormsApplication1
         Thread t1;
 
         //private Ini.IniFile TitlesIni = new Ini.IniFile("");
-        private XmlHandler.XmlFile TitlesXml = new XmlHandler.XmlFile(Path.GetDirectoryName(Application.ExecutablePath) + "\\Data\\Titles.ini");
+        private XmlFile TitlesXml = new XmlFile(Path.GetDirectoryName(Application.ExecutablePath) + "\\Data\\Titles.ini");
 
         //Grabs the name of a weapon/item from an INI.
         /*public string GetName(Ini.IniFile INI, string[,] PartArray, int DesiredPart, int NumberOfSubParts, string INIValueToRetrieve)
@@ -54,7 +54,7 @@ namespace WindowsFormsApplication1
             return Name;
         }*/
         // 0 references - Build composite string from xmlvalues in string array.  Looks up xmlvalue of every part not just 12+13 or 7+8.  Don't need to specify item type. output is name only, no prefix
-        public string GetName(XmlHandler.XmlFile xml, string[,] PartArray, int DesiredPart, int NumberOfSubParts, string INIValueToRetrieve)
+        public string GetName(XmlFile xml, string[,] PartArray, int DesiredPart, int NumberOfSubParts, string INIValueToRetrieve)
         {
             string Name = "";
             for (int build = 0; build < NumberOfSubParts; build++)
@@ -79,7 +79,7 @@ namespace WindowsFormsApplication1
             return Name;
         }*/
         // 29 references - Fetch single xml value from name in part array
-        public string GetName(XmlHandler.XmlFile xml, string[] PartArray, int DesiredPart, string INIValueToRetrieve)
+        public string GetName(XmlFile xml, string[] PartArray, int DesiredPart, string INIValueToRetrieve)
         {
             string Name = "";
 
@@ -129,7 +129,7 @@ namespace WindowsFormsApplication1
             return itemtypeprefix + Name;
         }*/
         // 15 references - read name from xml of 12+13 weapon or 7+8 item.  no prefix. - output is name only 
-        public string GetName(XmlHandler.XmlFile xml, List<List<string>> PartArray, int DesiredPart, int NumberOfSubParts, string INIValueToRetrieve, string Itemtype)
+        public string GetName(XmlFile xml, List<List<string>> PartArray, int DesiredPart, int NumberOfSubParts, string INIValueToRetrieve, string Itemtype)
         {
             string Name = "";
             string itemtypeprefix = "";
@@ -171,7 +171,7 @@ namespace WindowsFormsApplication1
             return itemtypeprefix + Name;
         }
         // 3 references - read name from xml of 12+13 weapon or 7+8 item, analyze 1 weapon or 2 item for class - output is class + name
-        public string GetName(XmlHandler.XmlFile xml, List<string> PartArray, int NumberOfSubParts, string INIValueToRetrieve, string Itemtype)
+        public string GetName(XmlFile xml, List<string> PartArray, int NumberOfSubParts, string INIValueToRetrieve, string Itemtype)
         {
             string Name = "";
             string itemtypeprefix = "";
@@ -212,7 +212,7 @@ namespace WindowsFormsApplication1
             return itemtypeprefix + Name;
         }
 
-        public string GetLongName(XmlHandler.XmlFile xml, string CategoryPart, string PrefixPart, string NamePart)
+        public string GetLongName(XmlFile xml, string CategoryPart, string PrefixPart, string NamePart)
         {
             string category = xml.XmlReadValue(CategoryPart, "Prefix");
             string prefix = xml.XmlReadValue(PrefixPart, "PartName");
@@ -232,7 +232,7 @@ namespace WindowsFormsApplication1
         {
             QuestTree.Nodes.Clear();
             //Ini.IniFile Quests = new Ini.IniFile(AppDir + "\\Data\\Quests.ini");
-            XmlHandler.XmlFile Quests = new XmlHandler.XmlFile(AppDir + "\\Data\\Quests.ini");
+            XmlFile Quests = new XmlFile(AppDir + "\\Data\\Quests.ini");
             Node PT1 = new Node();
             PT1.Text = "Playthrough 1 Quests";
             PT1.Name = "PT1";
@@ -284,7 +284,7 @@ namespace WindowsFormsApplication1
         public void DoLocationTree()
         {
             //Ini.IniFile PartList = new Ini.IniFile(AppDir + "\\Data\\Locations.ini");
-            XmlHandler.XmlFile PartList = new XmlHandler.XmlFile(AppDir + "\\Data\\Locations.ini");
+            XmlFile PartList = new XmlFile(AppDir + "\\Data\\Locations.ini");
             //Ini.IniFile PartList = new Ini.IniFile(AppDir + "\\Data\\Locations.ini");
             LocationTree.Nodes.Clear();
 
@@ -316,18 +316,18 @@ namespace WindowsFormsApplication1
             filestoconvert.Add(AppDir + "\\Data\\gd_skills2_Mordecai.txt");
             filestoconvert.Add(AppDir + "\\Data\\gd_Skills2_Brick.txt");
 
-            XmlHandler.XmlFile AllSkills = new XmlHandler.XmlFile(filestoconvert, AppDir + "\\Data\\xml\\gd_skills.xml");
+            XmlFile AllSkills = new XmlFile(filestoconvert, AppDir + "\\Data\\xml\\gd_skills.xml");
 
             /*
-                        XmlHandler.XmlFile Common = new XmlHandler.XmlFile();
+                        XmlFile Common = new XmlFile();
                         Common.XmlFilename(AppDir + "\\Data\\gd_skills_common.txt");
-                        XmlHandler.XmlFile Roland = new XmlHandler.XmlFile();
+                        XmlFile Roland = new XmlFile();
                         Roland.XmlFilename(AppDir + "\\Data\\gd_Skills2_Roland.txt");
-                        XmlHandler.XmlFile Lilith = new XmlHandler.XmlFile();
+                        XmlFile Lilith = new XmlFile();
                         Lilith.XmlFilename(AppDir + "\\Data\\gd_Skills2_Lilith.txt");
-                        XmlHandler.XmlFile Mordecai = new XmlHandler.XmlFile();
+                        XmlFile Mordecai = new XmlFile();
                         Mordecai.XmlFilename(AppDir + "\\Data\\gd_skills2_Mordecai.txt");
-                        XmlHandler.XmlFile Brick = new XmlHandler.XmlFile();
+                        XmlFile Brick = new XmlFile();
                         Brick.XmlFilename(AppDir + "\\Data\\gd_Skills2_Brick.txt");
             */
             //Ini.IniFile Common = new Ini.IniFile(AppDir + "\\Data\\gd_skills_common.txt");
@@ -373,7 +373,7 @@ namespace WindowsFormsApplication1
         {
             EchoTree.Nodes.Clear();
             //Ini.IniFile Echos = new Ini.IniFile(AppDir + "\\Data\\Echos.ini");
-            XmlHandler.XmlFile Echos = new XmlHandler.XmlFile(AppDir + "\\Data\\Echos.ini");
+            XmlFile Echos = new XmlFile(AppDir + "\\Data\\Echos.ini");
             Node PT1 = new Node();
             PT1.Text = "Playthrough 1 Echo Logs";
             Node PT2 = new Node();
@@ -486,7 +486,7 @@ namespace WindowsFormsApplication1
         public void DoLockerTree(string InputFile)
         {
             LockerTree.Nodes.Clear();
-            //XmlHandler.XmlFile Locker = new XmlHandler.XmlFile(InputFile);
+            //XmlFile Locker = new XmlFile(InputFile);
             //Ini.IniFile Locker = new Ini.IniFile(InputFile);
             //XmlLocker.XmlFilename(InputFile);
             OpenedLocker = InputFile;
@@ -610,7 +610,7 @@ namespace WindowsFormsApplication1
         {
             LockerTreetry2.Nodes.Clear();
             //Ini.IniFile Locker = new Ini.IniFile(InputFile);
-            //Xmlhandler.XmlFile Locker = new Xmlhandler.XmlFile(InputFile);
+            //XmlFile Locker = new XmlFile(InputFile);
 
             //OpenedLocker = InputFile;
 
@@ -884,7 +884,7 @@ namespace WindowsFormsApplication1
         {
             LockerTreetry2.Nodes.Clear();
             //Ini.IniFile Locker = new Ini.IniFile(InputFile);
-            //Xmlhandler.XmlFile Locker = new Xmlhandler.XmlFile(InputFile);
+            //XmlFile Locker = new XmlFile(InputFile);
 
             //OpenedLocker = InputFile;
 
@@ -1202,7 +1202,7 @@ namespace WindowsFormsApplication1
         public void DoPartsCategory(string Category, AdvTree Tree)
         {
             //Ini.IniFile PartList = new Ini.IniFile(AppDir + "\\Data\\" + Category + ".txt");
-            XmlHandler.XmlFile PartList = new XmlHandler.XmlFile(AppDir + "\\Data\\" + Category + ".txt");
+            XmlFile PartList = new XmlFile(AppDir + "\\Data\\" + Category + ".txt");
 
             Node TempNode = new Node();
             TempNode.Name = Category;
@@ -1231,7 +1231,7 @@ namespace WindowsFormsApplication1
         }
         public void DoQuestList()
         {
-            XmlHandler.XmlFile PartList = new XmlHandler.XmlFile(AppDir + "\\Data\\Quests.ini");
+            XmlFile PartList = new XmlFile(AppDir + "\\Data\\Quests.ini");
 
             foreach (string section in PartList.stListSectionNames())
                 QuestList.Items.Add(PartList.XmlReadValue(section, "MissionName"));
@@ -1244,7 +1244,7 @@ namespace WindowsFormsApplication1
         public void DoEchoList()
         {
             //Ini.IniFile PartList = new Ini.IniFile(AppDir + "\\Data\\Echos.ini");
-            XmlHandler.XmlFile PartList = new XmlHandler.XmlFile(AppDir + "\\Data\\Echos.ini");
+            XmlFile PartList = new XmlFile(AppDir + "\\Data\\Echos.ini");
 
             foreach (string section in PartList.stListSectionNames())
             {
@@ -1357,7 +1357,7 @@ namespace WindowsFormsApplication1
             LocationsList.Items.Clear();
             CurrentLocation.Items.Clear();
             //Ini.IniFile Locations = new Ini.IniFile(AppDir + "\\Data\\Locations.ini");
-            XmlHandler.XmlFile Locations = new XmlHandler.XmlFile(AppDir + "\\Data\\Locations.ini");
+            XmlFile Locations = new XmlFile(AppDir + "\\Data\\Locations.ini");
             foreach (string section in Locations.stListSectionNames())
             {
                 string outpostname = Locations.XmlReadValue(section, "OutpostDisplayName");
@@ -1371,35 +1371,35 @@ namespace WindowsFormsApplication1
             if ((string)Class.SelectedItem == "Soldier")
             {
                 //Ini.IniFile SkillINI = new Ini.IniFile(AppDir + "\\Data\\gd_skills2_Roland.txt");
-                XmlHandler.XmlFile SkillXML = new XmlHandler.XmlFile(AppDir + "\\Data\\gd_skills2_Roland.txt");
+                XmlFile SkillXML = new XmlFile(AppDir + "\\Data\\gd_skills2_Roland.txt");
                 foreach (string section in SkillXML.stListSectionNames())
                     SkillList.Items.Add((string)SkillXML.XmlReadValue(section, "SkillName"));
             }
             else if ((string)Class.SelectedItem == "Siren")
             {
                 //Ini.IniFile SkillINI = new Ini.IniFile(AppDir + "\\Data\\gd_Skills2_Lilith.txt");
-                XmlHandler.XmlFile SkillXML = new XmlHandler.XmlFile(AppDir + "\\Data\\gd_Skills2_Lilith.txt");
+                XmlFile SkillXML = new XmlFile(AppDir + "\\Data\\gd_Skills2_Lilith.txt");
                 foreach (string section in SkillXML.stListSectionNames())
                     SkillList.Items.Add((string)SkillXML.XmlReadValue(section, "SkillName"));
             }
             else if ((string)Class.SelectedItem == "Hunter")
             {
                 //Ini.IniFile SkillINI = new Ini.IniFile(AppDir + "\\Data\\gd_skills2_Mordecai.txt");
-                XmlHandler.XmlFile SkillXML = new XmlHandler.XmlFile(AppDir + "\\Data\\gd_skills2_Mordecai.txt");
+                XmlFile SkillXML = new XmlFile(AppDir + "\\Data\\gd_skills2_Mordecai.txt");
                 foreach (string section in SkillXML.stListSectionNames())
                     SkillList.Items.Add((string)SkillXML.XmlReadValue(section, "SkillName"));
             }
             else if ((string)Class.SelectedItem == "Berserker")
             {
                 //Ini.IniFile SkillINI = new Ini.IniFile(AppDir + "\\Data\\gd_Skills2_Brick.txt");
-                XmlHandler.XmlFile SkillXML = new XmlHandler.XmlFile(AppDir + "\\Data\\gd_Skills2_Brick.txt");
+                XmlFile SkillXML = new XmlFile(AppDir + "\\Data\\gd_Skills2_Brick.txt");
                 foreach (string section in SkillXML.stListSectionNames())
                     SkillList.Items.Add((string)SkillXML.XmlReadValue(section, "SkillName"));
             }
             else
             {
                 //Ini.IniFile SkillINI = new Ini.IniFile(AppDir + "\\Data\\gd_skills_common.txt");
-                XmlHandler.XmlFile SkillXML = new XmlHandler.XmlFile(AppDir + "\\Data\\gd_skills_common.txt");
+                XmlFile SkillXML = new XmlFile(AppDir + "\\Data\\gd_skills_common.txt");
                 foreach (string section in SkillXML.stListSectionNames())
                     SkillList.Items.Add((string)SkillXML.XmlReadValue(section, "SkillName"));
             }
@@ -1566,7 +1566,7 @@ namespace WindowsFormsApplication1
                 double ExtraDamage = 0;
                 for (int i = 3; i < 14; i++)
                     if (WeaponParts[i].Contains("."))
-                        ExtraDamage = ExtraDamage + Conversion.Val(new XmlHandler.XmlFile(AppDir + "\\Data\\" + WeaponParts[i].Substring(0, WeaponParts[i].IndexOf(".")) + ".txt").XmlReadValue(WeaponParts[i].Substring(WeaponParts[i].IndexOf(".") + 1), StatName));
+                        ExtraDamage = ExtraDamage + Conversion.Val(new XmlFile(AppDir + "\\Data\\" + WeaponParts[i].Substring(0, WeaponParts[i].IndexOf(".")) + ".txt").XmlReadValue(WeaponParts[i].Substring(WeaponParts[i].IndexOf(".") + 1), StatName));
 
                 if (StatName == "TechLevelIncrease")
                     return (int)ExtraDamage;
@@ -1585,16 +1585,16 @@ namespace WindowsFormsApplication1
                 string ItemGradeFile = WeaponParts[0].Substring(0, WeaponParts[0].IndexOf(".")) + ".txt";
                 string ItemGradePart = WeaponParts[0].Substring(WeaponParts[0].IndexOf(".") + 1);
                 string Manufacturer = WeaponParts[1].Substring(WeaponParts[1].LastIndexOf(".") + 1);
-                XmlHandler.XmlFile ItemGrade = new XmlHandler.XmlFile(AppDir + "\\Data\\" + ItemGradeFile);
+                XmlFile ItemGrade = new XmlFile(AppDir + "\\Data\\" + ItemGradeFile);
 
                 double ExtraDamage = 0;
-                double Multiplier = Conversion.Val(new XmlHandler.XmlFile(AppDir + "\\Data\\" + WeaponParts[2].Substring(0, WeaponParts[2].IndexOf(".")) + ".txt").XmlReadValue(WeaponParts[2].Substring(WeaponParts[2].IndexOf(".") + 1), "WeaponDamageFormulaMultiplier")); ;
+                double Multiplier = Conversion.Val(new XmlFile(AppDir + "\\Data\\" + WeaponParts[2].Substring(0, WeaponParts[2].IndexOf(".")) + ".txt").XmlReadValue(WeaponParts[2].Substring(WeaponParts[2].IndexOf(".") + 1), "WeaponDamageFormulaMultiplier")); ;
                 double Level = Conversion.Val(ItemGrade.XmlReadValue(ItemGradePart, Manufacturer + "(" + WeaponQuality.Value + ")"));
                 double Power = 1.3;
                 double Offset = 9;
                 for (int i = 3; i < 14; i++)
                     if (WeaponParts[i].Contains("."))
-                        ExtraDamage = ExtraDamage + Conversion.Val(new XmlHandler.XmlFile(AppDir + "\\Data\\" + WeaponParts[i].Substring(0, WeaponParts[i].IndexOf(".")) + ".txt").XmlReadValue(WeaponParts[i].Substring(WeaponParts[i].IndexOf(".") + 1), "WeaponDamage"));
+                        ExtraDamage = ExtraDamage + Conversion.Val(new XmlFile(AppDir + "\\Data\\" + WeaponParts[i].Substring(0, WeaponParts[i].IndexOf(".")) + ".txt").XmlReadValue(WeaponParts[i].Substring(WeaponParts[i].IndexOf(".") + 1), "WeaponDamage"));
 
 
                 return (int)(ExtraDamage * (Multiplier * (Math.Pow(Level, Power) + Offset))) + (int)(Multiplier * (Math.Pow(Level, Power) + Offset));
@@ -1611,15 +1611,15 @@ namespace WindowsFormsApplication1
                 string ItemGradeFile = WeaponParts[0].Substring(0, WeaponParts[0].IndexOf(".")) + ".txt";
                 string ItemGradePart = WeaponParts[0].Substring(WeaponParts[0].IndexOf(".") + 1);
                 string Manufacturer = WeaponParts[1].Substring(WeaponParts[1].LastIndexOf(".") + 1);
-                XmlHandler.XmlFile ItemGrade = new XmlHandler.XmlFile(AppDir + "\\Data\\" + ItemGradeFile);
+                XmlFile ItemGrade = new XmlFile(AppDir + "\\Data\\" + ItemGradeFile);
                 double ExtraDamage = 0;
-                double Multiplier = Conversion.Val(new XmlHandler.XmlFile(AppDir + "\\Data\\" + WeaponParts[2].Substring(0, WeaponParts[2].IndexOf(".")) + ".txt").XmlReadValue(WeaponParts[2].Substring(WeaponParts[2].IndexOf(".") + 1), "WeaponDamageFormulaMultiplier")); ;
+                double Multiplier = Conversion.Val(new XmlFile(AppDir + "\\Data\\" + WeaponParts[2].Substring(0, WeaponParts[2].IndexOf(".")) + ".txt").XmlReadValue(WeaponParts[2].Substring(WeaponParts[2].IndexOf(".") + 1), "WeaponDamageFormulaMultiplier")); ;
                 double Level = Itemgrade;
                 double Power = 1.3;
                 double Offset = 9;
                 for (int i = 3; i < 14; i++)
                     if (WeaponParts[i].Contains("."))
-                        ExtraDamage = ExtraDamage + Conversion.Val(new XmlHandler.XmlFile(AppDir + "\\Data\\" + WeaponParts[i].Substring(0, WeaponParts[i].IndexOf(".")) + ".txt").XmlReadValue(WeaponParts[i].Substring(WeaponParts[i].IndexOf(".") + 1), "WeaponDamage"));
+                        ExtraDamage = ExtraDamage + Conversion.Val(new XmlFile(AppDir + "\\Data\\" + WeaponParts[i].Substring(0, WeaponParts[i].IndexOf(".")) + ".txt").XmlReadValue(WeaponParts[i].Substring(WeaponParts[i].IndexOf(".") + 1), "WeaponDamage"));
 
 
                 return (int)(ExtraDamage * (Multiplier * (Math.Pow(Level, Power) + Offset))) + (int)(Multiplier * (Math.Pow(Level, Power) + Offset));
@@ -1874,7 +1874,7 @@ namespace WindowsFormsApplication1
                     CurrentWSG = new WillowSaveGame();
                     CurrentWSG.OpenWSG(tempOpen.FileName);
                     //Ini.IniFile Locations = new Ini.IniFile(AppDir + "\\Data\\Locations.ini");
-                    XmlHandler.XmlFile Locations = new XmlHandler.XmlFile(AppDir + "\\Data\\Locations.ini");
+                    XmlFile Locations = new XmlFile(AppDir + "\\Data\\Locations.ini");
                     setXPchart();
                     textBox1.AppendText(CurrentWSG.Platform);
                     CharacterName.Text = CurrentWSG.CharacterName;
@@ -2013,7 +2013,7 @@ namespace WindowsFormsApplication1
 
 
             //Ini.IniFile Locations = new Ini.IniFile(AppDir + "\\Data\\Locations.ini");
-            XmlHandler.XmlFile Locations = new XmlHandler.XmlFile(AppDir + "\\Data\\Locations.ini");
+            XmlFile Locations = new XmlFile(AppDir + "\\Data\\Locations.ini");
 
             SaveFileDialog tempSave = new SaveFileDialog();
             tempSave.DefaultExt = "*.sav";
@@ -2105,7 +2105,7 @@ namespace WindowsFormsApplication1
             try
             {
                 //Ini.IniFile Locations = new Ini.IniFile(AppDir + "\\Data\\Locations.ini");
-                XmlHandler.XmlFile Locations = new XmlHandler.XmlFile(AppDir + "\\Data\\Locations.ini");
+                XmlFile Locations = new XmlFile(AppDir + "\\Data\\Locations.ini");
 
                 if (BankSpace.Enabled)
                     CurrentWSG.DLC.BankSize = (int)BankSpace.Value;
@@ -2754,7 +2754,7 @@ namespace WindowsFormsApplication1
 
             /*string tempINI = System.IO.File.ReadAllText(OpenedLocker);
             int Occurances = 0;
-            XmlHandler.XmlFile Locker = new XmlHandler.XmlFile(OpenedLocker);
+            XmlFile Locker = new XmlFile(OpenedLocker);
             for (int Progress = 0; Progress < Locker.ListSectionNames().Length; Progress++)
                 if (Locker.ListSectionNames()[Progress] == "New Weapon" || Locker.ListSectionNames()[Progress].Contains("New Weapon (Copy "))
                     Occurances = Occurances + 1;
@@ -2822,7 +2822,7 @@ namespace WindowsFormsApplication1
             if (tempImport.ShowDialog() == DialogResult.OK)
             {
                 //Ini.IniFile ImportWTL = new Ini.IniFile(tempImport.FileName);
-                XmlHandler.XmlFile ImportWTL = new XmlHandler.XmlFile(tempImport.FileName);
+                XmlFile ImportWTL = new XmlFile(tempImport.FileName);
                 if (IsDLCWeaponMode)
                 {
 
@@ -2898,7 +2898,7 @@ namespace WindowsFormsApplication1
                 writer.Flush();
                 writer.Close();
 
-                XmlHandler.XmlFile LockerSave = new XmlHandler.XmlFile(tempExport.FileName);
+                XmlFile LockerSave = new XmlFile(tempExport.FileName);
                 List<string> itemparts = new List<string>();
                 List<int> itemvalues = new List<int>();
 
@@ -2954,7 +2954,7 @@ namespace WindowsFormsApplication1
                     else QuestProgress.SelectedIndex = CurrentWSG.PT1Values[QuestTree.SelectedNode.Index, 0];
                     NumberOfObjectives.Value = CurrentWSG.PT1Values[QuestTree.SelectedNode.Index, 3];
                     Objectives.Items.Clear();
-                    XmlHandler.XmlFile Quest = new XmlHandler.XmlFile(AppDir + "\\Data\\Quests.ini");
+                    XmlFile Quest = new XmlFile(AppDir + "\\Data\\Quests.ini");
                     if (NumberOfObjectives.Value > 0)
                         for (int Progress = 0; Progress < NumberOfObjectives.Value; Progress++)
                             Objectives.Items.Add(Quest.XmlReadValue(QuestString.Text, "Objectives" + Progress));
@@ -2970,7 +2970,7 @@ namespace WindowsFormsApplication1
                     else QuestProgress.SelectedIndex = CurrentWSG.PT2Values[QuestTree.SelectedNode.Index, 0];
                     NumberOfObjectives.Value = CurrentWSG.PT2Values[QuestTree.SelectedNode.Index, 3];
                     Objectives.Items.Clear();
-                    XmlHandler.XmlFile Quest = new XmlHandler.XmlFile(AppDir + "\\Data\\Quests.ini");
+                    XmlFile Quest = new XmlFile(AppDir + "\\Data\\Quests.ini");
                     if (NumberOfObjectives.Value > 0)
                         for (int Progress = 0; Progress < NumberOfObjectives.Value; Progress++)
                             Objectives.Items.Add(Quest.XmlReadValue(QuestString.Text, "Objectives" + Progress));
@@ -2989,7 +2989,7 @@ namespace WindowsFormsApplication1
             try
             {
                 //Ini.IniFile Quests = new Ini.IniFile(AppDir + "\\Data\\Quests.ini");
-                XmlHandler.XmlFile Quests = new XmlHandler.XmlFile(AppDir + "\\Data\\Quests.ini");
+                XmlFile Quests = new XmlFile(AppDir + "\\Data\\Quests.ini");
                 if (QuestTree.SelectedNode.Name == "PT1" || QuestTree.SelectedNode == QuestTree.Nodes[0])
                 {
                     int TotalObjectives = 0;
@@ -3053,7 +3053,7 @@ namespace WindowsFormsApplication1
         {
             try
             {
-                XmlHandler.XmlFile Quests = new XmlHandler.XmlFile(AppDir + "\\Data\\Quests.ini");
+                XmlFile Quests = new XmlFile(AppDir + "\\Data\\Quests.ini");
                 if (QuestTree.SelectedNode.Name == "PT1" && Clicked == true)
                 {
                     if (CurrentWSG.PT1Values[QuestTree.SelectedNode.Index, 0] == 4 && QuestProgress.SelectedIndex < 3)
@@ -3219,7 +3219,7 @@ namespace WindowsFormsApplication1
                         writer.Flush();
                         writer.Close();
 
-                        XmlHandler.XmlFile Quests = new XmlHandler.XmlFile(tempExport.FileName);
+                        XmlFile Quests = new XmlFile(tempExport.FileName);
                         List<string> subsectionnames = new List<string>();
                         List<string> subsectionvalues = new List<string>();
 
@@ -3272,7 +3272,7 @@ namespace WindowsFormsApplication1
                         writer.Flush();
                         writer.Close();
 
-                        XmlHandler.XmlFile Quests = new XmlHandler.XmlFile(tempExport.FileName);
+                        XmlFile Quests = new XmlFile(tempExport.FileName);
                         List<string> subsectionnames = new List<string>();
                         List<string> subsectionvalues = new List<string>();
 
@@ -3324,7 +3324,7 @@ namespace WindowsFormsApplication1
                     if (tempImport.ShowDialog() == DialogResult.OK)
                     {
                         //Ini.IniFile ImportQuests = new Ini.IniFile(tempImport.FileName);
-                        XmlHandler.XmlFile ImportQuests = new XmlHandler.XmlFile(tempImport.FileName);
+                        XmlFile ImportQuests = new XmlFile(tempImport.FileName);
                         string[] TempQuestStrings = new string[ImportQuests.stListSectionNames().Count];
                         int[,] TempQuestValues = new int[ImportQuests.stListSectionNames().Count, 10];
                         string[,] TempQuestSubfolders = new string[ImportQuests.stListSectionNames().Count, 7];
@@ -3357,7 +3357,7 @@ namespace WindowsFormsApplication1
                     tempImport.FileName = CurrentWSG.CharacterName + "'s PT1 Quests.quests";
                     if (tempImport.ShowDialog() == DialogResult.OK)
                     {
-                        XmlHandler.XmlFile ImportQuests = new XmlHandler.XmlFile(tempImport.FileName);
+                        XmlFile ImportQuests = new XmlFile(tempImport.FileName);
                         string[] TempQuestStrings = new string[ImportQuests.stListSectionNames().Count];
                         int[,] TempQuestValues = new int[ImportQuests.stListSectionNames().Count, 10];
                         string[,] TempQuestSubfolders = new string[ImportQuests.stListSectionNames().Count, 7];
@@ -4007,7 +4007,7 @@ namespace WindowsFormsApplication1
                 writer.Flush();
                 writer.Close();
 
-                XmlHandler.XmlFile LockerSave = new XmlHandler.XmlFile(tempExport.FileName);
+                XmlFile LockerSave = new XmlFile(tempExport.FileName);
                 List<string> itemparts = new List<string>();
                 List<int> itemvalues = new List<int>();
 
@@ -4063,7 +4063,7 @@ namespace WindowsFormsApplication1
             if (tempImport.ShowDialog() == DialogResult.OK)
             {
                 //Ini.IniFile ImportWTL = new Ini.IniFile(tempImport.FileName);
-                XmlHandler.XmlFile ImportWTL = new XmlHandler.XmlFile(tempImport.FileName);
+                XmlFile ImportWTL = new XmlFile(tempImport.FileName);
                 if (IsDLCItemMode)
                 {
 
@@ -4171,7 +4171,7 @@ namespace WindowsFormsApplication1
         private void EchoList_Click(object sender, EventArgs e)
         {
 
-            XmlHandler.XmlFile Echoes = new XmlHandler.XmlFile(AppDir + "\\Data\\Echos.ini");
+            XmlFile Echoes = new XmlFile(AppDir + "\\Data\\Echos.ini");
             if (EchoTree.SelectedNode.Name == "PT1" || EchoTree.SelectedNode.Text == "Playthrough 1 Echo Logs")
             {
 
@@ -4252,7 +4252,7 @@ namespace WindowsFormsApplication1
                         writer.Flush();
                         writer.Close();
 
-                        XmlHandler.XmlFile Echos = new XmlHandler.XmlFile(tempExport.FileName);
+                        XmlFile Echos = new XmlFile(tempExport.FileName);
                         List<string> subsectionnames = new List<string>();
                         List<string> subsectionvalues = new List<string>();
 
@@ -4293,7 +4293,7 @@ namespace WindowsFormsApplication1
                         writer.Flush();
                         writer.Close();
 
-                        XmlHandler.XmlFile Echos = new XmlHandler.XmlFile(tempExport.FileName);
+                        XmlFile Echos = new XmlFile(tempExport.FileName);
                         List<string> subsectionnames = new List<string>();
                         List<string> subsectionvalues = new List<string>();
 
@@ -4335,7 +4335,7 @@ namespace WindowsFormsApplication1
                     if (EchoTree.SelectedNode.Name == "PT2" || EchoTree.SelectedNode.Text == "Playthrough 2 Echo Logs")
                     {
                         //Ini.IniFile ImportLogs = new Ini.IniFile(tempImport.FileName);
-                        XmlHandler.XmlFile ImportLogs = new XmlHandler.XmlFile(tempImport.FileName);
+                        XmlFile ImportLogs = new XmlFile(tempImport.FileName);
                         string[] TempEchoStrings = new string[ImportLogs.stListSectionNames().Count];
                         int[,] TempEchoValues = new int[ImportLogs.stListSectionNames().Count, 10];
                         for (int Progress = 0; Progress < ImportLogs.stListSectionNames().Count; Progress++)
@@ -4365,7 +4365,7 @@ namespace WindowsFormsApplication1
                 if (tempImport.ShowDialog() == DialogResult.OK)
                 {
                     //Ini.IniFile ImportLogs = new Ini.IniFile(tempImport.FileName);
-                    XmlHandler.XmlFile ImportLogs = new XmlHandler.XmlFile(tempImport.FileName);
+                    XmlFile ImportLogs = new XmlFile(tempImport.FileName);
                     string[] TempEchoStrings = new string[ImportLogs.stListSectionNames().Count];
                     int[,] TempEchoValues = new int[ImportLogs.stListSectionNames().Count, 10];
                     for (int Progress = 0; Progress < ImportLogs.stListSectionNames().Count; Progress++)
@@ -4455,7 +4455,7 @@ namespace WindowsFormsApplication1
             try
             {
 
-                XmlHandler.XmlFile Locations = new XmlHandler.XmlFile(AppDir + "\\Data\\Locations.ini");
+                XmlFile Locations = new XmlFile(AppDir + "\\Data\\Locations.ini");
                 int SelectedItem = LocationsList.SelectedIndex;
                 CurrentWSG.TotalLocations = CurrentWSG.TotalLocations + 1;
                 ResizeArrayLarger(ref CurrentWSG.LocationStrings, CurrentWSG.TotalLocations);
@@ -4555,7 +4555,7 @@ namespace WindowsFormsApplication1
                 writer.Flush();
                 writer.Close();
 
-                XmlHandler.XmlFile Skills = new XmlHandler.XmlFile(tempExport.FileName);
+                XmlFile Skills = new XmlFile(tempExport.FileName);
                 List<string> subsectionnames = new List<string>();
                 List<string> subsectionvalues = new List<string>();
 
@@ -4590,7 +4590,7 @@ namespace WindowsFormsApplication1
             {
 
                 //Ini.IniFile ImportSkills = new Ini.IniFile(tempImport.FileName);
-                XmlHandler.XmlFile ImportSkills = new XmlHandler.XmlFile(tempImport.FileName);
+                XmlFile ImportSkills = new XmlFile(tempImport.FileName);
                 string[] TempSkillNames = new string[ImportSkills.stListSectionNames().Count];
                 int[] TempSkillLevels = new int[ImportSkills.stListSectionNames().Count];
                 int[] TempSkillExp = new int[ImportSkills.stListSectionNames().Count];
@@ -4614,18 +4614,18 @@ namespace WindowsFormsApplication1
         {
             try
             {
-                XmlHandler.XmlFile SkillINI = new XmlHandler.XmlFile(AppDir + "\\Data\\gd_skills_common.txt");
+                XmlFile SkillINI = new XmlFile(AppDir + "\\Data\\gd_skills_common.txt");
                 if ((string)Class.SelectedItem == "Soldier")
-                    SkillINI = new XmlHandler.XmlFile(AppDir + "\\Data\\gd_skills2_Roland.txt");
+                    SkillINI = new XmlFile(AppDir + "\\Data\\gd_skills2_Roland.txt");
 
                 else if ((string)Class.SelectedItem == "Siren")
-                    SkillINI = new XmlHandler.XmlFile(AppDir + "\\Data\\gd_Skills2_Lilith.txt");
+                    SkillINI = new XmlFile(AppDir + "\\Data\\gd_Skills2_Lilith.txt");
 
                 else if ((string)Class.SelectedItem == "Hunter")
-                    SkillINI = new XmlHandler.XmlFile(AppDir + "\\Data\\gd_skills2_Mordecai.txt");
+                    SkillINI = new XmlFile(AppDir + "\\Data\\gd_skills2_Mordecai.txt");
 
                 else if ((string)Class.SelectedItem == "Berserker")
-                    SkillINI = new XmlHandler.XmlFile(AppDir + "\\Data\\gd_Skills2_Brick.txt");
+                    SkillINI = new XmlFile(AppDir + "\\Data\\gd_Skills2_Brick.txt");
 
                 CurrentWSG.NumberOfSkills = CurrentWSG.NumberOfSkills + 1;
                 ResizeArrayLarger(ref CurrentWSG.SkillNames, CurrentWSG.NumberOfSkills);
@@ -4705,7 +4705,7 @@ namespace WindowsFormsApplication1
         }
 
         //  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< WILLOWTREE LOCKER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  \\
-        private XmlHandler.XmlFile XmlLocker = new XmlHandler.XmlFile(Path.GetDirectoryName(Application.ExecutablePath) + "\\Data\\default.xml");
+        private XmlFile XmlLocker = new XmlFile(Path.GetDirectoryName(Application.ExecutablePath) + "\\Data\\default.xml");
 
         private void LockerTree_AfterNodeSelect(object sender, AdvTreeNodeEventArgs e)
         {
@@ -5112,7 +5112,7 @@ namespace WindowsFormsApplication1
             foreach (Node selnode in LockerTree.SelectedNodes)
             {
                 //Ini.IniFile Locker = new Ini.IniFile(OpenedLocker);
-                //XmlHandler.XmlFile Locker = new XmlHandler.XmlFile(OpenedLocker);
+                //XmlFile Locker = new XmlFile(OpenedLocker);
 
                 if (selnode.HasChildNodes)
                 {
@@ -5460,7 +5460,7 @@ namespace WindowsFormsApplication1
             {
                 // Read ALL subsections of a given XML section
                 // File: (AppDir + "\\Data\\" + PartCategories.SelectedNode.Parent.Text + ".txt")
-                XmlHandler.XmlFile Category = new XmlHandler.XmlFile(AppDir + "\\Data\\" + PartCategories.SelectedNode.Parent.Text + ".txt");
+                XmlFile Category = new XmlFile(AppDir + "\\Data\\" + PartCategories.SelectedNode.Parent.Text + ".txt");
 
                 // XML Section: PartCategories.SelectedNode.Text
                 List<string> xmlSection = Category.XmlReadSection(PartCategories.SelectedNode.Text);

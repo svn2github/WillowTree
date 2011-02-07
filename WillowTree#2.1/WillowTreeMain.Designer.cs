@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication1
+﻿namespace WillowTree
 {
     partial class WillowTree
     {

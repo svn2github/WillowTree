@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Windows;
 
-namespace WindowsFormsApplication1
+namespace WillowTree
 {
     static class Program
     {

@@ -1847,6 +1847,7 @@ namespace WillowTree
             {
                 DebugTab.Enabled = false;
                 DebugTab.Visible = false;
+                TestNewUI_Button.Visible = false;
             }
             //DoLocationsList();
             //DoQuestList();
@@ -2062,9 +2063,15 @@ namespace WillowTree
                     Package.STFSType = STFSType.Type1;
                     Package.HeaderData.ProfileID = CurrentWSG.ProfileID;
                     Package.HeaderData.DeviceID = CurrentWSG.DeviceID;
+<<<<<<< .mine
+//                    Assembly newAssembly = Assembly.GetExecutingAssembly();
+//                    Stream WT_Icon = newAssembly.GetManifestResourceStream("WTAssembly.WT_CON.png");
+                    Stream WT_Icon = File.Open(AppDir + '\\' + "WT_CON.png");
+=======
 //                    Assembly newAssembly = Assembly.GetExecutingAssembly();
 //                    Stream WT_Icon = newAssembly.GetManifestResourceStream("WillowTree.WT_CON.png");
                     Stream WT_Icon = File.Open(AppDir + "\\Resources\\WT_CON.png", FileMode.Open);
+>>>>>>> .r48
                     Package.HeaderData.ContentImage = System.Drawing.Image.FromStream(WT_Icon);
                     Package.HeaderData.Title_Display = CurrentWSG.CharacterName + " - Level " + CurrentWSG.Level + " - " + CurrentLocation.Text;
                     Package.HeaderData.Title_Package = "Borderlands";
@@ -5868,6 +5875,12 @@ namespace WillowTree
             {
                 LockerLevelLabel.Text = "Level: Disabled";
             }
+        }
+
+        private void TestNewUI_Button_Click(object sender, EventArgs e)
+        {
+            MainWindow NewUI = new MainWindow();
+            NewUI.ShowDialog();
         }
 
     }

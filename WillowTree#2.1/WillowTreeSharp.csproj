@@ -164,6 +164,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\WT_CON.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Content Include="WT_CON.png" />
     <Resource Include="Resources\background.png" />
     <Resource Include="Resources\bl.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -173,7 +177,6 @@
     <Content Include="DLLDependencies\X360.dll" />
     <Content Include="Resources\bar.png" />
     <Content Include="Resources\WillowTreeOld.ico" />
-    <Content Include="Resources\WT_CON.png" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

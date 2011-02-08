@@ -297,6 +297,7 @@ namespace WillowTree
             // DLC Section 1 Data (bank data)
             public byte DLC_Unknown1;  // Read only flag. Always resets to 1 in ver 1.41.  Probably CanAccessBank.
             public int BankSize;
+            public List<BankEntry> BankInventory = new List<BankEntry>();
             // DLC Section 2 Data (don't know)
             public int DLC_Unknown2; // All four of these are boolean flags.
             public int DLC_Unknown3; // If you set them to any value except 0
@@ -573,7 +574,10 @@ namespace WillowTree
                             DLC.HasSection1 = true;
                             DLC.DLC_Unknown1 = TestReader.ReadByte();
                             DLC.BankSize = ReadInt32(TestReader, EndianWSG);
-                            // The bank item data which comes next is stored in RawData below
+                            int bankEntriesCount = ReadInt32(TestReader, EndianWSG);
+                            DLC.BankInventory = new List<BankEntry>();
+                            for (int i = 0; i < bankEntriesCount; i++)
+                                DLC.BankInventory.Add(ReadBankEntry(TestReader, EndianWSG));
                             break;
                         case DLC_Data.Section2Id:
                             DLC.HasSection2 = true;
@@ -613,6 +617,7 @@ namespace WillowTree
             }
             TestReader.Close();
         }
+
         private void Skills(BinaryReader DJsIO, int NumOfSkills)
         {
             string[] TempSkillNames = new string[NumOfSkills];
@@ -695,7 +700,6 @@ namespace WillowTree
                 WeaponValues.Add(values);
             }
         }
-
         private void PT1Quests(BinaryReader DJsIO, int NumOfQuests)
         {
             string[] TempQuestStrings = new string[NumOfQuests];
@@ -1031,7 +1035,17 @@ namespace WillowTree
                     case DLC_Data.Section1Id:
                         memwriter.Write(DLC.DLC_Unknown1);
                         Write(memwriter, DLC.BankSize, EndianWSG);
-                        // The bank item data is in RawData so it doesn't go here 
+
+                        // Write the bank inventory to yet another memory stream so its size can be calculated
+                        MemoryStream bankInventoryStream = new MemoryStream();
+                        BinaryWriter bankwriter = new BinaryWriter(bankInventoryStream);
+                        Write(bankwriter, DLC.BankInventory.Count, EndianWSG);
+                        for (int i = 0; i < DLC.BankInventory.Count; i++)
+                            WriteBankEntry(bankwriter, DLC.BankInventory[i], EndianWSG);
+                        byte[] bankdata = bankInventoryStream.ToArray();
+                        bankwriter.Close();
+
+                        memwriter.Write(bankdata);
                         break;
                     case DLC_Data.Section2Id:
                         Write(memwriter, DLC.DLC_Unknown2, EndianWSG);
@@ -1158,6 +1172,157 @@ namespace WillowTree
                     WeaponStrings2.Add(WeaponStrings[i]);
                     WeaponValues2.Add(WeaponValues[i]);
                 }
+            }
+        }
+
+        public class BankEntry
+        {
+            public Byte TypeId;
+            public List<string> Parts = new List<string>();
+            public Int32 AmmoOrQuantity;
+            public Int16 Quality;
+            public Int16 Level;
+        }
+
+        public string ReadBankString(BinaryReader br, ByteOrder Endian)
+        {
+            Byte StringTypeId = br.ReadByte();
+            if ((StringTypeId != 32) && (StringTypeId != 0))
+                throw new FileFormatException("Bank string has an unknown type ID.  ID = " + StringTypeId);
+
+            string composed = ReadString(br, Endian);
+            for (int i = 1; i < 6; i++)
+            {
+                string substring = ReadString(br, Endian);
+                if (substring != "")
+                    composed += ("." + substring);
+            }
+            return composed;
+        }
+        public void WriteBankString(BinaryWriter bw, string Text, ByteOrder Endian)
+        {
+            Byte StringTypeId = (Text == "" ? (byte)0 : (byte)32);
+            bw.Write(StringTypeId);
+
+            string[] substrings = Text.Split('.');
+
+            // Write the empty strings first
+            for (int j = substrings.Count(); j < 6; j++)
+                Write(bw, (Int32)0, Endian);
+
+            // Then write the strings that are not empty.
+            for (int j = 0; j < substrings.Count(); j++)
+                Write(bw, WriteString(substrings[j], Endian), Endian);
+        }
+
+        public BankEntry ReadBankEntry(BinaryReader br, ByteOrder Endian)
+        {
+            BankEntry entry = new BankEntry();
+            int partCount;
+
+            entry.TypeId = br.ReadByte();
+
+            int gradeLocation;
+            switch (entry.TypeId)
+            {
+                case 1:
+                    gradeLocation = 3;
+                    break;
+                case 2:
+                    gradeLocation = 2;
+                    break;
+                default:
+                    throw new FormatException("Bank entry to be written has invalid Type ID.  TypeId = " + entry.TypeId);
+                    break;
+            }
+
+            for (int i = 0; i < gradeLocation; i++)
+                entry.Parts.Add(ReadBankString(br, Endian));
+
+            Int32 temp = ReadInt32(br, Endian);
+            entry.Quality = (Int16)(temp % 65536);
+            entry.Level = (Int16)(temp / 65536);
+
+            switch (entry.TypeId)
+            {
+                case 1:
+                    partCount = 14;
+                    break;
+                case 2:
+                    partCount = 9;
+                    break;
+                default:
+                    throw new FileFormatException("Unknown Type ID in bank item list");
+            }
+
+            for (int i = gradeLocation; i < partCount; i++)
+                entry.Parts.Add(ReadBankString(br, Endian));
+
+            // I don't understand the significance of the bytes in the footer, but
+            // the bytes are always {0, 0, 0, 0, 0, 0, 0, 0, 0, 1} in every save I've found
+            byte[] Footer = br.ReadBytes(10);
+            for (int i = 0; i < 9; i++)
+                System.Diagnostics.Debug.Assert(Footer[i] == 0);
+            System.Diagnostics.Debug.Assert(Footer[9] == 1);
+
+            switch (entry.TypeId)
+            {
+                case 1: // weapon
+                    entry.AmmoOrQuantity = ReadInt32(br, Endian);
+                    break;
+                case 2: // item
+                    entry.AmmoOrQuantity = (int)br.ReadByte();
+                    break;
+                default:
+                    entry.AmmoOrQuantity = 0;
+                    break;
+            }
+            return entry;
+        }
+        public void WriteBankEntry(BinaryWriter bw, BankEntry entry, ByteOrder Endian)
+        {
+            if (entry.Parts.Count < 3)
+                throw new FormatException("Bank entry has invalid part count. Parts.Count = " + entry.Parts.Count);
+
+            bw.Write(entry.TypeId);
+
+            int gradeLocation;
+            switch (entry.TypeId)
+            {
+                case 1:
+                    gradeLocation = 3;
+                    break;
+                case 2:
+                    gradeLocation = 2;
+                    break;
+                default:
+                    throw new FormatException("Bank entry to be written has invalid Type ID.  TypeId = " + entry.TypeId);
+                    break;
+            }
+
+            for (int i = 0; i < gradeLocation; i++)
+                WriteBankString(bw, entry.Parts[i], Endian);
+
+            int grade = entry.Quality + entry.Level * 65536;
+            Write(bw, grade, Endian);
+
+            for (int i = gradeLocation; i < entry.Parts.Count; i++)
+                WriteBankString(bw, entry.Parts[i], Endian);
+
+            Byte[] Footer = new Byte[10] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 };
+            bw.Write(Footer);
+
+            switch (entry.TypeId)
+            {
+                case 1: // weapon
+                    Write(bw, entry.AmmoOrQuantity, Endian);
+                    break;
+                case 2: // item
+                    bw.Write((Byte)entry.AmmoOrQuantity);
+                    break;
+                default:
+                    throw new FormatException("Bank entry to be written has invalid Type ID.  TypeId = " + entry.TypeId);
+                    break;
             }
         }
     }

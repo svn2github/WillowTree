@@ -196,6 +196,38 @@
             this.groupPanel7 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.WT_Background = new DevComponents.DotNetBar.Controls.ReflectionImage();
+            this.ribbonPanel1 = new DevComponents.DotNetBar.RibbonPanel();
+            this.groupPanel10 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.bar8 = new DevComponents.DotNetBar.Bar();
+            this.LocationTree = new DevComponents.AdvTree.AdvTree();
+            this.nodeConnector10 = new DevComponents.AdvTree.NodeConnector();
+            this.elementStyle19 = new DevComponents.DotNetBar.ElementStyle();
+            this.elementStyle20 = new DevComponents.DotNetBar.ElementStyle();
+            this.groupPanel8 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.label36 = new System.Windows.Forms.Label();
+            this.BankSpace = new System.Windows.Forms.NumericUpDown();
+            this.label29 = new System.Windows.Forms.Label();
+            this.CurrentLocation = new System.Windows.Forms.ComboBox();
+            this.Level = new System.Windows.Forms.NumericUpDown();
+            this.label25 = new System.Windows.Forms.Label();
+            this.Experience = new System.Windows.Forms.NumericUpDown();
+            this.EquipSlots = new System.Windows.Forms.NumericUpDown();
+            this.Cash = new System.Windows.Forms.NumericUpDown();
+            this.label24 = new System.Windows.Forms.Label();
+            this.SkillPoints = new System.Windows.Forms.NumericUpDown();
+            this.BackpackSpace = new System.Windows.Forms.NumericUpDown();
+            this.SaveNumber = new System.Windows.Forms.NumericUpDown();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.PT2Unlocked = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.Class = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.CharacterName = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.ribbonPanel11 = new DevComponents.DotNetBar.RibbonPanel();
             this.LockerTreetry2 = new DevComponents.AdvTree.AdvTree();
             this.nodeConnector11 = new DevComponents.AdvTree.NodeConnector();
@@ -332,38 +364,6 @@
             this.Quantity = new System.Windows.Forms.NumericUpDown();
             this.ItemQualityLabel = new System.Windows.Forms.Label();
             this.ItemQuality = new DevComponents.DotNetBar.Controls.Slider();
-            this.ribbonPanel1 = new DevComponents.DotNetBar.RibbonPanel();
-            this.groupPanel10 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.bar8 = new DevComponents.DotNetBar.Bar();
-            this.LocationTree = new DevComponents.AdvTree.AdvTree();
-            this.nodeConnector10 = new DevComponents.AdvTree.NodeConnector();
-            this.elementStyle19 = new DevComponents.DotNetBar.ElementStyle();
-            this.elementStyle20 = new DevComponents.DotNetBar.ElementStyle();
-            this.groupPanel8 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.label36 = new System.Windows.Forms.Label();
-            this.BankSpace = new System.Windows.Forms.NumericUpDown();
-            this.label29 = new System.Windows.Forms.Label();
-            this.CurrentLocation = new System.Windows.Forms.ComboBox();
-            this.Level = new System.Windows.Forms.NumericUpDown();
-            this.label25 = new System.Windows.Forms.Label();
-            this.Experience = new System.Windows.Forms.NumericUpDown();
-            this.EquipSlots = new System.Windows.Forms.NumericUpDown();
-            this.Cash = new System.Windows.Forms.NumericUpDown();
-            this.label24 = new System.Windows.Forms.Label();
-            this.SkillPoints = new System.Windows.Forms.NumericUpDown();
-            this.BackpackSpace = new System.Windows.Forms.NumericUpDown();
-            this.SaveNumber = new System.Windows.Forms.NumericUpDown();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.PT2Unlocked = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.Class = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.CharacterName = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.MainTab = new DevComponents.DotNetBar.RibbonTabItem();
             this.GeneralTab = new DevComponents.DotNetBar.RibbonTabItem();
             this.WeaponsTab = new DevComponents.DotNetBar.RibbonTabItem();
@@ -381,6 +381,10 @@
             this.Open = new DevComponents.DotNetBar.ButtonItem();
             this.Save = new DevComponents.DotNetBar.ButtonItem();
             this.SaveAs = new DevComponents.DotNetBar.ButtonItem();
+            this.SelectFormat = new DevComponents.DotNetBar.ButtonItem();
+            this.PCFormat = new DevComponents.DotNetBar.ButtonItem();
+            this.FormatPS3 = new DevComponents.DotNetBar.ButtonItem();
+            this.XBoxFormat = new DevComponents.DotNetBar.ButtonItem();
             this.itemContainer8 = new DevComponents.DotNetBar.ItemContainer();
             this.ExitWT = new DevComponents.DotNetBar.ButtonItem();
             this.office2007StartButton1 = new DevComponents.DotNetBar.Office2007StartButton();
@@ -394,10 +398,6 @@
             this.labelItem12 = new DevComponents.DotNetBar.LabelItem();
             this.buttonItem33 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem34 = new DevComponents.DotNetBar.ButtonItem();
-            this.SelectFormat = new DevComponents.DotNetBar.ButtonItem();
-            this.PCFormat = new DevComponents.DotNetBar.ButtonItem();
-            this.FormatPS3 = new DevComponents.DotNetBar.ButtonItem();
-            this.XBoxFormat = new DevComponents.DotNetBar.ButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.bar2)).BeginInit();
             this.ribbonPanel5.SuspendLayout();
             this.WeaponPanel1.SuspendLayout();
@@ -412,6 +412,19 @@
             this.ribbonPanel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UpdateBar)).BeginInit();
             this.groupPanel7.SuspendLayout();
+            this.ribbonPanel1.SuspendLayout();
+            this.groupPanel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bar8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LocationTree)).BeginInit();
+            this.groupPanel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BankSpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Level)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Experience)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EquipSlots)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cash)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SkillPoints)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BackpackSpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SaveNumber)).BeginInit();
             this.ribbonPanel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LockerTreetry2)).BeginInit();
             this.ribbonPanel9.SuspendLayout();
@@ -462,19 +475,6 @@
             this.ItemPartsGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bar6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Quantity)).BeginInit();
-            this.ribbonPanel1.SuspendLayout();
-            this.groupPanel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bar8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LocationTree)).BeginInit();
-            this.groupPanel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BankSpace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Level)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Experience)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EquipSlots)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Cash)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SkillPoints)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BackpackSpace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SaveNumber)).BeginInit();
             this.SuspendLayout();
             // 
             // NewLocation
@@ -2087,6 +2087,446 @@
             this.WT_Background.Size = new System.Drawing.Size(979, 561);
             this.WT_Background.TabIndex = 0;
             this.WT_Background.MouseClick += new System.Windows.Forms.MouseEventHandler(this.CheckVerPopup);
+            // 
+            // ribbonPanel1
+            // 
+            this.ribbonPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.ribbonPanel1.Controls.Add(this.groupPanel10);
+            this.ribbonPanel1.Controls.Add(this.groupPanel8);
+            this.ribbonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ribbonPanel1.Location = new System.Drawing.Point(0, 55);
+            this.ribbonPanel1.Name = "ribbonPanel1";
+            this.ribbonPanel1.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.ribbonPanel1.Size = new System.Drawing.Size(944, 588);
+            this.ribbonPanel1.TabIndex = 1;
+            this.ribbonPanel1.Visible = false;
+            // 
+            // groupPanel10
+            // 
+            this.groupPanel10.BackColor = System.Drawing.Color.Transparent;
+            this.groupPanel10.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel10.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel10.Controls.Add(this.bar8);
+            this.groupPanel10.Controls.Add(this.LocationTree);
+            this.groupPanel10.Location = new System.Drawing.Point(345, 18);
+            this.groupPanel10.Name = "groupPanel10";
+            this.groupPanel10.Size = new System.Drawing.Size(273, 570);
+            // 
+            // 
+            // 
+            this.groupPanel10.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupPanel10.Style.BackColorGradientAngle = 90;
+            this.groupPanel10.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupPanel10.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel10.Style.BorderBottomWidth = 1;
+            this.groupPanel10.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel10.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel10.Style.BorderLeftWidth = 1;
+            this.groupPanel10.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel10.Style.BorderRightWidth = 1;
+            this.groupPanel10.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel10.Style.BorderTopWidth = 1;
+            this.groupPanel10.Style.CornerDiameter = 4;
+            this.groupPanel10.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel10.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.groupPanel10.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel10.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            this.groupPanel10.TabIndex = 33;
+            this.groupPanel10.Text = "Visited Locations";
+            // 
+            // bar8
+            // 
+            this.bar8.AntiAlias = true;
+            this.bar8.AutoHide = true;
+            this.bar8.BackColor = System.Drawing.Color.Transparent;
+            this.bar8.BarType = DevComponents.DotNetBar.eBarType.MenuBar;
+            this.bar8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bar8.DockedBorderStyle = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.bar8.FadeEffect = true;
+            this.bar8.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.NewLocation,
+            this.DeleteLocation});
+            this.bar8.Location = new System.Drawing.Point(0, 0);
+            this.bar8.Name = "bar8";
+            this.bar8.RoundCorners = false;
+            this.bar8.Size = new System.Drawing.Size(273, 31);
+            this.bar8.Stretch = true;
+            this.bar8.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.bar8.TabIndex = 20;
+            this.bar8.TabStop = false;
+            this.bar8.Text = "bar8";
+            this.bar8.WrapItemsDock = true;
+            // 
+            // LocationTree
+            // 
+            this.LocationTree.AccessibleRole = System.Windows.Forms.AccessibleRole.Outline;
+            this.LocationTree.AllowDrop = true;
+            this.LocationTree.BackColor = System.Drawing.SystemColors.Window;
+            this.LocationTree.DragDropEnabled = false;
+            this.LocationTree.DragDropNodeCopyEnabled = false;
+            this.LocationTree.ExpandWidth = 0;
+            this.LocationTree.Location = new System.Drawing.Point(3, 31);
+            this.LocationTree.Name = "LocationTree";
+            this.LocationTree.NodesConnector = this.nodeConnector10;
+            this.LocationTree.NodeStyle = this.elementStyle19;
+            this.LocationTree.PathSeparator = ";";
+            this.LocationTree.Size = new System.Drawing.Size(261, 516);
+            this.LocationTree.Styles.Add(this.elementStyle19);
+            this.LocationTree.Styles.Add(this.elementStyle20);
+            this.LocationTree.TabIndex = 20;
+            this.LocationTree.Text = "advTree1";
+            // 
+            // nodeConnector10
+            // 
+            this.nodeConnector10.LineColor = System.Drawing.SystemColors.ControlText;
+            // 
+            // elementStyle19
+            // 
+            this.elementStyle19.Name = "elementStyle19";
+            this.elementStyle19.TextColor = System.Drawing.SystemColors.ControlText;
+            // 
+            // elementStyle20
+            // 
+            this.elementStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(230)))), ((int)(((byte)(247)))));
+            this.elementStyle20.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(168)))), ((int)(((byte)(228)))));
+            this.elementStyle20.BackColorGradientAngle = 90;
+            this.elementStyle20.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.elementStyle20.BorderBottomWidth = 1;
+            this.elementStyle20.BorderColor = System.Drawing.Color.DarkGray;
+            this.elementStyle20.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.elementStyle20.BorderLeftWidth = 1;
+            this.elementStyle20.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.elementStyle20.BorderRightWidth = 1;
+            this.elementStyle20.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.elementStyle20.BorderTopWidth = 1;
+            this.elementStyle20.CornerDiameter = 4;
+            this.elementStyle20.Description = "Blue";
+            this.elementStyle20.Name = "elementStyle20";
+            this.elementStyle20.PaddingBottom = 1;
+            this.elementStyle20.PaddingLeft = 1;
+            this.elementStyle20.PaddingRight = 1;
+            this.elementStyle20.PaddingTop = 1;
+            this.elementStyle20.TextColor = System.Drawing.Color.Black;
+            // 
+            // groupPanel8
+            // 
+            this.groupPanel8.BackColor = System.Drawing.Color.Transparent;
+            this.groupPanel8.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel8.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel8.Controls.Add(this.label36);
+            this.groupPanel8.Controls.Add(this.BankSpace);
+            this.groupPanel8.Controls.Add(this.label29);
+            this.groupPanel8.Controls.Add(this.CurrentLocation);
+            this.groupPanel8.Controls.Add(this.Level);
+            this.groupPanel8.Controls.Add(this.label25);
+            this.groupPanel8.Controls.Add(this.Experience);
+            this.groupPanel8.Controls.Add(this.EquipSlots);
+            this.groupPanel8.Controls.Add(this.Cash);
+            this.groupPanel8.Controls.Add(this.label24);
+            this.groupPanel8.Controls.Add(this.SkillPoints);
+            this.groupPanel8.Controls.Add(this.BackpackSpace);
+            this.groupPanel8.Controls.Add(this.SaveNumber);
+            this.groupPanel8.Controls.Add(this.label23);
+            this.groupPanel8.Controls.Add(this.label9);
+            this.groupPanel8.Controls.Add(this.PT2Unlocked);
+            this.groupPanel8.Controls.Add(this.label17);
+            this.groupPanel8.Controls.Add(this.Class);
+            this.groupPanel8.Controls.Add(this.label18);
+            this.groupPanel8.Controls.Add(this.label22);
+            this.groupPanel8.Controls.Add(this.label19);
+            this.groupPanel8.Controls.Add(this.label21);
+            this.groupPanel8.Controls.Add(this.label20);
+            this.groupPanel8.Controls.Add(this.CharacterName);
+            this.groupPanel8.Location = new System.Drawing.Point(1, 18);
+            this.groupPanel8.Name = "groupPanel8";
+            this.groupPanel8.Size = new System.Drawing.Size(332, 570);
+            // 
+            // 
+            // 
+            this.groupPanel8.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupPanel8.Style.BackColorGradientAngle = 90;
+            this.groupPanel8.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupPanel8.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel8.Style.BorderBottomWidth = 1;
+            this.groupPanel8.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel8.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel8.Style.BorderLeftWidth = 1;
+            this.groupPanel8.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel8.Style.BorderRightWidth = 1;
+            this.groupPanel8.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel8.Style.BorderTopWidth = 1;
+            this.groupPanel8.Style.CornerDiameter = 4;
+            this.groupPanel8.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel8.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.groupPanel8.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel8.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            this.groupPanel8.TabIndex = 32;
+            this.groupPanel8.Text = "General Information";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.BackColor = System.Drawing.Color.Transparent;
+            this.label36.Location = new System.Drawing.Point(4, 327);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(66, 13);
+            this.label36.TabIndex = 35;
+            this.label36.Text = "Bank Space";
+            // 
+            // BankSpace
+            // 
+            this.BankSpace.Location = new System.Drawing.Point(6, 343);
+            this.BankSpace.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.BankSpace.Name = "BankSpace";
+            this.BankSpace.Size = new System.Drawing.Size(120, 20);
+            this.BankSpace.TabIndex = 34;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.BackColor = System.Drawing.Color.Transparent;
+            this.label29.Location = new System.Drawing.Point(194, 269);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(85, 13);
+            this.label29.TabIndex = 33;
+            this.label29.Text = "Current Location";
+            // 
+            // CurrentLocation
+            // 
+            this.CurrentLocation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CurrentLocation.FormattingEnabled = true;
+            this.CurrentLocation.Location = new System.Drawing.Point(197, 285);
+            this.CurrentLocation.Name = "CurrentLocation";
+            this.CurrentLocation.Size = new System.Drawing.Size(121, 21);
+            this.CurrentLocation.TabIndex = 32;
+            // 
+            // Level
+            // 
+            this.Level.Location = new System.Drawing.Point(6, 122);
+            this.Level.Maximum = new decimal(new int[] {
+            69,
+            0,
+            0,
+            0});
+            this.Level.Name = "Level";
+            this.Level.Size = new System.Drawing.Size(120, 20);
+            this.Level.TabIndex = 12;
+            this.Level.ValueChanged += new System.EventHandler(this.Level_ValueChanged);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.BackColor = System.Drawing.Color.Transparent;
+            this.label25.Location = new System.Drawing.Point(194, 106);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(60, 13);
+            this.label25.TabIndex = 31;
+            this.label25.Text = "Equip Slots";
+            // 
+            // Experience
+            // 
+            this.Experience.Location = new System.Drawing.Point(6, 175);
+            this.Experience.Maximum = new decimal(new int[] {
+            8451341,
+            0,
+            0,
+            0});
+            this.Experience.Name = "Experience";
+            this.Experience.Size = new System.Drawing.Size(120, 20);
+            this.Experience.TabIndex = 13;
+            // 
+            // EquipSlots
+            // 
+            this.EquipSlots.Location = new System.Drawing.Point(195, 122);
+            this.EquipSlots.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.EquipSlots.Name = "EquipSlots";
+            this.EquipSlots.Size = new System.Drawing.Size(120, 20);
+            this.EquipSlots.TabIndex = 30;
+            // 
+            // Cash
+            // 
+            this.Cash.Location = new System.Drawing.Point(6, 285);
+            this.Cash.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.Cash.Name = "Cash";
+            this.Cash.Size = new System.Drawing.Size(120, 20);
+            this.Cash.TabIndex = 14;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.BackColor = System.Drawing.Color.Transparent;
+            this.label24.Location = new System.Drawing.Point(194, 51);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(90, 13);
+            this.label24.TabIndex = 29;
+            this.label24.Text = "Backpack Space";
+            // 
+            // SkillPoints
+            // 
+            this.SkillPoints.Location = new System.Drawing.Point(6, 229);
+            this.SkillPoints.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            this.SkillPoints.Name = "SkillPoints";
+            this.SkillPoints.Size = new System.Drawing.Size(120, 20);
+            this.SkillPoints.TabIndex = 15;
+            // 
+            // BackpackSpace
+            // 
+            this.BackpackSpace.Location = new System.Drawing.Point(197, 67);
+            this.BackpackSpace.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.BackpackSpace.Name = "BackpackSpace";
+            this.BackpackSpace.Size = new System.Drawing.Size(120, 20);
+            this.BackpackSpace.TabIndex = 28;
+            // 
+            // SaveNumber
+            // 
+            this.SaveNumber.Location = new System.Drawing.Point(197, 229);
+            this.SaveNumber.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.SaveNumber.Name = "SaveNumber";
+            this.SaveNumber.Size = new System.Drawing.Size(120, 20);
+            this.SaveNumber.TabIndex = 16;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.BackColor = System.Drawing.Color.Transparent;
+            this.label23.Location = new System.Drawing.Point(194, 159);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(121, 13);
+            this.label23.TabIndex = 27;
+            this.label23.Text = "Playthrough 2 Unlocked";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Location = new System.Drawing.Point(3, 106);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(33, 13);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Level";
+            // 
+            // PT2Unlocked
+            // 
+            this.PT2Unlocked.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.PT2Unlocked.FormattingEnabled = true;
+            this.PT2Unlocked.Items.AddRange(new object[] {
+            "No",
+            "Yes"});
+            this.PT2Unlocked.Location = new System.Drawing.Point(194, 175);
+            this.PT2Unlocked.Name = "PT2Unlocked";
+            this.PT2Unlocked.Size = new System.Drawing.Size(123, 21);
+            this.PT2Unlocked.TabIndex = 26;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Location = new System.Drawing.Point(3, 159);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(60, 13);
+            this.label17.TabIndex = 18;
+            this.label17.Text = "Experience";
+            // 
+            // Class
+            // 
+            this.Class.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Class.FormattingEnabled = true;
+            this.Class.Items.AddRange(new object[] {
+            "Soldier",
+            "Siren",
+            "Hunter",
+            "Berserker"});
+            this.Class.Location = new System.Drawing.Point(6, 67);
+            this.Class.Name = "Class";
+            this.Class.Size = new System.Drawing.Size(120, 21);
+            this.Class.TabIndex = 25;
+            this.Class.SelectedIndexChanged += new System.EventHandler(this.Class_SelectedIndexChanged);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Location = new System.Drawing.Point(4, 269);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(31, 13);
+            this.label18.TabIndex = 19;
+            this.label18.Text = "Cash";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.BackColor = System.Drawing.Color.Transparent;
+            this.label22.Location = new System.Drawing.Point(3, 51);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(32, 13);
+            this.label22.TabIndex = 24;
+            this.label22.Text = "Class";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.BackColor = System.Drawing.Color.Transparent;
+            this.label19.Location = new System.Drawing.Point(3, 213);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(58, 13);
+            this.label19.TabIndex = 20;
+            this.label19.Text = "Skill Points";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.BackColor = System.Drawing.Color.Transparent;
+            this.label21.Location = new System.Drawing.Point(3, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(84, 13);
+            this.label21.TabIndex = 23;
+            this.label21.Text = "Character Name";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.BackColor = System.Drawing.Color.Transparent;
+            this.label20.Location = new System.Drawing.Point(194, 213);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(72, 13);
+            this.label20.TabIndex = 21;
+            this.label20.Text = "Save Number";
+            // 
+            // CharacterName
+            // 
+            // 
+            // 
+            // 
+            this.CharacterName.Border.Class = "TextBoxBorder";
+            this.CharacterName.Location = new System.Drawing.Point(6, 17);
+            this.CharacterName.Name = "CharacterName";
+            this.CharacterName.Size = new System.Drawing.Size(311, 20);
+            this.CharacterName.TabIndex = 22;
+            this.CharacterName.TextChanged += new System.EventHandler(this.CharacterName_TextChanged);
             // 
             // ribbonPanel11
             // 
@@ -4215,446 +4655,6 @@
             this.ItemQuality.Value = 0;
             this.ItemQuality.ValueChanged += new System.EventHandler(this.ItemQuality_ValueChanged);
             // 
-            // ribbonPanel1
-            // 
-            this.ribbonPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.ribbonPanel1.Controls.Add(this.groupPanel10);
-            this.ribbonPanel1.Controls.Add(this.groupPanel8);
-            this.ribbonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribbonPanel1.Location = new System.Drawing.Point(0, 55);
-            this.ribbonPanel1.Name = "ribbonPanel1";
-            this.ribbonPanel1.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.ribbonPanel1.Size = new System.Drawing.Size(944, 588);
-            this.ribbonPanel1.TabIndex = 1;
-            this.ribbonPanel1.Visible = false;
-            // 
-            // groupPanel10
-            // 
-            this.groupPanel10.BackColor = System.Drawing.Color.Transparent;
-            this.groupPanel10.CanvasColor = System.Drawing.SystemColors.Control;
-            this.groupPanel10.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel10.Controls.Add(this.bar8);
-            this.groupPanel10.Controls.Add(this.LocationTree);
-            this.groupPanel10.Location = new System.Drawing.Point(345, 18);
-            this.groupPanel10.Name = "groupPanel10";
-            this.groupPanel10.Size = new System.Drawing.Size(273, 570);
-            // 
-            // 
-            // 
-            this.groupPanel10.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.groupPanel10.Style.BackColorGradientAngle = 90;
-            this.groupPanel10.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.groupPanel10.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel10.Style.BorderBottomWidth = 1;
-            this.groupPanel10.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.groupPanel10.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel10.Style.BorderLeftWidth = 1;
-            this.groupPanel10.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel10.Style.BorderRightWidth = 1;
-            this.groupPanel10.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel10.Style.BorderTopWidth = 1;
-            this.groupPanel10.Style.CornerDiameter = 4;
-            this.groupPanel10.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
-            this.groupPanel10.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.groupPanel10.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.groupPanel10.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
-            this.groupPanel10.TabIndex = 33;
-            this.groupPanel10.Text = "Visited Locations";
-            // 
-            // bar8
-            // 
-            this.bar8.AntiAlias = true;
-            this.bar8.AutoHide = true;
-            this.bar8.BackColor = System.Drawing.Color.Transparent;
-            this.bar8.BarType = DevComponents.DotNetBar.eBarType.MenuBar;
-            this.bar8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bar8.DockedBorderStyle = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.bar8.FadeEffect = true;
-            this.bar8.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.NewLocation,
-            this.DeleteLocation});
-            this.bar8.Location = new System.Drawing.Point(0, 0);
-            this.bar8.Name = "bar8";
-            this.bar8.RoundCorners = false;
-            this.bar8.Size = new System.Drawing.Size(267, 31);
-            this.bar8.Stretch = true;
-            this.bar8.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.bar8.TabIndex = 20;
-            this.bar8.TabStop = false;
-            this.bar8.Text = "bar8";
-            this.bar8.WrapItemsDock = true;
-            // 
-            // LocationTree
-            // 
-            this.LocationTree.AccessibleRole = System.Windows.Forms.AccessibleRole.Outline;
-            this.LocationTree.AllowDrop = true;
-            this.LocationTree.BackColor = System.Drawing.SystemColors.Window;
-            this.LocationTree.DragDropEnabled = false;
-            this.LocationTree.DragDropNodeCopyEnabled = false;
-            this.LocationTree.ExpandWidth = 0;
-            this.LocationTree.Location = new System.Drawing.Point(3, 31);
-            this.LocationTree.Name = "LocationTree";
-            this.LocationTree.NodesConnector = this.nodeConnector10;
-            this.LocationTree.NodeStyle = this.elementStyle19;
-            this.LocationTree.PathSeparator = ";";
-            this.LocationTree.Size = new System.Drawing.Size(261, 516);
-            this.LocationTree.Styles.Add(this.elementStyle19);
-            this.LocationTree.Styles.Add(this.elementStyle20);
-            this.LocationTree.TabIndex = 20;
-            this.LocationTree.Text = "advTree1";
-            // 
-            // nodeConnector10
-            // 
-            this.nodeConnector10.LineColor = System.Drawing.SystemColors.ControlText;
-            // 
-            // elementStyle19
-            // 
-            this.elementStyle19.Name = "elementStyle19";
-            this.elementStyle19.TextColor = System.Drawing.SystemColors.ControlText;
-            // 
-            // elementStyle20
-            // 
-            this.elementStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(230)))), ((int)(((byte)(247)))));
-            this.elementStyle20.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(168)))), ((int)(((byte)(228)))));
-            this.elementStyle20.BackColorGradientAngle = 90;
-            this.elementStyle20.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.elementStyle20.BorderBottomWidth = 1;
-            this.elementStyle20.BorderColor = System.Drawing.Color.DarkGray;
-            this.elementStyle20.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.elementStyle20.BorderLeftWidth = 1;
-            this.elementStyle20.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.elementStyle20.BorderRightWidth = 1;
-            this.elementStyle20.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.elementStyle20.BorderTopWidth = 1;
-            this.elementStyle20.CornerDiameter = 4;
-            this.elementStyle20.Description = "Blue";
-            this.elementStyle20.Name = "elementStyle20";
-            this.elementStyle20.PaddingBottom = 1;
-            this.elementStyle20.PaddingLeft = 1;
-            this.elementStyle20.PaddingRight = 1;
-            this.elementStyle20.PaddingTop = 1;
-            this.elementStyle20.TextColor = System.Drawing.Color.Black;
-            // 
-            // groupPanel8
-            // 
-            this.groupPanel8.BackColor = System.Drawing.Color.Transparent;
-            this.groupPanel8.CanvasColor = System.Drawing.SystemColors.Control;
-            this.groupPanel8.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel8.Controls.Add(this.label36);
-            this.groupPanel8.Controls.Add(this.BankSpace);
-            this.groupPanel8.Controls.Add(this.label29);
-            this.groupPanel8.Controls.Add(this.CurrentLocation);
-            this.groupPanel8.Controls.Add(this.Level);
-            this.groupPanel8.Controls.Add(this.label25);
-            this.groupPanel8.Controls.Add(this.Experience);
-            this.groupPanel8.Controls.Add(this.EquipSlots);
-            this.groupPanel8.Controls.Add(this.Cash);
-            this.groupPanel8.Controls.Add(this.label24);
-            this.groupPanel8.Controls.Add(this.SkillPoints);
-            this.groupPanel8.Controls.Add(this.BackpackSpace);
-            this.groupPanel8.Controls.Add(this.SaveNumber);
-            this.groupPanel8.Controls.Add(this.label23);
-            this.groupPanel8.Controls.Add(this.label9);
-            this.groupPanel8.Controls.Add(this.PT2Unlocked);
-            this.groupPanel8.Controls.Add(this.label17);
-            this.groupPanel8.Controls.Add(this.Class);
-            this.groupPanel8.Controls.Add(this.label18);
-            this.groupPanel8.Controls.Add(this.label22);
-            this.groupPanel8.Controls.Add(this.label19);
-            this.groupPanel8.Controls.Add(this.label21);
-            this.groupPanel8.Controls.Add(this.label20);
-            this.groupPanel8.Controls.Add(this.CharacterName);
-            this.groupPanel8.Location = new System.Drawing.Point(1, 18);
-            this.groupPanel8.Name = "groupPanel8";
-            this.groupPanel8.Size = new System.Drawing.Size(332, 570);
-            // 
-            // 
-            // 
-            this.groupPanel8.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.groupPanel8.Style.BackColorGradientAngle = 90;
-            this.groupPanel8.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.groupPanel8.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel8.Style.BorderBottomWidth = 1;
-            this.groupPanel8.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.groupPanel8.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel8.Style.BorderLeftWidth = 1;
-            this.groupPanel8.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel8.Style.BorderRightWidth = 1;
-            this.groupPanel8.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel8.Style.BorderTopWidth = 1;
-            this.groupPanel8.Style.CornerDiameter = 4;
-            this.groupPanel8.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
-            this.groupPanel8.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.groupPanel8.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.groupPanel8.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
-            this.groupPanel8.TabIndex = 32;
-            this.groupPanel8.Text = "General Information";
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.BackColor = System.Drawing.Color.Transparent;
-            this.label36.Location = new System.Drawing.Point(4, 327);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(66, 13);
-            this.label36.TabIndex = 35;
-            this.label36.Text = "Bank Space";
-            // 
-            // BankSpace
-            // 
-            this.BankSpace.Location = new System.Drawing.Point(6, 343);
-            this.BankSpace.Maximum = new decimal(new int[] {
-            2147483647,
-            0,
-            0,
-            0});
-            this.BankSpace.Name = "BankSpace";
-            this.BankSpace.Size = new System.Drawing.Size(120, 20);
-            this.BankSpace.TabIndex = 34;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.BackColor = System.Drawing.Color.Transparent;
-            this.label29.Location = new System.Drawing.Point(194, 269);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(85, 13);
-            this.label29.TabIndex = 33;
-            this.label29.Text = "Current Location";
-            // 
-            // CurrentLocation
-            // 
-            this.CurrentLocation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CurrentLocation.FormattingEnabled = true;
-            this.CurrentLocation.Location = new System.Drawing.Point(197, 285);
-            this.CurrentLocation.Name = "CurrentLocation";
-            this.CurrentLocation.Size = new System.Drawing.Size(121, 21);
-            this.CurrentLocation.TabIndex = 32;
-            // 
-            // Level
-            // 
-            this.Level.Location = new System.Drawing.Point(6, 122);
-            this.Level.Maximum = new decimal(new int[] {
-            69,
-            0,
-            0,
-            0});
-            this.Level.Name = "Level";
-            this.Level.Size = new System.Drawing.Size(120, 20);
-            this.Level.TabIndex = 12;
-            this.Level.ValueChanged += new System.EventHandler(this.Level_ValueChanged);
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.BackColor = System.Drawing.Color.Transparent;
-            this.label25.Location = new System.Drawing.Point(194, 106);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(60, 13);
-            this.label25.TabIndex = 31;
-            this.label25.Text = "Equip Slots";
-            // 
-            // Experience
-            // 
-            this.Experience.Location = new System.Drawing.Point(6, 175);
-            this.Experience.Maximum = new decimal(new int[] {
-            8451341,
-            0,
-            0,
-            0});
-            this.Experience.Name = "Experience";
-            this.Experience.Size = new System.Drawing.Size(120, 20);
-            this.Experience.TabIndex = 13;
-            // 
-            // EquipSlots
-            // 
-            this.EquipSlots.Location = new System.Drawing.Point(195, 122);
-            this.EquipSlots.Maximum = new decimal(new int[] {
-            999999999,
-            0,
-            0,
-            0});
-            this.EquipSlots.Name = "EquipSlots";
-            this.EquipSlots.Size = new System.Drawing.Size(120, 20);
-            this.EquipSlots.TabIndex = 30;
-            // 
-            // Cash
-            // 
-            this.Cash.Location = new System.Drawing.Point(6, 285);
-            this.Cash.Maximum = new decimal(new int[] {
-            2147483647,
-            0,
-            0,
-            0});
-            this.Cash.Name = "Cash";
-            this.Cash.Size = new System.Drawing.Size(120, 20);
-            this.Cash.TabIndex = 14;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.BackColor = System.Drawing.Color.Transparent;
-            this.label24.Location = new System.Drawing.Point(194, 51);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(90, 13);
-            this.label24.TabIndex = 29;
-            this.label24.Text = "Backpack Space";
-            // 
-            // SkillPoints
-            // 
-            this.SkillPoints.Location = new System.Drawing.Point(6, 229);
-            this.SkillPoints.Maximum = new decimal(new int[] {
-            500,
-            0,
-            0,
-            0});
-            this.SkillPoints.Name = "SkillPoints";
-            this.SkillPoints.Size = new System.Drawing.Size(120, 20);
-            this.SkillPoints.TabIndex = 15;
-            // 
-            // BackpackSpace
-            // 
-            this.BackpackSpace.Location = new System.Drawing.Point(197, 67);
-            this.BackpackSpace.Maximum = new decimal(new int[] {
-            2147483647,
-            0,
-            0,
-            0});
-            this.BackpackSpace.Name = "BackpackSpace";
-            this.BackpackSpace.Size = new System.Drawing.Size(120, 20);
-            this.BackpackSpace.TabIndex = 28;
-            // 
-            // SaveNumber
-            // 
-            this.SaveNumber.Location = new System.Drawing.Point(197, 229);
-            this.SaveNumber.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.SaveNumber.Name = "SaveNumber";
-            this.SaveNumber.Size = new System.Drawing.Size(120, 20);
-            this.SaveNumber.TabIndex = 16;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.BackColor = System.Drawing.Color.Transparent;
-            this.label23.Location = new System.Drawing.Point(194, 159);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(121, 13);
-            this.label23.TabIndex = 27;
-            this.label23.Text = "Playthrough 2 Unlocked";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Location = new System.Drawing.Point(3, 106);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(33, 13);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "Level";
-            // 
-            // PT2Unlocked
-            // 
-            this.PT2Unlocked.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.PT2Unlocked.FormattingEnabled = true;
-            this.PT2Unlocked.Items.AddRange(new object[] {
-            "No",
-            "Yes"});
-            this.PT2Unlocked.Location = new System.Drawing.Point(194, 175);
-            this.PT2Unlocked.Name = "PT2Unlocked";
-            this.PT2Unlocked.Size = new System.Drawing.Size(123, 21);
-            this.PT2Unlocked.TabIndex = 26;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Location = new System.Drawing.Point(3, 159);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(60, 13);
-            this.label17.TabIndex = 18;
-            this.label17.Text = "Experience";
-            // 
-            // Class
-            // 
-            this.Class.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Class.FormattingEnabled = true;
-            this.Class.Items.AddRange(new object[] {
-            "Soldier",
-            "Siren",
-            "Hunter",
-            "Berserker"});
-            this.Class.Location = new System.Drawing.Point(6, 67);
-            this.Class.Name = "Class";
-            this.Class.Size = new System.Drawing.Size(120, 21);
-            this.Class.TabIndex = 25;
-            this.Class.SelectedIndexChanged += new System.EventHandler(this.Class_SelectedIndexChanged);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Location = new System.Drawing.Point(4, 269);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(31, 13);
-            this.label18.TabIndex = 19;
-            this.label18.Text = "Cash";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.BackColor = System.Drawing.Color.Transparent;
-            this.label22.Location = new System.Drawing.Point(3, 51);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(32, 13);
-            this.label22.TabIndex = 24;
-            this.label22.Text = "Class";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Location = new System.Drawing.Point(3, 213);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(58, 13);
-            this.label19.TabIndex = 20;
-            this.label19.Text = "Skill Points";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.BackColor = System.Drawing.Color.Transparent;
-            this.label21.Location = new System.Drawing.Point(3, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(84, 13);
-            this.label21.TabIndex = 23;
-            this.label21.Text = "Character Name";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.BackColor = System.Drawing.Color.Transparent;
-            this.label20.Location = new System.Drawing.Point(194, 213);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(72, 13);
-            this.label20.TabIndex = 21;
-            this.label20.Text = "Save Number";
-            // 
-            // CharacterName
-            // 
-            // 
-            // 
-            // 
-            this.CharacterName.Border.Class = "TextBoxBorder";
-            this.CharacterName.Location = new System.Drawing.Point(6, 17);
-            this.CharacterName.Name = "CharacterName";
-            this.CharacterName.Size = new System.Drawing.Size(311, 20);
-            this.CharacterName.TabIndex = 22;
-            this.CharacterName.TextChanged += new System.EventHandler(this.CharacterName_TextChanged);
-            // 
             // MainTab
             // 
             this.MainTab.Checked = true;
@@ -4797,6 +4797,42 @@
             this.SaveAs.Text = "&Save As...";
             this.SaveAs.Click += new System.EventHandler(this.Save_Click);
             // 
+            // SelectFormat
+            // 
+            this.SelectFormat.AutoExpandOnClick = true;
+            this.SelectFormat.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.SelectFormat.Name = "SelectFormat";
+            this.SelectFormat.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.PCFormat,
+            this.FormatPS3,
+            this.XBoxFormat});
+            this.SelectFormat.SubItemsExpandWidth = 24;
+            this.SelectFormat.Text = "Change Save Format";
+            // 
+            // PCFormat
+            // 
+            this.PCFormat.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.PCFormat.Name = "PCFormat";
+            this.PCFormat.SubItemsExpandWidth = 24;
+            this.PCFormat.Text = "PC";
+            this.PCFormat.Click += new System.EventHandler(this.PCFormat_Click);
+            // 
+            // FormatPS3
+            // 
+            this.FormatPS3.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.FormatPS3.Name = "FormatPS3";
+            this.FormatPS3.SubItemsExpandWidth = 24;
+            this.FormatPS3.Text = "PS3";
+            this.FormatPS3.Click += new System.EventHandler(this.PS3Format_Click);
+            // 
+            // XBoxFormat
+            // 
+            this.XBoxFormat.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.XBoxFormat.Name = "XBoxFormat";
+            this.XBoxFormat.SubItemsExpandWidth = 24;
+            this.XBoxFormat.Text = "XBox 360";
+            this.XBoxFormat.Click += new System.EventHandler(this.XBoxFormat_Click);
+            // 
             // itemContainer8
             // 
             // 
@@ -4921,46 +4957,6 @@
             this.buttonItem34.SubItemsExpandWidth = 24;
             this.buttonItem34.Text = "E&xit";
             // 
-            // SelectFormat
-            // 
-            this.SelectFormat.AutoExpandOnClick = true;
-            this.SelectFormat.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.SelectFormat.Image = ((System.Drawing.Image)(resources.GetObject("SelectFormat.Image")));
-            this.SelectFormat.Name = "SelectFormat";
-            this.SelectFormat.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.PCFormat,
-            this.FormatPS3,
-            this.XBoxFormat});
-            this.SelectFormat.SubItemsExpandWidth = 24;
-            this.SelectFormat.Text = "Select Format";
-            // 
-            // PCFormat
-            // 
-            this.PCFormat.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.PCFormat.Image = ((System.Drawing.Image)(resources.GetObject("PCFormat.Image")));
-            this.PCFormat.Name = "PCFormat";
-            this.PCFormat.SubItemsExpandWidth = 24;
-            this.PCFormat.Text = "PC";
-            this.PCFormat.Click += new System.EventHandler(this.PCFormat_Click);
-            // 
-            // FormatPS3
-            // 
-            this.FormatPS3.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.FormatPS3.Image = ((System.Drawing.Image)(resources.GetObject("FormatPS3.Image")));
-            this.FormatPS3.Name = "FormatPS3";
-            this.FormatPS3.SubItemsExpandWidth = 24;
-            this.FormatPS3.Text = "PS3";
-            this.FormatPS3.Click += new System.EventHandler(this.PS3Format_Click);
-            // 
-            // XBoxFormat
-            // 
-            this.XBoxFormat.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.XBoxFormat.Image = ((System.Drawing.Image)(resources.GetObject("XBoxFormat.Image")));
-            this.XBoxFormat.Name = "XBoxFormat";
-            this.XBoxFormat.SubItemsExpandWidth = 24;
-            this.XBoxFormat.Text = "XBox 360";
-            this.XBoxFormat.Click += new System.EventHandler(this.XBoxFormat_Click);
-            // 
             // WillowTree
             // 
             this.AllowDrop = true;
@@ -4994,6 +4990,20 @@
             this.ribbonPanel10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.UpdateBar)).EndInit();
             this.groupPanel7.ResumeLayout(false);
+            this.ribbonPanel1.ResumeLayout(false);
+            this.groupPanel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bar8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LocationTree)).EndInit();
+            this.groupPanel8.ResumeLayout(false);
+            this.groupPanel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BankSpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Level)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Experience)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EquipSlots)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cash)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SkillPoints)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BackpackSpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SaveNumber)).EndInit();
             this.ribbonPanel11.ResumeLayout(false);
             this.ribbonPanel11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LockerTreetry2)).EndInit();
@@ -5052,20 +5062,6 @@
             this.ItemPartsGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bar6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Quantity)).EndInit();
-            this.ribbonPanel1.ResumeLayout(false);
-            this.groupPanel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bar8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LocationTree)).EndInit();
-            this.groupPanel8.ResumeLayout(false);
-            this.groupPanel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BankSpace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Level)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Experience)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EquipSlots)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Cash)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SkillPoints)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BackpackSpace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SaveNumber)).EndInit();
             this.ResumeLayout(false);
 
         }

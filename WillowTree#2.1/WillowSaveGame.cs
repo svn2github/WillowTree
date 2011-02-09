@@ -199,7 +199,6 @@ namespace WillowTree
             return array != null && array.Length > 0;
         }
 
-        public bool WSGEndian;
         public ByteOrder EndianWSG;
         public BinaryReader WSGReader;
 
@@ -383,13 +382,14 @@ namespace WillowTree
         ///<summary>Reports back the expected platform this WSG was created on.</summary>
         public static string WSGType(byte[] InputWSG)
         {
-            DJsIO SaveReader = new DJsIO(InputWSG, true);
-            string Magic = SaveReader.ReadString(3, StringForm.ASCII, StringRead.Defined);
+            BinaryReader SaveReader = new BinaryReader(new MemoryStream(InputWSG));
+           
+            string Magic = new string(SaveReader.ReadChars(3));
 
             if (Magic == "CON")
             {
                 SaveReader.ReadBytes(53245);
-                string SecondaryMagic = SaveReader.ReadString(3, StringForm.ASCII, StringRead.Defined);
+                string SecondaryMagic = new string(SaveReader.ReadChars(3));
                 SaveReader.Close();
 
                 if (SecondaryMagic == "WSG")
@@ -401,12 +401,21 @@ namespace WillowTree
             {
                 int WSG_Version = SaveReader.ReadInt32();
                 SaveReader.Close();
-                if (WSG_Version == 2)
-                    return "PS3";
-                else if (WSG_Version == 33554432)
-                    return "PC";
-                else
-                    return "unknown";
+                bool LittleEndian = BitConverter.IsLittleEndian;
+
+                switch (WSG_Version)
+                {
+                    case 0x02000000: // 33554432 decimal
+                        LittleEndian = !LittleEndian;
+                        goto case 2;
+                    case 2:
+                        if (LittleEndian)
+                            return "PC";
+                        else 
+                            return "PS3";
+                    default:
+                        return "unknown";
+                }
             }
             else
             {
@@ -488,15 +497,13 @@ namespace WillowTree
             MagicHeader = new string(TestReader.ReadChars(3));
             VersionNumber = TestReader.ReadInt32();
 
+            bool LittleEndian = BitConverter.IsLittleEndian;
             if (VersionNumber == 0x2000000)
             {
                 VersionNumber = 2;
-                isBigEndian = BitConverter.IsLittleEndian;
+                LittleEndian = !LittleEndian;
             }
-            else
-                isBigEndian = !BitConverter.IsLittleEndian;
-            EndianWSG = (isBigEndian ? ByteOrder.BigEndian : ByteOrder.LittleEndian);
-            WSGEndian = isBigEndian;
+            EndianWSG = (LittleEndian ? ByteOrder.LittleEndian : ByteOrder.BigEndian);
 
             PLYR = new string(TestReader.ReadChars(4));
             RevisionNumber = ReadInt32(TestReader, EndianWSG);
@@ -1368,7 +1375,7 @@ namespace WillowTree
         private static void WriteBankEntry(BinaryWriter bw, BankEntry entry, ByteOrder Endian)
         {
             if (entry.Parts.Count < 3)
-                throw new FormatException("Bank entry has invalid part count. Parts.Count = " + entry.Parts.Count);
+                throw new FormatException("Bank entry has an invalid part count. Parts.Count = " + entry.Parts.Count);
 
             bw.Write(entry.TypeId);
 
@@ -1378,7 +1385,7 @@ namespace WillowTree
                 case 2:
                     break;
                 default:
-                    throw new FormatException("Bank entry to be written has invalid Type ID.  TypeId = " + entry.TypeId);
+                    throw new FormatException("Bank entry to be written has an invalid Type ID.  TypeId = " + entry.TypeId);
             }
 
             for (int i = 0; i < 3; i++)
@@ -1402,7 +1409,7 @@ namespace WillowTree
                     bw.Write((Byte)entry.AmmoOrQuantity);
                     break;
                 default:
-                    throw new FormatException("Bank entry to be written has invalid Type ID.  TypeId = " + entry.TypeId);
+                    throw new FormatException("Bank entry to be written has an invalid Type ID.  TypeId = " + entry.TypeId);
             }
         }
     }

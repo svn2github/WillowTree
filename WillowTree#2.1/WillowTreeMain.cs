@@ -2046,14 +2046,14 @@ namespace WillowTree
 
                 if (CurrentWSG.Platform == "PS3" || CurrentWSG.Platform == "PC")
                 {
-                    DJsIO Save = new DJsIO(tempSave.FileName, DJFileMode.Create, CurrentWSG.WSGEndian);
+                    BinaryWriter Save = new BinaryWriter(new FileStream(tempSave.FileName, FileMode.Create));
                     Save.Write(CurrentWSG.SaveWSG());
                     Save.Close();
                 }
 
                 else if (CurrentWSG.Platform == "X360")
                 {
-                    DJsIO Save = new DJsIO(tempSave.FileName + ".temp", DJFileMode.Create, CurrentWSG.WSGEndian);
+                    BinaryWriter Save = new BinaryWriter(new FileStream(tempSave.FileName, FileMode.Create));
                     Save.Write(CurrentWSG.SaveWSG());
                     Save.Close();
 
@@ -2129,7 +2129,7 @@ namespace WillowTree
 
                 if (CurrentWSG.Platform == "PS3" || CurrentWSG.Platform == "PC")
                 {
-                    DJsIO Save = new DJsIO(CurrentWSG.OpenedWSG, DJFileMode.Create, CurrentWSG.WSGEndian);
+                    BinaryWriter Save = new BinaryWriter(new FileStream(CurrentWSG.OpenedWSG, FileMode.Create));
                     Save.Write(CurrentWSG.SaveWSG());
                     MessageBox.Show("Saved WSG to: " + CurrentWSG.OpenedWSG);
                     Save.Close();
@@ -2137,14 +2137,7 @@ namespace WillowTree
 
                 else if (CurrentWSG.Platform == "X360")
                 {
-
-
-                    //CreateContents Contents = new CreateContents();
-                    //Contents.AddFile(new DJsIO(CurrentWSG.SaveWSG(), true), "SaveGame.sav");
-                    //Contents.STFSType = STFSType.Type1;
-                    //CreateSTFS Session = new CreateSTFS();
-
-                    DJsIO Save = new DJsIO(CurrentWSG.OpenedWSG + ".temp", DJFileMode.Create, CurrentWSG.WSGEndian);
+                    BinaryWriter Save = new BinaryWriter(new FileStream(CurrentWSG.OpenedWSG + ".temp", FileMode.Create));
                     Save.Write(CurrentWSG.SaveWSG());
                     Save.Close();
 
@@ -5884,36 +5877,48 @@ namespace WillowTree
         {
             if ((CurrentWSG.ContainsRawData == true) && (CurrentWSG.EndianWSG != ByteOrder.LittleEndian))
             {
-                MessageBox.Show("This savegame contains raw data that could not be parsed, so cannot be exported in a different machine byte order.");
+                MessageBox.Show("This savegame contains raw data that could not be parsed so it cannot be exported to a different machine byte order.");
                 return;
             }
             CurrentWSG.Platform = "PC";
             CurrentWSG.EndianWSG = ByteOrder.LittleEndian;
-            CurrentWSG.WSGEndian = false;
             DoWindowTitle();
         }
         private void PS3Format_Click(object sender, EventArgs e)
         {
             if ((CurrentWSG.ContainsRawData == true) && (CurrentWSG.EndianWSG != ByteOrder.BigEndian))
             {
-                MessageBox.Show("This savegame contains raw data that could not be parsed, so cannot be exported in a different machine byte order.");
+                MessageBox.Show("This savegame contains raw data that could not be parsed so it cannot be exported to a different machine byte order.");
                 return;
             }
             CurrentWSG.Platform = "PS3";
             CurrentWSG.EndianWSG = ByteOrder.BigEndian;
-            CurrentWSG.WSGEndian = true;
             DoWindowTitle();
         }
         private void XBoxFormat_Click(object sender, EventArgs e)
         {
             if ((CurrentWSG.ContainsRawData == true) && (CurrentWSG.EndianWSG != ByteOrder.BigEndian))
             {
-                MessageBox.Show("This savegame contains raw data that could not be parsed, so cannot be exported in a different machine byte order.");
+                MessageBox.Show("This savegame contains raw data that could not be parsed so it cannot be exported to a different machine byte order.");
                 return;
+            }
+
+            if (CurrentWSG.DeviceID == null)
+            {
+                XBoxIDDialog dlgXBoxID = new XBoxIDDialog();
+                if (dlgXBoxID.ShowDialog() == DialogResult.OK)
+                {
+
+                    CurrentWSG.ProfileID = dlgXBoxID.ID.ProfileID;
+                    int DeviceIDLength = dlgXBoxID.ID.DeviceID.Count();
+                    CurrentWSG.DeviceID = new byte[DeviceIDLength];
+                    Array.Copy(dlgXBoxID.ID.DeviceID, CurrentWSG.DeviceID, DeviceIDLength);
+                }
+                else
+                    return;
             }
             CurrentWSG.Platform = "X360";
             CurrentWSG.EndianWSG = ByteOrder.BigEndian;
-            CurrentWSG.WSGEndian = true;
             DoWindowTitle();
         }
 

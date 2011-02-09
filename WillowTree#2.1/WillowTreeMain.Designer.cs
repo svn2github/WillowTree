@@ -185,6 +185,10 @@
             this.EditAllItems = new DevComponents.DotNetBar.ButtonItem();
             this.galleryContainer8 = new DevComponents.DotNetBar.GalleryContainer();
             this.labelItem9 = new DevComponents.DotNetBar.LabelItem();
+            this.galleryContainer9 = new DevComponents.DotNetBar.GalleryContainer();
+            this.labelItem10 = new DevComponents.DotNetBar.LabelItem();
+            this.galleryContainer10 = new DevComponents.DotNetBar.GalleryContainer();
+            this.labelItem11 = new DevComponents.DotNetBar.LabelItem();
             this.ribbonControl2 = new DevComponents.DotNetBar.RibbonControl();
             this.ribbonPanel10 = new DevComponents.DotNetBar.RibbonPanel();
             this.TestNewUI_Button = new System.Windows.Forms.Button();
@@ -377,6 +381,8 @@
             this.Open = new DevComponents.DotNetBar.ButtonItem();
             this.Save = new DevComponents.DotNetBar.ButtonItem();
             this.SaveAs = new DevComponents.DotNetBar.ButtonItem();
+            this.ExportForPC = new DevComponents.DotNetBar.ButtonItem();
+            this.ExportForPS3 = new DevComponents.DotNetBar.ButtonItem();
             this.itemContainer8 = new DevComponents.DotNetBar.ItemContainer();
             this.ExitWT = new DevComponents.DotNetBar.ButtonItem();
             this.office2007StartButton1 = new DevComponents.DotNetBar.Office2007StartButton();
@@ -386,8 +392,8 @@
             this.buttonItem6 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem7 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem8 = new DevComponents.DotNetBar.ButtonItem();
-            this.galleryContainer9 = new DevComponents.DotNetBar.GalleryContainer();
-            this.labelItem10 = new DevComponents.DotNetBar.LabelItem();
+            this.galleryContainer11 = new DevComponents.DotNetBar.GalleryContainer();
+            this.labelItem12 = new DevComponents.DotNetBar.LabelItem();
             this.buttonItem33 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem34 = new DevComponents.DotNetBar.ButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.bar2)).BeginInit();
@@ -1887,6 +1893,46 @@
             this.labelItem9.CanCustomize = false;
             this.labelItem9.Name = "labelItem9";
             // 
+            // galleryContainer9
+            // 
+            // 
+            // 
+            // 
+            this.galleryContainer9.BackgroundStyle.Class = "RibbonFileMenuColumnTwoContainer";
+            this.galleryContainer9.EnableGalleryPopup = false;
+            this.galleryContainer9.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
+            this.galleryContainer9.MinimumSize = new System.Drawing.Size(180, 240);
+            this.galleryContainer9.MultiLine = false;
+            this.galleryContainer9.Name = "galleryContainer9";
+            this.galleryContainer9.PopupUsesStandardScrollbars = false;
+            // 
+            // labelItem10
+            // 
+            this.labelItem10.BorderSide = DevComponents.DotNetBar.eBorderSide.Bottom;
+            this.labelItem10.BorderType = DevComponents.DotNetBar.eBorderType.Etched;
+            this.labelItem10.CanCustomize = false;
+            this.labelItem10.Name = "labelItem10";
+            // 
+            // galleryContainer10
+            // 
+            // 
+            // 
+            // 
+            this.galleryContainer10.BackgroundStyle.Class = "RibbonFileMenuColumnTwoContainer";
+            this.galleryContainer10.EnableGalleryPopup = false;
+            this.galleryContainer10.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
+            this.galleryContainer10.MinimumSize = new System.Drawing.Size(180, 240);
+            this.galleryContainer10.MultiLine = false;
+            this.galleryContainer10.Name = "galleryContainer10";
+            this.galleryContainer10.PopupUsesStandardScrollbars = false;
+            // 
+            // labelItem11
+            // 
+            this.labelItem11.BorderSide = DevComponents.DotNetBar.eBorderSide.Bottom;
+            this.labelItem11.BorderType = DevComponents.DotNetBar.eBorderType.Etched;
+            this.labelItem11.CanCustomize = false;
+            this.labelItem11.Name = "labelItem11";
+            // 
             // ribbonControl2
             // 
             this.ribbonControl2.BackgroundImage = global::WillowTree.Properties.Resources.background;
@@ -1894,6 +1940,7 @@
             this.ribbonControl2.CaptionVisible = true;
             this.ribbonControl2.CategorizeMode = DevComponents.DotNetBar.eCategorizeMode.Categories;
             this.ribbonControl2.Controls.Add(this.ribbonPanel10);
+            this.ribbonControl2.Controls.Add(this.ribbonPanel5);
             this.ribbonControl2.Controls.Add(this.ribbonPanel11);
             this.ribbonControl2.Controls.Add(this.ribbonPanel9);
             this.ribbonControl2.Controls.Add(this.DLCValue1);
@@ -1901,7 +1948,6 @@
             this.ribbonControl2.Controls.Add(this.ribbonPanel7);
             this.ribbonControl2.Controls.Add(this.ribbonPanel2);
             this.ribbonControl2.Controls.Add(this.ribbonPanel4);
-            this.ribbonControl2.Controls.Add(this.ribbonPanel5);
             this.ribbonControl2.Controls.Add(this.ribbonPanel1);
             this.ribbonControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.ribbonControl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4715,7 +4761,9 @@
             this.itemContainer7.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.Open,
             this.Save,
-            this.SaveAs});
+            this.SaveAs,
+            this.ExportForPC,
+            this.ExportForPS3});
             // 
             // Open
             // 
@@ -4745,6 +4793,25 @@
             this.SaveAs.SubItemsExpandWidth = 24;
             this.SaveAs.Text = "&Save As...";
             this.SaveAs.Click += new System.EventHandler(this.Save_Click);
+            // 
+            // ExportForPC
+            // 
+            this.ExportForPC.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.ExportForPC.Enabled = false;
+            this.ExportForPC.Image = ((System.Drawing.Image)(resources.GetObject("ExportForPC.Image")));
+            this.ExportForPC.Name = "ExportForPC";
+            this.ExportForPC.SubItemsExpandWidth = 24;
+            this.ExportForPC.Text = "Export for PC";
+            this.ExportForPC.Click += new System.EventHandler(this.ExportForPC_Click);
+            // 
+            // ExportForPS3
+            // 
+            this.ExportForPS3.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.ExportForPS3.Enabled = false;
+            this.ExportForPS3.Image = ((System.Drawing.Image)(resources.GetObject("ExportForPS3.Image")));
+            this.ExportForPS3.Name = "ExportForPS3";
+            this.ExportForPS3.SubItemsExpandWidth = 24;
+            this.ExportForPS3.Text = "Export for PS3";
             // 
             // itemContainer8
             // 
@@ -4832,25 +4899,25 @@
             this.buttonItem8.SubItemsExpandWidth = 24;
             this.buttonItem8.Text = "S&hare...";
             // 
-            // galleryContainer9
+            // galleryContainer11
             // 
             // 
             // 
             // 
-            this.galleryContainer9.BackgroundStyle.Class = "RibbonFileMenuColumnTwoContainer";
-            this.galleryContainer9.EnableGalleryPopup = false;
-            this.galleryContainer9.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
-            this.galleryContainer9.MinimumSize = new System.Drawing.Size(180, 240);
-            this.galleryContainer9.MultiLine = false;
-            this.galleryContainer9.Name = "galleryContainer9";
-            this.galleryContainer9.PopupUsesStandardScrollbars = false;
+            this.galleryContainer11.BackgroundStyle.Class = "RibbonFileMenuColumnTwoContainer";
+            this.galleryContainer11.EnableGalleryPopup = false;
+            this.galleryContainer11.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical;
+            this.galleryContainer11.MinimumSize = new System.Drawing.Size(180, 240);
+            this.galleryContainer11.MultiLine = false;
+            this.galleryContainer11.Name = "galleryContainer11";
+            this.galleryContainer11.PopupUsesStandardScrollbars = false;
             // 
-            // labelItem10
+            // labelItem12
             // 
-            this.labelItem10.BorderSide = DevComponents.DotNetBar.eBorderSide.Bottom;
-            this.labelItem10.BorderType = DevComponents.DotNetBar.eBorderType.Etched;
-            this.labelItem10.CanCustomize = false;
-            this.labelItem10.Name = "labelItem10";
+            this.labelItem12.BorderSide = DevComponents.DotNetBar.eBorderSide.Bottom;
+            this.labelItem12.BorderType = DevComponents.DotNetBar.eBorderType.Etched;
+            this.labelItem12.CanCustomize = false;
+            this.labelItem12.Name = "labelItem12";
             // 
             // buttonItem33
             // 
@@ -4996,10 +5063,6 @@
         private DevComponents.DotNetBar.RibbonTabItem WeaponsTab;
         private DevComponents.DotNetBar.RibbonTabItem QuestsTab;
         private DevComponents.DotNetBar.RibbonTabItem EchosTab;
-        private DevComponents.AdvTree.AdvTree WeaponTree;
-        private DevComponents.AdvTree.NodeConnector nodeConnector7;
-        private DevComponents.DotNetBar.ElementStyle elementStyle13;
-        private DevComponents.DotNetBar.ElementStyle elementStyle14;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -5342,5 +5405,15 @@
         private DevComponents.DotNetBar.GalleryContainer galleryContainer9;
         private DevComponents.DotNetBar.LabelItem labelItem10;
         private System.Windows.Forms.Button TestNewUI_Button;
+        private DevComponents.DotNetBar.ButtonItem ExportForPC;
+        private DevComponents.DotNetBar.ButtonItem ExportForPS3;
+        private DevComponents.DotNetBar.GalleryContainer galleryContainer10;
+        private DevComponents.DotNetBar.LabelItem labelItem11;
+        private DevComponents.AdvTree.AdvTree WeaponTree;
+        private DevComponents.AdvTree.NodeConnector nodeConnector7;
+        private DevComponents.DotNetBar.ElementStyle elementStyle13;
+        private DevComponents.DotNetBar.ElementStyle elementStyle14;
+        private DevComponents.DotNetBar.GalleryContainer galleryContainer11;
+        private DevComponents.DotNetBar.LabelItem labelItem12;
     }
 }

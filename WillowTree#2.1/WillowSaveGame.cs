@@ -62,6 +62,10 @@ namespace WillowTree
             }
         }
 
+        public static Single ReadSingle(BinaryReader reader, ByteOrder Endian)
+        {
+            return BitConverter.ToSingle(ReadBytes(reader, sizeof(float), Endian), 0);
+        }
         public static int ReadInt32(BinaryReader reader, ByteOrder Endian)
         {
             return BitConverter.ToInt32(ReadBytes(reader, sizeof(int), Endian), 0);
@@ -82,6 +86,10 @@ namespace WillowTree
             return list;
         }
 
+        public static void WriteSingle(BinaryWriter writer, Single inSingle, ByteOrder Endian)
+        {
+            writer.Write(BitConverter.ToSingle(ReadBytes(BitConverter.GetBytes(inSingle), sizeof(Single), Endian), 0));
+        }
         public static void WriteInt32(int inInt, BinaryWriter writer, ByteOrder Endian)
         {
             writer.Write(BitConverter.ToInt32(ReadBytes(BitConverter.GetBytes(inInt), sizeof(int), Endian), 0));
@@ -637,7 +645,7 @@ namespace WillowTree
             ExpOfSkills = TempExpOfSkills;
             InUse = TempInUse;
         } //Ignore all of the "DJsIO", I was just too lazy to rename them after I removed most of my dependence on the X360 DLL.
-        private void Ammo(BinaryReader DJsIO, int NumOfPools)
+        private void Ammo(BinaryReader reader, int NumOfPools)
         {
             string[] TempResourcePools = new string[NumOfPools];
             string[] TempAmmoPools = new string[NumOfPools];
@@ -646,10 +654,10 @@ namespace WillowTree
 
             for (int Progress = 0; Progress < NumOfPools; Progress++)
             {
-                TempResourcePools[Progress] = ReadString(DJsIO);
-                TempAmmoPools[Progress] = ReadString(DJsIO);
-                TempRemainingPools[Progress] = DJsIO.ReadSingle();
-                TempPoolLevels[Progress] = ReadInt32(DJsIO, EndianWSG);
+                TempResourcePools[Progress] = ReadString(reader);
+                TempAmmoPools[Progress] = ReadString(reader);
+                TempRemainingPools[Progress] = ReadSingle(reader, EndianWSG);
+                TempPoolLevels[Progress] = ReadInt32(reader, EndianWSG);
             }
             ResourcePools = TempResourcePools;
             AmmoPools = TempAmmoPools;
@@ -870,7 +878,7 @@ namespace WillowTree
             {
                 Write(Out, WriteString(ResourcePools[Progress], EndianWSG), EndianWSG);
                 Write(Out, WriteString(AmmoPools[Progress], EndianWSG), EndianWSG);
-                Write(Out, BitConverter.GetBytes((float)RemainingPools[Progress]), EndianWSG);
+                WriteSingle(Out, RemainingPools[Progress], EndianWSG);
                 Write(Out, PoolLevels[Progress], EndianWSG);
             }
 
@@ -1222,21 +1230,17 @@ namespace WillowTree
 
             entry.TypeId = br.ReadByte();
 
-            int gradeLocation;
             switch (entry.TypeId)
             {
                 case 1:
-                    gradeLocation = 3;
-                    break;
                 case 2:
-                    gradeLocation = 2;
                     break;
                 default:
                     throw new FormatException("Bank entry to be written has invalid Type ID.  TypeId = " + entry.TypeId);
                     break;
             }
 
-            for (int i = 0; i < gradeLocation; i++)
+            for (int i = 0; i < 3; i++)
                 entry.Parts.Add(ReadBankString(br, Endian));
 
             Int32 temp = ReadInt32(br, Endian);
@@ -1252,10 +1256,11 @@ namespace WillowTree
                     partCount = 9;
                     break;
                 default:
-                    throw new FileFormatException("Unknown Type ID in bank item list");
+                    partCount = 0;
+                    break;
             }
 
-            for (int i = gradeLocation; i < partCount; i++)
+            for (int i = 3; i < partCount; i++)
                 entry.Parts.Add(ReadBankString(br, Endian));
 
             // I don't understand the significance of the bytes in the footer, but
@@ -1286,27 +1291,23 @@ namespace WillowTree
 
             bw.Write(entry.TypeId);
 
-            int gradeLocation;
             switch (entry.TypeId)
             {
                 case 1:
-                    gradeLocation = 3;
-                    break;
                 case 2:
-                    gradeLocation = 2;
                     break;
                 default:
                     throw new FormatException("Bank entry to be written has invalid Type ID.  TypeId = " + entry.TypeId);
                     break;
             }
 
-            for (int i = 0; i < gradeLocation; i++)
+            for (int i = 0; i < 3; i++)
                 WriteBankString(bw, entry.Parts[i], Endian);
 
             int grade = entry.Quality + entry.Level * 65536;
             Write(bw, grade, Endian);
 
-            for (int i = gradeLocation; i < entry.Parts.Count; i++)
+            for (int i = 3; i < entry.Parts.Count; i++)
                 WriteBankString(bw, entry.Parts[i], Endian);
 
             Byte[] Footer = new Byte[10] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 };

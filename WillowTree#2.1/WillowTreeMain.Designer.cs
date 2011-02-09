@@ -381,8 +381,6 @@
             this.Open = new DevComponents.DotNetBar.ButtonItem();
             this.Save = new DevComponents.DotNetBar.ButtonItem();
             this.SaveAs = new DevComponents.DotNetBar.ButtonItem();
-            this.ExportForPC = new DevComponents.DotNetBar.ButtonItem();
-            this.ExportForPS3 = new DevComponents.DotNetBar.ButtonItem();
             this.itemContainer8 = new DevComponents.DotNetBar.ItemContainer();
             this.ExitWT = new DevComponents.DotNetBar.ButtonItem();
             this.office2007StartButton1 = new DevComponents.DotNetBar.Office2007StartButton();
@@ -396,6 +394,10 @@
             this.labelItem12 = new DevComponents.DotNetBar.LabelItem();
             this.buttonItem33 = new DevComponents.DotNetBar.ButtonItem();
             this.buttonItem34 = new DevComponents.DotNetBar.ButtonItem();
+            this.SelectFormat = new DevComponents.DotNetBar.ButtonItem();
+            this.PCFormat = new DevComponents.DotNetBar.ButtonItem();
+            this.FormatPS3 = new DevComponents.DotNetBar.ButtonItem();
+            this.XBoxFormat = new DevComponents.DotNetBar.ButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.bar2)).BeginInit();
             this.ribbonPanel5.SuspendLayout();
             this.WeaponPanel1.SuspendLayout();
@@ -1940,6 +1942,7 @@
             this.ribbonControl2.CaptionVisible = true;
             this.ribbonControl2.CategorizeMode = DevComponents.DotNetBar.eCategorizeMode.Categories;
             this.ribbonControl2.Controls.Add(this.ribbonPanel10);
+            this.ribbonControl2.Controls.Add(this.ribbonPanel1);
             this.ribbonControl2.Controls.Add(this.ribbonPanel5);
             this.ribbonControl2.Controls.Add(this.ribbonPanel11);
             this.ribbonControl2.Controls.Add(this.ribbonPanel9);
@@ -1948,7 +1951,6 @@
             this.ribbonControl2.Controls.Add(this.ribbonPanel7);
             this.ribbonControl2.Controls.Add(this.ribbonPanel2);
             this.ribbonControl2.Controls.Add(this.ribbonPanel4);
-            this.ribbonControl2.Controls.Add(this.ribbonPanel1);
             this.ribbonControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.ribbonControl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ribbonControl2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -4274,7 +4276,7 @@
             this.bar8.Location = new System.Drawing.Point(0, 0);
             this.bar8.Name = "bar8";
             this.bar8.RoundCorners = false;
-            this.bar8.Size = new System.Drawing.Size(273, 31);
+            this.bar8.Size = new System.Drawing.Size(267, 31);
             this.bar8.Stretch = true;
             this.bar8.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.bar8.TabIndex = 20;
@@ -4589,6 +4591,7 @@
             this.Class.Name = "Class";
             this.Class.Size = new System.Drawing.Size(120, 21);
             this.Class.TabIndex = 25;
+            this.Class.SelectedIndexChanged += new System.EventHandler(this.Class_SelectedIndexChanged);
             // 
             // label18
             // 
@@ -4650,6 +4653,7 @@
             this.CharacterName.Name = "CharacterName";
             this.CharacterName.Size = new System.Drawing.Size(311, 20);
             this.CharacterName.TabIndex = 22;
+            this.CharacterName.TextChanged += new System.EventHandler(this.CharacterName_TextChanged);
             // 
             // MainTab
             // 
@@ -4762,8 +4766,7 @@
             this.Open,
             this.Save,
             this.SaveAs,
-            this.ExportForPC,
-            this.ExportForPS3});
+            this.SelectFormat});
             // 
             // Open
             // 
@@ -4793,25 +4796,6 @@
             this.SaveAs.SubItemsExpandWidth = 24;
             this.SaveAs.Text = "&Save As...";
             this.SaveAs.Click += new System.EventHandler(this.Save_Click);
-            // 
-            // ExportForPC
-            // 
-            this.ExportForPC.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.ExportForPC.Enabled = false;
-            this.ExportForPC.Image = ((System.Drawing.Image)(resources.GetObject("ExportForPC.Image")));
-            this.ExportForPC.Name = "ExportForPC";
-            this.ExportForPC.SubItemsExpandWidth = 24;
-            this.ExportForPC.Text = "Export for PC";
-            this.ExportForPC.Click += new System.EventHandler(this.ExportForPC_Click);
-            // 
-            // ExportForPS3
-            // 
-            this.ExportForPS3.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.ExportForPS3.Enabled = false;
-            this.ExportForPS3.Image = ((System.Drawing.Image)(resources.GetObject("ExportForPS3.Image")));
-            this.ExportForPS3.Name = "ExportForPS3";
-            this.ExportForPS3.SubItemsExpandWidth = 24;
-            this.ExportForPS3.Text = "Export for PS3";
             // 
             // itemContainer8
             // 
@@ -4936,6 +4920,46 @@
             this.buttonItem34.Name = "buttonItem34";
             this.buttonItem34.SubItemsExpandWidth = 24;
             this.buttonItem34.Text = "E&xit";
+            // 
+            // SelectFormat
+            // 
+            this.SelectFormat.AutoExpandOnClick = true;
+            this.SelectFormat.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.SelectFormat.Image = ((System.Drawing.Image)(resources.GetObject("SelectFormat.Image")));
+            this.SelectFormat.Name = "SelectFormat";
+            this.SelectFormat.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.PCFormat,
+            this.FormatPS3,
+            this.XBoxFormat});
+            this.SelectFormat.SubItemsExpandWidth = 24;
+            this.SelectFormat.Text = "Select Format";
+            // 
+            // PCFormat
+            // 
+            this.PCFormat.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.PCFormat.Image = ((System.Drawing.Image)(resources.GetObject("PCFormat.Image")));
+            this.PCFormat.Name = "PCFormat";
+            this.PCFormat.SubItemsExpandWidth = 24;
+            this.PCFormat.Text = "PC";
+            this.PCFormat.Click += new System.EventHandler(this.PCFormat_Click);
+            // 
+            // FormatPS3
+            // 
+            this.FormatPS3.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.FormatPS3.Image = ((System.Drawing.Image)(resources.GetObject("FormatPS3.Image")));
+            this.FormatPS3.Name = "FormatPS3";
+            this.FormatPS3.SubItemsExpandWidth = 24;
+            this.FormatPS3.Text = "PS3";
+            this.FormatPS3.Click += new System.EventHandler(this.PS3Format_Click);
+            // 
+            // XBoxFormat
+            // 
+            this.XBoxFormat.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.XBoxFormat.Image = ((System.Drawing.Image)(resources.GetObject("XBoxFormat.Image")));
+            this.XBoxFormat.Name = "XBoxFormat";
+            this.XBoxFormat.SubItemsExpandWidth = 24;
+            this.XBoxFormat.Text = "XBox 360";
+            this.XBoxFormat.Click += new System.EventHandler(this.XBoxFormat_Click);
             // 
             // WillowTree
             // 
@@ -5405,8 +5429,6 @@
         private DevComponents.DotNetBar.GalleryContainer galleryContainer9;
         private DevComponents.DotNetBar.LabelItem labelItem10;
         private System.Windows.Forms.Button TestNewUI_Button;
-        private DevComponents.DotNetBar.ButtonItem ExportForPC;
-        private DevComponents.DotNetBar.ButtonItem ExportForPS3;
         private DevComponents.DotNetBar.GalleryContainer galleryContainer10;
         private DevComponents.DotNetBar.LabelItem labelItem11;
         private DevComponents.AdvTree.AdvTree WeaponTree;
@@ -5415,5 +5437,9 @@
         private DevComponents.DotNetBar.ElementStyle elementStyle14;
         private DevComponents.DotNetBar.GalleryContainer galleryContainer11;
         private DevComponents.DotNetBar.LabelItem labelItem12;
+        private DevComponents.DotNetBar.ButtonItem SelectFormat;
+        private DevComponents.DotNetBar.ButtonItem PCFormat;
+        private DevComponents.DotNetBar.ButtonItem FormatPS3;
+        private DevComponents.DotNetBar.ButtonItem XBoxFormat;
     }
 }

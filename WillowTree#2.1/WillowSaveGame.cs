@@ -1043,17 +1043,9 @@ namespace WillowTree
                     case DLC_Data.Section1Id:
                         memwriter.Write(DLC.DLC_Unknown1);
                         Write(memwriter, DLC.BankSize, EndianWSG);
-
-                        // Write the bank inventory to yet another memory stream so its size can be calculated
-                        MemoryStream bankInventoryStream = new MemoryStream();
-                        BinaryWriter bankwriter = new BinaryWriter(bankInventoryStream);
-                        Write(bankwriter, DLC.BankInventory.Count, EndianWSG);
+                        Write(memwriter, DLC.BankInventory.Count, EndianWSG);
                         for (int i = 0; i < DLC.BankInventory.Count; i++)
-                            WriteBankEntry(bankwriter, DLC.BankInventory[i], EndianWSG);
-                        byte[] bankdata = bankInventoryStream.ToArray();
-                        bankwriter.Close();
-
-                        memwriter.Write(bankdata);
+                            WriteBankEntry(memwriter, DLC.BankInventory[i], EndianWSG);
                         break;
                     case DLC_Data.Section2Id:
                         Write(memwriter, DLC.DLC_Unknown2, EndianWSG);

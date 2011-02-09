@@ -446,7 +446,7 @@ namespace WillowTree
                 listListSectionNames[oldindex] = newitemname;
         }
 
-        private void ConvertIni2Xml(List<string> ininames, string xmlname)
+        private static void ConvertIni2Xml(List<string> ininames, string xmlname)
         {
             // Read the file and display it line by line.
             foreach (string ininame in ininames)
@@ -542,7 +542,7 @@ namespace WillowTree
             // Search for //INI/Section[contains(.,"searchtext")]/Name
 
             //Gives a nodelist of all Name nodes, just iterate and highlight them
-            XmlNodeList xnrdrList = xmlrdrdoc.SelectNodes("//INI/Section[contains(translate(.,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ'),\"" + Searchfor.ToUpper() + "\")]/Name");
+            XmlNodeList xnrdrList = xmlrdrdoc.SelectNodes("//INI/Section[contains(translate(.,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ'),\"" + Searchfor.ToUpperInvariant() + "\")]/Name");
             foreach (XmlNode xn in xnrdrList)
             {
                 searchresult.Add(xn.InnerText);

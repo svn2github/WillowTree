@@ -24,9 +24,9 @@ namespace WillowTree
 
     public class WillowSaveGame
     {
-        public static byte[] ReadBytes(BinaryReader reader, int fieldSize, ByteOrder byteOrder)
+        private static byte[] ReadBytes(BinaryReader br, int fieldSize, ByteOrder byteOrder)
         {
-            byte[] bytes = reader.ReadBytes(fieldSize);
+            byte[] bytes = br.ReadBytes(fieldSize);
             if (bytes.Length != fieldSize)
                 throw new EndOfStreamException();
 
@@ -43,10 +43,11 @@ namespace WillowTree
 
             return bytes;
         }
-        public static byte[] ReadBytes(byte[] inBytes, int fieldSize, ByteOrder byteOrder)
+        private static byte[] ReadBytes(byte[] inBytes, int fieldSize, ByteOrder byteOrder)
         {
-            if (inBytes.Length < fieldSize)
-                throw new ArgumentException("Input bytes length is less than the field size.");
+            System.Diagnostics.Debug.Assert(inBytes != null, "inBytes != null");
+            System.Diagnostics.Debug.Assert(inBytes.Length >= fieldSize, "inBytes.Length >= fieldSize");
+
             byte[] bytes = new byte[fieldSize];
             if (byteOrder == ByteOrder.LittleEndian)
                 return inBytes;
@@ -62,19 +63,19 @@ namespace WillowTree
             }
         }
 
-        public static Single ReadSingle(BinaryReader reader, ByteOrder Endian)
+        private static float ReadSingle(BinaryReader reader, ByteOrder Endian)
         {
             return BitConverter.ToSingle(ReadBytes(reader, sizeof(float), Endian), 0);
         }
-        public static int ReadInt32(BinaryReader reader, ByteOrder Endian)
+        private static int ReadInt32(BinaryReader reader, ByteOrder Endian)
         {
             return BitConverter.ToInt32(ReadBytes(reader, sizeof(int), Endian), 0);
         }
-        public static short ReadInt16(BinaryReader reader, ByteOrder Endian)
+        private static short ReadInt16(BinaryReader reader, ByteOrder Endian)
         {
             return BitConverter.ToInt16(ReadBytes(reader, sizeof(short), Endian), 0);
         }
-        public static List<int> ReadListInt32(BinaryReader reader, ByteOrder Endian)
+        private static List<int> ReadListInt32(BinaryReader reader, ByteOrder Endian)
         {
             int count = ReadInt32(reader, Endian);
             List<int> list = new List<int>(count);
@@ -86,53 +87,46 @@ namespace WillowTree
             return list;
         }
 
-        public static void WriteSingle(BinaryWriter writer, Single inSingle, ByteOrder Endian)
+        private static void Write(BinaryWriter writer, float value, ByteOrder endian)
         {
-            writer.Write(BitConverter.ToSingle(ReadBytes(BitConverter.GetBytes(inSingle), sizeof(Single), Endian), 0));
+            writer.Write(BitConverter.ToSingle(ReadBytes(BitConverter.GetBytes(value), sizeof(float), endian), 0));
         }
-        public static void WriteInt32(int inInt, BinaryWriter writer, ByteOrder Endian)
+        private static void Write(BinaryWriter writer, int value, ByteOrder endian)
         {
-            writer.Write(BitConverter.ToInt32(ReadBytes(BitConverter.GetBytes(inInt), sizeof(int), Endian), 0));
+            writer.Write(BitConverter.ToInt32(ReadBytes(BitConverter.GetBytes(value), sizeof(int), endian), 0));
         }
-        public static void WriteInt16(short inInt, BinaryWriter writer, ByteOrder Endian)
+        private static void Write(BinaryWriter writer, short value, ByteOrder Endian)
         {
-            writer.Write(ReadBytes(BitConverter.GetBytes((short)inInt), sizeof(short), Endian));
+            writer.Write(ReadBytes(BitConverter.GetBytes((short)value), sizeof(short), Endian));
         }
-        public static byte[] Int32ToBtyes(int inInt, ByteOrder Endian)
-        {
-            return ReadBytes(BitConverter.GetBytes(inInt), sizeof(int), Endian);
-        }
-        public static byte[] Int16ToBtyes(int inInt, ByteOrder Endian)
-        {
-            return ReadBytes(BitConverter.GetBytes((short)inInt), 2, Endian);
-        }
+
         ///<summary>Reads a string in the format used by the WSGs</summary>
-        public string ReadString(BinaryReader reader, ByteOrder Endian)
+        private static string ReadString(BinaryReader reader, ByteOrder endian)
         {
-            int TempLengthValue = ReadInt32(reader, Endian);
-            if (TempLengthValue == 0)
+            int tempLengthValue = ReadInt32(reader, endian);
+            if (tempLengthValue == 0)
                 return string.Empty;
 
             string value;
 
             // Read string data (either ASCII or Unicode).
-            if (TempLengthValue < 0)
+            if (tempLengthValue < 0)
             {
                 // Convert the length value into a unicode byte count.
-                TempLengthValue = -TempLengthValue * 2;
+                tempLengthValue = -tempLengthValue * 2;
 
                 // Read the byte data (and ensure that the number of bytes
                 // read matches the number of bytes it was supposed to read--BinaryReader may not return the number of bytes read).
-                byte[] data = reader.ReadBytes(TempLengthValue);
-                if (data.Length != TempLengthValue)
+                byte[] data = reader.ReadBytes(tempLengthValue);
+                if (data.Length != tempLengthValue)
                     throw new EndOfStreamException();
 
                 value = Encoding.Unicode.GetString(data);
             }
             else
             {
-                byte[] data = reader.ReadBytes(TempLengthValue);
-                if (data.Length != TempLengthValue)
+                byte[] data = reader.ReadBytes(tempLengthValue);
+                if (data.Length != tempLengthValue)
                     throw new EndOfStreamException();
 
                 value = Encoding.ASCII.GetString(data);
@@ -153,18 +147,50 @@ namespace WillowTree
             // and any character after the null terminator.
             return value.Substring(0, nullTerminatorIndex);
         }
+        private static void Write(BinaryWriter writer, string value, ByteOrder endian)
+        {
+            // Null and empty strings are treated the same (with an output
+            // length of zero).
+            if (string.IsNullOrEmpty(value))
+            {
+                writer.Write(0);
+                return;
+            }
 
-        public static void Write(BinaryWriter writer, int outInt, ByteOrder Endian)
-        {
-            writer.Write(Int32ToBtyes(outInt, Endian));
-        }
-        public static void Write(BinaryWriter writer, byte[] outBytes, ByteOrder Endian)
-        {
-            writer.Write(outBytes);
-        }
-        public static void Write16(BinaryWriter writer, int outInt, ByteOrder Endian)
-        {
-            writer.Write(Int16ToBtyes(outInt, Endian));
+            // Look for any non-ASCII characters in the input.
+            bool requiresUnicode = false;
+            for (int i = 0; i < value.Length; i++)
+            {
+                if (value[i] > 256)
+                {
+                    requiresUnicode = true;
+                    break;
+                }
+            }
+
+            // Generate the bytes (either ASCII or Unicode, depending on input).
+            if (!requiresUnicode)
+            {
+                // Write character length (including null terminator).
+                Write(writer, value.Length + 1, endian);
+
+                // Write ASCII encoded string.
+                writer.Write(Encoding.ASCII.GetBytes(value));
+
+                // Write null terminator.
+                writer.Write((byte)0);
+            }
+            else
+            {
+                // Write character length (including null terminator).
+                Write(writer, -1 - value.Length, endian);
+
+                // Write UTF-16 encoded string.
+                writer.Write(Encoding.Unicode.GetBytes(value));
+
+                // Write null terminator.
+                writer.Write((short)0);
+            }
         }
 
         //Checks if the byte/array is null.
@@ -355,7 +381,7 @@ namespace WillowTree
         public uint TitleID = 1414793191;
 
         ///<summary>Reports back the expected platform this WSG was created on.</summary>
-        public string WSGType(byte[] InputWSG)
+        public static string WSGType(byte[] InputWSG)
         {
             DJsIO SaveReader = new DJsIO(InputWSG, true);
             string Magic = SaveReader.ReadString(3, StringForm.ASCII, StringRead.Defined);
@@ -456,7 +482,7 @@ namespace WillowTree
         public void ReadWSG(byte[] FileArray)
         {
             bool isBigEndian;
-            BinaryReader TestReader = new BinaryReader(new MemoryStream(FileArray));
+            BinaryReader TestReader = new BinaryReader(new MemoryStream(FileArray), Encoding.ASCII);
 
             ContainsRawData = false;
             MagicHeader = new string(TestReader.ReadChars(3));
@@ -474,7 +500,7 @@ namespace WillowTree
 
             PLYR = new string(TestReader.ReadChars(4));
             RevisionNumber = ReadInt32(TestReader, EndianWSG);
-            Class = ReadString(TestReader);
+            Class = ReadString(TestReader, EndianWSG);
             Level = ReadInt32(TestReader, EndianWSG);
             Experience = ReadInt32(TestReader, EndianWSG);
             SkillPoints = ReadInt32(TestReader, EndianWSG);
@@ -516,7 +542,7 @@ namespace WillowTree
 
             TotalLocations = ReadInt32(TestReader, EndianWSG);
             Locations(TestReader, TotalLocations);
-            CurrentLocation = ReadString(TestReader);
+            CurrentLocation = ReadString(TestReader, EndianWSG);
             SaveInfo1to5[0] = ReadInt32(TestReader, EndianWSG);
             SaveInfo1to5[1] = ReadInt32(TestReader, EndianWSG);
             SaveInfo1to5[2] = ReadInt32(TestReader, EndianWSG);
@@ -535,16 +561,16 @@ namespace WillowTree
             TotalPT2Quests = ReadInt32(TestReader, EndianWSG);
             PT2Quests(TestReader, TotalPT2Quests); //Saves playthrough 2 quests as arrays of strings and ints (15 values, -1 for none if not used)
             UnknownPT2QuestValue = ReadInt32(TestReader, EndianWSG); //Is either 2 or 0
-            ReadString(TestReader); //Z0_Missions.Missions.M_IntroStateSaver
+            ReadString(TestReader, EndianWSG); //Z0_Missions.Missions.M_IntroStateSaver
             ReadInt32(TestReader, EndianWSG); //1
-            ReadString(TestReader); //Z0_Missions.Missions.M_IntroStateSaver
+            ReadString(TestReader, EndianWSG); //Z0_Missions.Missions.M_IntroStateSaver
             ReadInt32(TestReader, EndianWSG); //2
             ReadInt32(TestReader, EndianWSG); //0
             ReadInt32(TestReader, EndianWSG); //0
             ReadInt32(TestReader, EndianWSG); //0
             TotalPlayTime = ReadInt32(TestReader, EndianWSG);
-            LastPlayedDate = ReadString(TestReader);
-            CharacterName = ReadString(TestReader);
+            LastPlayedDate = ReadString(TestReader, EndianWSG);
+            CharacterName = ReadString(TestReader, EndianWSG);
             Color1 = ReadInt32(TestReader, EndianWSG); //ABGR Big (X360, PS3), RGBA Little (PC)
             Color2 = ReadInt32(TestReader, EndianWSG); //ABGR Big (X360, PS3), RGBA Little (PC)
             Color3 = ReadInt32(TestReader, EndianWSG); //ABGR Big (X360, PS3), RGBA Little (PC)
@@ -635,7 +661,7 @@ namespace WillowTree
 
             for (int Progress = 0; Progress < NumOfSkills; Progress++)
             {
-                TempSkillNames[Progress] = ReadString(DJsIO);
+                TempSkillNames[Progress] = ReadString(DJsIO, EndianWSG);
                 TempLevelOfSkills[Progress] = ReadInt32(DJsIO, EndianWSG);
                 TempExpOfSkills[Progress] = ReadInt32(DJsIO, EndianWSG);
                 TempInUse[Progress] = ReadInt32(DJsIO, EndianWSG);
@@ -654,8 +680,8 @@ namespace WillowTree
 
             for (int Progress = 0; Progress < NumOfPools; Progress++)
             {
-                TempResourcePools[Progress] = ReadString(reader);
-                TempAmmoPools[Progress] = ReadString(reader);
+                TempResourcePools[Progress] = ReadString(reader, EndianWSG);
+                TempAmmoPools[Progress] = ReadString(reader, EndianWSG);
                 TempRemainingPools[Progress] = ReadSingle(reader, EndianWSG);
                 TempPoolLevels[Progress] = ReadInt32(reader, EndianWSG);
             }
@@ -670,7 +696,7 @@ namespace WillowTree
             {
                 List<string> strings = new List<string>();
                 for (int TotalStrings = 0; TotalStrings < 9; TotalStrings++)
-                    strings.Add(ReadString(reader));
+                    strings.Add(ReadString(reader, EndianWSG));
                 ItemStrings.Add(strings);
 
                 List<int> values = new List<int>();
@@ -692,7 +718,7 @@ namespace WillowTree
             {
                 List<string> strings = new List<string>();
                 for (int TotalStrings = 0; TotalStrings < 14; TotalStrings++)
-                    strings.Add(ReadString(reader));
+                    strings.Add(ReadString(reader, EndianWSG));
                 WeaponStrings.Add(strings);
 
                 List<int> values = new List<int>();
@@ -716,7 +742,7 @@ namespace WillowTree
 
             for (int Progress = 0; Progress < NumOfQuests; Progress++)
             {
-                TempQuestStrings[Progress] = ReadString(DJsIO);
+                TempQuestStrings[Progress] = ReadString(DJsIO, EndianWSG);
                 for (int TotalValues = 0; TotalValues < 4; TotalValues++)
                     TempQuestValues[Progress, TotalValues] = ReadInt32(DJsIO, EndianWSG);
 
@@ -724,7 +750,7 @@ namespace WillowTree
                 {
                     for (int ExtraValues = 0; ExtraValues < TempQuestValues[Progress, 3]; ExtraValues++)
                     {
-                        TempQuestSubfolders[Progress, ExtraValues] = ReadString(DJsIO);
+                        TempQuestSubfolders[Progress, ExtraValues] = ReadString(DJsIO, EndianWSG);
                         TempQuestValues[Progress, ExtraValues + 4] = ReadInt32(DJsIO, EndianWSG);
                     }
                 }
@@ -744,7 +770,7 @@ namespace WillowTree
 
             for (int Progress = 0; Progress < NumOfQuests; Progress++)
             {
-                TempQuestStrings[Progress] = ReadString(DJsIO);
+                TempQuestStrings[Progress] = ReadString(DJsIO, EndianWSG);
 
                 for (int TotalValues = 0; TotalValues < 4; TotalValues++)
                     TempQuestValues[Progress, TotalValues] = ReadInt32(DJsIO, EndianWSG);
@@ -753,7 +779,7 @@ namespace WillowTree
                 {
                     for (int ExtraValues = 0; ExtraValues < TempQuestValues[Progress, 3]; ExtraValues++)
                     {
-                        TempQuestSubfolders[Progress, ExtraValues] = ReadString(DJsIO);
+                        TempQuestSubfolders[Progress, ExtraValues] = ReadString(DJsIO, EndianWSG);
                         TempQuestValues[Progress, ExtraValues + 4] = ReadInt32(DJsIO, EndianWSG);
                     }
                     for (int FillGaps = TempQuestValues[Progress, 3] + 4; FillGaps < 9; FillGaps++)
@@ -771,7 +797,7 @@ namespace WillowTree
             string[] TempLocationStrings = new string[NumOfLocations];
 
             for (int Progress = 0; Progress < NumOfLocations; Progress++)
-                TempLocationStrings[Progress] = ReadString(DJsIO);
+                TempLocationStrings[Progress] = ReadString(DJsIO, EndianWSG);
             LocationStrings = TempLocationStrings;
         }
         private void Echos(BinaryReader DJsIO, int NumOfEchos)
@@ -781,7 +807,7 @@ namespace WillowTree
 
             for (int Progress = 0; Progress < NumOfEchos; Progress++)
             {
-                TempEchoStrings[Progress] = ReadString(DJsIO);
+                TempEchoStrings[Progress] = ReadString(DJsIO, EndianWSG);
 
                 for (int TotalValues = 0; TotalValues < 2; TotalValues++)
                     TempEchoValues[Progress, TotalValues] = ReadInt32(DJsIO, EndianWSG);
@@ -796,7 +822,7 @@ namespace WillowTree
 
             for (int Progress = 0; Progress < NumOfEchos; Progress++)
             {
-                TempEchoStrings[Progress] = ReadString(DJsIO);
+                TempEchoStrings[Progress] = ReadString(DJsIO, EndianWSG);
 
                 for (int TotalValues = 0; TotalValues < 2; TotalValues++)
                     TempEchoValues[Progress, TotalValues] = ReadInt32(DJsIO, EndianWSG);
@@ -805,39 +831,76 @@ namespace WillowTree
             EchoValuesPT2 = TempEchoValues;
         }
 
-        ///<summary>Reads a string in the format used by the WSG format</summary>
-        public string ReadString(BinaryReader DJsIO)
-        {
-            int TempLengthValue = ReadInt32(DJsIO, EndianWSG);
+#if false
+        private static readonly char[] NullTerminatorCharArray = new char[1] { '\0' };
 
-            char[] TempOutput = new char[TempLengthValue - 1];
-            byte[] bytes = DJsIO.ReadBytes(TempLengthValue - 1);
-
-            for (int i = 0; i < TempLengthValue - 1; i++)
-                TempOutput[i] = (Char)bytes[i];
-            DJsIO.ReadByte();
-            return new string(TempOutput);
-        }
         ///<summary>Writes a string in the format used by the WSG format</summary>
-        public byte[] WriteString(string InputString, ByteOrder Endian)
+        [Obsolete("WriteString(BinaryReader,String,ByteOrder) should be used instead.")]
+        public static byte[] WriteString(string InputString, ByteOrder Endian)
         {
-            byte[] outBytes;
-            if (InputString == "")
+            if (string.IsNullOrEmpty(InputString))
             {
-                outBytes = new Byte[] { 0, 0, 0, 0 };
-                return outBytes;
+                // Byte arrays are automatically zero-initialized.
+                return BitConverter.GetBytes(0);
             }
 
-            MemoryStream stream = new MemoryStream();
-            BinaryWriter br = new BinaryWriter(stream);
+            char[] inputArray = InputString.ToCharArray();
 
-            Write(br, InputString.Length + 1, Endian);
-            foreach (char ch in InputString)
-                br.Write((byte)ch);
-            br.Write((byte)0);
+            // Look for any non-ASCII characters in the input.
+            bool requiresUnicode = false;
+            for (int i = 0; i < inputArray.Length; i++)
+            {
+                if (inputArray[i] > 256)
+                {
+                    requiresUnicode = true;
+                    break;
+                }
+            }
 
-            return stream.ToArray();
+            // Get the appropriate string data encoder.
+            Encoder encoder;
+            int count; // statically casted from an integer internally
+            if (!requiresUnicode)
+            {
+                encoder = Encoding.ASCII.GetEncoder();
+                count = inputArray.Length + NullTerminatorCharArray.Length;
+            }
+            else
+            {
+                encoder = Encoding.Unicode.GetEncoder();
+                count = -(inputArray.Length + NullTerminatorCharArray.Length);
+            }
+
+            // Determine data length and generate data buffer.
+            int dataLength = encoder.GetByteCount(inputArray, 0, inputArray.Length, false);
+            int nullTerminatorLength = encoder.GetByteCount(NullTerminatorCharArray, 0, NullTerminatorCharArray.Length, true);
+
+            byte[] data = new byte[sizeof(int) + dataLength + nullTerminatorLength];
+
+            // Encode count data.
+            if (Endian == ByteOrder.LittleEndian)
+            {
+                data[0] = (byte)(count & 0xFF);
+                data[1] = (byte)((count >> 8) & 0xFF);
+                data[2] = (byte)((count >> 16) & 0xFF);
+                data[3] = (byte)((count >> 24) & 0xFF);
+            }
+            else
+            {
+                data[0] = (byte)((count >> 24) & 0xFF);
+                data[1] = (byte)((count >> 16) & 0xFF);
+                data[2] = (byte)((count >> 8) & 0xFF);
+                data[3] = (byte)(count & 0xFF);
+            }
+
+            // Encode character data.
+            int byteCount;
+            byteCount = encoder.GetBytes(inputArray, 0, inputArray.Length, data, sizeof(int), false);
+            byteCount = encoder.GetBytes(NullTerminatorCharArray, 0, NullTerminatorCharArray.Length, data, sizeof(int) + byteCount, true);
+
+            return data;
         }
+#endif
 
         ///<summary>Save the current data to a WSG as a byte[]</summary>
         public byte[] SaveWSG()
@@ -847,11 +910,11 @@ namespace WillowTree
 
             SplitInventoryIntoPacks();
 
-            Write(Out, new System.Text.ASCIIEncoding().GetBytes(MagicHeader), EndianWSG);
+            Out.Write(Encoding.ASCII.GetBytes(MagicHeader));
             Write(Out, VersionNumber, EndianWSG);
-            Write(Out, new System.Text.ASCIIEncoding().GetBytes(PLYR), EndianWSG);
+            Out.Write(Encoding.ASCII.GetBytes(PLYR));
             Write(Out, RevisionNumber, EndianWSG);
-            Write(Out, WriteString(Class, EndianWSG), EndianWSG);
+            Write(Out, Class, EndianWSG);
             Write(Out, Level, EndianWSG);
             Write(Out, Experience, EndianWSG);
             Write(Out, SkillPoints, EndianWSG);
@@ -862,7 +925,7 @@ namespace WillowTree
 
             for (int Progress = 0; Progress < NumberOfSkills; Progress++) //Write Skills
             {
-                Write(Out, WriteString(SkillNames[Progress], EndianWSG), EndianWSG);
+                Write(Out, SkillNames[Progress], EndianWSG);
                 Write(Out, LevelOfSkills[Progress], EndianWSG);
                 Write(Out, ExpOfSkills[Progress], EndianWSG);
                 Write(Out, InUse[Progress], EndianWSG);
@@ -876,9 +939,9 @@ namespace WillowTree
 
             for (int Progress = 0; Progress < NumberOfPools; Progress++) //Write Ammo Pools
             {
-                Write(Out, WriteString(ResourcePools[Progress], EndianWSG), EndianWSG);
-                Write(Out, WriteString(AmmoPools[Progress], EndianWSG), EndianWSG);
-                WriteSingle(Out, RemainingPools[Progress], EndianWSG);
+                Write(Out, ResourcePools[Progress], EndianWSG);
+                Write(Out, AmmoPools[Progress], EndianWSG);
+                Write(Out, RemainingPools[Progress], EndianWSG);
                 Write(Out, PoolLevels[Progress], EndianWSG);
             }
 
@@ -886,7 +949,7 @@ namespace WillowTree
             for (int Progress = 0; Progress < ItemStrings1.Count; Progress++) //Write Items
             {
                 for (int TotalStrings = 0; TotalStrings < 9; TotalStrings++)
-                    Write(Out, WriteString(ItemStrings1[Progress][TotalStrings], EndianWSG), EndianWSG);
+                    Write(Out, ItemStrings1[Progress][TotalStrings], EndianWSG);
 
                 Write(Out, ItemValues1[Progress][0], EndianWSG);
                 Int32 tempLevelQuality = ItemValues1[Progress][1] + ItemValues1[Progress][3] * 65536;
@@ -901,7 +964,7 @@ namespace WillowTree
             for (int Progress = 0; Progress < WeaponStrings1.Count; Progress++) //Write Weapons
             {
                 for (int TotalStrings1 = 0; TotalStrings1 < 14; TotalStrings1++)
-                    Write(Out, WriteString(WeaponStrings1[Progress][TotalStrings1], EndianWSG), EndianWSG);
+                    Write(Out, WeaponStrings1[Progress][TotalStrings1], EndianWSG);
 
                 Write(Out, WeaponValues1[Progress][0], EndianWSG);
                 Int32 tempLevelQuality = WeaponValues1[Progress][1] + WeaponValues1[Progress][3] * 65536;
@@ -913,10 +976,10 @@ namespace WillowTree
             Write(Out, count * 7 + 10, EndianWSG);
             Write(Out, ChallengeDataBlockId, EndianWSG);
             Write(Out, count * 7 + 2, EndianWSG);
-            WriteInt16(count, Out, EndianWSG);
+            Write(Out, count, EndianWSG);
             foreach (ChallengeDataEntry challenge in Challenges)
             {
-                WriteInt16(challenge.Id, Out, EndianWSG);
+                Write(Out, challenge.Id, EndianWSG);
                 Out.Write(challenge.TypeId);
                 Write(Out, challenge.Value, EndianWSG);
             }
@@ -924,9 +987,9 @@ namespace WillowTree
             Write(Out, TotalLocations, EndianWSG);
 
             for (int Progress = 0; Progress < TotalLocations; Progress++) //Write Locations
-                Write(Out, WriteString(LocationStrings[Progress], EndianWSG), EndianWSG);
+                Write(Out, LocationStrings[Progress], EndianWSG);
 
-            Write(Out, WriteString(CurrentLocation, EndianWSG), EndianWSG);
+            Write(Out, CurrentLocation, EndianWSG);
             Write(Out, SaveInfo1to5[0], EndianWSG);
             Write(Out, SaveInfo1to5[1], EndianWSG);
             Write(Out, SaveInfo1to5[2], EndianWSG);
@@ -938,12 +1001,12 @@ namespace WillowTree
             Write(Out, SaveInfo7to10[2], EndianWSG);
             Write(Out, SaveInfo7to10[3], EndianWSG);
 
-            Write(Out, WriteString(CurrentQuest, EndianWSG), EndianWSG);
+            Write(Out, CurrentQuest, EndianWSG);
             Write(Out, TotalPT1Quests, EndianWSG);
 
             for (int Progress = 0; Progress < TotalPT1Quests; Progress++)  //Write Playthrough 1 Quests
             {
-                Write(Out, WriteString(PT1Strings[Progress], EndianWSG), EndianWSG);
+                Write(Out, PT1Strings[Progress], EndianWSG);
                 for (int TotalValues = 0; TotalValues < 4; TotalValues++)
                     Write(Out, PT1Values[Progress, TotalValues], EndianWSG);
 
@@ -951,19 +1014,19 @@ namespace WillowTree
                 {
                     for (int ExtraValues = 0; ExtraValues < PT1Values[Progress, 3]; ExtraValues++)
                     {
-                        Write(Out, WriteString(PT1Subfolders[Progress, ExtraValues], EndianWSG), EndianWSG); //Write Subfolder
+                        Write(Out, PT1Subfolders[Progress, ExtraValues], EndianWSG); //Write Subfolder
                         Write(Out, PT1Values[Progress, ExtraValues + 4], EndianWSG); //Write Subfolder value
                     }
                 }
             }
             Write(Out, UnknownPT1QuestValue, EndianWSG);
 
-            Write(Out, WriteString(SecondaryQuest, EndianWSG), EndianWSG);
+            Write(Out, SecondaryQuest, EndianWSG);
             Write(Out, TotalPT2Quests, EndianWSG);
 
             for (int Progress = 0; Progress < TotalPT2Quests; Progress++)  //Write Playthrough 2 Quests
             {
-                Write(Out, WriteString(PT2Strings[Progress], EndianWSG), EndianWSG);
+                Write(Out, PT2Strings[Progress], EndianWSG);
 
                 for (int TotalValues = 0; TotalValues < 4; TotalValues++)
                     Write(Out, PT2Values[Progress, TotalValues], EndianWSG);
@@ -972,24 +1035,23 @@ namespace WillowTree
                 {
                     for (int ExtraValues = 0; ExtraValues < PT2Values[Progress, 3]; ExtraValues++)
                     {
-                        Write(Out, WriteString(PT2Subfolders[Progress, ExtraValues], EndianWSG), EndianWSG); //Write Subfolder
+                        Write(Out, PT2Subfolders[Progress, ExtraValues], EndianWSG); //Write Subfolder
                         Write(Out, PT2Values[Progress, ExtraValues + 4], EndianWSG); //Write Subfolder value
-
                     }
                 }
             }
             Write(Out, UnknownPT2QuestValue, EndianWSG); //Is either 2 or 0
 
-            Write(Out, WriteString("Z0_Missions.Missions.M_IntroStateSaver", EndianWSG), EndianWSG);
+            Write(Out, "Z0_Missions.Missions.M_IntroStateSaver", EndianWSG);
             Write(Out, 1, EndianWSG);
-            Write(Out, WriteString("Z0_Missions.Missions.M_IntroStateSaver", EndianWSG), EndianWSG);
+            Write(Out, "Z0_Missions.Missions.M_IntroStateSaver", EndianWSG);
             Write(Out, 2, EndianWSG);
             Write(Out, 0, EndianWSG);
             Write(Out, 0, EndianWSG);
             Write(Out, 0, EndianWSG);
             Write(Out, TotalPlayTime, EndianWSG);
-            Write(Out, WriteString(LastPlayedDate, EndianWSG), EndianWSG);
-            Write(Out, WriteString(CharacterName, EndianWSG), EndianWSG);
+            Write(Out, LastPlayedDate, EndianWSG);
+            Write(Out, CharacterName, EndianWSG);
             Write(Out, Color1, EndianWSG); //ABGR Big (X360, PS3), RGBA Little (PC)
             Write(Out, Color2, EndianWSG); //ABGR Big (X360, PS3), RGBA Little (PC)
             Write(Out, Color3, EndianWSG); //ABGR Big (X360, PS3), RGBA Little (PC)
@@ -1011,7 +1073,7 @@ namespace WillowTree
             Write(Out, NumberOfEchos, EndianWSG);
             for (int Progress = 0; Progress < NumberOfEchos; Progress++) //Write Locations
             {
-                Write(Out, WriteString(EchoStrings[Progress], EndianWSG), EndianWSG);
+                Write(Out, EchoStrings[Progress], EndianWSG);
                 Write(Out, EchoValues[Progress, 0], EndianWSG);
                 Write(Out, EchoValues[Progress, 1], EndianWSG);
             }
@@ -1022,7 +1084,7 @@ namespace WillowTree
                 Write(Out, NumberOfEchosPT2, EndianWSG);
                 for (int Progress = 0; Progress < NumberOfEchosPT2; Progress++) //Write Locations
                 {
-                    Write(Out, WriteString(EchoStringsPT2[Progress], EndianWSG), EndianWSG);
+                    Write(Out, EchoStringsPT2[Progress], EndianWSG);
                     Write(Out, EchoValuesPT2[Progress, 0], EndianWSG);
                     Write(Out, EchoValuesPT2[Progress, 1], EndianWSG);
                 }
@@ -1063,7 +1125,7 @@ namespace WillowTree
                         for (int Progress = 0; Progress < ItemStrings2.Count; Progress++) //Write Items
                         {
                             for (int TotalStrings = 0; TotalStrings < 9; TotalStrings++)
-                                Write(memwriter, WriteString(ItemStrings2[Progress][TotalStrings], EndianWSG), EndianWSG);
+                                Write(memwriter, ItemStrings2[Progress][TotalStrings], EndianWSG);
 
                             Write(memwriter, ItemValues2[Progress][0], EndianWSG);
                             Int32 tempLevelQuality = ItemValues2[Progress][1] + ItemValues2[Progress][3] * 65536;
@@ -1075,7 +1137,7 @@ namespace WillowTree
                         for (int Progress = 0; Progress < WeaponStrings2.Count; Progress++) //Write DLC.Weapons
                         {
                             for (int TotalStrings = 0; TotalStrings < 14; TotalStrings++)
-                                Write(memwriter, WriteString(WeaponStrings2[Progress][TotalStrings], EndianWSG), EndianWSG);
+                                Write(memwriter, WeaponStrings2[Progress][TotalStrings], EndianWSG);
 
                             Write(memwriter, WeaponValues2[Progress][0], EndianWSG);
                             Int32 tempLevelQuality = WeaponValues2[Progress][1] + WeaponValues2[Progress][3] * 65536;
@@ -1175,7 +1237,7 @@ namespace WillowTree
             }
         }
 
-        public class BankEntry
+        public sealed class BankEntry
         {
             public Byte TypeId;
             public List<string> Parts = new List<string>();
@@ -1184,38 +1246,66 @@ namespace WillowTree
             public Int16 Level;
         }
 
-        public string ReadBankString(BinaryReader br, ByteOrder Endian)
+        private static string ReadBankString(BinaryReader br, ByteOrder endian)
         {
-            Byte StringTypeId = br.ReadByte();
-            if ((StringTypeId != 32) && (StringTypeId != 0))
-                throw new FileFormatException("Bank string has an unknown type ID.  ID = " + StringTypeId);
+            byte subObjectMask = br.ReadByte();
+            //if ((subObjectMask != 32) && (subObjectMask != 0))
+            //    throw new FileFormatException("Bank string has an unknown sub-object mask.  Mask = " + subObjectMask);
 
-            string composed = ReadString(br, Endian);
+            string composed = ReadString(br, endian);
+            bool isPreviousSubObject = (subObjectMask & 1) == 1;
+            subObjectMask >>= 1;
+
             for (int i = 1; i < 6; i++)
             {
-                string substring = ReadString(br, Endian);
-                if (substring != "")
-                    composed += ("." + substring);
+                string substring = ReadString(br, endian);
+                if (!string.IsNullOrEmpty(substring))
+                {
+                    if (isPreviousSubObject)
+                        composed = composed + ":" + substring;
+                    else
+                        composed = composed + "." + substring;
+                }
+
+                isPreviousSubObject = (subObjectMask & 1) == 1;
+                subObjectMask >>= 1;
             }
+
             return composed;
         }
-        public void WriteBankString(BinaryWriter bw, string Text, ByteOrder Endian)
+
+        private static void WriteBankString(BinaryWriter bw, string value, ByteOrder Endian)
         {
-            Byte StringTypeId = (Text == "" ? (byte)0 : (byte)32);
-            bw.Write(StringTypeId);
+            if (string.IsNullOrEmpty(value))
+            {
+                // Endianness does not matter here.
+                bw.Write((byte)0);
+                bw.Write(0);
+                bw.Write(0);
+                bw.Write(0);
+                bw.Write(0);
+                bw.Write(0);
+                bw.Write(0);
+            }
+            else
+            {
+                byte subObjectMask = 32;
+                string[] pathComponentNames = value.Split('.');
 
-            string[] substrings = Text.Split('.');
+                bw.Write(subObjectMask);
 
-            // Write the empty strings first
-            for (int j = substrings.Count(); j < 6; j++)
-                Write(bw, (Int32)0, Endian);
+                // Write the empty strings first.
+                // Endianness does not matter here.
+                for (int j = pathComponentNames.Length; j < 6; j++)
+                    bw.Write(0);
 
-            // Then write the strings that are not empty.
-            for (int j = 0; j < substrings.Count(); j++)
-                Write(bw, WriteString(substrings[j], Endian), Endian);
+                // Then write the strings that are not empty.
+                for (int j = 0; j < pathComponentNames.Length; j++)
+                    Write(bw, pathComponentNames[j], Endian);
+            }
         }
 
-        public BankEntry ReadBankEntry(BinaryReader br, ByteOrder Endian)
+        private static BankEntry ReadBankEntry(BinaryReader br, ByteOrder endian)
         {
             BankEntry entry = new BankEntry();
             int partCount;
@@ -1229,13 +1319,12 @@ namespace WillowTree
                     break;
                 default:
                     throw new FormatException("Bank entry to be written has invalid Type ID.  TypeId = " + entry.TypeId);
-                    break;
             }
 
             for (int i = 0; i < 3; i++)
-                entry.Parts.Add(ReadBankString(br, Endian));
+                entry.Parts.Add(ReadBankString(br, endian));
 
-            Int32 temp = ReadInt32(br, Endian);
+            Int32 temp = ReadInt32(br, endian);
             entry.Quality = (Int16)(temp % 65536);
             entry.Level = (Int16)(temp / 65536);
 
@@ -1253,7 +1342,7 @@ namespace WillowTree
             }
 
             for (int i = 3; i < partCount; i++)
-                entry.Parts.Add(ReadBankString(br, Endian));
+                entry.Parts.Add(ReadBankString(br, endian));
 
             // I don't understand the significance of the bytes in the footer, but
             // the bytes are always {0, 0, 0, 0, 0, 0, 0, 0, 0, 1} in every save I've found
@@ -1265,7 +1354,7 @@ namespace WillowTree
             switch (entry.TypeId)
             {
                 case 1: // weapon
-                    entry.AmmoOrQuantity = ReadInt32(br, Endian);
+                    entry.AmmoOrQuantity = ReadInt32(br, endian);
                     break;
                 case 2: // item
                     entry.AmmoOrQuantity = (int)br.ReadByte();
@@ -1276,7 +1365,7 @@ namespace WillowTree
             }
             return entry;
         }
-        public void WriteBankEntry(BinaryWriter bw, BankEntry entry, ByteOrder Endian)
+        private static void WriteBankEntry(BinaryWriter bw, BankEntry entry, ByteOrder Endian)
         {
             if (entry.Parts.Count < 3)
                 throw new FormatException("Bank entry has invalid part count. Parts.Count = " + entry.Parts.Count);
@@ -1290,7 +1379,6 @@ namespace WillowTree
                     break;
                 default:
                     throw new FormatException("Bank entry to be written has invalid Type ID.  TypeId = " + entry.TypeId);
-                    break;
             }
 
             for (int i = 0; i < 3; i++)
@@ -1315,7 +1403,6 @@ namespace WillowTree
                     break;
                 default:
                     throw new FormatException("Bank entry to be written has invalid Type ID.  TypeId = " + entry.TypeId);
-                    break;
             }
         }
     }

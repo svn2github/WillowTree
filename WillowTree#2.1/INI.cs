@@ -17,14 +17,14 @@ namespace WillowTree
         private string[] arrListSectionNames = null;
 
 
-        [DllImport("KERNEL32.DLL", EntryPoint = "GetPrivateProfileSectionNamesA", CharSet = CharSet.Ansi)]
+        [DllImport("KERNEL32.DLL", EntryPoint = "GetPrivateProfileSectionNames", CharSet = CharSet.Auto)]
         private static extern int GetPrivateProfileSectionNames(byte[] lpszReturnBuffer, int nSize, string lpFileName);
 
-        [DllImport("KERNEL32.DLL", EntryPoint = "WritePrivateProfileSectionA", CharSet = CharSet.Ansi)]
+        [DllImport("KERNEL32.DLL", EntryPoint = "WritePrivateProfileSection", CharSet = CharSet.Auto)]
         private static extern int WritePrivateProfileSectionNames(string lpAppName, string lpString, string lpFileName);
 
         [DllImport("kernel32")]
-        private static extern long WritePrivateProfileString(string section,
+        private static extern int WritePrivateProfileString(string section,
             string key, string val, string filePath);
         [DllImport("kernel32")]
         private static extern int GetPrivateProfileString(string section,
@@ -45,7 +45,7 @@ namespace WillowTree
             arrListSectionNames = null;
 
             // open file als read all sections (should be faster than using windows ini functions)
-            if (path != "")
+            if (!string.IsNullOrEmpty(path))
             {
                 string line = null;
                 StringBuilder temp = new StringBuilder(255);
@@ -56,7 +56,7 @@ namespace WillowTree
                     // Section
                     if (line.Length > 0) // no empty lines
                     {
-                        if (line.StartsWith("[") && line.EndsWith("]"))
+                        if (line.StartsWith("[", StringComparison.Ordinal) && line.EndsWith("]", StringComparison.Ordinal))
                         {
                             // Section
 
@@ -118,12 +118,12 @@ namespace WillowTree
 
         /// <returns></returns>
 
-        public string IniReadValue(string Section, string Key)
+        public string IniReadValue(string section, string key)
         {
             StringBuilder temp = new StringBuilder(255);
-            int i = GetPrivateProfileString(Section, Key, "", temp,
+            int i = GetPrivateProfileString(section, key, string.Empty, temp,
                                             255, this.path);
-            return temp.ToString();
+            return temp.ToString(0, i);
 
         }
 
@@ -144,10 +144,10 @@ namespace WillowTree
             return arrListSectionNames;
         }
 
-        public void WriteSectionNames(string SelectionName, string TypeString)
+        public void WriteSectionNames(string selectionName, string typeString)
         {
 
-                WritePrivateProfileSectionNames(SelectionName, "Type="+TypeString , path);
+                WritePrivateProfileSectionNames(selectionName, "Type="+typeString , path);
  
         }
 

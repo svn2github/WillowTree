@@ -42,7 +42,7 @@ namespace WillowTree
         public static void Write(this BinaryWriter writer, ICollection<byte> collection, bool isLittleEndian)
         {
             if (writer == null)
-                throw new ArgumentNullException("reader");
+                throw new ArgumentNullException("writer");
             if (collection == null)
                 throw new ArgumentNullException("collection");
 
@@ -91,7 +91,7 @@ namespace WillowTree
         public static void Write(this BinaryWriter writer, ICollection<short> collection, bool isLittleEndian)
         {
             if (writer == null)
-                throw new ArgumentNullException("reader");
+                throw new ArgumentNullException("writer");
             if (collection == null)
                 throw new ArgumentNullException("collection");
 
@@ -145,7 +145,7 @@ namespace WillowTree
         public static void Write(this BinaryWriter writer, ICollection<ushort> collection, bool isLittleEndian)
         {
             if (writer == null)
-                throw new ArgumentNullException("reader");
+                throw new ArgumentNullException("writer");
             if (collection == null)
                 throw new ArgumentNullException("collection");
 
@@ -194,7 +194,7 @@ namespace WillowTree
         public static void Write(this BinaryWriter writer, ICollection<int> collection, bool isLittleEndian)
         {
             if (writer == null)
-                throw new ArgumentNullException("reader");
+                throw new ArgumentNullException("writer");
             if (collection == null)
                 throw new ArgumentNullException("collection");
 
@@ -253,7 +253,7 @@ namespace WillowTree
         public static void Write(this BinaryWriter writer, ICollection<uint> collection, bool isLittleEndian)
         {
             if (writer == null)
-                throw new ArgumentNullException("reader");
+                throw new ArgumentNullException("writer");
             if (collection == null)
                 throw new ArgumentNullException("collection");
 
@@ -365,7 +365,7 @@ namespace WillowTree
         public static void Write(this BinaryWriter writer, ICollection<ulong> collection, bool isLittleEndian)
         {
             if (writer == null)
-                throw new ArgumentNullException("reader");
+                throw new ArgumentNullException("writer");
             if (collection == null)
                 throw new ArgumentNullException("collection");
 
@@ -426,7 +426,7 @@ namespace WillowTree
         public static void Write(this BinaryWriter writer, ICollection<float> collection, bool isLittleEndian)
         {
             if (writer == null)
-                throw new ArgumentNullException("reader");
+                throw new ArgumentNullException("writer");
             if (collection == null)
                 throw new ArgumentNullException("collection");
 
@@ -475,7 +475,7 @@ namespace WillowTree
         public static void Write(this BinaryWriter writer, ICollection<double> collection, bool isLittleEndian)
         {
             if (writer == null)
-                throw new ArgumentNullException("reader");
+                throw new ArgumentNullException("writer");
             if (collection == null)
                 throw new ArgumentNullException("collection");
 
@@ -554,18 +554,18 @@ namespace WillowTree
             }
 
             // Look for any non-ASCII characters in the input.
-            bool hasNonAscii = false;
+            bool requiresUnicode = false;
             for (int i = 0; i < value.Length; i++)
             {
                 if (value[i] > 256)
                 {
-                    hasNonAscii = true;
+                    requiresUnicode = true;
                     break;
                 }
             }
 
             // Generate the bytes (either ASCII or Unicode, depending on input).
-            if (!hasNonAscii)
+            if (!requiresUnicode)
             {
                 // Write character length (including null terminator).
                 writer.Write(value.Length + 1, isLittleEndian);
@@ -605,7 +605,7 @@ namespace WillowTree
         public static void Write(this BinaryWriter writer, ICollection<string> collection, bool isLittleEndian)
         {
             if (writer == null)
-                throw new ArgumentNullException("reader");
+                throw new ArgumentNullException("writer");
             if (collection == null)
                 throw new ArgumentNullException("collection");
 

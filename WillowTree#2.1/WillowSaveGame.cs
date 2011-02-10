@@ -380,118 +380,125 @@ namespace WillowTree
         public uint TitleID = 1414793191;
 
         ///<summary>Reports back the expected platform this WSG was created on.</summary>
-        public static string WSGType(byte[] InputWSG)
+        public static string WSGType(Stream inputWSG)
         {
-            BinaryReader SaveReader = new BinaryReader(new MemoryStream(InputWSG));
-           
-            string Magic = new string(SaveReader.ReadChars(3));
+            BinaryReader saveReader = new BinaryReader(inputWSG);
 
-            if (Magic == "CON")
+            byte byte1 = saveReader.ReadByte();
+            byte byte2 = saveReader.ReadByte();
+            byte byte3 = saveReader.ReadByte();
+            if (byte1 == 'C' && byte2 == 'O' && byte3 == 'N')
             {
-                SaveReader.ReadBytes(53245);
-                string SecondaryMagic = new string(SaveReader.ReadChars(3));
-                SaveReader.Close();
+                byte byte4 = saveReader.ReadByte();
+                if (byte4 == ' ')
+                {
+                    // This is a really lame way to check for the WSG data...
+                    saveReader.BaseStream.Seek(53244, SeekOrigin.Current);
 
-                if (SecondaryMagic == "WSG")
-                    return "X360";
-                else
-                    return "Not WSG";
+                    byte1 = saveReader.ReadByte();
+                    byte2 = saveReader.ReadByte();
+                    byte3 = saveReader.ReadByte();
+                    if (byte1 == 'W' && byte2 == 'S' && byte3 == 'G')
+                        return "X360";
+                }
+
+                return "Not WSG";
             }
-            else if (Magic == "WSG")
+            else if (byte1 == 'W' && byte2 == 'S' && byte3 == 'G')
             {
-                int WSG_Version = SaveReader.ReadInt32();
-                SaveReader.Close();
-                bool LittleEndian = BitConverter.IsLittleEndian;
+                int wsgVersion = saveReader.ReadInt32();
+                bool littleEndian;
 
-                switch (WSG_Version)
+                switch (wsgVersion)
                 {
                     case 0x02000000: // 33554432 decimal
-                        LittleEndian = !LittleEndian;
-                        goto case 2;
-                    case 2:
-                        if (LittleEndian)
-                            return "PC";
-                        else 
-                            return "PS3";
+                        littleEndian = !BitConverter.IsLittleEndian;
+                        break;
+                    case 0x00000002:
+                        littleEndian = BitConverter.IsLittleEndian;
+                        break;
                     default:
                         return "unknown";
                 }
-            }
-            else
-            {
-                SaveReader.Close();
-                return "Not WSG";
+
+                if (littleEndian)
+                    return "PC";
+                else
+                    return "PS3";
             }
 
+            return "Not WSG";
         }
-        ///<summary>Extracts a WSG from a CON.</summary>
-        public byte[] WSGExtract(string InputX360File)
+
+        ///<summary>Extracts a WSG from a CON (XBox 360 Container File).</summary>
+        public Stream WSGExtract(Stream inputX360File)
         {
+            // NOTE: There might be a file descriptor leak here, since DJsIO
+            // does not implement IDisposable like it should.
             try
             {
-                STFSPackage CON = new STFSPackage(new DJsIO(InputX360File, DJFileMode.Open, true), new X360.Other.LogRecord());
-                DJsIO Extract = new DJsIO(true);
-                //CON.FileDirectory[0].Extract(Extract);
-                ProfileID = CON.Header.ProfileID;
-                DeviceID = CON.Header.DeviceID;
+                STFSPackage con = new STFSPackage(new DJsIO(inputX360File, true), new X360.Other.LogRecord());
+                //DJsIO Extract = new DJsIO(true);
+                //con.FileDirectory[0].Extract(Extract);
+                ProfileID = con.Header.ProfileID;
+                DeviceID = con.Header.DeviceID;
                 //DJsIO Save = new DJsIO("C:\\temp.sav", DJFileMode.Create, true);
                 //Save.Write(Extract.ReadStream());
                 //Save.Close();
-                //byte[] nom = CON.GetFile("SaveGame.sav").GetEntryData(); 
-                return CON.GetFile("SaveGame.sav").GetTempIO(true).ReadStream();
+                //byte[] nom = con.GetFile("SaveGame.sav").GetEntryData(); 
+                return con.GetFile("SaveGame.sav").GetTempIO(true).GrabStream();
             }
             catch
             {
                 try
                 {
-                    DJsIO Manual = new DJsIO(InputX360File, DJFileMode.Open, true);
-                    Manual.ReadBytes(881);
-                    ProfileID = Manual.ReadInt64();
-                    Manual.ReadBytes(132);
-                    DeviceID = Manual.ReadBytes(20);
-                    Manual.ReadBytes(48163);
-                    int size = Manual.ReadInt32();
-                    Manual.ReadBytes(4040);
-                    return Manual.ReadBytes(size);
+                    DJsIO manual = new DJsIO(inputX360File, true);
+                    manual.ReadBytes(881);
+                    ProfileID = manual.ReadInt64();
+                    manual.ReadBytes(132);
+                    DeviceID = manual.ReadBytes(20);
+                    manual.ReadBytes(48163);
+                    int size = manual.ReadInt32();
+                    manual.ReadBytes(4040);
+                    return new MemoryStream(manual.ReadBytes(size), false);
                 }
                 catch { return null; }
             }
         }
+
         ///<summary>Converts a file to a byte[] for use with ReadWSG</summary>
-        public void OpenWSG(string InputFile)
+        public void OpenWSG(string inputFile)
         {
-            //try
-            //{
-            DJsIO Reader = new DJsIO(InputFile, DJFileMode.Open, true);
-            Platform = WSGType(Reader.ReadStream());
-
-            if (Platform == "X360")
+            using (FileStream fileStream = new FileStream(inputFile, FileMode.Open, FileAccess.Read, FileShare.Read))
             {
-                Reader.Close();
-                ReadWSG(WSGExtract(InputFile));
+                Platform = WSGType(fileStream);
 
-            }
-            else if (Platform == "PS3")
-            {
-                ReadWSG(Reader.ReadStream());
-                Reader.Close();
-            }
-            else if (Platform == "PC")
-            {
-                ReadWSG(Reader.ReadStream());
-                Reader.Close();
-            }
-            OpenedWSG = InputFile;
-            //}
+                if (string.Equals(Platform, "X360", StringComparison.Ordinal))
+                {
+                    using (Stream dataStream = WSGExtract(fileStream))
+                    {
+                        ReadWSG(dataStream);
+                    }
+                }
+                else if (string.Equals(Platform, "PS3", StringComparison.Ordinal) ||
+                    string.Equals(Platform, "PC", StringComparison.Ordinal))
+                {
+                    fileStream.Seek(0, SeekOrigin.Begin);
+                    ReadWSG(fileStream);
+                }
+                else
+                {
+                    throw new FileFormatException("Input file is not a WSG (platform is " + Platform + ").");
+                }
 
-            //catch { }
-
+                OpenedWSG = inputFile;
+            }
         }
+
         ///<summary>Reads and decompiles the contents of a WSG</summary>
-        public void ReadWSG(byte[] FileArray)
+        public void ReadWSG(Stream FileArray)
         {
-            bool isBigEndian;
-            BinaryReader TestReader = new BinaryReader(new MemoryStream(FileArray), Encoding.ASCII);
+            BinaryReader TestReader = new BinaryReader(FileArray, Encoding.ASCII);
 
             ContainsRawData = false;
             MagicHeader = new string(TestReader.ReadChars(3));
@@ -656,7 +663,6 @@ namespace WillowTree
                     DLC.DataSections.Add(Section);
                 }
             }
-            TestReader.Close();
         }
 
         private void Skills(BinaryReader DJsIO, int NumOfSkills)

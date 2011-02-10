@@ -25,11 +25,9 @@ namespace WillowTree
     public partial class WillowTree : DevComponents.DotNetBar.Office2007RibbonForm
     {
         public bool Clicked = false; //Goes with the quest stuff. Really...ineffective.
-        public static WebClient Updater = new WebClient();
         public static bool UseTitlePrefix = false;
         string VersionFromServer;
         string DownloadURLFromServer;
-        Thread t1;
 
         //private Ini.IniFile TitlesIni = new Ini.IniFile("");
         private XmlFile TitlesXml = new XmlFile(Path.GetDirectoryName(Application.ExecutablePath) + "\\Data\\Titles.ini");
@@ -1710,20 +1708,25 @@ namespace WillowTree
         }
 
         //Recovers the latest version from the sourceforge server.
-        public void CheckVersion()
+        public void CheckVersion(object state)
         {
             try
             {
-                string VersionTextFromServer = Updater.DownloadString("http://willowtree.sourceforge.net/version.txt");
-                string[] RemoteVersionInfo = VersionTextFromServer.Replace("\r\n", "\n").Split('\n');
-                if ((RemoteVersionInfo.Count() > 1) || (RemoteVersionInfo.Count() <= 3))
+                using (WebClient webClient = new WebClient())
                 {
-                    VersionFromServer = RemoteVersionInfo[0];
-                    DownloadURLFromServer = RemoteVersionInfo[1];
+                    string VersionTextFromServer = webClient.DownloadString("http://willowtree.sourceforge.net/version.txt");
+                    string[] RemoteVersionInfo = VersionTextFromServer.Replace("\r\n", "\n").Split('\n');
+                    if ((RemoteVersionInfo.Count() > 1) || (RemoteVersionInfo.Count() <= 3))
+                    {
+                        VersionFromServer = RemoteVersionInfo[0];
+                        DownloadURLFromServer = RemoteVersionInfo[1];
+                    }
                 }
             }
-            catch { }
-
+            catch (WebException ex)
+            {
+                Trace.TraceError("Update check failed:" + Environment.NewLine + ex.ToString());
+            }
         }
 
 
@@ -2181,9 +2184,12 @@ namespace WillowTree
 
         private void WillowTree_Load(object sender, EventArgs e)
         {
-            t1 = new Thread(CheckVersion);
             StartUpFunctions();
-            t1.Start();
+
+#if !DEBUG
+            // Only check for new version if it's not a debug build.
+            ThreadPool.QueueUserWorkItem(CheckVersion);
+#endif
 
             //t1.Join();
             //if (VersionFromServer != Version.Text && VersionFromServer != "" && VersionFromServer != null)

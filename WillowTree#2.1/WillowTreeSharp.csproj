@@ -108,7 +108,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="INI.cs" />
-    <Compile Include="WillowSaveGame.cs.fixed.cs" />
+    <Compile Include="WillowSaveGame.cs" />
     <Compile Include="XBoxIDDialog.cs">
       <SubType>Form</SubType>
     </Compile>

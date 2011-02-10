@@ -1,6 +1,6 @@
 Changes made since 2.1:
 
-Added the ability to export savegames in PC or PS3 formats.  No support for Xbox yet.  Come to think of it the PC and PS3 saving may be buggy if you load an Xbox game and try to save using them.
+Added the ability to export savegames in PC, PS3 or Xbox formats as long as they have no raw data.
 
 Added WriteSingle and ReadSingle to handle floating point values.
 Fixed the way Ammo was being read/written so that it works properly on big endian machines.  It wasn't being corrupted the way it was, but it always showed up as 0 in the UI.

@@ -108,6 +108,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="INI.cs" />
+    <Compile Include="WillowSaveGame.cs.fixed.cs" />
     <Compile Include="XBoxIDDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,7 +148,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="WillowSaveGame.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

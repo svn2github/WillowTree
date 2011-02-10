@@ -431,36 +431,40 @@ namespace WillowTree
         }
 
         ///<summary>Extracts a WSG from a CON (XBox 360 Container File).</summary>
-        public Stream WSGExtract(Stream inputX360File)
+        ///<summary>Extracts a WSG from a CON.</summary>
+        public MemoryStream WSGExtract(Stream InputX360File)
         {
-            // NOTE: There might be a file descriptor leak here, since DJsIO
-            // does not implement IDisposable like it should.
+            BinaryReader br = new BinaryReader(InputX360File);
+            byte[] fileInMemory = br.ReadBytes((int)InputX360File.Length);
+            if (fileInMemory.Count() != InputX360File.Length)
+                throw new EndOfStreamException();
+
             try
             {
-                STFSPackage con = new STFSPackage(new DJsIO(inputX360File, true), new X360.Other.LogRecord());
-                //DJsIO Extract = new DJsIO(true);
-                //con.FileDirectory[0].Extract(Extract);
-                ProfileID = con.Header.ProfileID;
-                DeviceID = con.Header.DeviceID;
+                STFSPackage CON = new STFSPackage(new DJsIO(fileInMemory, true), new X360.Other.LogRecord());
+//                DJsIO Extract = new DJsIO(true);
+                //CON.FileDirectory[0].Extract(Extract);
+                ProfileID = CON.Header.ProfileID;
+                DeviceID = CON.Header.DeviceID;
                 //DJsIO Save = new DJsIO("C:\\temp.sav", DJFileMode.Create, true);
                 //Save.Write(Extract.ReadStream());
                 //Save.Close();
-                //byte[] nom = con.GetFile("SaveGame.sav").GetEntryData(); 
-                return con.GetFile("SaveGame.sav").GetTempIO(true).GrabStream();
+                //byte[] nom = CON.GetFile("SaveGame.sav").GetEntryData(); 
+                return new MemoryStream(CON.GetFile("SaveGame.sav").GetTempIO(true).ReadStream(),false);
             }
             catch
             {
                 try
                 {
-                    DJsIO manual = new DJsIO(inputX360File, true);
-                    manual.ReadBytes(881);
-                    ProfileID = manual.ReadInt64();
-                    manual.ReadBytes(132);
-                    DeviceID = manual.ReadBytes(20);
-                    manual.ReadBytes(48163);
-                    int size = manual.ReadInt32();
-                    manual.ReadBytes(4040);
-                    return new MemoryStream(manual.ReadBytes(size), false);
+                    DJsIO Manual = new DJsIO(fileInMemory, true);
+                    Manual.ReadBytes(881);
+                    ProfileID = Manual.ReadInt64();
+                    Manual.ReadBytes(132);
+                    DeviceID = Manual.ReadBytes(20);
+                    Manual.ReadBytes(48163);
+                    int size = Manual.ReadInt32();
+                    Manual.ReadBytes(4040);
+                    return new MemoryStream(Manual.ReadBytes(size), false);
                 }
                 catch { return null; }
             }
@@ -472,18 +476,16 @@ namespace WillowTree
             using (FileStream fileStream = new FileStream(inputFile, FileMode.Open, FileAccess.Read, FileShare.Read))
             {
                 Platform = WSGType(fileStream);
+                fileStream.Seek(0, SeekOrigin.Begin);
 
                 if (string.Equals(Platform, "X360", StringComparison.Ordinal))
                 {
-                    using (Stream dataStream = WSGExtract(fileStream))
-                    {
-                        ReadWSG(dataStream);
-                    }
+
+                    ReadWSG(WSGExtract(fileStream));
                 }
                 else if (string.Equals(Platform, "PS3", StringComparison.Ordinal) ||
                     string.Equals(Platform, "PC", StringComparison.Ordinal))
                 {
-                    fileStream.Seek(0, SeekOrigin.Begin);
                     ReadWSG(fileStream);
                 }
                 else

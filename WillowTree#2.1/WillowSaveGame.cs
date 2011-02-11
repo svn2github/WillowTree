@@ -15,7 +15,6 @@ namespace WillowTree
     // it works doesn't it? Aaaaaaaanyway, I really want to fix up the opening/saving process so that you
     // can edit specific parts of the save without requiring a complete rebuild. For example, if you just 
     // (want to) edit a weapon, it rebuilds the weapon list only.
-
     public enum ByteOrder
     {
         LittleEndian,
@@ -24,6 +23,23 @@ namespace WillowTree
 
     public class WillowSaveGame
     {
+        private static string BytesToStringOrdinal(byte[] inBytes)
+        {
+            int count = inBytes.Count();
+            StringBuilder sb = new StringBuilder(count);
+            for (int i = 0; i < count; i++)
+                sb.Append((char)inBytes[i]);
+            return sb.ToString() ;
+        }
+
+        private static byte[] StringToBytesOrdinal(string inString)
+        {
+            byte[] outBytes = new byte[inString.Length];
+            for (int i = 0; i < inString.Length; i++)
+                outBytes[i] = (byte)inString[i];
+            return outBytes;
+        }
+
         private static byte[] ReadBytes(BinaryReader br, int fieldSize, ByteOrder byteOrder)
         {
             byte[] bytes = br.ReadBytes(fieldSize);
@@ -129,7 +145,7 @@ namespace WillowTree
                 if (data.Length != tempLengthValue)
                     throw new EndOfStreamException();
 
-                value = Encoding.ASCII.GetString(data);
+                value = BytesToStringOrdinal(data);
             }
 
             // Look for the null terminator character. If not found, return
@@ -175,7 +191,7 @@ namespace WillowTree
                 Write(writer, value.Length + 1, endian);
 
                 // Write ASCII encoded string.
-                writer.Write(Encoding.ASCII.GetBytes(value));
+                writer.Write(StringToBytesOrdinal(value));
 
                 // Write null terminator.
                 writer.Write((byte)0);
@@ -1257,6 +1273,7 @@ namespace WillowTree
             public Byte TypeId;
             public List<string> Parts = new List<string>();
             public Int32 AmmoOrQuantity;
+            public Byte Equipped;
             public Int16 Quality;
             public Int16 Level;
         }
@@ -1359,12 +1376,23 @@ namespace WillowTree
             for (int i = 3; i < partCount; i++)
                 entry.Parts.Add(ReadBankString(br, endian));
 
-            // I don't understand the significance of the bytes in the footer, but
-            // the bytes are always {0, 0, 0, 0, 0, 0, 0, 0, 0, 1} in every save I've found
             byte[] Footer = br.ReadBytes(10);
-            for (int i = 0; i < 9; i++)
+            // da_fileserver's investigation has led him to believe the footer bytes are:
+            // (Int)GameStage - default 0
+            // (Int)AwesomeLevel - default 0
+            // (Byte)Equipped - default 0
+            // (Byte)DropOnDeath - default 1 (this is whether an npc would drop it when it dies not you)
+            // (Byte)ShopsHaveInfiniteQuantity - default 0
+            // matt911 - It seems apparent that this table is used for more than just the bank inventory 
+            // in the game.  None of the values are stored in the inventory part of the savegame
+            // except Equipped and even that will be updated immediately when you take the item
+            // out of the bank.  I've never seen any of these with anything except the default value
+            // in the bank except Equipped so I will store that in case it is not what we think it
+            // is and it is important, but I am doubtful that it is.
+            for (int i = 0; i < 7; i++)
                 System.Diagnostics.Debug.Assert(Footer[i] == 0);
-            System.Diagnostics.Debug.Assert(Footer[9] == 1);
+            System.Diagnostics.Debug.Assert(Footer[9] == 1); // This might be 1 for a health pack
+            entry.Equipped = Footer[8];
 
             switch (entry.TypeId)
             {
@@ -1405,7 +1433,9 @@ namespace WillowTree
             for (int i = 3; i < entry.Parts.Count; i++)
                 WriteBankString(bw, entry.Parts[i], Endian);
 
+            // see ReadBankItem for notes about the footer bytes
             Byte[] Footer = new Byte[10] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 };
+            Footer[9] = entry.Equipped;
             bw.Write(Footer);
 
             switch (entry.TypeId)

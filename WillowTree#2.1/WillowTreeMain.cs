@@ -1850,7 +1850,6 @@ namespace WillowTree
             {
                 DebugTab.Enabled = false;
                 DebugTab.Visible = false;
-                TestNewUI_Button.Visible = false;
             }
             SelectFormat.Enabled = false;
             //DoLocationsList();
@@ -5868,12 +5867,6 @@ namespace WillowTree
             }
         }
 
-        private void TestNewUI_Button_Click(object sender, EventArgs e)
-        {
-            MainWindow NewUI = new MainWindow();
-            NewUI.ShowDialog();
-        }
-
         private void DoWindowTitle()
         {
             this.Text = "WillowTree# - " + CharacterName.Text + "  Level " + Level.Value + " " + Class.Text + " (" + CurrentWSG.Platform + ")";
@@ -5914,7 +5907,6 @@ namespace WillowTree
                 XBoxIDDialog dlgXBoxID = new XBoxIDDialog();
                 if (dlgXBoxID.ShowDialog() == DialogResult.OK)
                 {
-
                     CurrentWSG.ProfileID = dlgXBoxID.ID.ProfileID;
                     int DeviceIDLength = dlgXBoxID.ID.DeviceID.Count();
                     CurrentWSG.DeviceID = new byte[DeviceIDLength];

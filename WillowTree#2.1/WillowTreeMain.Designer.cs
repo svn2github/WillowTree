@@ -191,7 +191,6 @@
             this.labelItem11 = new DevComponents.DotNetBar.LabelItem();
             this.ribbonControl2 = new DevComponents.DotNetBar.RibbonControl();
             this.ribbonPanel10 = new DevComponents.DotNetBar.RibbonPanel();
-            this.TestNewUI_Button = new System.Windows.Forms.Button();
             this.UpdateBar = new DevComponents.DotNetBar.Bar();
             this.groupPanel7 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -1981,7 +1980,6 @@
             // ribbonPanel10
             // 
             this.ribbonPanel10.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.ribbonPanel10.Controls.Add(this.TestNewUI_Button);
             this.ribbonPanel10.Controls.Add(this.UpdateBar);
             this.ribbonPanel10.Controls.Add(this.groupPanel7);
             this.ribbonPanel10.Controls.Add(this.WT_Background);
@@ -1991,15 +1989,6 @@
             this.ribbonPanel10.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.ribbonPanel10.Size = new System.Drawing.Size(944, 588);
             this.ribbonPanel10.TabIndex = 10;
-            // 
-            // TestNewUI_Button
-            // 
-            this.TestNewUI_Button.Location = new System.Drawing.Point(12, 36);
-            this.TestNewUI_Button.Name = "TestNewUI_Button";
-            this.TestNewUI_Button.Size = new System.Drawing.Size(128, 33);
-            this.TestNewUI_Button.TabIndex = 40;
-            this.TestNewUI_Button.Text = "Test New UI";
-            this.TestNewUI_Button.Click += new System.EventHandler(this.TestNewUI_Button_Click);
             // 
             // UpdateBar
             // 
@@ -5424,7 +5413,6 @@
         private DevComponents.DotNetBar.ButtonItem buttonItem6;
         private DevComponents.DotNetBar.GalleryContainer galleryContainer9;
         private DevComponents.DotNetBar.LabelItem labelItem10;
-        private System.Windows.Forms.Button TestNewUI_Button;
         private DevComponents.DotNetBar.GalleryContainer galleryContainer10;
         private DevComponents.DotNetBar.LabelItem labelItem11;
         private DevComponents.AdvTree.AdvTree WeaponTree;

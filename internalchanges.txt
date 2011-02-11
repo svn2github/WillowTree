@@ -1,5 +1,7 @@
 Changes made since 2.1:
 
+Window title shows character name, level, class, and save format now.
+
 Added the ability to export savegames in PC, PS3 or Xbox formats as long as they have no raw data.
 
 Added WriteSingle and ReadSingle to handle floating point values.

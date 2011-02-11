@@ -72,6 +72,7 @@ namespace WillowTree
             STFSPackage CON = new STFSPackage(new DJsIO(FileName, DJFileMode.Open, true), new X360.Other.LogRecord());
             ProfileID = CON.Header.ProfileID;
             DeviceID = CON.Header.DeviceID;
+            CON.CloseIO();
         }
     }
 

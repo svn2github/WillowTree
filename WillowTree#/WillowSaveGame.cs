@@ -29,7 +29,7 @@ namespace WillowTree
             StringBuilder sb = new StringBuilder(count);
             for (int i = 0; i < count; i++)
                 sb.Append((char)inBytes[i]);
-            return sb.ToString() ;
+            return sb.ToString();
         }
 
         private static byte[] StringToBytesOrdinal(string inString)
@@ -61,22 +61,24 @@ namespace WillowTree
         }
         private static byte[] ReadBytes(byte[] inBytes, int fieldSize, ByteOrder byteOrder)
         {
+            // NOTE: The input byte array may be modified and is used as the
+            // return value!
+
             System.Diagnostics.Debug.Assert(inBytes != null, "inBytes != null");
             System.Diagnostics.Debug.Assert(inBytes.Length >= fieldSize, "inBytes.Length >= fieldSize");
 
-            byte[] bytes = new byte[fieldSize];
-            if (byteOrder == ByteOrder.LittleEndian)
-                return inBytes;
+            if (BitConverter.IsLittleEndian)
+            {
+                if (byteOrder == ByteOrder.BigEndian)
+                    Array.Reverse(inBytes, 0, fieldSize);
+            }
             else
             {
-                int f = 0;
-                for (int i = fieldSize - 1; i > -1; i--)
-                {
-                    bytes[i] = inBytes[f];
-                    f++;
-                }
-                return bytes;
+                if (byteOrder == ByteOrder.LittleEndian)
+                    Array.Reverse(inBytes, 0, fieldSize);
             }
+
+            return inBytes;
         }
 
         private static float ReadSingle(BinaryReader reader, ByteOrder Endian)
@@ -428,10 +430,10 @@ namespace WillowTree
                 switch (wsgVersion)
                 {
                     case 0x02000000: // 33554432 decimal
-                        littleEndian = !BitConverter.IsLittleEndian;
+                        littleEndian = false;
                         break;
                     case 0x00000002:
-                        littleEndian = BitConverter.IsLittleEndian;
+                        littleEndian = true;
                         break;
                     default:
                         return "unknown";
@@ -447,7 +449,6 @@ namespace WillowTree
         }
 
         ///<summary>Extracts a WSG from a CON (XBox 360 Container File).</summary>
-        ///<summary>Extracts a WSG from a CON.</summary>
         public MemoryStream WSGExtract(Stream InputX360File)
         {
             BinaryReader br = new BinaryReader(InputX360File);
@@ -458,7 +459,7 @@ namespace WillowTree
             try
             {
                 STFSPackage CON = new STFSPackage(new DJsIO(fileInMemory, true), new X360.Other.LogRecord());
-//                DJsIO Extract = new DJsIO(true);
+                //DJsIO Extract = new DJsIO(true);
                 //CON.FileDirectory[0].Extract(Extract);
                 ProfileID = CON.Header.ProfileID;
                 DeviceID = CON.Header.DeviceID;
@@ -466,7 +467,7 @@ namespace WillowTree
                 //Save.Write(Extract.ReadStream());
                 //Save.Close();
                 //byte[] nom = CON.GetFile("SaveGame.sav").GetEntryData(); 
-                return new MemoryStream(CON.GetFile("SaveGame.sav").GetTempIO(true).ReadStream(),false);
+                return new MemoryStream(CON.GetFile("SaveGame.sav").GetTempIO(true).ReadStream(), false);
             }
             catch
             {
@@ -496,7 +497,6 @@ namespace WillowTree
 
                 if (string.Equals(Platform, "X360", StringComparison.Ordinal))
                 {
-
                     ReadWSG(WSGExtract(fileStream));
                 }
                 else if (string.Equals(Platform, "PS3", StringComparison.Ordinal) ||

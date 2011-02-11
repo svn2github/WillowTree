@@ -1891,7 +1891,7 @@ namespace WillowTree
                             Level.Value = Level.Maximum;
 
                     }
-                    catch
+                    catch (ArgumentOutOfRangeException)
                     {
                         MessageBox.Show("The level value was outside the acceptable range. Adjust your level and experience to their correct values.\r\nLevel: " + CurrentWSG.Level + "\r\nExperience: " + CurrentWSG.Experience);
                         Level.Value = 1;
@@ -1907,7 +1907,7 @@ namespace WillowTree
                             Experience.Value = Experience.Minimum;
 
                     }
-                    catch
+                    catch (ArgumentOutOfRangeException)
                     {
                         MessageBox.Show("The experience value was outside the acceptable range. Adjust your level and experience to their correct values.\r\nLevel: " + CurrentWSG.Level + "\r\nExperience: " + CurrentWSG.Experience);
 
@@ -1922,7 +1922,7 @@ namespace WillowTree
                     {
                         Cash.Value = CurrentWSG.Cash;
                     }
-                    catch
+                    catch (ArgumentOutOfRangeException)
                     {
                         Cash.Value = Cash.Maximum;
                         MessageBox.Show("This save has $" + CurrentWSG.Cash + ", which is outside of WillowTree#'s limits and can cause in-game issues. Because of this, your cash has been lowered. It is suggested that you further reduce your cash to prevent future problems.");

@@ -1435,7 +1435,7 @@ namespace WillowTree
 
             // see ReadBankItem for notes about the footer bytes
             Byte[] Footer = new Byte[10] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 };
-            Footer[9] = entry.Equipped;
+            Footer[8] = entry.Equipped;
             bw.Write(Footer);
 
             switch (entry.TypeId)

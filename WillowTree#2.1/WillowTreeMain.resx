@@ -231,20 +231,24 @@
 </value>
   </data>
   <data name="textBoxX1.Text" xml:space="preserve">
-    <value>WillowTree# v2.1.1
+    <value>WillowTree# v2.2.0
 ------------------------
-Version 2.1 revisions performed by matt911
+Version 2.2  revisions performed by matt911 and da_fileserver
 
 WillowTree# was created by XanderChaos
 WSG format research by matt911, Turk645, and XanderChaos
 X360 class by DJ Shepherd 
-Major revisions by JackSchitt
+Major revisions by JackSchitt, matt911, and da_fileserver
 
 WillowTree# is an open source project.  Visit the development site at willowtree.sourceforge.net.
 --------------------------
+Update v2.2.0
+- Savegame conversion has been implemented.  You can now write most saves as PC, PS3, or XBox 360.
+- Fixed inability to load XBox 360 savegames at all in version 2.1 and 2.1.1 because of missing resource file.
+- Window title will now updates so you can look at it to know which character you are editing
 
 Update v2.1.1:
-- Rewrote string handling to work with non-English strings.  I had made a hotvix version 2.1.0.40 but it broke the PS3/XBox string handling.  This fixes that.  Because of the possibility of 2.1.0.40 to corrupt old saves I am pushing the new version in the update check.
+- Rewrote string handling to work with non-English strings.  A hotvix version 2.1.0.40 broke the PS3/XBox string handling.  This fixes that.
 
 Update v2.1.0:
 - Complete rewrite of the DLC block load/save code

@@ -4321,6 +4321,11 @@ namespace WillowTree
         {
             //try
             //{
+            if (EchoTree.SelectedNode == null)
+            {
+                MessageBox.Show("Select a playthrough to import first.");
+                return;
+            }
             OpenFileDialog tempImport = new OpenFileDialog();
             if (EchoTree.SelectedNode.Name == "PT2" || EchoTree.SelectedNode.Text == "Playthrough 2 Echo Logs")
             {
@@ -5771,7 +5776,6 @@ namespace WillowTree
                 // Set all nodes to standard style
                 LockerTree.Nodes[ndcnt].Style = elementStyle5;
 
-
             int srcnt = 0;
             int srfcnt = 0;
             foreach (string searchresult in searchresults)
@@ -5787,15 +5791,9 @@ namespace WillowTree
                         srfcnt++;
                         break;
                     }
-
-
                 }
-
             }
-
-
         }
-
 
         private void lockerSearch_KeyDown(object sender, KeyEventArgs e)
         {

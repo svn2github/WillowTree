@@ -1942,8 +1942,8 @@
             this.ribbonControl2.CategorizeMode = DevComponents.DotNetBar.eCategorizeMode.Categories;
             this.ribbonControl2.Controls.Add(this.ribbonPanel10);
             this.ribbonControl2.Controls.Add(this.ribbonPanel1);
-            this.ribbonControl2.Controls.Add(this.ribbonPanel5);
             this.ribbonControl2.Controls.Add(this.ribbonPanel11);
+            this.ribbonControl2.Controls.Add(this.ribbonPanel5);
             this.ribbonControl2.Controls.Add(this.ribbonPanel9);
             this.ribbonControl2.Controls.Add(this.DLCValue1);
             this.ribbonControl2.Controls.Add(this.ribbonPanel3);
@@ -2612,7 +2612,7 @@
             this.Version.Name = "Version";
             this.Version.Size = new System.Drawing.Size(31, 13);
             this.Version.TabIndex = 37;
-            this.Version.Text = "2.1.1";
+            this.Version.Text = "2.2.0";
             // 
             // button1
             // 
@@ -5212,7 +5212,6 @@
         private DevComponents.DotNetBar.RibbonTabItem ribbonTabItem1;
         private DevComponents.DotNetBar.Controls.ReflectionImage WT_Background;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel7;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
         private System.Windows.Forms.NumericUpDown SaveNumber;
         private System.Windows.Forms.NumericUpDown SkillPoints;
         private System.Windows.Forms.NumericUpDown Cash;
@@ -5425,5 +5424,6 @@
         private DevComponents.DotNetBar.ButtonItem PCFormat;
         private DevComponents.DotNetBar.ButtonItem FormatPS3;
         private DevComponents.DotNetBar.ButtonItem XBoxFormat;
+        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
     }
 }

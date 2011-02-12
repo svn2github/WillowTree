@@ -732,9 +732,9 @@ namespace WillowTree
 
                 List<int> values = new List<int>();
                 Int32 Value1 = ReadInt32(reader, EndianWSG);
-                int tempLevelQuality = ReadInt32(reader, EndianWSG);
-                Int16 Quality = (Int16)(tempLevelQuality % 65536);
-                Int16 Level = (Int16)(tempLevelQuality / 65536);
+                UInt32 tempLevelQuality = (UInt32)ReadInt32(reader, EndianWSG);
+                Int16 Quality = (Int16)(tempLevelQuality % (UInt32)65536);
+                Int16 Level = (Int16)(tempLevelQuality / (UInt32)65536);
                 Int32 EquippedSlot = ReadInt32(reader, EndianWSG);
                 values.Add(Value1);
                 values.Add(Quality);
@@ -754,9 +754,9 @@ namespace WillowTree
 
                 List<int> values = new List<int>();
                 Int32 AmmoCount = ReadInt32(reader, EndianWSG);
-                int tempLevelQuality = ReadInt32(reader, EndianWSG);
-                Int16 Level = (Int16)(tempLevelQuality / 65536);
-                Int16 Quality = (Int16)(tempLevelQuality % 65536);
+                UInt32 tempLevelQuality = (UInt32)ReadInt32(reader, EndianWSG);
+                Int16 Level = (Int16)(tempLevelQuality / (UInt32)65536);
+                Int16 Quality = (Int16)(tempLevelQuality % (UInt32)65536);
                 Int32 EquippedSlot = ReadInt32(reader, EndianWSG);
                 values.Add(AmmoCount);
                 values.Add(Quality);
@@ -983,8 +983,8 @@ namespace WillowTree
                     Write(Out, ItemStrings1[Progress][TotalStrings], EndianWSG);
 
                 Write(Out, ItemValues1[Progress][0], EndianWSG);
-                Int32 tempLevelQuality = ItemValues1[Progress][1] + ItemValues1[Progress][3] * 65536;
-                Write(Out, tempLevelQuality, EndianWSG);
+                UInt32 tempLevelQuality = (UInt16)ItemValues1[Progress][1] + (UInt16)ItemValues1[Progress][3] * (UInt32)65536;
+                Write(Out, (Int32)tempLevelQuality, EndianWSG);
                 Write(Out, ItemValues1[Progress][2], EndianWSG);
             }
 
@@ -998,8 +998,8 @@ namespace WillowTree
                     Write(Out, WeaponStrings1[Progress][TotalStrings1], EndianWSG);
 
                 Write(Out, WeaponValues1[Progress][0], EndianWSG);
-                Int32 tempLevelQuality = WeaponValues1[Progress][1] + WeaponValues1[Progress][3] * 65536;
-                Write(Out, tempLevelQuality, EndianWSG);
+                UInt32 tempLevelQuality = (UInt16)WeaponValues1[Progress][1] + (UInt16)WeaponValues1[Progress][3] * (UInt32)65536;
+                Write(Out, (Int32)tempLevelQuality, EndianWSG);
                 Write(Out, WeaponValues1[Progress][2], EndianWSG);
             }
 
@@ -1159,8 +1159,8 @@ namespace WillowTree
                                 Write(memwriter, ItemStrings2[Progress][TotalStrings], EndianWSG);
 
                             Write(memwriter, ItemValues2[Progress][0], EndianWSG);
-                            Int32 tempLevelQuality = ItemValues2[Progress][1] + ItemValues2[Progress][3] * 65536;
-                            Write(memwriter, tempLevelQuality, EndianWSG);
+                            UInt32 tempLevelQuality = (UInt16)ItemValues2[Progress][1] + (UInt16)ItemValues2[Progress][3] * (UInt32)65536;
+                            Write(memwriter, (Int32)tempLevelQuality, EndianWSG);
                             Write(memwriter, ItemValues2[Progress][2], EndianWSG);
                         }
                         // The DLC backpack weapons
@@ -1171,8 +1171,8 @@ namespace WillowTree
                                 Write(memwriter, WeaponStrings2[Progress][TotalStrings], EndianWSG);
 
                             Write(memwriter, WeaponValues2[Progress][0], EndianWSG);
-                            Int32 tempLevelQuality = WeaponValues2[Progress][1] + WeaponValues2[Progress][3] * 65536;
-                            Write(memwriter, tempLevelQuality, EndianWSG);
+                            UInt32 tempLevelQuality = (UInt16)WeaponValues2[Progress][1] + (UInt16)WeaponValues2[Progress][3] * (UInt32)65536;
+                            Write(memwriter, (Int32)tempLevelQuality, EndianWSG);
                             Write(memwriter, WeaponValues2[Progress][2], EndianWSG);
                         }
                         break;
@@ -1356,9 +1356,9 @@ namespace WillowTree
             for (int i = 0; i < 3; i++)
                 entry.Parts.Add(ReadBankString(br, endian));
 
-            Int32 temp = ReadInt32(br, endian);
-            entry.Quality = (Int16)(temp % 65536);
-            entry.Level = (Int16)(temp / 65536);
+            UInt32 temp = (UInt32)ReadInt32(br, endian);
+            entry.Quality = (Int16)(temp % (UInt32)65536);
+            entry.Level = (Int16)(temp / (UInt32)65536);
 
             switch (entry.TypeId)
             {
@@ -1427,8 +1427,9 @@ namespace WillowTree
             for (int i = 0; i < 3; i++)
                 WriteBankString(bw, entry.Parts[i], Endian);
 
-            int grade = entry.Quality + entry.Level * 65536;
-            Write(bw, grade, Endian);
+            UInt32 grade = (UInt16)entry.Quality + (UInt16)entry.Level * (UInt32)65536;
+
+            Write(bw, (Int32)grade, Endian);
 
             for (int i = 3; i < entry.Parts.Count; i++)
                 WriteBankString(bw, entry.Parts[i], Endian);

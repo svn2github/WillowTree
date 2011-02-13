@@ -7,8 +7,10 @@ echo the tools from Windows SDK for Windows 7 from microsoft.com
 
 :have_build_tool
 cd ..
+mkdir dist
 rmdir /s /q bin\release
 "%buildtool%" willowtreesharp.sln /t:rebuild /p:configuration=Release
+del willowtreesharp.sln.cache
 cd tools
 cscript listfiles.vbs .. src_exclude.txt src_filelist.txt
 cscript listfiles.vbs ..\bin\release bin_exclude.txt bin_filelist.txt
@@ -21,5 +23,6 @@ jzip -a -r -p ..\..\dist\WillowTree#.zip @..\..\tools\bin_filelist.txt
 cd ..\..
 del tools\src_filelist.txt
 del tools\bin_filelist.txt
+rem del willowtreesharp.sln.cache
 explorer dist
 :end

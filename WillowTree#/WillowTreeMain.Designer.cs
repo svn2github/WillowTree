@@ -1,6 +1,6 @@
 ﻿namespace WillowTree
 {
-    partial class WillowTree
+    partial class WillowTreeMain
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WillowTree));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WillowTreeMain));
             this.NewLocation = new DevComponents.DotNetBar.ButtonItem();
             this.LocationsList = new DevComponents.DotNetBar.ComboBoxItem();
             this.DeleteLocation = new DevComponents.DotNetBar.ButtonItem();
@@ -1941,15 +1941,15 @@
             this.ribbonControl2.CaptionVisible = true;
             this.ribbonControl2.CategorizeMode = DevComponents.DotNetBar.eCategorizeMode.Categories;
             this.ribbonControl2.Controls.Add(this.ribbonPanel10);
-            this.ribbonControl2.Controls.Add(this.ribbonPanel1);
-            this.ribbonControl2.Controls.Add(this.ribbonPanel11);
-            this.ribbonControl2.Controls.Add(this.ribbonPanel5);
-            this.ribbonControl2.Controls.Add(this.ribbonPanel9);
             this.ribbonControl2.Controls.Add(this.DLCValue1);
             this.ribbonControl2.Controls.Add(this.ribbonPanel3);
             this.ribbonControl2.Controls.Add(this.ribbonPanel7);
             this.ribbonControl2.Controls.Add(this.ribbonPanel2);
             this.ribbonControl2.Controls.Add(this.ribbonPanel4);
+            this.ribbonControl2.Controls.Add(this.ribbonPanel5);
+            this.ribbonControl2.Controls.Add(this.ribbonPanel1);
+            this.ribbonControl2.Controls.Add(this.ribbonPanel11);
+            this.ribbonControl2.Controls.Add(this.ribbonPanel9);
             this.ribbonControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.ribbonControl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ribbonControl2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -2138,7 +2138,7 @@
             this.bar8.Location = new System.Drawing.Point(0, 0);
             this.bar8.Name = "bar8";
             this.bar8.RoundCorners = false;
-            this.bar8.Size = new System.Drawing.Size(273, 31);
+            this.bar8.Size = new System.Drawing.Size(267, 31);
             this.bar8.Stretch = true;
             this.bar8.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.bar8.TabIndex = 20;
@@ -3290,7 +3290,7 @@
             this.bar4.Location = new System.Drawing.Point(0, 0);
             this.bar4.Name = "bar4";
             this.bar4.RoundCorners = false;
-            this.bar4.Size = new System.Drawing.Size(273, 31);
+            this.bar4.Size = new System.Drawing.Size(267, 31);
             this.bar4.Stretch = true;
             this.bar4.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.bar4.TabIndex = 20;
@@ -3493,7 +3493,7 @@
             this.bar7.Location = new System.Drawing.Point(0, 0);
             this.bar7.Name = "bar7";
             this.bar7.RoundCorners = false;
-            this.bar7.Size = new System.Drawing.Size(273, 31);
+            this.bar7.Size = new System.Drawing.Size(267, 31);
             this.bar7.Stretch = true;
             this.bar7.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.bar7.TabIndex = 20;
@@ -3878,7 +3878,7 @@
             this.bar3.Location = new System.Drawing.Point(0, 0);
             this.bar3.Name = "bar3";
             this.bar3.RoundCorners = false;
-            this.bar3.Size = new System.Drawing.Size(273, 31);
+            this.bar3.Size = new System.Drawing.Size(267, 31);
             this.bar3.Stretch = true;
             this.bar3.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.bar3.TabIndex = 20;
@@ -4143,7 +4143,7 @@
             this.bar9.Location = new System.Drawing.Point(0, 0);
             this.bar9.Name = "bar9";
             this.bar9.RoundCorners = false;
-            this.bar9.Size = new System.Drawing.Size(273, 31);
+            this.bar9.Size = new System.Drawing.Size(267, 31);
             this.bar9.Stretch = true;
             this.bar9.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.bar9.TabIndex = 20;
@@ -4357,7 +4357,7 @@
             this.bar5.Location = new System.Drawing.Point(0, 0);
             this.bar5.Name = "bar5";
             this.bar5.RoundCorners = false;
-            this.bar5.Size = new System.Drawing.Size(273, 31);
+            this.bar5.Size = new System.Drawing.Size(267, 31);
             this.bar5.Stretch = true;
             this.bar5.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.bar5.TabIndex = 20;

@@ -61,8 +61,8 @@ namespace WillowTree
         }
         private static byte[] ReadBytes(byte[] inBytes, int fieldSize, ByteOrder byteOrder)
         {
-            // NOTE: The input byte array may be modified and is used as the
-            // return value!
+            byte[] outBytes = new byte[fieldSize];
+            Array.Copy(inBytes, outBytes, fieldSize);
 
             System.Diagnostics.Debug.Assert(inBytes != null, "inBytes != null");
             System.Diagnostics.Debug.Assert(inBytes.Length >= fieldSize, "inBytes.Length >= fieldSize");
@@ -70,15 +70,15 @@ namespace WillowTree
             if (BitConverter.IsLittleEndian)
             {
                 if (byteOrder == ByteOrder.BigEndian)
-                    Array.Reverse(inBytes, 0, fieldSize);
+                    Array.Reverse(outBytes, 0, fieldSize);
             }
             else
             {
                 if (byteOrder == ByteOrder.LittleEndian)
-                    Array.Reverse(inBytes, 0, fieldSize);
+                    Array.Reverse(outBytes, 0, fieldSize);
             }
 
-            return inBytes;
+            return outBytes;
         }
 
         private static float ReadSingle(BinaryReader reader, ByteOrder Endian)
@@ -425,15 +425,18 @@ namespace WillowTree
             else if (byte1 == 'W' && byte2 == 'S' && byte3 == 'G')
             {
                 int wsgVersion = saveReader.ReadInt32();
-                bool littleEndian;
 
+                // I get the little endian state from Bitconverter so that
+                // if someone manages to compile this code on a machine that uses 
+                // big endian byte order (like maybe an Xbox?) it will still work.  
+                // The PC is always little endian.
+                bool littleEndian = BitConverter.IsLittleEndian;
                 switch (wsgVersion)
                 {
                     case 0x02000000: // 33554432 decimal
-                        littleEndian = false;
+                        littleEndian = !littleEndian;
                         break;
                     case 0x00000002:
-                        littleEndian = true;
                         break;
                     default:
                         return "unknown";

@@ -246,6 +246,7 @@ Update v2.2.0
 - Savegame conversion has been implemented.  You can now write most saves as PC, PS3, or XBox 360.
 - Fixed inability to load XBox 360 savegames at all in version 2.1 and 2.1.1 because of missing resource file.
 - Window title updates now so you can look at it to know which character you are editing
+- Fixed a bug in the item level/quality handling that resulted in Scorpio weapons being corrupted in all 2.1 revisions.
 
 Update v2.1.1:
 - Rewrote string handling to work with non-English strings.  A hotfix version 2.1.0.40 broke the PS3/XBox string handling.  This fixes that.

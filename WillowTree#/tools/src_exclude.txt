@@ -3,4 +3,4 @@ obj\
 Dist\
 WillowTree_TemporaryKey.pfx
 WillowTreeSharp.suo
-distfilelist.txt
+willowtreesharp.sln.cache

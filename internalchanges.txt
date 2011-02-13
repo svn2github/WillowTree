@@ -1,5 +1,7 @@
 Changes made since 2.1:
 
+Fixed a bug with the handling quality and level that would corrupt any negative Int16 values and cause savegames not to load anymore if the person had a scorpio weapon.
+
 Window title shows character name, level, class, and save format now.
 
 Added the ability to export savegames in PC, PS3 or Xbox formats as long as they have no raw data.

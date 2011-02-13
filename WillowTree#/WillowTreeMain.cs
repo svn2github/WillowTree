@@ -22,7 +22,7 @@ namespace WillowTree
 {
 
 
-    public partial class WillowTree : DevComponents.DotNetBar.Office2007RibbonForm
+    public partial class WillowTreeMain : DevComponents.DotNetBar.Office2007RibbonForm
     {
         public bool Clicked = false; //Goes with the quest stuff. Really...ineffective.
         public static bool UseTitlePrefix = false;
@@ -1816,7 +1816,7 @@ namespace WillowTree
 
         private string AppDir = Path.GetDirectoryName(Application.ExecutablePath);
 
-        public WillowTree()
+        public WillowTreeMain()
         {
             InitializeComponent();
 
@@ -2055,7 +2055,7 @@ namespace WillowTree
 
                 else if (CurrentWSG.Platform == "X360")
                 {
-                    BinaryWriter Save = new BinaryWriter(new FileStream(tempSave.FileName, FileMode.Create));
+                    BinaryWriter Save = new BinaryWriter(new FileStream(tempSave.FileName + ".temp", FileMode.Create));
                     Save.Write(CurrentWSG.SaveWSG());
                     Save.Close();
 

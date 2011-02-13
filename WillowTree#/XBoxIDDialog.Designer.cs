@@ -34,19 +34,24 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.ProfileBox = new System.Windows.Forms.TextBox();
+            this.DeviceBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // XBoxIDFilePath
             // 
-            this.XBoxIDFilePath.Location = new System.Drawing.Point(12, 74);
+            this.XBoxIDFilePath.Location = new System.Drawing.Point(15, 75);
             this.XBoxIDFilePath.Name = "XBoxIDFilePath";
-            this.XBoxIDFilePath.Size = new System.Drawing.Size(632, 20);
+            this.XBoxIDFilePath.ReadOnly = true;
+            this.XBoxIDFilePath.Size = new System.Drawing.Size(338, 20);
             this.XBoxIDFilePath.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(650, 72);
+            this.button1.Location = new System.Drawing.Point(359, 73);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -56,20 +61,20 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(165, 100);
+            this.button2.Location = new System.Drawing.Point(68, 169);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(221, 23);
+            this.button2.Size = new System.Drawing.Size(197, 23);
             this.button2.TabIndex = 3;
-            this.button2.Text = "Copy the Device ID";
+            this.button2.Text = "Use these IDs";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
             this.button3.AutoSize = true;
-            this.button3.Location = new System.Drawing.Point(420, 100);
+            this.button3.Location = new System.Drawing.Point(271, 169);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(129, 23);
+            this.button3.Size = new System.Drawing.Size(163, 23);
             this.button3.TabIndex = 4;
             this.button3.Text = "Cancel";
             this.button3.UseVisualStyleBackColor = true;
@@ -81,10 +86,11 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(12, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(590, 13);
+            this.label1.Size = new System.Drawing.Size(405, 13);
             this.label1.TabIndex = 5;
-            this.label1.Text = "To load an XBox 360 savegame on your console it must have matching device identif" +
-                "iers to your unique XBox 360 machine.";
+            this.label1.Text = "Please select an Xbox 360 save from the same profile (Gamertag) and device so tha" +
+                "t";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -92,28 +98,73 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(12, 27);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(613, 13);
+            this.label2.Size = new System.Drawing.Size(215, 13);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Please specify the path of an existing XBox 360 savegame file created by your con" +
-                "sole to be used to extract the unique identifier.";
+            this.label2.Text = "WillowTree# can use their IDs as reference.";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // ProfileBox
+            // 
+            this.ProfileBox.Location = new System.Drawing.Point(68, 117);
+            this.ProfileBox.Name = "ProfileBox";
+            this.ProfileBox.ReadOnly = true;
+            this.ProfileBox.Size = new System.Drawing.Size(366, 20);
+            this.ProfileBox.TabIndex = 7;
+            // 
+            // DeviceBox
+            // 
+            this.DeviceBox.Location = new System.Drawing.Point(68, 143);
+            this.DeviceBox.Name = "DeviceBox";
+            this.DeviceBox.ReadOnly = true;
+            this.DeviceBox.Size = new System.Drawing.Size(366, 20);
+            this.DeviceBox.TabIndex = 7;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(12, 49);
+            this.label3.Location = new System.Drawing.Point(12, 120);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(199, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "This file will NOT be modified in any way.";
+            this.label3.Size = new System.Drawing.Size(50, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Profile ID";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label3.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Location = new System.Drawing.Point(7, 146);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Device ID";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label4.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Location = new System.Drawing.Point(12, 41);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(342, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "The save that you select as reference will NOT be modified in any way.";
+            this.label5.Click += new System.EventHandler(this.label2_Click);
             // 
             // XBoxIDDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WillowTree.Properties.Resources.background;
-            this.ClientSize = new System.Drawing.Size(732, 143);
+            this.ClientSize = new System.Drawing.Size(468, 211);
+            this.Controls.Add(this.DeviceBox);
+            this.Controls.Add(this.ProfileBox);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
@@ -122,7 +173,7 @@
             this.Controls.Add(this.XBoxIDFilePath);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "XBoxIDDialog";
-            this.Text = "XBox Identifier";
+            this.Text = "Xbox 360 Identifier";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,7 +187,11 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox ProfileBox;
+        private System.Windows.Forms.TextBox DeviceBox;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
 
 
     }

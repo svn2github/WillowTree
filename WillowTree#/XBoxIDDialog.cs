@@ -30,27 +30,45 @@ namespace WillowTree
             if (tempOpen.ShowDialog() == DialogResult.OK)
             {
                 XBoxIDFilePath.Text = tempOpen.FileName;
+                try
+                {
+                    ID = new XBoxUniqueID(tempOpen.FileName);
+                    ProfileBox.Text = ID.ProfileID.ToString("X");
+                    DeviceBox.Text = BitConverter.ToString(ID.DeviceID);
+                    DeviceBox.Text = DeviceBox.Text.Replace("-", "");
+                }
+                catch
+                {
+                    ID = null;
+                    MessageBox.Show("The file is not a valid Xbox 360 savegame file.");
+                    return;
+                }
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            try
+            if (ID != null)
             {
-                ID = new XBoxUniqueID(XBoxIDFilePath.Text);
+                this.DialogResult = DialogResult.OK;
             }
-            catch
-            {
-                ID = null;
-                MessageBox.Show("The file is not a valid XBox 360 savegame file.");
-                return;
-            }
-            this.DialogResult = DialogResult.OK;
+            else
+                MessageBox.Show("Please select a valid Xbox 360 save to use, first.");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
     public class XBoxUniqueID

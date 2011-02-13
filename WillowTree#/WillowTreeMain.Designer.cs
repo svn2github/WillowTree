@@ -195,82 +195,6 @@
             this.groupPanel7 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.WT_Background = new DevComponents.DotNetBar.Controls.ReflectionImage();
-            this.ribbonPanel1 = new DevComponents.DotNetBar.RibbonPanel();
-            this.groupPanel10 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.bar8 = new DevComponents.DotNetBar.Bar();
-            this.LocationTree = new DevComponents.AdvTree.AdvTree();
-            this.nodeConnector10 = new DevComponents.AdvTree.NodeConnector();
-            this.elementStyle19 = new DevComponents.DotNetBar.ElementStyle();
-            this.elementStyle20 = new DevComponents.DotNetBar.ElementStyle();
-            this.groupPanel8 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.label36 = new System.Windows.Forms.Label();
-            this.BankSpace = new System.Windows.Forms.NumericUpDown();
-            this.label29 = new System.Windows.Forms.Label();
-            this.CurrentLocation = new System.Windows.Forms.ComboBox();
-            this.Level = new System.Windows.Forms.NumericUpDown();
-            this.label25 = new System.Windows.Forms.Label();
-            this.Experience = new System.Windows.Forms.NumericUpDown();
-            this.EquipSlots = new System.Windows.Forms.NumericUpDown();
-            this.Cash = new System.Windows.Forms.NumericUpDown();
-            this.label24 = new System.Windows.Forms.Label();
-            this.SkillPoints = new System.Windows.Forms.NumericUpDown();
-            this.BackpackSpace = new System.Windows.Forms.NumericUpDown();
-            this.SaveNumber = new System.Windows.Forms.NumericUpDown();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.PT2Unlocked = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.Class = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.CharacterName = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.ribbonPanel11 = new DevComponents.DotNetBar.RibbonPanel();
-            this.LockerTreetry2 = new DevComponents.AdvTree.AdvTree();
-            this.nodeConnector11 = new DevComponents.AdvTree.NodeConnector();
-            this.elementStyle21 = new DevComponents.DotNetBar.ElementStyle();
-            this.elementStyle22 = new DevComponents.DotNetBar.ElementStyle();
-            this.InOutPartsBox = new System.Windows.Forms.TextBox();
-            this.Version = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.Breakpoint = new DevComponents.DotNetBar.ButtonX();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.ribbonPanel9 = new DevComponents.DotNetBar.RibbonPanel();
-            this.btnlockerSearch = new System.Windows.Forms.Button();
-            this.groupPanel14 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.LockerLevelLabel = new System.Windows.Forms.Label();
-            this.LockerLevel = new DevComponents.DotNetBar.Controls.Slider();
-            this.LockerRemAmmoLabel = new System.Windows.Forms.Label();
-            this.LockerRemAmmo = new System.Windows.Forms.NumericUpDown();
-            this.LockerQualityLabel = new System.Windows.Forms.Label();
-            this.LockerQuality = new DevComponents.DotNetBar.Controls.Slider();
-            this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.chkExpSettings = new System.Windows.Forms.CheckBox();
-            this.overrideLevellabel = new System.Windows.Forms.Label();
-            this.overrideLevel = new DevComponents.DotNetBar.Controls.Slider();
-            this.overrideQualitylabel = new System.Windows.Forms.Label();
-            this.overrideQuality = new DevComponents.DotNetBar.Controls.Slider();
-            this.overrideRemAmmolabel = new System.Windows.Forms.Label();
-            this.overrideRemAmmo = new System.Windows.Forms.NumericUpDown();
-            this.PartsLocker = new System.Windows.Forms.ListBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.DescriptionLocker = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.label26 = new System.Windows.Forms.Label();
-            this.ItemTypeLocker = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.RatingLocker = new DevComponents.DotNetBar.Controls.RatingStar();
-            this.bar11 = new DevComponents.DotNetBar.Bar();
-            this.NameLocker = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.groupPanel13 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.lockerSearch = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.bar10 = new DevComponents.DotNetBar.Bar();
-            this.LockerTree = new DevComponents.AdvTree.AdvTree();
-            this.nodeConnector3 = new DevComponents.AdvTree.NodeConnector();
-            this.elementStyle5 = new DevComponents.DotNetBar.ElementStyle();
-            this.elementStyle6 = new DevComponents.DotNetBar.ElementStyle();
             this.DLCValue1 = new DevComponents.DotNetBar.RibbonPanel();
             this.groupPanel16 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.EchoDLCValue2 = new System.Windows.Forms.NumericUpDown();
@@ -363,6 +287,82 @@
             this.Quantity = new System.Windows.Forms.NumericUpDown();
             this.ItemQualityLabel = new System.Windows.Forms.Label();
             this.ItemQuality = new DevComponents.DotNetBar.Controls.Slider();
+            this.ribbonPanel1 = new DevComponents.DotNetBar.RibbonPanel();
+            this.groupPanel10 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.bar8 = new DevComponents.DotNetBar.Bar();
+            this.LocationTree = new DevComponents.AdvTree.AdvTree();
+            this.nodeConnector10 = new DevComponents.AdvTree.NodeConnector();
+            this.elementStyle19 = new DevComponents.DotNetBar.ElementStyle();
+            this.elementStyle20 = new DevComponents.DotNetBar.ElementStyle();
+            this.groupPanel8 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.label36 = new System.Windows.Forms.Label();
+            this.BankSpace = new System.Windows.Forms.NumericUpDown();
+            this.label29 = new System.Windows.Forms.Label();
+            this.CurrentLocation = new System.Windows.Forms.ComboBox();
+            this.Level = new System.Windows.Forms.NumericUpDown();
+            this.label25 = new System.Windows.Forms.Label();
+            this.Experience = new System.Windows.Forms.NumericUpDown();
+            this.EquipSlots = new System.Windows.Forms.NumericUpDown();
+            this.Cash = new System.Windows.Forms.NumericUpDown();
+            this.label24 = new System.Windows.Forms.Label();
+            this.SkillPoints = new System.Windows.Forms.NumericUpDown();
+            this.BackpackSpace = new System.Windows.Forms.NumericUpDown();
+            this.SaveNumber = new System.Windows.Forms.NumericUpDown();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.PT2Unlocked = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.Class = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.CharacterName = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.ribbonPanel11 = new DevComponents.DotNetBar.RibbonPanel();
+            this.LockerTreetry2 = new DevComponents.AdvTree.AdvTree();
+            this.nodeConnector11 = new DevComponents.AdvTree.NodeConnector();
+            this.elementStyle21 = new DevComponents.DotNetBar.ElementStyle();
+            this.elementStyle22 = new DevComponents.DotNetBar.ElementStyle();
+            this.InOutPartsBox = new System.Windows.Forms.TextBox();
+            this.Version = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.Breakpoint = new DevComponents.DotNetBar.ButtonX();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ribbonPanel9 = new DevComponents.DotNetBar.RibbonPanel();
+            this.btnlockerSearch = new System.Windows.Forms.Button();
+            this.groupPanel14 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.LockerLevelLabel = new System.Windows.Forms.Label();
+            this.LockerLevel = new DevComponents.DotNetBar.Controls.Slider();
+            this.LockerRemAmmoLabel = new System.Windows.Forms.Label();
+            this.LockerRemAmmo = new System.Windows.Forms.NumericUpDown();
+            this.LockerQualityLabel = new System.Windows.Forms.Label();
+            this.LockerQuality = new DevComponents.DotNetBar.Controls.Slider();
+            this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.chkExpSettings = new System.Windows.Forms.CheckBox();
+            this.overrideLevellabel = new System.Windows.Forms.Label();
+            this.overrideLevel = new DevComponents.DotNetBar.Controls.Slider();
+            this.overrideQualitylabel = new System.Windows.Forms.Label();
+            this.overrideQuality = new DevComponents.DotNetBar.Controls.Slider();
+            this.overrideRemAmmolabel = new System.Windows.Forms.Label();
+            this.overrideRemAmmo = new System.Windows.Forms.NumericUpDown();
+            this.PartsLocker = new System.Windows.Forms.ListBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.DescriptionLocker = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.label26 = new System.Windows.Forms.Label();
+            this.ItemTypeLocker = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.RatingLocker = new DevComponents.DotNetBar.Controls.RatingStar();
+            this.bar11 = new DevComponents.DotNetBar.Bar();
+            this.NameLocker = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.groupPanel13 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.lockerSearch = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.bar10 = new DevComponents.DotNetBar.Bar();
+            this.LockerTree = new DevComponents.AdvTree.AdvTree();
+            this.nodeConnector3 = new DevComponents.AdvTree.NodeConnector();
+            this.elementStyle5 = new DevComponents.DotNetBar.ElementStyle();
+            this.elementStyle6 = new DevComponents.DotNetBar.ElementStyle();
             this.MainTab = new DevComponents.DotNetBar.RibbonTabItem();
             this.GeneralTab = new DevComponents.DotNetBar.RibbonTabItem();
             this.WeaponsTab = new DevComponents.DotNetBar.RibbonTabItem();
@@ -411,30 +411,6 @@
             this.ribbonPanel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UpdateBar)).BeginInit();
             this.groupPanel7.SuspendLayout();
-            this.ribbonPanel1.SuspendLayout();
-            this.groupPanel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bar8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LocationTree)).BeginInit();
-            this.groupPanel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BankSpace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Level)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Experience)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EquipSlots)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Cash)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SkillPoints)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BackpackSpace)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SaveNumber)).BeginInit();
-            this.ribbonPanel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LockerTreetry2)).BeginInit();
-            this.ribbonPanel9.SuspendLayout();
-            this.groupPanel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LockerRemAmmo)).BeginInit();
-            this.groupPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.overrideRemAmmo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bar11)).BeginInit();
-            this.groupPanel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bar10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LockerTree)).BeginInit();
             this.DLCValue1.SuspendLayout();
             this.groupPanel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EchoDLCValue2)).BeginInit();
@@ -474,6 +450,30 @@
             this.ItemPartsGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bar6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Quantity)).BeginInit();
+            this.ribbonPanel1.SuspendLayout();
+            this.groupPanel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bar8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LocationTree)).BeginInit();
+            this.groupPanel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BankSpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Level)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Experience)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EquipSlots)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cash)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SkillPoints)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BackpackSpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SaveNumber)).BeginInit();
+            this.ribbonPanel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LockerTreetry2)).BeginInit();
+            this.ribbonPanel9.SuspendLayout();
+            this.groupPanel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LockerRemAmmo)).BeginInit();
+            this.groupPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.overrideRemAmmo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bar11)).BeginInit();
+            this.groupPanel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bar10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LockerTree)).BeginInit();
             this.SuspendLayout();
             // 
             // NewLocation
@@ -1941,14 +1941,14 @@
             this.ribbonControl2.CaptionVisible = true;
             this.ribbonControl2.CategorizeMode = DevComponents.DotNetBar.eCategorizeMode.Categories;
             this.ribbonControl2.Controls.Add(this.ribbonPanel10);
+            this.ribbonControl2.Controls.Add(this.ribbonPanel11);
+            this.ribbonControl2.Controls.Add(this.ribbonPanel5);
+            this.ribbonControl2.Controls.Add(this.ribbonPanel1);
             this.ribbonControl2.Controls.Add(this.DLCValue1);
             this.ribbonControl2.Controls.Add(this.ribbonPanel3);
             this.ribbonControl2.Controls.Add(this.ribbonPanel7);
             this.ribbonControl2.Controls.Add(this.ribbonPanel2);
             this.ribbonControl2.Controls.Add(this.ribbonPanel4);
-            this.ribbonControl2.Controls.Add(this.ribbonPanel5);
-            this.ribbonControl2.Controls.Add(this.ribbonPanel1);
-            this.ribbonControl2.Controls.Add(this.ribbonPanel11);
             this.ribbonControl2.Controls.Add(this.ribbonPanel9);
             this.ribbonControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.ribbonControl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2076,6 +2076,1492 @@
             this.WT_Background.Size = new System.Drawing.Size(979, 561);
             this.WT_Background.TabIndex = 0;
             this.WT_Background.MouseClick += new System.Windows.Forms.MouseEventHandler(this.CheckVerPopup);
+            // 
+            // DLCValue1
+            // 
+            this.DLCValue1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.DLCValue1.Controls.Add(this.groupPanel16);
+            this.DLCValue1.Controls.Add(this.groupPanel4);
+            this.DLCValue1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DLCValue1.Location = new System.Drawing.Point(0, 55);
+            this.DLCValue1.Name = "DLCValue1";
+            this.DLCValue1.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.DLCValue1.Size = new System.Drawing.Size(944, 588);
+            this.DLCValue1.TabIndex = 8;
+            this.DLCValue1.Visible = false;
+            // 
+            // groupPanel16
+            // 
+            this.groupPanel16.BackColor = System.Drawing.Color.Transparent;
+            this.groupPanel16.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel16.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel16.Controls.Add(this.EchoDLCValue2);
+            this.groupPanel16.Controls.Add(this.EchoDLCValue1);
+            this.groupPanel16.Controls.Add(this.label34);
+            this.groupPanel16.Controls.Add(this.label35);
+            this.groupPanel16.Location = new System.Drawing.Point(280, 18);
+            this.groupPanel16.Name = "groupPanel16";
+            this.groupPanel16.Size = new System.Drawing.Size(663, 160);
+            // 
+            // 
+            // 
+            this.groupPanel16.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupPanel16.Style.BackColorGradientAngle = 90;
+            this.groupPanel16.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupPanel16.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel16.Style.BorderBottomWidth = 1;
+            this.groupPanel16.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel16.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel16.Style.BorderLeftWidth = 1;
+            this.groupPanel16.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel16.Style.BorderRightWidth = 1;
+            this.groupPanel16.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel16.Style.BorderTopWidth = 1;
+            this.groupPanel16.Style.CornerDiameter = 4;
+            this.groupPanel16.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel16.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.groupPanel16.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel16.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            this.groupPanel16.TabIndex = 26;
+            this.groupPanel16.Text = "Selected Echo Log";
+            // 
+            // EchoDLCValue2
+            // 
+            this.EchoDLCValue2.Location = new System.Drawing.Point(13, 91);
+            this.EchoDLCValue2.Name = "EchoDLCValue2";
+            this.EchoDLCValue2.Size = new System.Drawing.Size(120, 20);
+            this.EchoDLCValue2.TabIndex = 3;
+            this.EchoDLCValue2.ValueChanged += new System.EventHandler(this.DLCValue2_ValueChanged);
+            // 
+            // EchoDLCValue1
+            // 
+            this.EchoDLCValue1.Location = new System.Drawing.Point(13, 29);
+            this.EchoDLCValue1.Name = "EchoDLCValue1";
+            this.EchoDLCValue1.Size = new System.Drawing.Size(120, 20);
+            this.EchoDLCValue1.TabIndex = 2;
+            this.EchoDLCValue1.ValueChanged += new System.EventHandler(this.EchoDLCValue1_ValueChanged);
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(10, 75);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(67, 13);
+            this.label34.TabIndex = 1;
+            this.label34.Text = "DLC Value 2";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(10, 13);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(67, 13);
+            this.label35.TabIndex = 0;
+            this.label35.Text = "DLC Value 1";
+            // 
+            // groupPanel4
+            // 
+            this.groupPanel4.BackColor = System.Drawing.Color.Transparent;
+            this.groupPanel4.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel4.Controls.Add(this.bar4);
+            this.groupPanel4.Controls.Add(this.EchoTree);
+            this.groupPanel4.Location = new System.Drawing.Point(1, 18);
+            this.groupPanel4.Name = "groupPanel4";
+            this.groupPanel4.Size = new System.Drawing.Size(273, 570);
+            // 
+            // 
+            // 
+            this.groupPanel4.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupPanel4.Style.BackColorGradientAngle = 90;
+            this.groupPanel4.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupPanel4.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel4.Style.BorderBottomWidth = 1;
+            this.groupPanel4.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel4.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel4.Style.BorderLeftWidth = 1;
+            this.groupPanel4.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel4.Style.BorderRightWidth = 1;
+            this.groupPanel4.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel4.Style.BorderTopWidth = 1;
+            this.groupPanel4.Style.CornerDiameter = 4;
+            this.groupPanel4.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel4.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.groupPanel4.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel4.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            this.groupPanel4.TabIndex = 23;
+            this.groupPanel4.Text = "Current Echo Logs";
+            // 
+            // bar4
+            // 
+            this.bar4.AntiAlias = true;
+            this.bar4.AutoHide = true;
+            this.bar4.BackColor = System.Drawing.Color.Transparent;
+            this.bar4.BarType = DevComponents.DotNetBar.eBarType.MenuBar;
+            this.bar4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bar4.DockedBorderStyle = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.bar4.FadeEffect = true;
+            this.bar4.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.NewEcho,
+            this.DeleteEcho,
+            this.ExportEchoes,
+            this.ImportEchoes});
+            this.bar4.Location = new System.Drawing.Point(0, 0);
+            this.bar4.Name = "bar4";
+            this.bar4.RoundCorners = false;
+            this.bar4.Size = new System.Drawing.Size(273, 31);
+            this.bar4.Stretch = true;
+            this.bar4.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.bar4.TabIndex = 20;
+            this.bar4.TabStop = false;
+            this.bar4.Text = "bar4";
+            this.bar4.WrapItemsDock = true;
+            // 
+            // EchoTree
+            // 
+            this.EchoTree.AccessibleRole = System.Windows.Forms.AccessibleRole.Outline;
+            this.EchoTree.AllowDrop = true;
+            this.EchoTree.BackColor = System.Drawing.SystemColors.Window;
+            // 
+            // 
+            // 
+            this.EchoTree.BackgroundStyle.Class = "TreeBorderKey";
+            this.EchoTree.DragDropEnabled = false;
+            this.EchoTree.DragDropNodeCopyEnabled = false;
+            this.EchoTree.Location = new System.Drawing.Point(3, 31);
+            this.EchoTree.Name = "EchoTree";
+            this.EchoTree.NodesConnector = this.nodeConnector1;
+            this.EchoTree.NodeStyle = this.elementStyle1;
+            this.EchoTree.PathSeparator = ";";
+            this.EchoTree.Size = new System.Drawing.Size(261, 516);
+            this.EchoTree.Styles.Add(this.elementStyle1);
+            this.EchoTree.Styles.Add(this.elementStyle2);
+            this.EchoTree.TabIndex = 20;
+            this.EchoTree.Text = "advTree1";
+            this.EchoTree.AfterNodeSelect += new DevComponents.AdvTree.AdvTreeNodeEventHandler(this.EchoTree_AfterNodeSelect);
+            // 
+            // nodeConnector1
+            // 
+            this.nodeConnector1.LineColor = System.Drawing.SystemColors.ControlText;
+            // 
+            // elementStyle1
+            // 
+            this.elementStyle1.Name = "elementStyle1";
+            this.elementStyle1.TextColor = System.Drawing.SystemColors.ControlText;
+            // 
+            // elementStyle2
+            // 
+            this.elementStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(230)))), ((int)(((byte)(247)))));
+            this.elementStyle2.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(168)))), ((int)(((byte)(228)))));
+            this.elementStyle2.BackColorGradientAngle = 90;
+            this.elementStyle2.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.elementStyle2.BorderBottomWidth = 1;
+            this.elementStyle2.BorderColor = System.Drawing.Color.DarkGray;
+            this.elementStyle2.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.elementStyle2.BorderLeftWidth = 1;
+            this.elementStyle2.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.elementStyle2.BorderRightWidth = 1;
+            this.elementStyle2.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.elementStyle2.BorderTopWidth = 1;
+            this.elementStyle2.CornerDiameter = 4;
+            this.elementStyle2.Description = "Blue";
+            this.elementStyle2.Name = "elementStyle2";
+            this.elementStyle2.PaddingBottom = 1;
+            this.elementStyle2.PaddingLeft = 1;
+            this.elementStyle2.PaddingRight = 1;
+            this.elementStyle2.PaddingTop = 1;
+            this.elementStyle2.TextColor = System.Drawing.Color.Black;
+            // 
+            // ribbonPanel3
+            // 
+            this.ribbonPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.ribbonPanel3.Controls.Add(this.groupPanel15);
+            this.ribbonPanel3.Controls.Add(this.groupPanel9);
+            this.ribbonPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ribbonPanel3.Location = new System.Drawing.Point(0, 55);
+            this.ribbonPanel3.Name = "ribbonPanel3";
+            this.ribbonPanel3.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.ribbonPanel3.Size = new System.Drawing.Size(944, 588);
+            this.ribbonPanel3.TabIndex = 3;
+            this.ribbonPanel3.Visible = false;
+            // 
+            // groupPanel15
+            // 
+            this.groupPanel15.BackColor = System.Drawing.Color.Transparent;
+            this.groupPanel15.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel15.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel15.Controls.Add(this.AmmoSDULevel);
+            this.groupPanel15.Controls.Add(this.AmmoPoolRemaining);
+            this.groupPanel15.Controls.Add(this.label31);
+            this.groupPanel15.Controls.Add(this.label30);
+            this.groupPanel15.Location = new System.Drawing.Point(280, 18);
+            this.groupPanel15.Name = "groupPanel15";
+            this.groupPanel15.Size = new System.Drawing.Size(663, 160);
+            // 
+            // 
+            // 
+            this.groupPanel15.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupPanel15.Style.BackColorGradientAngle = 90;
+            this.groupPanel15.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupPanel15.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel15.Style.BorderBottomWidth = 1;
+            this.groupPanel15.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel15.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel15.Style.BorderLeftWidth = 1;
+            this.groupPanel15.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel15.Style.BorderRightWidth = 1;
+            this.groupPanel15.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel15.Style.BorderTopWidth = 1;
+            this.groupPanel15.Style.CornerDiameter = 4;
+            this.groupPanel15.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel15.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.groupPanel15.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel15.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            this.groupPanel15.TabIndex = 25;
+            this.groupPanel15.Text = "Selected Ammo";
+            // 
+            // AmmoSDULevel
+            // 
+            this.AmmoSDULevel.Location = new System.Drawing.Point(13, 91);
+            this.AmmoSDULevel.Maximum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.AmmoSDULevel.Name = "AmmoSDULevel";
+            this.AmmoSDULevel.Size = new System.Drawing.Size(120, 20);
+            this.AmmoSDULevel.TabIndex = 3;
+            this.AmmoSDULevel.ValueChanged += new System.EventHandler(this.AmmoSDULevel_ValueChanged);
+            // 
+            // AmmoPoolRemaining
+            // 
+            this.AmmoPoolRemaining.Location = new System.Drawing.Point(13, 29);
+            this.AmmoPoolRemaining.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.AmmoPoolRemaining.Name = "AmmoPoolRemaining";
+            this.AmmoPoolRemaining.Size = new System.Drawing.Size(120, 20);
+            this.AmmoPoolRemaining.TabIndex = 2;
+            this.AmmoPoolRemaining.ValueChanged += new System.EventHandler(this.AmmoPoolRemaining_ValueChanged);
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(10, 75);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(103, 13);
+            this.label31.TabIndex = 1;
+            this.label31.Text = "SDU Upgrade Level";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(10, 13);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(89, 13);
+            this.label30.TabIndex = 0;
+            this.label30.Text = "Remaining Ammo";
+            // 
+            // groupPanel9
+            // 
+            this.groupPanel9.BackColor = System.Drawing.Color.Transparent;
+            this.groupPanel9.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel9.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel9.Controls.Add(this.bar7);
+            this.groupPanel9.Controls.Add(this.AmmoTree);
+            this.groupPanel9.Location = new System.Drawing.Point(1, 18);
+            this.groupPanel9.Name = "groupPanel9";
+            this.groupPanel9.Size = new System.Drawing.Size(273, 570);
+            // 
+            // 
+            // 
+            this.groupPanel9.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupPanel9.Style.BackColorGradientAngle = 90;
+            this.groupPanel9.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupPanel9.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel9.Style.BorderBottomWidth = 1;
+            this.groupPanel9.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel9.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel9.Style.BorderLeftWidth = 1;
+            this.groupPanel9.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel9.Style.BorderRightWidth = 1;
+            this.groupPanel9.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel9.Style.BorderTopWidth = 1;
+            this.groupPanel9.Style.CornerDiameter = 4;
+            this.groupPanel9.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel9.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.groupPanel9.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel9.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            this.groupPanel9.TabIndex = 24;
+            this.groupPanel9.Text = "Current Ammo Pools";
+            // 
+            // bar7
+            // 
+            this.bar7.AntiAlias = true;
+            this.bar7.AutoHide = true;
+            this.bar7.BackColor = System.Drawing.Color.Transparent;
+            this.bar7.BarType = DevComponents.DotNetBar.eBarType.MenuBar;
+            this.bar7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bar7.DockedBorderStyle = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.bar7.FadeEffect = true;
+            this.bar7.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.NewAmmo,
+            this.AmmoDelete});
+            this.bar7.Location = new System.Drawing.Point(0, 0);
+            this.bar7.Name = "bar7";
+            this.bar7.RoundCorners = false;
+            this.bar7.Size = new System.Drawing.Size(273, 31);
+            this.bar7.Stretch = true;
+            this.bar7.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.bar7.TabIndex = 20;
+            this.bar7.TabStop = false;
+            this.bar7.Text = "bar7";
+            this.bar7.WrapItemsDock = true;
+            // 
+            // AmmoTree
+            // 
+            this.AmmoTree.AccessibleRole = System.Windows.Forms.AccessibleRole.Outline;
+            this.AmmoTree.AllowDrop = true;
+            this.AmmoTree.BackColor = System.Drawing.SystemColors.Window;
+            this.AmmoTree.DragDropEnabled = false;
+            this.AmmoTree.DragDropNodeCopyEnabled = false;
+            this.AmmoTree.ExpandWidth = 0;
+            this.AmmoTree.Location = new System.Drawing.Point(3, 31);
+            this.AmmoTree.Name = "AmmoTree";
+            this.AmmoTree.NodesConnector = this.nodeConnector5;
+            this.AmmoTree.NodeStyle = this.elementStyle9;
+            this.AmmoTree.PathSeparator = ";";
+            this.AmmoTree.Size = new System.Drawing.Size(261, 516);
+            this.AmmoTree.Styles.Add(this.elementStyle9);
+            this.AmmoTree.Styles.Add(this.elementStyle10);
+            this.AmmoTree.TabIndex = 20;
+            this.AmmoTree.Text = "advTree1";
+            this.AmmoTree.AfterNodeSelect += new DevComponents.AdvTree.AdvTreeNodeEventHandler(this.AmmoTree_AfterNodeSelect);
+            // 
+            // nodeConnector5
+            // 
+            this.nodeConnector5.LineColor = System.Drawing.SystemColors.ControlText;
+            // 
+            // elementStyle9
+            // 
+            this.elementStyle9.Name = "elementStyle9";
+            this.elementStyle9.TextColor = System.Drawing.SystemColors.ControlText;
+            // 
+            // elementStyle10
+            // 
+            this.elementStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(230)))), ((int)(((byte)(247)))));
+            this.elementStyle10.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(168)))), ((int)(((byte)(228)))));
+            this.elementStyle10.BackColorGradientAngle = 90;
+            this.elementStyle10.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.elementStyle10.BorderBottomWidth = 1;
+            this.elementStyle10.BorderColor = System.Drawing.Color.DarkGray;
+            this.elementStyle10.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.elementStyle10.BorderLeftWidth = 1;
+            this.elementStyle10.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.elementStyle10.BorderRightWidth = 1;
+            this.elementStyle10.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.elementStyle10.BorderTopWidth = 1;
+            this.elementStyle10.CornerDiameter = 4;
+            this.elementStyle10.Description = "Blue";
+            this.elementStyle10.Name = "elementStyle10";
+            this.elementStyle10.PaddingBottom = 1;
+            this.elementStyle10.PaddingLeft = 1;
+            this.elementStyle10.PaddingRight = 1;
+            this.elementStyle10.PaddingTop = 1;
+            this.elementStyle10.TextColor = System.Drawing.Color.Black;
+            // 
+            // ribbonPanel7
+            // 
+            this.ribbonPanel7.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.ribbonPanel7.Controls.Add(this.ActivePT2QuestGroup);
+            this.ribbonPanel7.Controls.Add(this.ActivePT1QuestGroup);
+            this.ribbonPanel7.Controls.Add(this.SelectedQuestGroup);
+            this.ribbonPanel7.Controls.Add(this.groupPanel3);
+            this.ribbonPanel7.Controls.Add(this.NumberOfObjectives);
+            this.ribbonPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ribbonPanel7.Location = new System.Drawing.Point(0, 55);
+            this.ribbonPanel7.Name = "ribbonPanel7";
+            this.ribbonPanel7.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.ribbonPanel7.Size = new System.Drawing.Size(944, 588);
+            this.ribbonPanel7.TabIndex = 7;
+            this.ribbonPanel7.Visible = false;
+            // 
+            // ActivePT2QuestGroup
+            // 
+            this.ActivePT2QuestGroup.BackColor = System.Drawing.Color.Transparent;
+            this.ActivePT2QuestGroup.CanvasColor = System.Drawing.SystemColors.Control;
+            this.ActivePT2QuestGroup.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.ActivePT2QuestGroup.Controls.Add(this.ActivePT2Quest);
+            this.ActivePT2QuestGroup.Location = new System.Drawing.Point(639, 18);
+            this.ActivePT2QuestGroup.Name = "ActivePT2QuestGroup";
+            this.ActivePT2QuestGroup.Size = new System.Drawing.Size(304, 62);
+            // 
+            // 
+            // 
+            this.ActivePT2QuestGroup.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.ActivePT2QuestGroup.Style.BackColorGradientAngle = 90;
+            this.ActivePT2QuestGroup.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.ActivePT2QuestGroup.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.ActivePT2QuestGroup.Style.BorderBottomWidth = 1;
+            this.ActivePT2QuestGroup.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.ActivePT2QuestGroup.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.ActivePT2QuestGroup.Style.BorderLeftWidth = 1;
+            this.ActivePT2QuestGroup.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.ActivePT2QuestGroup.Style.BorderRightWidth = 1;
+            this.ActivePT2QuestGroup.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.ActivePT2QuestGroup.Style.BorderTopWidth = 1;
+            this.ActivePT2QuestGroup.Style.CornerDiameter = 4;
+            this.ActivePT2QuestGroup.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.ActivePT2QuestGroup.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.ActivePT2QuestGroup.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.ActivePT2QuestGroup.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            this.ActivePT2QuestGroup.TabIndex = 26;
+            this.ActivePT2QuestGroup.Text = "Active Playthrough 2 Quest";
+            // 
+            // ActivePT2Quest
+            // 
+            // 
+            // 
+            // 
+            this.ActivePT2Quest.Border.Class = "TextBoxBorder";
+            this.ActivePT2Quest.Location = new System.Drawing.Point(3, 14);
+            this.ActivePT2Quest.Name = "ActivePT2Quest";
+            this.ActivePT2Quest.ReadOnly = true;
+            this.ActivePT2Quest.Size = new System.Drawing.Size(291, 20);
+            this.ActivePT2Quest.TabIndex = 24;
+            // 
+            // ActivePT1QuestGroup
+            // 
+            this.ActivePT1QuestGroup.BackColor = System.Drawing.Color.Transparent;
+            this.ActivePT1QuestGroup.CanvasColor = System.Drawing.SystemColors.Control;
+            this.ActivePT1QuestGroup.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.ActivePT1QuestGroup.Controls.Add(this.ActivePT1Quest);
+            this.ActivePT1QuestGroup.Location = new System.Drawing.Point(280, 18);
+            this.ActivePT1QuestGroup.Name = "ActivePT1QuestGroup";
+            this.ActivePT1QuestGroup.Size = new System.Drawing.Size(304, 62);
+            // 
+            // 
+            // 
+            this.ActivePT1QuestGroup.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.ActivePT1QuestGroup.Style.BackColorGradientAngle = 90;
+            this.ActivePT1QuestGroup.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.ActivePT1QuestGroup.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.ActivePT1QuestGroup.Style.BorderBottomWidth = 1;
+            this.ActivePT1QuestGroup.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.ActivePT1QuestGroup.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.ActivePT1QuestGroup.Style.BorderLeftWidth = 1;
+            this.ActivePT1QuestGroup.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.ActivePT1QuestGroup.Style.BorderRightWidth = 1;
+            this.ActivePT1QuestGroup.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.ActivePT1QuestGroup.Style.BorderTopWidth = 1;
+            this.ActivePT1QuestGroup.Style.CornerDiameter = 4;
+            this.ActivePT1QuestGroup.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.ActivePT1QuestGroup.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.ActivePT1QuestGroup.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.ActivePT1QuestGroup.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            this.ActivePT1QuestGroup.TabIndex = 25;
+            this.ActivePT1QuestGroup.Text = "Active Playthrough 1 Quest";
+            // 
+            // ActivePT1Quest
+            // 
+            // 
+            // 
+            // 
+            this.ActivePT1Quest.Border.Class = "TextBoxBorder";
+            this.ActivePT1Quest.Location = new System.Drawing.Point(3, 14);
+            this.ActivePT1Quest.Name = "ActivePT1Quest";
+            this.ActivePT1Quest.ReadOnly = true;
+            this.ActivePT1Quest.Size = new System.Drawing.Size(291, 20);
+            this.ActivePT1Quest.TabIndex = 24;
+            // 
+            // SelectedQuestGroup
+            // 
+            this.SelectedQuestGroup.BackColor = System.Drawing.Color.Transparent;
+            this.SelectedQuestGroup.CanvasColor = System.Drawing.SystemColors.Control;
+            this.SelectedQuestGroup.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.SelectedQuestGroup.Controls.Add(this.QuestDescription);
+            this.SelectedQuestGroup.Controls.Add(this.QuestSummary);
+            this.SelectedQuestGroup.Controls.Add(this.label33);
+            this.SelectedQuestGroup.Controls.Add(this.label32);
+            this.SelectedQuestGroup.Controls.Add(this.label14);
+            this.SelectedQuestGroup.Controls.Add(this.ObjectiveValue);
+            this.SelectedQuestGroup.Controls.Add(this.label13);
+            this.SelectedQuestGroup.Controls.Add(this.Objectives);
+            this.SelectedQuestGroup.Controls.Add(this.label11);
+            this.SelectedQuestGroup.Controls.Add(this.QuestProgress);
+            this.SelectedQuestGroup.Controls.Add(this.label10);
+            this.SelectedQuestGroup.Controls.Add(this.QuestString);
+            this.SelectedQuestGroup.Location = new System.Drawing.Point(279, 85);
+            this.SelectedQuestGroup.Name = "SelectedQuestGroup";
+            this.SelectedQuestGroup.Size = new System.Drawing.Size(664, 502);
+            // 
+            // 
+            // 
+            this.SelectedQuestGroup.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.SelectedQuestGroup.Style.BackColorGradientAngle = 90;
+            this.SelectedQuestGroup.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.SelectedQuestGroup.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.SelectedQuestGroup.Style.BorderBottomWidth = 1;
+            this.SelectedQuestGroup.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.SelectedQuestGroup.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.SelectedQuestGroup.Style.BorderLeftWidth = 1;
+            this.SelectedQuestGroup.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.SelectedQuestGroup.Style.BorderRightWidth = 1;
+            this.SelectedQuestGroup.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.SelectedQuestGroup.Style.BorderTopWidth = 1;
+            this.SelectedQuestGroup.Style.CornerDiameter = 4;
+            this.SelectedQuestGroup.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.SelectedQuestGroup.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.SelectedQuestGroup.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.SelectedQuestGroup.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            this.SelectedQuestGroup.TabIndex = 23;
+            this.SelectedQuestGroup.Text = "Selected Quest";
+            // 
+            // QuestDescription
+            // 
+            // 
+            // 
+            // 
+            this.QuestDescription.Border.Class = "TextBoxBorder";
+            this.QuestDescription.Location = new System.Drawing.Point(6, 239);
+            this.QuestDescription.Multiline = true;
+            this.QuestDescription.Name = "QuestDescription";
+            this.QuestDescription.ReadOnly = true;
+            this.QuestDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.QuestDescription.Size = new System.Drawing.Size(644, 238);
+            this.QuestDescription.TabIndex = 23;
+            // 
+            // QuestSummary
+            // 
+            // 
+            // 
+            // 
+            this.QuestSummary.Border.Class = "TextBoxBorder";
+            this.QuestSummary.Location = new System.Drawing.Point(6, 194);
+            this.QuestSummary.Name = "QuestSummary";
+            this.QuestSummary.ReadOnly = true;
+            this.QuestSummary.Size = new System.Drawing.Size(577, 20);
+            this.QuestSummary.TabIndex = 22;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(6, 220);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(91, 13);
+            this.label33.TabIndex = 21;
+            this.label33.Text = "Quest Description";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(6, 178);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(81, 13);
+            this.label32.TabIndex = 20;
+            this.label32.Text = "Quest Summary";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(372, 84);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(82, 13);
+            this.label14.TabIndex = 19;
+            this.label14.Text = "Objective Value";
+            // 
+            // ObjectiveValue
+            // 
+            this.ObjectiveValue.Location = new System.Drawing.Point(375, 101);
+            this.ObjectiveValue.Name = "ObjectiveValue";
+            this.ObjectiveValue.Size = new System.Drawing.Size(84, 20);
+            this.ObjectiveValue.TabIndex = 18;
+            this.ObjectiveValue.ValueChanged += new System.EventHandler(this.ObjectiveValue_ValueChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(162, 84);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(57, 13);
+            this.label13.TabIndex = 17;
+            this.label13.Text = "Objectives";
+            // 
+            // Objectives
+            // 
+            this.Objectives.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Objectives.FormattingEnabled = true;
+            this.Objectives.Location = new System.Drawing.Point(165, 100);
+            this.Objectives.Name = "Objectives";
+            this.Objectives.Size = new System.Drawing.Size(204, 21);
+            this.Objectives.TabIndex = 16;
+            this.Objectives.SelectedIndexChanged += new System.EventHandler(this.Objectives_SelectedIndexChanged);
+            this.Objectives.Click += new System.EventHandler(this.QuestProgress_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 84);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(48, 13);
+            this.label11.TabIndex = 13;
+            this.label11.Text = "Progress";
+            // 
+            // QuestProgress
+            // 
+            this.QuestProgress.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.QuestProgress.FormattingEnabled = true;
+            this.QuestProgress.Items.AddRange(new object[] {
+            "Not started",
+            "Started",
+            "Ready to turn in",
+            "Finished"});
+            this.QuestProgress.Location = new System.Drawing.Point(6, 100);
+            this.QuestProgress.Name = "QuestProgress";
+            this.QuestProgress.Size = new System.Drawing.Size(154, 21);
+            this.QuestProgress.TabIndex = 12;
+            this.QuestProgress.SelectedIndexChanged += new System.EventHandler(this.QuestProgress_SelectedIndexChanged);
+            this.QuestProgress.Click += new System.EventHandler(this.QuestProgress_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Location = new System.Drawing.Point(3, 27);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(65, 13);
+            this.label10.TabIndex = 11;
+            this.label10.Text = "Quest String";
+            // 
+            // QuestString
+            // 
+            // 
+            // 
+            // 
+            this.QuestString.Border.Class = "TextBoxBorder";
+            this.QuestString.Location = new System.Drawing.Point(6, 43);
+            this.QuestString.Name = "QuestString";
+            this.QuestString.ReadOnly = true;
+            this.QuestString.Size = new System.Drawing.Size(271, 20);
+            this.QuestString.TabIndex = 10;
+            // 
+            // groupPanel3
+            // 
+            this.groupPanel3.BackColor = System.Drawing.Color.Transparent;
+            this.groupPanel3.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel3.Controls.Add(this.bar3);
+            this.groupPanel3.Controls.Add(this.QuestTree);
+            this.groupPanel3.Location = new System.Drawing.Point(1, 18);
+            this.groupPanel3.Name = "groupPanel3";
+            this.groupPanel3.Size = new System.Drawing.Size(273, 570);
+            // 
+            // 
+            // 
+            this.groupPanel3.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupPanel3.Style.BackColorGradientAngle = 90;
+            this.groupPanel3.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupPanel3.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel3.Style.BorderBottomWidth = 1;
+            this.groupPanel3.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel3.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel3.Style.BorderLeftWidth = 1;
+            this.groupPanel3.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel3.Style.BorderRightWidth = 1;
+            this.groupPanel3.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel3.Style.BorderTopWidth = 1;
+            this.groupPanel3.Style.CornerDiameter = 4;
+            this.groupPanel3.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel3.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.groupPanel3.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel3.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            this.groupPanel3.TabIndex = 22;
+            this.groupPanel3.Text = "Current Quests";
+            // 
+            // bar3
+            // 
+            this.bar3.AntiAlias = true;
+            this.bar3.AutoHide = true;
+            this.bar3.BackColor = System.Drawing.Color.Transparent;
+            this.bar3.BarType = DevComponents.DotNetBar.eBarType.MenuBar;
+            this.bar3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bar3.DockedBorderStyle = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.bar3.FadeEffect = true;
+            this.bar3.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.NewQuest,
+            this.DeleteQuest,
+            this.ExportQuests,
+            this.ImportQuests});
+            this.bar3.Location = new System.Drawing.Point(0, 0);
+            this.bar3.Name = "bar3";
+            this.bar3.RoundCorners = false;
+            this.bar3.Size = new System.Drawing.Size(273, 31);
+            this.bar3.Stretch = true;
+            this.bar3.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.bar3.TabIndex = 20;
+            this.bar3.TabStop = false;
+            this.bar3.Text = "bar3";
+            this.bar3.WrapItemsDock = true;
+            // 
+            // QuestTree
+            // 
+            this.QuestTree.AccessibleRole = System.Windows.Forms.AccessibleRole.Outline;
+            this.QuestTree.AllowDrop = true;
+            this.QuestTree.BackColor = System.Drawing.SystemColors.Window;
+            // 
+            // 
+            // 
+            this.QuestTree.BackgroundStyle.Class = "TreeBorderKey";
+            this.QuestTree.DragDropEnabled = false;
+            this.QuestTree.DragDropNodeCopyEnabled = false;
+            this.QuestTree.Location = new System.Drawing.Point(3, 31);
+            this.QuestTree.Name = "QuestTree";
+            this.QuestTree.NodesConnector = this.nodeConnector9;
+            this.QuestTree.NodeStyle = this.elementStyle17;
+            this.QuestTree.PathSeparator = ";";
+            this.QuestTree.Size = new System.Drawing.Size(261, 516);
+            this.QuestTree.Styles.Add(this.elementStyle17);
+            this.QuestTree.Styles.Add(this.elementStyle18);
+            this.QuestTree.TabIndex = 20;
+            this.QuestTree.Text = "advTree1";
+            this.QuestTree.AfterNodeSelect += new DevComponents.AdvTree.AdvTreeNodeEventHandler(this.QuestTree_AfterNodeSelect);
+            // 
+            // nodeConnector9
+            // 
+            this.nodeConnector9.LineColor = System.Drawing.SystemColors.ControlText;
+            // 
+            // elementStyle17
+            // 
+            this.elementStyle17.Name = "elementStyle17";
+            this.elementStyle17.TextColor = System.Drawing.SystemColors.ControlText;
+            // 
+            // elementStyle18
+            // 
+            this.elementStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(230)))), ((int)(((byte)(247)))));
+            this.elementStyle18.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(168)))), ((int)(((byte)(228)))));
+            this.elementStyle18.BackColorGradientAngle = 90;
+            this.elementStyle18.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.elementStyle18.BorderBottomWidth = 1;
+            this.elementStyle18.BorderColor = System.Drawing.Color.DarkGray;
+            this.elementStyle18.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.elementStyle18.BorderLeftWidth = 1;
+            this.elementStyle18.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.elementStyle18.BorderRightWidth = 1;
+            this.elementStyle18.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.elementStyle18.BorderTopWidth = 1;
+            this.elementStyle18.CornerDiameter = 4;
+            this.elementStyle18.Description = "Blue";
+            this.elementStyle18.Name = "elementStyle18";
+            this.elementStyle18.PaddingBottom = 1;
+            this.elementStyle18.PaddingLeft = 1;
+            this.elementStyle18.PaddingRight = 1;
+            this.elementStyle18.PaddingTop = 1;
+            this.elementStyle18.TextColor = System.Drawing.Color.Black;
+            // 
+            // NumberOfObjectives
+            // 
+            this.NumberOfObjectives.Location = new System.Drawing.Point(565, 403);
+            this.NumberOfObjectives.Name = "NumberOfObjectives";
+            this.NumberOfObjectives.Size = new System.Drawing.Size(106, 20);
+            this.NumberOfObjectives.TabIndex = 14;
+            this.NumberOfObjectives.TabStop = false;
+            this.NumberOfObjectives.Visible = false;
+            // 
+            // ribbonPanel2
+            // 
+            this.ribbonPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.ribbonPanel2.Controls.Add(this.groupPanel12);
+            this.ribbonPanel2.Controls.Add(this.groupPanel11);
+            this.ribbonPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ribbonPanel2.Location = new System.Drawing.Point(0, 55);
+            this.ribbonPanel2.Name = "ribbonPanel2";
+            this.ribbonPanel2.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.ribbonPanel2.Size = new System.Drawing.Size(944, 588);
+            this.ribbonPanel2.TabIndex = 2;
+            this.ribbonPanel2.Visible = false;
+            // 
+            // groupPanel12
+            // 
+            this.groupPanel12.BackColor = System.Drawing.Color.Transparent;
+            this.groupPanel12.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel12.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel12.Controls.Add(this.label1);
+            this.groupPanel12.Controls.Add(this.SkillLevel);
+            this.groupPanel12.Controls.Add(this.label7);
+            this.groupPanel12.Controls.Add(this.SkillExp);
+            this.groupPanel12.Controls.Add(this.SkillName);
+            this.groupPanel12.Controls.Add(this.label2);
+            this.groupPanel12.Controls.Add(this.SkillActive);
+            this.groupPanel12.Controls.Add(this.label3);
+            this.groupPanel12.Location = new System.Drawing.Point(280, 18);
+            this.groupPanel12.Name = "groupPanel12";
+            this.groupPanel12.Size = new System.Drawing.Size(664, 192);
+            // 
+            // 
+            // 
+            this.groupPanel12.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupPanel12.Style.BackColorGradientAngle = 90;
+            this.groupPanel12.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupPanel12.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel12.Style.BorderBottomWidth = 1;
+            this.groupPanel12.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel12.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel12.Style.BorderLeftWidth = 1;
+            this.groupPanel12.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel12.Style.BorderRightWidth = 1;
+            this.groupPanel12.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel12.Style.BorderTopWidth = 1;
+            this.groupPanel12.Style.CornerDiameter = 4;
+            this.groupPanel12.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel12.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.groupPanel12.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel12.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            this.groupPanel12.TabIndex = 30;
+            this.groupPanel12.Text = "Selected Skill";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(6, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(33, 13);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "Level";
+            // 
+            // SkillLevel
+            // 
+            this.SkillLevel.Location = new System.Drawing.Point(9, 16);
+            this.SkillLevel.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.SkillLevel.Name = "SkillLevel";
+            this.SkillLevel.Size = new System.Drawing.Size(120, 20);
+            this.SkillLevel.TabIndex = 21;
+            this.SkillLevel.ValueChanged += new System.EventHandler(this.SkillLevel_ValueChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Location = new System.Drawing.Point(6, 132);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(56, 13);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "Skill String";
+            // 
+            // SkillExp
+            // 
+            this.SkillExp.Location = new System.Drawing.Point(9, 60);
+            this.SkillExp.Maximum = new decimal(new int[] {
+            16777215,
+            0,
+            0,
+            0});
+            this.SkillExp.Name = "SkillExp";
+            this.SkillExp.Size = new System.Drawing.Size(120, 20);
+            this.SkillExp.TabIndex = 22;
+            this.SkillExp.ValueChanged += new System.EventHandler(this.SkillExp_ValueChanged);
+            // 
+            // SkillName
+            // 
+            // 
+            // 
+            // 
+            this.SkillName.Border.Class = "TextBoxBorder";
+            this.SkillName.Location = new System.Drawing.Point(8, 145);
+            this.SkillName.Name = "SkillName";
+            this.SkillName.ReadOnly = true;
+            this.SkillName.Size = new System.Drawing.Size(321, 20);
+            this.SkillName.TabIndex = 28;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Location = new System.Drawing.Point(6, 44);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 13);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Experience";
+            // 
+            // SkillActive
+            // 
+            this.SkillActive.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SkillActive.FormattingEnabled = true;
+            this.SkillActive.Items.AddRange(new object[] {
+            "No",
+            "Yes"});
+            this.SkillActive.Location = new System.Drawing.Point(8, 104);
+            this.SkillActive.Name = "SkillActive";
+            this.SkillActive.Size = new System.Drawing.Size(121, 21);
+            this.SkillActive.TabIndex = 27;
+            this.SkillActive.SelectionChangeCommitted += new System.EventHandler(this.SkillActive_SelectionChangeCommitted);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Location = new System.Drawing.Point(5, 88);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(37, 13);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Active";
+            // 
+            // groupPanel11
+            // 
+            this.groupPanel11.BackColor = System.Drawing.Color.Transparent;
+            this.groupPanel11.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel11.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel11.Controls.Add(this.bar9);
+            this.groupPanel11.Controls.Add(this.SkillTree);
+            this.groupPanel11.Location = new System.Drawing.Point(1, 18);
+            this.groupPanel11.Name = "groupPanel11";
+            this.groupPanel11.Size = new System.Drawing.Size(273, 570);
+            // 
+            // 
+            // 
+            this.groupPanel11.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupPanel11.Style.BackColorGradientAngle = 90;
+            this.groupPanel11.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupPanel11.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel11.Style.BorderBottomWidth = 1;
+            this.groupPanel11.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel11.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel11.Style.BorderLeftWidth = 1;
+            this.groupPanel11.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel11.Style.BorderRightWidth = 1;
+            this.groupPanel11.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel11.Style.BorderTopWidth = 1;
+            this.groupPanel11.Style.CornerDiameter = 4;
+            this.groupPanel11.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel11.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.groupPanel11.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel11.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            this.groupPanel11.TabIndex = 24;
+            this.groupPanel11.Text = "Current Skills";
+            // 
+            // bar9
+            // 
+            this.bar9.AntiAlias = true;
+            this.bar9.AutoHide = true;
+            this.bar9.BackColor = System.Drawing.Color.Transparent;
+            this.bar9.BarType = DevComponents.DotNetBar.eBarType.MenuBar;
+            this.bar9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bar9.DockedBorderStyle = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.bar9.FadeEffect = true;
+            this.bar9.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.buttonItem16,
+            this.DeleteSkill,
+            this.ExportSkills,
+            this.ImportSkills});
+            this.bar9.Location = new System.Drawing.Point(0, 0);
+            this.bar9.Name = "bar9";
+            this.bar9.RoundCorners = false;
+            this.bar9.Size = new System.Drawing.Size(273, 31);
+            this.bar9.Stretch = true;
+            this.bar9.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.bar9.TabIndex = 20;
+            this.bar9.TabStop = false;
+            this.bar9.Text = "bar9";
+            this.bar9.WrapItemsDock = true;
+            // 
+            // SkillTree
+            // 
+            this.SkillTree.AccessibleRole = System.Windows.Forms.AccessibleRole.Outline;
+            this.SkillTree.AllowDrop = true;
+            this.SkillTree.BackColor = System.Drawing.SystemColors.Window;
+            this.SkillTree.DragDropEnabled = false;
+            this.SkillTree.DragDropNodeCopyEnabled = false;
+            this.SkillTree.ExpandWidth = 0;
+            this.SkillTree.Location = new System.Drawing.Point(3, 31);
+            this.SkillTree.Name = "SkillTree";
+            this.SkillTree.NodesConnector = this.nodeConnector2;
+            this.SkillTree.NodeStyle = this.elementStyle3;
+            this.SkillTree.PathSeparator = ";";
+            this.SkillTree.Size = new System.Drawing.Size(261, 516);
+            this.SkillTree.Styles.Add(this.elementStyle3);
+            this.SkillTree.Styles.Add(this.elementStyle4);
+            this.SkillTree.TabIndex = 20;
+            this.SkillTree.Text = "advTree1";
+            this.SkillTree.AfterNodeSelect += new DevComponents.AdvTree.AdvTreeNodeEventHandler(this.SkillTree_AfterNodeSelect);
+            // 
+            // nodeConnector2
+            // 
+            this.nodeConnector2.LineColor = System.Drawing.SystemColors.ControlText;
+            // 
+            // elementStyle3
+            // 
+            this.elementStyle3.Name = "elementStyle3";
+            this.elementStyle3.TextColor = System.Drawing.SystemColors.ControlText;
+            // 
+            // elementStyle4
+            // 
+            this.elementStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(230)))), ((int)(((byte)(247)))));
+            this.elementStyle4.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(168)))), ((int)(((byte)(228)))));
+            this.elementStyle4.BackColorGradientAngle = 90;
+            this.elementStyle4.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.elementStyle4.BorderBottomWidth = 1;
+            this.elementStyle4.BorderColor = System.Drawing.Color.DarkGray;
+            this.elementStyle4.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.elementStyle4.BorderLeftWidth = 1;
+            this.elementStyle4.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.elementStyle4.BorderRightWidth = 1;
+            this.elementStyle4.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.elementStyle4.BorderTopWidth = 1;
+            this.elementStyle4.CornerDiameter = 4;
+            this.elementStyle4.Description = "Blue";
+            this.elementStyle4.Name = "elementStyle4";
+            this.elementStyle4.PaddingBottom = 1;
+            this.elementStyle4.PaddingLeft = 1;
+            this.elementStyle4.PaddingRight = 1;
+            this.elementStyle4.PaddingTop = 1;
+            this.elementStyle4.TextColor = System.Drawing.Color.Black;
+            // 
+            // ribbonPanel4
+            // 
+            this.ribbonPanel4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.ribbonPanel4.Controls.Add(this.groupPanel5);
+            this.ribbonPanel4.Controls.Add(this.ItemPanel);
+            this.ribbonPanel4.Controls.Add(this.ItemPartsGroup);
+            this.ribbonPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ribbonPanel4.Location = new System.Drawing.Point(0, 55);
+            this.ribbonPanel4.Name = "ribbonPanel4";
+            this.ribbonPanel4.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.ribbonPanel4.Size = new System.Drawing.Size(944, 588);
+            this.ribbonPanel4.TabIndex = 4;
+            this.ribbonPanel4.Visible = false;
+            // 
+            // groupPanel5
+            // 
+            this.groupPanel5.BackColor = System.Drawing.Color.Transparent;
+            this.groupPanel5.CanvasColor = System.Drawing.SystemColors.Control;
+            this.groupPanel5.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel5.Controls.Add(this.ItemPartsSelector);
+            this.groupPanel5.Location = new System.Drawing.Point(280, 259);
+            this.groupPanel5.Name = "groupPanel5";
+            this.groupPanel5.Size = new System.Drawing.Size(663, 329);
+            // 
+            // 
+            // 
+            this.groupPanel5.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.groupPanel5.Style.BackColorGradientAngle = 90;
+            this.groupPanel5.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.groupPanel5.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel5.Style.BorderBottomWidth = 1;
+            this.groupPanel5.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.groupPanel5.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel5.Style.BorderLeftWidth = 1;
+            this.groupPanel5.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel5.Style.BorderRightWidth = 1;
+            this.groupPanel5.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.groupPanel5.Style.BorderTopWidth = 1;
+            this.groupPanel5.Style.CornerDiameter = 4;
+            this.groupPanel5.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.groupPanel5.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.groupPanel5.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel5.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            this.groupPanel5.TabIndex = 38;
+            this.groupPanel5.Text = "Parts Selector";
+            // 
+            // ItemPartsSelector
+            // 
+            this.ItemPartsSelector.AccessibleRole = System.Windows.Forms.AccessibleRole.Outline;
+            this.ItemPartsSelector.AllowDrop = true;
+            this.ItemPartsSelector.AllowUserToResizeColumns = false;
+            this.ItemPartsSelector.BackColor = System.Drawing.SystemColors.Window;
+            // 
+            // 
+            // 
+            this.ItemPartsSelector.BackgroundStyle.Class = "TreeBorderKey";
+            this.ItemPartsSelector.DragDropEnabled = false;
+            this.ItemPartsSelector.DragDropNodeCopyEnabled = false;
+            this.ItemPartsSelector.Location = new System.Drawing.Point(8, 5);
+            this.ItemPartsSelector.Name = "ItemPartsSelector";
+            this.ItemPartsSelector.NodesConnector = this.nodeConnector4;
+            this.ItemPartsSelector.NodeSpacing = 1;
+            this.ItemPartsSelector.NodeStyle = this.elementStyle7;
+            this.ItemPartsSelector.PathSeparator = ";";
+            this.ItemPartsSelector.Size = new System.Drawing.Size(640, 301);
+            this.ItemPartsSelector.Styles.Add(this.elementStyle7);
+            this.ItemPartsSelector.Styles.Add(this.elementStyle8);
+            this.ItemPartsSelector.TabIndex = 29;
+            this.ItemPartsSelector.Text = "from Clipboard";
+            this.ItemPartsSelector.NodeDoubleClick += new DevComponents.AdvTree.TreeNodeMouseEventHandler(this.ItemPartCategories_NodeDoubleClick);
+            // 
+            // nodeConnector4
+            // 
+            this.nodeConnector4.LineColor = System.Drawing.SystemColors.ControlText;
+            // 
+            // elementStyle7
+            // 
+            this.elementStyle7.Name = "elementStyle7";
+            this.elementStyle7.TextColor = System.Drawing.SystemColors.ControlText;
+            // 
+            // elementStyle8
+            // 
+            this.elementStyle8.BackColor = System.Drawing.Color.White;
+            this.elementStyle8.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(228)))), ((int)(((byte)(240)))));
+            this.elementStyle8.BackColorGradientAngle = 90;
+            this.elementStyle8.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.elementStyle8.BorderBottomWidth = 1;
+            this.elementStyle8.BorderColor = System.Drawing.Color.DarkGray;
+            this.elementStyle8.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.elementStyle8.BorderLeftWidth = 1;
+            this.elementStyle8.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.elementStyle8.BorderRightWidth = 1;
+            this.elementStyle8.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.elementStyle8.BorderTopWidth = 1;
+            this.elementStyle8.CornerDiameter = 4;
+            this.elementStyle8.Description = "Gray";
+            this.elementStyle8.Name = "elementStyle8";
+            this.elementStyle8.PaddingBottom = 1;
+            this.elementStyle8.PaddingLeft = 1;
+            this.elementStyle8.PaddingRight = 1;
+            this.elementStyle8.PaddingTop = 1;
+            this.elementStyle8.TextColor = System.Drawing.Color.Black;
+            // 
+            // ItemPanel
+            // 
+            this.ItemPanel.BackColor = System.Drawing.Color.Transparent;
+            this.ItemPanel.CanvasColor = System.Drawing.SystemColors.Control;
+            this.ItemPanel.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.ItemPanel.Controls.Add(this.bar5);
+            this.ItemPanel.Controls.Add(this.ItemTree);
+            this.ItemPanel.Location = new System.Drawing.Point(1, 18);
+            this.ItemPanel.Name = "ItemPanel";
+            this.ItemPanel.Size = new System.Drawing.Size(273, 570);
+            // 
+            // 
+            // 
+            this.ItemPanel.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.ItemPanel.Style.BackColorGradientAngle = 90;
+            this.ItemPanel.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.ItemPanel.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.ItemPanel.Style.BorderBottomWidth = 1;
+            this.ItemPanel.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.ItemPanel.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.ItemPanel.Style.BorderLeftWidth = 1;
+            this.ItemPanel.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.ItemPanel.Style.BorderRightWidth = 1;
+            this.ItemPanel.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.ItemPanel.Style.BorderTopWidth = 1;
+            this.ItemPanel.Style.CornerDiameter = 4;
+            this.ItemPanel.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.ItemPanel.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.ItemPanel.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.ItemPanel.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            this.ItemPanel.TabIndex = 37;
+            this.ItemPanel.Text = "Item Backpack";
+            // 
+            // bar5
+            // 
+            this.bar5.AntiAlias = true;
+            this.bar5.AutoHide = true;
+            this.bar5.BackColor = System.Drawing.Color.Transparent;
+            this.bar5.BarType = DevComponents.DotNetBar.eBarType.MenuBar;
+            this.bar5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bar5.DockedBorderStyle = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.bar5.FadeEffect = true;
+            this.bar5.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.NewItems,
+            this.InsertItemDropButton,
+            this.SelectedItemDropButton,
+            this.EditAllItems,
+            this.DeleteItems});
+            this.bar5.Location = new System.Drawing.Point(0, 0);
+            this.bar5.Name = "bar5";
+            this.bar5.RoundCorners = false;
+            this.bar5.Size = new System.Drawing.Size(273, 31);
+            this.bar5.Stretch = true;
+            this.bar5.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.bar5.TabIndex = 20;
+            this.bar5.TabStop = false;
+            this.bar5.Text = "bar5";
+            // 
+            // ItemTree
+            // 
+            this.ItemTree.AccessibleRole = System.Windows.Forms.AccessibleRole.Outline;
+            this.ItemTree.AllowDrop = true;
+            this.ItemTree.BackColor = System.Drawing.SystemColors.Window;
+            // 
+            // 
+            // 
+            this.ItemTree.BackgroundStyle.Class = "TreeBorderKey";
+            this.ItemTree.DragDropEnabled = false;
+            this.ItemTree.DragDropNodeCopyEnabled = false;
+            this.ItemTree.ExpandWidth = 0;
+            this.ItemTree.Indent = 24;
+            this.ItemTree.Location = new System.Drawing.Point(3, 31);
+            this.ItemTree.Name = "ItemTree";
+            this.ItemTree.NodesConnector = this.nodeConnector6;
+            this.ItemTree.NodeStyle = this.elementStyle11;
+            this.ItemTree.PathSeparator = ";";
+            this.ItemTree.Size = new System.Drawing.Size(261, 516);
+            this.ItemTree.Styles.Add(this.elementStyle11);
+            this.ItemTree.Styles.Add(this.elementStyle12);
+            this.ItemTree.TabIndex = 20;
+            this.ItemTree.Text = "advTree1";
+            this.ItemTree.AfterNodeSelect += new DevComponents.AdvTree.AdvTreeNodeEventHandler(this.ItemTree_AfterNodeSelect);
+            // 
+            // nodeConnector6
+            // 
+            this.nodeConnector6.LineColor = System.Drawing.SystemColors.ControlText;
+            // 
+            // elementStyle11
+            // 
+            this.elementStyle11.Name = "elementStyle11";
+            this.elementStyle11.TextColor = System.Drawing.SystemColors.ControlText;
+            // 
+            // elementStyle12
+            // 
+            this.elementStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(230)))), ((int)(((byte)(247)))));
+            this.elementStyle12.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(168)))), ((int)(((byte)(228)))));
+            this.elementStyle12.BackColorGradientAngle = 90;
+            this.elementStyle12.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.elementStyle12.BorderBottomWidth = 1;
+            this.elementStyle12.BorderColor = System.Drawing.Color.DarkGray;
+            this.elementStyle12.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.elementStyle12.BorderLeftWidth = 1;
+            this.elementStyle12.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.elementStyle12.BorderRightWidth = 1;
+            this.elementStyle12.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.elementStyle12.BorderTopWidth = 1;
+            this.elementStyle12.CornerDiameter = 4;
+            this.elementStyle12.Description = "Blue";
+            this.elementStyle12.Name = "elementStyle12";
+            this.elementStyle12.PaddingBottom = 1;
+            this.elementStyle12.PaddingLeft = 1;
+            this.elementStyle12.PaddingRight = 1;
+            this.elementStyle12.PaddingTop = 1;
+            this.elementStyle12.TextColor = System.Drawing.Color.Black;
+            // 
+            // ItemPartsGroup
+            // 
+            this.ItemPartsGroup.BackColor = System.Drawing.Color.Transparent;
+            this.ItemPartsGroup.CanvasColor = System.Drawing.SystemColors.Control;
+            this.ItemPartsGroup.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.ItemPartsGroup.Controls.Add(this.hex04);
+            this.ItemPartsGroup.Controls.Add(this.hex03);
+            this.ItemPartsGroup.Controls.Add(this.hex02);
+            this.ItemPartsGroup.Controls.Add(this.hex01);
+            this.ItemPartsGroup.Controls.Add(this.ItemWeaponGradeLevel);
+            this.ItemPartsGroup.Controls.Add(this.ItemItemGradeSlider);
+            this.ItemPartsGroup.Controls.Add(this.bar6);
+            this.ItemPartsGroup.Controls.Add(this.CurrentItemParts);
+            this.ItemPartsGroup.Controls.Add(this.Equipped);
+            this.ItemPartsGroup.Controls.Add(this.label12);
+            this.ItemPartsGroup.Controls.Add(this.label15);
+            this.ItemPartsGroup.Controls.Add(this.Quantity);
+            this.ItemPartsGroup.Controls.Add(this.ItemQualityLabel);
+            this.ItemPartsGroup.Controls.Add(this.ItemQuality);
+            this.ItemPartsGroup.Location = new System.Drawing.Point(280, 18);
+            this.ItemPartsGroup.Name = "ItemPartsGroup";
+            this.ItemPartsGroup.Size = new System.Drawing.Size(663, 235);
+            // 
+            // 
+            // 
+            this.ItemPartsGroup.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.ItemPartsGroup.Style.BackColorGradientAngle = 90;
+            this.ItemPartsGroup.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.ItemPartsGroup.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.ItemPartsGroup.Style.BorderBottomWidth = 1;
+            this.ItemPartsGroup.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.ItemPartsGroup.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.ItemPartsGroup.Style.BorderLeftWidth = 1;
+            this.ItemPartsGroup.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.ItemPartsGroup.Style.BorderRightWidth = 1;
+            this.ItemPartsGroup.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.ItemPartsGroup.Style.BorderTopWidth = 1;
+            this.ItemPartsGroup.Style.CornerDiameter = 4;
+            this.ItemPartsGroup.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.ItemPartsGroup.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.ItemPartsGroup.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.ItemPartsGroup.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
+            this.ItemPartsGroup.TabIndex = 39;
+            this.ItemPartsGroup.Text = "Item Parts";
+            // 
+            // hex04
+            // 
+            this.hex04.AutoSize = true;
+            this.hex04.BackColor = System.Drawing.Color.Transparent;
+            this.hex04.Location = new System.Drawing.Point(381, 194);
+            this.hex04.Name = "hex04";
+            this.hex04.Size = new System.Drawing.Size(66, 13);
+            this.hex04.TabIndex = 45;
+            this.hex04.Text = "0x00000000";
+            this.hex04.Visible = false;
+            // 
+            // hex03
+            // 
+            this.hex03.AutoSize = true;
+            this.hex03.BackColor = System.Drawing.Color.Transparent;
+            this.hex03.Location = new System.Drawing.Point(254, 194);
+            this.hex03.Name = "hex03";
+            this.hex03.Size = new System.Drawing.Size(66, 13);
+            this.hex03.TabIndex = 44;
+            this.hex03.Text = "0x00000000";
+            this.hex03.Visible = false;
+            // 
+            // hex02
+            // 
+            this.hex02.AutoSize = true;
+            this.hex02.BackColor = System.Drawing.Color.Transparent;
+            this.hex02.Location = new System.Drawing.Point(106, 194);
+            this.hex02.Name = "hex02";
+            this.hex02.Size = new System.Drawing.Size(66, 13);
+            this.hex02.TabIndex = 43;
+            this.hex02.Text = "0x00000000";
+            this.hex02.Visible = false;
+            // 
+            // hex01
+            // 
+            this.hex01.AutoSize = true;
+            this.hex01.BackColor = System.Drawing.Color.Transparent;
+            this.hex01.Location = new System.Drawing.Point(5, 194);
+            this.hex01.Name = "hex01";
+            this.hex01.Size = new System.Drawing.Size(66, 13);
+            this.hex01.TabIndex = 42;
+            this.hex01.Text = "0x00000000";
+            this.hex01.Visible = false;
+            // 
+            // ItemWeaponGradeLevel
+            // 
+            this.ItemWeaponGradeLevel.AutoSize = true;
+            this.ItemWeaponGradeLevel.BackColor = System.Drawing.Color.Transparent;
+            this.ItemWeaponGradeLevel.Location = new System.Drawing.Point(381, 156);
+            this.ItemWeaponGradeLevel.Name = "ItemWeaponGradeLevel";
+            this.ItemWeaponGradeLevel.Size = new System.Drawing.Size(80, 13);
+            this.ItemWeaponGradeLevel.TabIndex = 41;
+            this.ItemWeaponGradeLevel.Text = "Level: Disabled";
+            // 
+            // ItemItemGradeSlider
+            // 
+            this.ItemItemGradeSlider.BackColor = System.Drawing.Color.Transparent;
+            this.ItemItemGradeSlider.LabelVisible = false;
+            this.ItemItemGradeSlider.Location = new System.Drawing.Point(384, 170);
+            this.ItemItemGradeSlider.Maximum = 71;
+            this.ItemItemGradeSlider.Name = "ItemItemGradeSlider";
+            this.ItemItemGradeSlider.Size = new System.Drawing.Size(224, 23);
+            this.ItemItemGradeSlider.TabIndex = 40;
+            this.ItemItemGradeSlider.Text = "Quality";
+            this.ItemItemGradeSlider.Value = 0;
+            this.ItemItemGradeSlider.ValueChanged += new System.EventHandler(this.ItemItemGradeSlider_ValueChanged);
+            // 
+            // bar6
+            // 
+            this.bar6.AntiAlias = true;
+            this.bar6.BackColor = System.Drawing.Color.Transparent;
+            this.bar6.BarType = DevComponents.DotNetBar.eBarType.MenuBar;
+            this.bar6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bar6.DockedBorderStyle = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.bar6.FadeEffect = true;
+            this.bar6.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.SaveChangesItem,
+            this.ItemInfo,
+            this.DeletePartItem,
+            this.buttonItem23,
+            this.buttonItem27});
+            this.bar6.Location = new System.Drawing.Point(0, 0);
+            this.bar6.Name = "bar6";
+            this.bar6.RoundCorners = false;
+            this.bar6.Size = new System.Drawing.Size(657, 31);
+            this.bar6.Stretch = true;
+            this.bar6.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.bar6.TabIndex = 37;
+            this.bar6.TabStop = false;
+            this.bar6.Text = "bar6";
+            // 
+            // CurrentItemParts
+            // 
+            this.CurrentItemParts.FormattingEnabled = true;
+            this.CurrentItemParts.Items.AddRange(new object[] {
+            "Item Grade",
+            "Item Type",
+            "Body",
+            "Left Side",
+            "Right Side",
+            "Material",
+            "Manufacturer",
+            "Prefix",
+            "Title"});
+            this.CurrentItemParts.Location = new System.Drawing.Point(8, 31);
+            this.CurrentItemParts.Name = "CurrentItemParts";
+            this.CurrentItemParts.Size = new System.Drawing.Size(640, 121);
+            this.CurrentItemParts.TabIndex = 21;
+            this.CurrentItemParts.DoubleClick += new System.EventHandler(this.CurrentItemParts_DoubleClick);
+            // 
+            // Equipped
+            // 
+            this.Equipped.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Equipped.FormattingEnabled = true;
+            this.Equipped.Items.AddRange(new object[] {
+            "No",
+            "Yes"});
+            this.Equipped.Location = new System.Drawing.Point(254, 172);
+            this.Equipped.Name = "Equipped";
+            this.Equipped.Size = new System.Drawing.Size(121, 21);
+            this.Equipped.TabIndex = 28;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Location = new System.Drawing.Point(5, 155);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(46, 13);
+            this.label12.TabIndex = 25;
+            this.label12.Text = "Quantity";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Location = new System.Drawing.Point(251, 155);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(52, 13);
+            this.label15.TabIndex = 27;
+            this.label15.Text = "Equipped";
+            // 
+            // Quantity
+            // 
+            this.Quantity.Location = new System.Drawing.Point(6, 171);
+            this.Quantity.Maximum = new decimal(new int[] {
+            16777215,
+            0,
+            0,
+            0});
+            this.Quantity.Name = "Quantity";
+            this.Quantity.Size = new System.Drawing.Size(96, 20);
+            this.Quantity.TabIndex = 22;
+            // 
+            // ItemQualityLabel
+            // 
+            this.ItemQualityLabel.AutoSize = true;
+            this.ItemQualityLabel.BackColor = System.Drawing.Color.Transparent;
+            this.ItemQualityLabel.Location = new System.Drawing.Point(106, 155);
+            this.ItemQualityLabel.Name = "ItemQualityLabel";
+            this.ItemQualityLabel.Size = new System.Drawing.Size(39, 13);
+            this.ItemQualityLabel.TabIndex = 26;
+            this.ItemQualityLabel.Text = "Quality";
+            // 
+            // ItemQuality
+            // 
+            this.ItemQuality.BackColor = System.Drawing.Color.Transparent;
+            this.ItemQuality.LabelVisible = false;
+            this.ItemQuality.Location = new System.Drawing.Point(106, 170);
+            this.ItemQuality.Maximum = 5;
+            this.ItemQuality.Minimum = -1;
+            this.ItemQuality.Name = "ItemQuality";
+            this.ItemQuality.Size = new System.Drawing.Size(142, 23);
+            this.ItemQuality.TabIndex = 23;
+            this.ItemQuality.Text = "Quality";
+            this.ItemQuality.Value = 0;
+            this.ItemQuality.ValueChanged += new System.EventHandler(this.ItemQuality_ValueChanged);
             // 
             // ribbonPanel1
             // 
@@ -3158,1492 +4644,6 @@
             this.elementStyle6.PaddingTop = 1;
             this.elementStyle6.TextColor = System.Drawing.Color.Blue;
             // 
-            // DLCValue1
-            // 
-            this.DLCValue1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.DLCValue1.Controls.Add(this.groupPanel16);
-            this.DLCValue1.Controls.Add(this.groupPanel4);
-            this.DLCValue1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DLCValue1.Location = new System.Drawing.Point(0, 55);
-            this.DLCValue1.Name = "DLCValue1";
-            this.DLCValue1.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.DLCValue1.Size = new System.Drawing.Size(944, 588);
-            this.DLCValue1.TabIndex = 8;
-            this.DLCValue1.Visible = false;
-            // 
-            // groupPanel16
-            // 
-            this.groupPanel16.BackColor = System.Drawing.Color.Transparent;
-            this.groupPanel16.CanvasColor = System.Drawing.SystemColors.Control;
-            this.groupPanel16.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel16.Controls.Add(this.EchoDLCValue2);
-            this.groupPanel16.Controls.Add(this.EchoDLCValue1);
-            this.groupPanel16.Controls.Add(this.label34);
-            this.groupPanel16.Controls.Add(this.label35);
-            this.groupPanel16.Location = new System.Drawing.Point(280, 18);
-            this.groupPanel16.Name = "groupPanel16";
-            this.groupPanel16.Size = new System.Drawing.Size(663, 160);
-            // 
-            // 
-            // 
-            this.groupPanel16.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.groupPanel16.Style.BackColorGradientAngle = 90;
-            this.groupPanel16.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.groupPanel16.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel16.Style.BorderBottomWidth = 1;
-            this.groupPanel16.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.groupPanel16.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel16.Style.BorderLeftWidth = 1;
-            this.groupPanel16.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel16.Style.BorderRightWidth = 1;
-            this.groupPanel16.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel16.Style.BorderTopWidth = 1;
-            this.groupPanel16.Style.CornerDiameter = 4;
-            this.groupPanel16.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
-            this.groupPanel16.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.groupPanel16.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.groupPanel16.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
-            this.groupPanel16.TabIndex = 26;
-            this.groupPanel16.Text = "Selected Echo Log";
-            // 
-            // EchoDLCValue2
-            // 
-            this.EchoDLCValue2.Location = new System.Drawing.Point(13, 91);
-            this.EchoDLCValue2.Name = "EchoDLCValue2";
-            this.EchoDLCValue2.Size = new System.Drawing.Size(120, 20);
-            this.EchoDLCValue2.TabIndex = 3;
-            this.EchoDLCValue2.ValueChanged += new System.EventHandler(this.DLCValue2_ValueChanged);
-            // 
-            // EchoDLCValue1
-            // 
-            this.EchoDLCValue1.Location = new System.Drawing.Point(13, 29);
-            this.EchoDLCValue1.Name = "EchoDLCValue1";
-            this.EchoDLCValue1.Size = new System.Drawing.Size(120, 20);
-            this.EchoDLCValue1.TabIndex = 2;
-            this.EchoDLCValue1.ValueChanged += new System.EventHandler(this.EchoDLCValue1_ValueChanged);
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(10, 75);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(67, 13);
-            this.label34.TabIndex = 1;
-            this.label34.Text = "DLC Value 2";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(10, 13);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(67, 13);
-            this.label35.TabIndex = 0;
-            this.label35.Text = "DLC Value 1";
-            // 
-            // groupPanel4
-            // 
-            this.groupPanel4.BackColor = System.Drawing.Color.Transparent;
-            this.groupPanel4.CanvasColor = System.Drawing.SystemColors.Control;
-            this.groupPanel4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel4.Controls.Add(this.bar4);
-            this.groupPanel4.Controls.Add(this.EchoTree);
-            this.groupPanel4.Location = new System.Drawing.Point(1, 18);
-            this.groupPanel4.Name = "groupPanel4";
-            this.groupPanel4.Size = new System.Drawing.Size(273, 570);
-            // 
-            // 
-            // 
-            this.groupPanel4.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.groupPanel4.Style.BackColorGradientAngle = 90;
-            this.groupPanel4.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.groupPanel4.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel4.Style.BorderBottomWidth = 1;
-            this.groupPanel4.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.groupPanel4.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel4.Style.BorderLeftWidth = 1;
-            this.groupPanel4.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel4.Style.BorderRightWidth = 1;
-            this.groupPanel4.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel4.Style.BorderTopWidth = 1;
-            this.groupPanel4.Style.CornerDiameter = 4;
-            this.groupPanel4.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
-            this.groupPanel4.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.groupPanel4.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.groupPanel4.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
-            this.groupPanel4.TabIndex = 23;
-            this.groupPanel4.Text = "Current Echo Logs";
-            // 
-            // bar4
-            // 
-            this.bar4.AntiAlias = true;
-            this.bar4.AutoHide = true;
-            this.bar4.BackColor = System.Drawing.Color.Transparent;
-            this.bar4.BarType = DevComponents.DotNetBar.eBarType.MenuBar;
-            this.bar4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bar4.DockedBorderStyle = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.bar4.FadeEffect = true;
-            this.bar4.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.NewEcho,
-            this.DeleteEcho,
-            this.ExportEchoes,
-            this.ImportEchoes});
-            this.bar4.Location = new System.Drawing.Point(0, 0);
-            this.bar4.Name = "bar4";
-            this.bar4.RoundCorners = false;
-            this.bar4.Size = new System.Drawing.Size(267, 31);
-            this.bar4.Stretch = true;
-            this.bar4.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.bar4.TabIndex = 20;
-            this.bar4.TabStop = false;
-            this.bar4.Text = "bar4";
-            this.bar4.WrapItemsDock = true;
-            // 
-            // EchoTree
-            // 
-            this.EchoTree.AccessibleRole = System.Windows.Forms.AccessibleRole.Outline;
-            this.EchoTree.AllowDrop = true;
-            this.EchoTree.BackColor = System.Drawing.SystemColors.Window;
-            // 
-            // 
-            // 
-            this.EchoTree.BackgroundStyle.Class = "TreeBorderKey";
-            this.EchoTree.DragDropEnabled = false;
-            this.EchoTree.DragDropNodeCopyEnabled = false;
-            this.EchoTree.Location = new System.Drawing.Point(3, 31);
-            this.EchoTree.Name = "EchoTree";
-            this.EchoTree.NodesConnector = this.nodeConnector1;
-            this.EchoTree.NodeStyle = this.elementStyle1;
-            this.EchoTree.PathSeparator = ";";
-            this.EchoTree.Size = new System.Drawing.Size(261, 516);
-            this.EchoTree.Styles.Add(this.elementStyle1);
-            this.EchoTree.Styles.Add(this.elementStyle2);
-            this.EchoTree.TabIndex = 20;
-            this.EchoTree.Text = "advTree1";
-            this.EchoTree.AfterNodeSelect += new DevComponents.AdvTree.AdvTreeNodeEventHandler(this.EchoTree_AfterNodeSelect);
-            // 
-            // nodeConnector1
-            // 
-            this.nodeConnector1.LineColor = System.Drawing.SystemColors.ControlText;
-            // 
-            // elementStyle1
-            // 
-            this.elementStyle1.Name = "elementStyle1";
-            this.elementStyle1.TextColor = System.Drawing.SystemColors.ControlText;
-            // 
-            // elementStyle2
-            // 
-            this.elementStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(230)))), ((int)(((byte)(247)))));
-            this.elementStyle2.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(168)))), ((int)(((byte)(228)))));
-            this.elementStyle2.BackColorGradientAngle = 90;
-            this.elementStyle2.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.elementStyle2.BorderBottomWidth = 1;
-            this.elementStyle2.BorderColor = System.Drawing.Color.DarkGray;
-            this.elementStyle2.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.elementStyle2.BorderLeftWidth = 1;
-            this.elementStyle2.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.elementStyle2.BorderRightWidth = 1;
-            this.elementStyle2.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.elementStyle2.BorderTopWidth = 1;
-            this.elementStyle2.CornerDiameter = 4;
-            this.elementStyle2.Description = "Blue";
-            this.elementStyle2.Name = "elementStyle2";
-            this.elementStyle2.PaddingBottom = 1;
-            this.elementStyle2.PaddingLeft = 1;
-            this.elementStyle2.PaddingRight = 1;
-            this.elementStyle2.PaddingTop = 1;
-            this.elementStyle2.TextColor = System.Drawing.Color.Black;
-            // 
-            // ribbonPanel3
-            // 
-            this.ribbonPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.ribbonPanel3.Controls.Add(this.groupPanel15);
-            this.ribbonPanel3.Controls.Add(this.groupPanel9);
-            this.ribbonPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribbonPanel3.Location = new System.Drawing.Point(0, 55);
-            this.ribbonPanel3.Name = "ribbonPanel3";
-            this.ribbonPanel3.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.ribbonPanel3.Size = new System.Drawing.Size(944, 588);
-            this.ribbonPanel3.TabIndex = 3;
-            this.ribbonPanel3.Visible = false;
-            // 
-            // groupPanel15
-            // 
-            this.groupPanel15.BackColor = System.Drawing.Color.Transparent;
-            this.groupPanel15.CanvasColor = System.Drawing.SystemColors.Control;
-            this.groupPanel15.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel15.Controls.Add(this.AmmoSDULevel);
-            this.groupPanel15.Controls.Add(this.AmmoPoolRemaining);
-            this.groupPanel15.Controls.Add(this.label31);
-            this.groupPanel15.Controls.Add(this.label30);
-            this.groupPanel15.Location = new System.Drawing.Point(280, 18);
-            this.groupPanel15.Name = "groupPanel15";
-            this.groupPanel15.Size = new System.Drawing.Size(663, 160);
-            // 
-            // 
-            // 
-            this.groupPanel15.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.groupPanel15.Style.BackColorGradientAngle = 90;
-            this.groupPanel15.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.groupPanel15.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel15.Style.BorderBottomWidth = 1;
-            this.groupPanel15.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.groupPanel15.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel15.Style.BorderLeftWidth = 1;
-            this.groupPanel15.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel15.Style.BorderRightWidth = 1;
-            this.groupPanel15.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel15.Style.BorderTopWidth = 1;
-            this.groupPanel15.Style.CornerDiameter = 4;
-            this.groupPanel15.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
-            this.groupPanel15.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.groupPanel15.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.groupPanel15.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
-            this.groupPanel15.TabIndex = 25;
-            this.groupPanel15.Text = "Selected Ammo";
-            // 
-            // AmmoSDULevel
-            // 
-            this.AmmoSDULevel.Location = new System.Drawing.Point(13, 91);
-            this.AmmoSDULevel.Maximum = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            this.AmmoSDULevel.Name = "AmmoSDULevel";
-            this.AmmoSDULevel.Size = new System.Drawing.Size(120, 20);
-            this.AmmoSDULevel.TabIndex = 3;
-            this.AmmoSDULevel.ValueChanged += new System.EventHandler(this.AmmoSDULevel_ValueChanged);
-            // 
-            // AmmoPoolRemaining
-            // 
-            this.AmmoPoolRemaining.Location = new System.Drawing.Point(13, 29);
-            this.AmmoPoolRemaining.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.AmmoPoolRemaining.Name = "AmmoPoolRemaining";
-            this.AmmoPoolRemaining.Size = new System.Drawing.Size(120, 20);
-            this.AmmoPoolRemaining.TabIndex = 2;
-            this.AmmoPoolRemaining.ValueChanged += new System.EventHandler(this.AmmoPoolRemaining_ValueChanged);
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(10, 75);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(103, 13);
-            this.label31.TabIndex = 1;
-            this.label31.Text = "SDU Upgrade Level";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(10, 13);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(89, 13);
-            this.label30.TabIndex = 0;
-            this.label30.Text = "Remaining Ammo";
-            // 
-            // groupPanel9
-            // 
-            this.groupPanel9.BackColor = System.Drawing.Color.Transparent;
-            this.groupPanel9.CanvasColor = System.Drawing.SystemColors.Control;
-            this.groupPanel9.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel9.Controls.Add(this.bar7);
-            this.groupPanel9.Controls.Add(this.AmmoTree);
-            this.groupPanel9.Location = new System.Drawing.Point(1, 18);
-            this.groupPanel9.Name = "groupPanel9";
-            this.groupPanel9.Size = new System.Drawing.Size(273, 570);
-            // 
-            // 
-            // 
-            this.groupPanel9.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.groupPanel9.Style.BackColorGradientAngle = 90;
-            this.groupPanel9.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.groupPanel9.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel9.Style.BorderBottomWidth = 1;
-            this.groupPanel9.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.groupPanel9.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel9.Style.BorderLeftWidth = 1;
-            this.groupPanel9.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel9.Style.BorderRightWidth = 1;
-            this.groupPanel9.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel9.Style.BorderTopWidth = 1;
-            this.groupPanel9.Style.CornerDiameter = 4;
-            this.groupPanel9.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
-            this.groupPanel9.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.groupPanel9.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.groupPanel9.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
-            this.groupPanel9.TabIndex = 24;
-            this.groupPanel9.Text = "Current Ammo Pools";
-            // 
-            // bar7
-            // 
-            this.bar7.AntiAlias = true;
-            this.bar7.AutoHide = true;
-            this.bar7.BackColor = System.Drawing.Color.Transparent;
-            this.bar7.BarType = DevComponents.DotNetBar.eBarType.MenuBar;
-            this.bar7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bar7.DockedBorderStyle = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.bar7.FadeEffect = true;
-            this.bar7.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.NewAmmo,
-            this.AmmoDelete});
-            this.bar7.Location = new System.Drawing.Point(0, 0);
-            this.bar7.Name = "bar7";
-            this.bar7.RoundCorners = false;
-            this.bar7.Size = new System.Drawing.Size(267, 31);
-            this.bar7.Stretch = true;
-            this.bar7.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.bar7.TabIndex = 20;
-            this.bar7.TabStop = false;
-            this.bar7.Text = "bar7";
-            this.bar7.WrapItemsDock = true;
-            // 
-            // AmmoTree
-            // 
-            this.AmmoTree.AccessibleRole = System.Windows.Forms.AccessibleRole.Outline;
-            this.AmmoTree.AllowDrop = true;
-            this.AmmoTree.BackColor = System.Drawing.SystemColors.Window;
-            this.AmmoTree.DragDropEnabled = false;
-            this.AmmoTree.DragDropNodeCopyEnabled = false;
-            this.AmmoTree.ExpandWidth = 0;
-            this.AmmoTree.Location = new System.Drawing.Point(3, 31);
-            this.AmmoTree.Name = "AmmoTree";
-            this.AmmoTree.NodesConnector = this.nodeConnector5;
-            this.AmmoTree.NodeStyle = this.elementStyle9;
-            this.AmmoTree.PathSeparator = ";";
-            this.AmmoTree.Size = new System.Drawing.Size(261, 516);
-            this.AmmoTree.Styles.Add(this.elementStyle9);
-            this.AmmoTree.Styles.Add(this.elementStyle10);
-            this.AmmoTree.TabIndex = 20;
-            this.AmmoTree.Text = "advTree1";
-            this.AmmoTree.AfterNodeSelect += new DevComponents.AdvTree.AdvTreeNodeEventHandler(this.AmmoTree_AfterNodeSelect);
-            // 
-            // nodeConnector5
-            // 
-            this.nodeConnector5.LineColor = System.Drawing.SystemColors.ControlText;
-            // 
-            // elementStyle9
-            // 
-            this.elementStyle9.Name = "elementStyle9";
-            this.elementStyle9.TextColor = System.Drawing.SystemColors.ControlText;
-            // 
-            // elementStyle10
-            // 
-            this.elementStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(230)))), ((int)(((byte)(247)))));
-            this.elementStyle10.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(168)))), ((int)(((byte)(228)))));
-            this.elementStyle10.BackColorGradientAngle = 90;
-            this.elementStyle10.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.elementStyle10.BorderBottomWidth = 1;
-            this.elementStyle10.BorderColor = System.Drawing.Color.DarkGray;
-            this.elementStyle10.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.elementStyle10.BorderLeftWidth = 1;
-            this.elementStyle10.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.elementStyle10.BorderRightWidth = 1;
-            this.elementStyle10.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.elementStyle10.BorderTopWidth = 1;
-            this.elementStyle10.CornerDiameter = 4;
-            this.elementStyle10.Description = "Blue";
-            this.elementStyle10.Name = "elementStyle10";
-            this.elementStyle10.PaddingBottom = 1;
-            this.elementStyle10.PaddingLeft = 1;
-            this.elementStyle10.PaddingRight = 1;
-            this.elementStyle10.PaddingTop = 1;
-            this.elementStyle10.TextColor = System.Drawing.Color.Black;
-            // 
-            // ribbonPanel7
-            // 
-            this.ribbonPanel7.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.ribbonPanel7.Controls.Add(this.ActivePT2QuestGroup);
-            this.ribbonPanel7.Controls.Add(this.ActivePT1QuestGroup);
-            this.ribbonPanel7.Controls.Add(this.SelectedQuestGroup);
-            this.ribbonPanel7.Controls.Add(this.groupPanel3);
-            this.ribbonPanel7.Controls.Add(this.NumberOfObjectives);
-            this.ribbonPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribbonPanel7.Location = new System.Drawing.Point(0, 55);
-            this.ribbonPanel7.Name = "ribbonPanel7";
-            this.ribbonPanel7.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.ribbonPanel7.Size = new System.Drawing.Size(944, 588);
-            this.ribbonPanel7.TabIndex = 7;
-            this.ribbonPanel7.Visible = false;
-            // 
-            // ActivePT2QuestGroup
-            // 
-            this.ActivePT2QuestGroup.BackColor = System.Drawing.Color.Transparent;
-            this.ActivePT2QuestGroup.CanvasColor = System.Drawing.SystemColors.Control;
-            this.ActivePT2QuestGroup.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.ActivePT2QuestGroup.Controls.Add(this.ActivePT2Quest);
-            this.ActivePT2QuestGroup.Location = new System.Drawing.Point(639, 18);
-            this.ActivePT2QuestGroup.Name = "ActivePT2QuestGroup";
-            this.ActivePT2QuestGroup.Size = new System.Drawing.Size(304, 62);
-            // 
-            // 
-            // 
-            this.ActivePT2QuestGroup.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.ActivePT2QuestGroup.Style.BackColorGradientAngle = 90;
-            this.ActivePT2QuestGroup.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.ActivePT2QuestGroup.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.ActivePT2QuestGroup.Style.BorderBottomWidth = 1;
-            this.ActivePT2QuestGroup.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.ActivePT2QuestGroup.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.ActivePT2QuestGroup.Style.BorderLeftWidth = 1;
-            this.ActivePT2QuestGroup.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.ActivePT2QuestGroup.Style.BorderRightWidth = 1;
-            this.ActivePT2QuestGroup.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.ActivePT2QuestGroup.Style.BorderTopWidth = 1;
-            this.ActivePT2QuestGroup.Style.CornerDiameter = 4;
-            this.ActivePT2QuestGroup.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
-            this.ActivePT2QuestGroup.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.ActivePT2QuestGroup.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.ActivePT2QuestGroup.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
-            this.ActivePT2QuestGroup.TabIndex = 26;
-            this.ActivePT2QuestGroup.Text = "Active Playthrough 2 Quest";
-            // 
-            // ActivePT2Quest
-            // 
-            // 
-            // 
-            // 
-            this.ActivePT2Quest.Border.Class = "TextBoxBorder";
-            this.ActivePT2Quest.Location = new System.Drawing.Point(3, 14);
-            this.ActivePT2Quest.Name = "ActivePT2Quest";
-            this.ActivePT2Quest.ReadOnly = true;
-            this.ActivePT2Quest.Size = new System.Drawing.Size(291, 20);
-            this.ActivePT2Quest.TabIndex = 24;
-            // 
-            // ActivePT1QuestGroup
-            // 
-            this.ActivePT1QuestGroup.BackColor = System.Drawing.Color.Transparent;
-            this.ActivePT1QuestGroup.CanvasColor = System.Drawing.SystemColors.Control;
-            this.ActivePT1QuestGroup.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.ActivePT1QuestGroup.Controls.Add(this.ActivePT1Quest);
-            this.ActivePT1QuestGroup.Location = new System.Drawing.Point(280, 18);
-            this.ActivePT1QuestGroup.Name = "ActivePT1QuestGroup";
-            this.ActivePT1QuestGroup.Size = new System.Drawing.Size(304, 62);
-            // 
-            // 
-            // 
-            this.ActivePT1QuestGroup.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.ActivePT1QuestGroup.Style.BackColorGradientAngle = 90;
-            this.ActivePT1QuestGroup.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.ActivePT1QuestGroup.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.ActivePT1QuestGroup.Style.BorderBottomWidth = 1;
-            this.ActivePT1QuestGroup.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.ActivePT1QuestGroup.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.ActivePT1QuestGroup.Style.BorderLeftWidth = 1;
-            this.ActivePT1QuestGroup.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.ActivePT1QuestGroup.Style.BorderRightWidth = 1;
-            this.ActivePT1QuestGroup.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.ActivePT1QuestGroup.Style.BorderTopWidth = 1;
-            this.ActivePT1QuestGroup.Style.CornerDiameter = 4;
-            this.ActivePT1QuestGroup.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
-            this.ActivePT1QuestGroup.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.ActivePT1QuestGroup.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.ActivePT1QuestGroup.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
-            this.ActivePT1QuestGroup.TabIndex = 25;
-            this.ActivePT1QuestGroup.Text = "Active Playthrough 1 Quest";
-            // 
-            // ActivePT1Quest
-            // 
-            // 
-            // 
-            // 
-            this.ActivePT1Quest.Border.Class = "TextBoxBorder";
-            this.ActivePT1Quest.Location = new System.Drawing.Point(3, 14);
-            this.ActivePT1Quest.Name = "ActivePT1Quest";
-            this.ActivePT1Quest.ReadOnly = true;
-            this.ActivePT1Quest.Size = new System.Drawing.Size(291, 20);
-            this.ActivePT1Quest.TabIndex = 24;
-            // 
-            // SelectedQuestGroup
-            // 
-            this.SelectedQuestGroup.BackColor = System.Drawing.Color.Transparent;
-            this.SelectedQuestGroup.CanvasColor = System.Drawing.SystemColors.Control;
-            this.SelectedQuestGroup.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.SelectedQuestGroup.Controls.Add(this.QuestDescription);
-            this.SelectedQuestGroup.Controls.Add(this.QuestSummary);
-            this.SelectedQuestGroup.Controls.Add(this.label33);
-            this.SelectedQuestGroup.Controls.Add(this.label32);
-            this.SelectedQuestGroup.Controls.Add(this.label14);
-            this.SelectedQuestGroup.Controls.Add(this.ObjectiveValue);
-            this.SelectedQuestGroup.Controls.Add(this.label13);
-            this.SelectedQuestGroup.Controls.Add(this.Objectives);
-            this.SelectedQuestGroup.Controls.Add(this.label11);
-            this.SelectedQuestGroup.Controls.Add(this.QuestProgress);
-            this.SelectedQuestGroup.Controls.Add(this.label10);
-            this.SelectedQuestGroup.Controls.Add(this.QuestString);
-            this.SelectedQuestGroup.Location = new System.Drawing.Point(279, 85);
-            this.SelectedQuestGroup.Name = "SelectedQuestGroup";
-            this.SelectedQuestGroup.Size = new System.Drawing.Size(664, 502);
-            // 
-            // 
-            // 
-            this.SelectedQuestGroup.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.SelectedQuestGroup.Style.BackColorGradientAngle = 90;
-            this.SelectedQuestGroup.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.SelectedQuestGroup.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.SelectedQuestGroup.Style.BorderBottomWidth = 1;
-            this.SelectedQuestGroup.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.SelectedQuestGroup.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.SelectedQuestGroup.Style.BorderLeftWidth = 1;
-            this.SelectedQuestGroup.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.SelectedQuestGroup.Style.BorderRightWidth = 1;
-            this.SelectedQuestGroup.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.SelectedQuestGroup.Style.BorderTopWidth = 1;
-            this.SelectedQuestGroup.Style.CornerDiameter = 4;
-            this.SelectedQuestGroup.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
-            this.SelectedQuestGroup.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.SelectedQuestGroup.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.SelectedQuestGroup.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
-            this.SelectedQuestGroup.TabIndex = 23;
-            this.SelectedQuestGroup.Text = "Selected Quest";
-            // 
-            // QuestDescription
-            // 
-            // 
-            // 
-            // 
-            this.QuestDescription.Border.Class = "TextBoxBorder";
-            this.QuestDescription.Location = new System.Drawing.Point(6, 239);
-            this.QuestDescription.Multiline = true;
-            this.QuestDescription.Name = "QuestDescription";
-            this.QuestDescription.ReadOnly = true;
-            this.QuestDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.QuestDescription.Size = new System.Drawing.Size(644, 238);
-            this.QuestDescription.TabIndex = 23;
-            // 
-            // QuestSummary
-            // 
-            // 
-            // 
-            // 
-            this.QuestSummary.Border.Class = "TextBoxBorder";
-            this.QuestSummary.Location = new System.Drawing.Point(6, 194);
-            this.QuestSummary.Name = "QuestSummary";
-            this.QuestSummary.ReadOnly = true;
-            this.QuestSummary.Size = new System.Drawing.Size(577, 20);
-            this.QuestSummary.TabIndex = 22;
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(6, 220);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(91, 13);
-            this.label33.TabIndex = 21;
-            this.label33.Text = "Quest Description";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(6, 178);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(81, 13);
-            this.label32.TabIndex = 20;
-            this.label32.Text = "Quest Summary";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(372, 84);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(82, 13);
-            this.label14.TabIndex = 19;
-            this.label14.Text = "Objective Value";
-            // 
-            // ObjectiveValue
-            // 
-            this.ObjectiveValue.Location = new System.Drawing.Point(375, 101);
-            this.ObjectiveValue.Name = "ObjectiveValue";
-            this.ObjectiveValue.Size = new System.Drawing.Size(84, 20);
-            this.ObjectiveValue.TabIndex = 18;
-            this.ObjectiveValue.ValueChanged += new System.EventHandler(this.ObjectiveValue_ValueChanged);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(162, 84);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(57, 13);
-            this.label13.TabIndex = 17;
-            this.label13.Text = "Objectives";
-            // 
-            // Objectives
-            // 
-            this.Objectives.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Objectives.FormattingEnabled = true;
-            this.Objectives.Location = new System.Drawing.Point(165, 100);
-            this.Objectives.Name = "Objectives";
-            this.Objectives.Size = new System.Drawing.Size(204, 21);
-            this.Objectives.TabIndex = 16;
-            this.Objectives.SelectedIndexChanged += new System.EventHandler(this.Objectives_SelectedIndexChanged);
-            this.Objectives.Click += new System.EventHandler(this.QuestProgress_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 84);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(48, 13);
-            this.label11.TabIndex = 13;
-            this.label11.Text = "Progress";
-            // 
-            // QuestProgress
-            // 
-            this.QuestProgress.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.QuestProgress.FormattingEnabled = true;
-            this.QuestProgress.Items.AddRange(new object[] {
-            "Not started",
-            "Started",
-            "Ready to turn in",
-            "Finished"});
-            this.QuestProgress.Location = new System.Drawing.Point(6, 100);
-            this.QuestProgress.Name = "QuestProgress";
-            this.QuestProgress.Size = new System.Drawing.Size(154, 21);
-            this.QuestProgress.TabIndex = 12;
-            this.QuestProgress.SelectedIndexChanged += new System.EventHandler(this.QuestProgress_SelectedIndexChanged);
-            this.QuestProgress.Click += new System.EventHandler(this.QuestProgress_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Location = new System.Drawing.Point(3, 27);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(65, 13);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "Quest String";
-            // 
-            // QuestString
-            // 
-            // 
-            // 
-            // 
-            this.QuestString.Border.Class = "TextBoxBorder";
-            this.QuestString.Location = new System.Drawing.Point(6, 43);
-            this.QuestString.Name = "QuestString";
-            this.QuestString.ReadOnly = true;
-            this.QuestString.Size = new System.Drawing.Size(271, 20);
-            this.QuestString.TabIndex = 10;
-            // 
-            // groupPanel3
-            // 
-            this.groupPanel3.BackColor = System.Drawing.Color.Transparent;
-            this.groupPanel3.CanvasColor = System.Drawing.SystemColors.Control;
-            this.groupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel3.Controls.Add(this.bar3);
-            this.groupPanel3.Controls.Add(this.QuestTree);
-            this.groupPanel3.Location = new System.Drawing.Point(1, 18);
-            this.groupPanel3.Name = "groupPanel3";
-            this.groupPanel3.Size = new System.Drawing.Size(273, 570);
-            // 
-            // 
-            // 
-            this.groupPanel3.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.groupPanel3.Style.BackColorGradientAngle = 90;
-            this.groupPanel3.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.groupPanel3.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel3.Style.BorderBottomWidth = 1;
-            this.groupPanel3.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.groupPanel3.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel3.Style.BorderLeftWidth = 1;
-            this.groupPanel3.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel3.Style.BorderRightWidth = 1;
-            this.groupPanel3.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel3.Style.BorderTopWidth = 1;
-            this.groupPanel3.Style.CornerDiameter = 4;
-            this.groupPanel3.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
-            this.groupPanel3.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.groupPanel3.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.groupPanel3.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
-            this.groupPanel3.TabIndex = 22;
-            this.groupPanel3.Text = "Current Quests";
-            // 
-            // bar3
-            // 
-            this.bar3.AntiAlias = true;
-            this.bar3.AutoHide = true;
-            this.bar3.BackColor = System.Drawing.Color.Transparent;
-            this.bar3.BarType = DevComponents.DotNetBar.eBarType.MenuBar;
-            this.bar3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bar3.DockedBorderStyle = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.bar3.FadeEffect = true;
-            this.bar3.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.NewQuest,
-            this.DeleteQuest,
-            this.ExportQuests,
-            this.ImportQuests});
-            this.bar3.Location = new System.Drawing.Point(0, 0);
-            this.bar3.Name = "bar3";
-            this.bar3.RoundCorners = false;
-            this.bar3.Size = new System.Drawing.Size(267, 31);
-            this.bar3.Stretch = true;
-            this.bar3.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.bar3.TabIndex = 20;
-            this.bar3.TabStop = false;
-            this.bar3.Text = "bar3";
-            this.bar3.WrapItemsDock = true;
-            // 
-            // QuestTree
-            // 
-            this.QuestTree.AccessibleRole = System.Windows.Forms.AccessibleRole.Outline;
-            this.QuestTree.AllowDrop = true;
-            this.QuestTree.BackColor = System.Drawing.SystemColors.Window;
-            // 
-            // 
-            // 
-            this.QuestTree.BackgroundStyle.Class = "TreeBorderKey";
-            this.QuestTree.DragDropEnabled = false;
-            this.QuestTree.DragDropNodeCopyEnabled = false;
-            this.QuestTree.Location = new System.Drawing.Point(3, 31);
-            this.QuestTree.Name = "QuestTree";
-            this.QuestTree.NodesConnector = this.nodeConnector9;
-            this.QuestTree.NodeStyle = this.elementStyle17;
-            this.QuestTree.PathSeparator = ";";
-            this.QuestTree.Size = new System.Drawing.Size(261, 516);
-            this.QuestTree.Styles.Add(this.elementStyle17);
-            this.QuestTree.Styles.Add(this.elementStyle18);
-            this.QuestTree.TabIndex = 20;
-            this.QuestTree.Text = "advTree1";
-            this.QuestTree.AfterNodeSelect += new DevComponents.AdvTree.AdvTreeNodeEventHandler(this.QuestTree_AfterNodeSelect);
-            // 
-            // nodeConnector9
-            // 
-            this.nodeConnector9.LineColor = System.Drawing.SystemColors.ControlText;
-            // 
-            // elementStyle17
-            // 
-            this.elementStyle17.Name = "elementStyle17";
-            this.elementStyle17.TextColor = System.Drawing.SystemColors.ControlText;
-            // 
-            // elementStyle18
-            // 
-            this.elementStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(230)))), ((int)(((byte)(247)))));
-            this.elementStyle18.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(168)))), ((int)(((byte)(228)))));
-            this.elementStyle18.BackColorGradientAngle = 90;
-            this.elementStyle18.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.elementStyle18.BorderBottomWidth = 1;
-            this.elementStyle18.BorderColor = System.Drawing.Color.DarkGray;
-            this.elementStyle18.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.elementStyle18.BorderLeftWidth = 1;
-            this.elementStyle18.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.elementStyle18.BorderRightWidth = 1;
-            this.elementStyle18.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.elementStyle18.BorderTopWidth = 1;
-            this.elementStyle18.CornerDiameter = 4;
-            this.elementStyle18.Description = "Blue";
-            this.elementStyle18.Name = "elementStyle18";
-            this.elementStyle18.PaddingBottom = 1;
-            this.elementStyle18.PaddingLeft = 1;
-            this.elementStyle18.PaddingRight = 1;
-            this.elementStyle18.PaddingTop = 1;
-            this.elementStyle18.TextColor = System.Drawing.Color.Black;
-            // 
-            // NumberOfObjectives
-            // 
-            this.NumberOfObjectives.Location = new System.Drawing.Point(565, 403);
-            this.NumberOfObjectives.Name = "NumberOfObjectives";
-            this.NumberOfObjectives.Size = new System.Drawing.Size(106, 20);
-            this.NumberOfObjectives.TabIndex = 14;
-            this.NumberOfObjectives.TabStop = false;
-            this.NumberOfObjectives.Visible = false;
-            // 
-            // ribbonPanel2
-            // 
-            this.ribbonPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.ribbonPanel2.Controls.Add(this.groupPanel12);
-            this.ribbonPanel2.Controls.Add(this.groupPanel11);
-            this.ribbonPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribbonPanel2.Location = new System.Drawing.Point(0, 55);
-            this.ribbonPanel2.Name = "ribbonPanel2";
-            this.ribbonPanel2.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.ribbonPanel2.Size = new System.Drawing.Size(944, 588);
-            this.ribbonPanel2.TabIndex = 2;
-            this.ribbonPanel2.Visible = false;
-            // 
-            // groupPanel12
-            // 
-            this.groupPanel12.BackColor = System.Drawing.Color.Transparent;
-            this.groupPanel12.CanvasColor = System.Drawing.SystemColors.Control;
-            this.groupPanel12.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel12.Controls.Add(this.label1);
-            this.groupPanel12.Controls.Add(this.SkillLevel);
-            this.groupPanel12.Controls.Add(this.label7);
-            this.groupPanel12.Controls.Add(this.SkillExp);
-            this.groupPanel12.Controls.Add(this.SkillName);
-            this.groupPanel12.Controls.Add(this.label2);
-            this.groupPanel12.Controls.Add(this.SkillActive);
-            this.groupPanel12.Controls.Add(this.label3);
-            this.groupPanel12.Location = new System.Drawing.Point(280, 18);
-            this.groupPanel12.Name = "groupPanel12";
-            this.groupPanel12.Size = new System.Drawing.Size(664, 192);
-            // 
-            // 
-            // 
-            this.groupPanel12.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.groupPanel12.Style.BackColorGradientAngle = 90;
-            this.groupPanel12.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.groupPanel12.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel12.Style.BorderBottomWidth = 1;
-            this.groupPanel12.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.groupPanel12.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel12.Style.BorderLeftWidth = 1;
-            this.groupPanel12.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel12.Style.BorderRightWidth = 1;
-            this.groupPanel12.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel12.Style.BorderTopWidth = 1;
-            this.groupPanel12.Style.CornerDiameter = 4;
-            this.groupPanel12.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
-            this.groupPanel12.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.groupPanel12.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.groupPanel12.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
-            this.groupPanel12.TabIndex = 30;
-            this.groupPanel12.Text = "Selected Skill";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(6, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 13);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "Level";
-            // 
-            // SkillLevel
-            // 
-            this.SkillLevel.Location = new System.Drawing.Point(9, 16);
-            this.SkillLevel.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            this.SkillLevel.Name = "SkillLevel";
-            this.SkillLevel.Size = new System.Drawing.Size(120, 20);
-            this.SkillLevel.TabIndex = 21;
-            this.SkillLevel.ValueChanged += new System.EventHandler(this.SkillLevel_ValueChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Location = new System.Drawing.Point(6, 132);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(56, 13);
-            this.label7.TabIndex = 29;
-            this.label7.Text = "Skill String";
-            // 
-            // SkillExp
-            // 
-            this.SkillExp.Location = new System.Drawing.Point(9, 60);
-            this.SkillExp.Maximum = new decimal(new int[] {
-            16777215,
-            0,
-            0,
-            0});
-            this.SkillExp.Name = "SkillExp";
-            this.SkillExp.Size = new System.Drawing.Size(120, 20);
-            this.SkillExp.TabIndex = 22;
-            this.SkillExp.ValueChanged += new System.EventHandler(this.SkillExp_ValueChanged);
-            // 
-            // SkillName
-            // 
-            // 
-            // 
-            // 
-            this.SkillName.Border.Class = "TextBoxBorder";
-            this.SkillName.Location = new System.Drawing.Point(8, 145);
-            this.SkillName.Name = "SkillName";
-            this.SkillName.ReadOnly = true;
-            this.SkillName.Size = new System.Drawing.Size(321, 20);
-            this.SkillName.TabIndex = 28;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(6, 44);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 13);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Experience";
-            // 
-            // SkillActive
-            // 
-            this.SkillActive.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SkillActive.FormattingEnabled = true;
-            this.SkillActive.Items.AddRange(new object[] {
-            "No",
-            "Yes"});
-            this.SkillActive.Location = new System.Drawing.Point(8, 104);
-            this.SkillActive.Name = "SkillActive";
-            this.SkillActive.Size = new System.Drawing.Size(121, 21);
-            this.SkillActive.TabIndex = 27;
-            this.SkillActive.SelectionChangeCommitted += new System.EventHandler(this.SkillActive_SelectionChangeCommitted);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(5, 88);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 13);
-            this.label3.TabIndex = 26;
-            this.label3.Text = "Active";
-            // 
-            // groupPanel11
-            // 
-            this.groupPanel11.BackColor = System.Drawing.Color.Transparent;
-            this.groupPanel11.CanvasColor = System.Drawing.SystemColors.Control;
-            this.groupPanel11.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel11.Controls.Add(this.bar9);
-            this.groupPanel11.Controls.Add(this.SkillTree);
-            this.groupPanel11.Location = new System.Drawing.Point(1, 18);
-            this.groupPanel11.Name = "groupPanel11";
-            this.groupPanel11.Size = new System.Drawing.Size(273, 570);
-            // 
-            // 
-            // 
-            this.groupPanel11.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.groupPanel11.Style.BackColorGradientAngle = 90;
-            this.groupPanel11.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.groupPanel11.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel11.Style.BorderBottomWidth = 1;
-            this.groupPanel11.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.groupPanel11.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel11.Style.BorderLeftWidth = 1;
-            this.groupPanel11.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel11.Style.BorderRightWidth = 1;
-            this.groupPanel11.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel11.Style.BorderTopWidth = 1;
-            this.groupPanel11.Style.CornerDiameter = 4;
-            this.groupPanel11.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
-            this.groupPanel11.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.groupPanel11.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.groupPanel11.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
-            this.groupPanel11.TabIndex = 24;
-            this.groupPanel11.Text = "Current Skills";
-            // 
-            // bar9
-            // 
-            this.bar9.AntiAlias = true;
-            this.bar9.AutoHide = true;
-            this.bar9.BackColor = System.Drawing.Color.Transparent;
-            this.bar9.BarType = DevComponents.DotNetBar.eBarType.MenuBar;
-            this.bar9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bar9.DockedBorderStyle = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.bar9.FadeEffect = true;
-            this.bar9.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.buttonItem16,
-            this.DeleteSkill,
-            this.ExportSkills,
-            this.ImportSkills});
-            this.bar9.Location = new System.Drawing.Point(0, 0);
-            this.bar9.Name = "bar9";
-            this.bar9.RoundCorners = false;
-            this.bar9.Size = new System.Drawing.Size(267, 31);
-            this.bar9.Stretch = true;
-            this.bar9.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.bar9.TabIndex = 20;
-            this.bar9.TabStop = false;
-            this.bar9.Text = "bar9";
-            this.bar9.WrapItemsDock = true;
-            // 
-            // SkillTree
-            // 
-            this.SkillTree.AccessibleRole = System.Windows.Forms.AccessibleRole.Outline;
-            this.SkillTree.AllowDrop = true;
-            this.SkillTree.BackColor = System.Drawing.SystemColors.Window;
-            this.SkillTree.DragDropEnabled = false;
-            this.SkillTree.DragDropNodeCopyEnabled = false;
-            this.SkillTree.ExpandWidth = 0;
-            this.SkillTree.Location = new System.Drawing.Point(3, 31);
-            this.SkillTree.Name = "SkillTree";
-            this.SkillTree.NodesConnector = this.nodeConnector2;
-            this.SkillTree.NodeStyle = this.elementStyle3;
-            this.SkillTree.PathSeparator = ";";
-            this.SkillTree.Size = new System.Drawing.Size(261, 516);
-            this.SkillTree.Styles.Add(this.elementStyle3);
-            this.SkillTree.Styles.Add(this.elementStyle4);
-            this.SkillTree.TabIndex = 20;
-            this.SkillTree.Text = "advTree1";
-            this.SkillTree.AfterNodeSelect += new DevComponents.AdvTree.AdvTreeNodeEventHandler(this.SkillTree_AfterNodeSelect);
-            // 
-            // nodeConnector2
-            // 
-            this.nodeConnector2.LineColor = System.Drawing.SystemColors.ControlText;
-            // 
-            // elementStyle3
-            // 
-            this.elementStyle3.Name = "elementStyle3";
-            this.elementStyle3.TextColor = System.Drawing.SystemColors.ControlText;
-            // 
-            // elementStyle4
-            // 
-            this.elementStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(230)))), ((int)(((byte)(247)))));
-            this.elementStyle4.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(168)))), ((int)(((byte)(228)))));
-            this.elementStyle4.BackColorGradientAngle = 90;
-            this.elementStyle4.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.elementStyle4.BorderBottomWidth = 1;
-            this.elementStyle4.BorderColor = System.Drawing.Color.DarkGray;
-            this.elementStyle4.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.elementStyle4.BorderLeftWidth = 1;
-            this.elementStyle4.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.elementStyle4.BorderRightWidth = 1;
-            this.elementStyle4.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.elementStyle4.BorderTopWidth = 1;
-            this.elementStyle4.CornerDiameter = 4;
-            this.elementStyle4.Description = "Blue";
-            this.elementStyle4.Name = "elementStyle4";
-            this.elementStyle4.PaddingBottom = 1;
-            this.elementStyle4.PaddingLeft = 1;
-            this.elementStyle4.PaddingRight = 1;
-            this.elementStyle4.PaddingTop = 1;
-            this.elementStyle4.TextColor = System.Drawing.Color.Black;
-            // 
-            // ribbonPanel4
-            // 
-            this.ribbonPanel4.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.ribbonPanel4.Controls.Add(this.groupPanel5);
-            this.ribbonPanel4.Controls.Add(this.ItemPanel);
-            this.ribbonPanel4.Controls.Add(this.ItemPartsGroup);
-            this.ribbonPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribbonPanel4.Location = new System.Drawing.Point(0, 55);
-            this.ribbonPanel4.Name = "ribbonPanel4";
-            this.ribbonPanel4.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.ribbonPanel4.Size = new System.Drawing.Size(944, 588);
-            this.ribbonPanel4.TabIndex = 4;
-            this.ribbonPanel4.Visible = false;
-            // 
-            // groupPanel5
-            // 
-            this.groupPanel5.BackColor = System.Drawing.Color.Transparent;
-            this.groupPanel5.CanvasColor = System.Drawing.SystemColors.Control;
-            this.groupPanel5.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.groupPanel5.Controls.Add(this.ItemPartsSelector);
-            this.groupPanel5.Location = new System.Drawing.Point(280, 259);
-            this.groupPanel5.Name = "groupPanel5";
-            this.groupPanel5.Size = new System.Drawing.Size(663, 329);
-            // 
-            // 
-            // 
-            this.groupPanel5.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.groupPanel5.Style.BackColorGradientAngle = 90;
-            this.groupPanel5.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.groupPanel5.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel5.Style.BorderBottomWidth = 1;
-            this.groupPanel5.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.groupPanel5.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel5.Style.BorderLeftWidth = 1;
-            this.groupPanel5.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel5.Style.BorderRightWidth = 1;
-            this.groupPanel5.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.groupPanel5.Style.BorderTopWidth = 1;
-            this.groupPanel5.Style.CornerDiameter = 4;
-            this.groupPanel5.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
-            this.groupPanel5.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.groupPanel5.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.groupPanel5.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
-            this.groupPanel5.TabIndex = 38;
-            this.groupPanel5.Text = "Parts Selector";
-            // 
-            // ItemPartsSelector
-            // 
-            this.ItemPartsSelector.AccessibleRole = System.Windows.Forms.AccessibleRole.Outline;
-            this.ItemPartsSelector.AllowDrop = true;
-            this.ItemPartsSelector.AllowUserToResizeColumns = false;
-            this.ItemPartsSelector.BackColor = System.Drawing.SystemColors.Window;
-            // 
-            // 
-            // 
-            this.ItemPartsSelector.BackgroundStyle.Class = "TreeBorderKey";
-            this.ItemPartsSelector.DragDropEnabled = false;
-            this.ItemPartsSelector.DragDropNodeCopyEnabled = false;
-            this.ItemPartsSelector.Location = new System.Drawing.Point(8, 5);
-            this.ItemPartsSelector.Name = "ItemPartsSelector";
-            this.ItemPartsSelector.NodesConnector = this.nodeConnector4;
-            this.ItemPartsSelector.NodeSpacing = 1;
-            this.ItemPartsSelector.NodeStyle = this.elementStyle7;
-            this.ItemPartsSelector.PathSeparator = ";";
-            this.ItemPartsSelector.Size = new System.Drawing.Size(640, 301);
-            this.ItemPartsSelector.Styles.Add(this.elementStyle7);
-            this.ItemPartsSelector.Styles.Add(this.elementStyle8);
-            this.ItemPartsSelector.TabIndex = 29;
-            this.ItemPartsSelector.Text = "from Clipboard";
-            this.ItemPartsSelector.NodeDoubleClick += new DevComponents.AdvTree.TreeNodeMouseEventHandler(this.ItemPartCategories_NodeDoubleClick);
-            // 
-            // nodeConnector4
-            // 
-            this.nodeConnector4.LineColor = System.Drawing.SystemColors.ControlText;
-            // 
-            // elementStyle7
-            // 
-            this.elementStyle7.Name = "elementStyle7";
-            this.elementStyle7.TextColor = System.Drawing.SystemColors.ControlText;
-            // 
-            // elementStyle8
-            // 
-            this.elementStyle8.BackColor = System.Drawing.Color.White;
-            this.elementStyle8.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(228)))), ((int)(((byte)(240)))));
-            this.elementStyle8.BackColorGradientAngle = 90;
-            this.elementStyle8.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.elementStyle8.BorderBottomWidth = 1;
-            this.elementStyle8.BorderColor = System.Drawing.Color.DarkGray;
-            this.elementStyle8.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.elementStyle8.BorderLeftWidth = 1;
-            this.elementStyle8.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.elementStyle8.BorderRightWidth = 1;
-            this.elementStyle8.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.elementStyle8.BorderTopWidth = 1;
-            this.elementStyle8.CornerDiameter = 4;
-            this.elementStyle8.Description = "Gray";
-            this.elementStyle8.Name = "elementStyle8";
-            this.elementStyle8.PaddingBottom = 1;
-            this.elementStyle8.PaddingLeft = 1;
-            this.elementStyle8.PaddingRight = 1;
-            this.elementStyle8.PaddingTop = 1;
-            this.elementStyle8.TextColor = System.Drawing.Color.Black;
-            // 
-            // ItemPanel
-            // 
-            this.ItemPanel.BackColor = System.Drawing.Color.Transparent;
-            this.ItemPanel.CanvasColor = System.Drawing.SystemColors.Control;
-            this.ItemPanel.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.ItemPanel.Controls.Add(this.bar5);
-            this.ItemPanel.Controls.Add(this.ItemTree);
-            this.ItemPanel.Location = new System.Drawing.Point(1, 18);
-            this.ItemPanel.Name = "ItemPanel";
-            this.ItemPanel.Size = new System.Drawing.Size(273, 570);
-            // 
-            // 
-            // 
-            this.ItemPanel.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.ItemPanel.Style.BackColorGradientAngle = 90;
-            this.ItemPanel.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.ItemPanel.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.ItemPanel.Style.BorderBottomWidth = 1;
-            this.ItemPanel.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.ItemPanel.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.ItemPanel.Style.BorderLeftWidth = 1;
-            this.ItemPanel.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.ItemPanel.Style.BorderRightWidth = 1;
-            this.ItemPanel.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.ItemPanel.Style.BorderTopWidth = 1;
-            this.ItemPanel.Style.CornerDiameter = 4;
-            this.ItemPanel.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
-            this.ItemPanel.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.ItemPanel.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.ItemPanel.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
-            this.ItemPanel.TabIndex = 37;
-            this.ItemPanel.Text = "Item Backpack";
-            // 
-            // bar5
-            // 
-            this.bar5.AntiAlias = true;
-            this.bar5.AutoHide = true;
-            this.bar5.BackColor = System.Drawing.Color.Transparent;
-            this.bar5.BarType = DevComponents.DotNetBar.eBarType.MenuBar;
-            this.bar5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bar5.DockedBorderStyle = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.bar5.FadeEffect = true;
-            this.bar5.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.NewItems,
-            this.InsertItemDropButton,
-            this.SelectedItemDropButton,
-            this.EditAllItems,
-            this.DeleteItems});
-            this.bar5.Location = new System.Drawing.Point(0, 0);
-            this.bar5.Name = "bar5";
-            this.bar5.RoundCorners = false;
-            this.bar5.Size = new System.Drawing.Size(267, 31);
-            this.bar5.Stretch = true;
-            this.bar5.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.bar5.TabIndex = 20;
-            this.bar5.TabStop = false;
-            this.bar5.Text = "bar5";
-            // 
-            // ItemTree
-            // 
-            this.ItemTree.AccessibleRole = System.Windows.Forms.AccessibleRole.Outline;
-            this.ItemTree.AllowDrop = true;
-            this.ItemTree.BackColor = System.Drawing.SystemColors.Window;
-            // 
-            // 
-            // 
-            this.ItemTree.BackgroundStyle.Class = "TreeBorderKey";
-            this.ItemTree.DragDropEnabled = false;
-            this.ItemTree.DragDropNodeCopyEnabled = false;
-            this.ItemTree.ExpandWidth = 0;
-            this.ItemTree.Indent = 24;
-            this.ItemTree.Location = new System.Drawing.Point(3, 31);
-            this.ItemTree.Name = "ItemTree";
-            this.ItemTree.NodesConnector = this.nodeConnector6;
-            this.ItemTree.NodeStyle = this.elementStyle11;
-            this.ItemTree.PathSeparator = ";";
-            this.ItemTree.Size = new System.Drawing.Size(261, 516);
-            this.ItemTree.Styles.Add(this.elementStyle11);
-            this.ItemTree.Styles.Add(this.elementStyle12);
-            this.ItemTree.TabIndex = 20;
-            this.ItemTree.Text = "advTree1";
-            this.ItemTree.AfterNodeSelect += new DevComponents.AdvTree.AdvTreeNodeEventHandler(this.ItemTree_AfterNodeSelect);
-            // 
-            // nodeConnector6
-            // 
-            this.nodeConnector6.LineColor = System.Drawing.SystemColors.ControlText;
-            // 
-            // elementStyle11
-            // 
-            this.elementStyle11.Name = "elementStyle11";
-            this.elementStyle11.TextColor = System.Drawing.SystemColors.ControlText;
-            // 
-            // elementStyle12
-            // 
-            this.elementStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(230)))), ((int)(((byte)(247)))));
-            this.elementStyle12.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(168)))), ((int)(((byte)(228)))));
-            this.elementStyle12.BackColorGradientAngle = 90;
-            this.elementStyle12.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.elementStyle12.BorderBottomWidth = 1;
-            this.elementStyle12.BorderColor = System.Drawing.Color.DarkGray;
-            this.elementStyle12.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.elementStyle12.BorderLeftWidth = 1;
-            this.elementStyle12.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.elementStyle12.BorderRightWidth = 1;
-            this.elementStyle12.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.elementStyle12.BorderTopWidth = 1;
-            this.elementStyle12.CornerDiameter = 4;
-            this.elementStyle12.Description = "Blue";
-            this.elementStyle12.Name = "elementStyle12";
-            this.elementStyle12.PaddingBottom = 1;
-            this.elementStyle12.PaddingLeft = 1;
-            this.elementStyle12.PaddingRight = 1;
-            this.elementStyle12.PaddingTop = 1;
-            this.elementStyle12.TextColor = System.Drawing.Color.Black;
-            // 
-            // ItemPartsGroup
-            // 
-            this.ItemPartsGroup.BackColor = System.Drawing.Color.Transparent;
-            this.ItemPartsGroup.CanvasColor = System.Drawing.SystemColors.Control;
-            this.ItemPartsGroup.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.ItemPartsGroup.Controls.Add(this.hex04);
-            this.ItemPartsGroup.Controls.Add(this.hex03);
-            this.ItemPartsGroup.Controls.Add(this.hex02);
-            this.ItemPartsGroup.Controls.Add(this.hex01);
-            this.ItemPartsGroup.Controls.Add(this.ItemWeaponGradeLevel);
-            this.ItemPartsGroup.Controls.Add(this.ItemItemGradeSlider);
-            this.ItemPartsGroup.Controls.Add(this.bar6);
-            this.ItemPartsGroup.Controls.Add(this.CurrentItemParts);
-            this.ItemPartsGroup.Controls.Add(this.Equipped);
-            this.ItemPartsGroup.Controls.Add(this.label12);
-            this.ItemPartsGroup.Controls.Add(this.label15);
-            this.ItemPartsGroup.Controls.Add(this.Quantity);
-            this.ItemPartsGroup.Controls.Add(this.ItemQualityLabel);
-            this.ItemPartsGroup.Controls.Add(this.ItemQuality);
-            this.ItemPartsGroup.Location = new System.Drawing.Point(280, 18);
-            this.ItemPartsGroup.Name = "ItemPartsGroup";
-            this.ItemPartsGroup.Size = new System.Drawing.Size(663, 235);
-            // 
-            // 
-            // 
-            this.ItemPartsGroup.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.ItemPartsGroup.Style.BackColorGradientAngle = 90;
-            this.ItemPartsGroup.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.ItemPartsGroup.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.ItemPartsGroup.Style.BorderBottomWidth = 1;
-            this.ItemPartsGroup.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.ItemPartsGroup.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.ItemPartsGroup.Style.BorderLeftWidth = 1;
-            this.ItemPartsGroup.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.ItemPartsGroup.Style.BorderRightWidth = 1;
-            this.ItemPartsGroup.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.ItemPartsGroup.Style.BorderTopWidth = 1;
-            this.ItemPartsGroup.Style.CornerDiameter = 4;
-            this.ItemPartsGroup.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
-            this.ItemPartsGroup.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.ItemPartsGroup.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.ItemPartsGroup.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
-            this.ItemPartsGroup.TabIndex = 39;
-            this.ItemPartsGroup.Text = "Item Parts";
-            // 
-            // hex04
-            // 
-            this.hex04.AutoSize = true;
-            this.hex04.BackColor = System.Drawing.Color.Transparent;
-            this.hex04.Location = new System.Drawing.Point(381, 194);
-            this.hex04.Name = "hex04";
-            this.hex04.Size = new System.Drawing.Size(66, 13);
-            this.hex04.TabIndex = 45;
-            this.hex04.Text = "0x00000000";
-            this.hex04.Visible = false;
-            // 
-            // hex03
-            // 
-            this.hex03.AutoSize = true;
-            this.hex03.BackColor = System.Drawing.Color.Transparent;
-            this.hex03.Location = new System.Drawing.Point(254, 194);
-            this.hex03.Name = "hex03";
-            this.hex03.Size = new System.Drawing.Size(66, 13);
-            this.hex03.TabIndex = 44;
-            this.hex03.Text = "0x00000000";
-            this.hex03.Visible = false;
-            // 
-            // hex02
-            // 
-            this.hex02.AutoSize = true;
-            this.hex02.BackColor = System.Drawing.Color.Transparent;
-            this.hex02.Location = new System.Drawing.Point(106, 194);
-            this.hex02.Name = "hex02";
-            this.hex02.Size = new System.Drawing.Size(66, 13);
-            this.hex02.TabIndex = 43;
-            this.hex02.Text = "0x00000000";
-            this.hex02.Visible = false;
-            // 
-            // hex01
-            // 
-            this.hex01.AutoSize = true;
-            this.hex01.BackColor = System.Drawing.Color.Transparent;
-            this.hex01.Location = new System.Drawing.Point(5, 194);
-            this.hex01.Name = "hex01";
-            this.hex01.Size = new System.Drawing.Size(66, 13);
-            this.hex01.TabIndex = 42;
-            this.hex01.Text = "0x00000000";
-            this.hex01.Visible = false;
-            // 
-            // ItemWeaponGradeLevel
-            // 
-            this.ItemWeaponGradeLevel.AutoSize = true;
-            this.ItemWeaponGradeLevel.BackColor = System.Drawing.Color.Transparent;
-            this.ItemWeaponGradeLevel.Location = new System.Drawing.Point(381, 156);
-            this.ItemWeaponGradeLevel.Name = "ItemWeaponGradeLevel";
-            this.ItemWeaponGradeLevel.Size = new System.Drawing.Size(80, 13);
-            this.ItemWeaponGradeLevel.TabIndex = 41;
-            this.ItemWeaponGradeLevel.Text = "Level: Disabled";
-            // 
-            // ItemItemGradeSlider
-            // 
-            this.ItemItemGradeSlider.BackColor = System.Drawing.Color.Transparent;
-            this.ItemItemGradeSlider.LabelVisible = false;
-            this.ItemItemGradeSlider.Location = new System.Drawing.Point(384, 170);
-            this.ItemItemGradeSlider.Maximum = 71;
-            this.ItemItemGradeSlider.Name = "ItemItemGradeSlider";
-            this.ItemItemGradeSlider.Size = new System.Drawing.Size(224, 23);
-            this.ItemItemGradeSlider.TabIndex = 40;
-            this.ItemItemGradeSlider.Text = "Quality";
-            this.ItemItemGradeSlider.Value = 0;
-            this.ItemItemGradeSlider.ValueChanged += new System.EventHandler(this.ItemItemGradeSlider_ValueChanged);
-            // 
-            // bar6
-            // 
-            this.bar6.AntiAlias = true;
-            this.bar6.BackColor = System.Drawing.Color.Transparent;
-            this.bar6.BarType = DevComponents.DotNetBar.eBarType.MenuBar;
-            this.bar6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bar6.DockedBorderStyle = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.bar6.FadeEffect = true;
-            this.bar6.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.SaveChangesItem,
-            this.ItemInfo,
-            this.DeletePartItem,
-            this.buttonItem23,
-            this.buttonItem27});
-            this.bar6.Location = new System.Drawing.Point(0, 0);
-            this.bar6.Name = "bar6";
-            this.bar6.RoundCorners = false;
-            this.bar6.Size = new System.Drawing.Size(657, 31);
-            this.bar6.Stretch = true;
-            this.bar6.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.bar6.TabIndex = 37;
-            this.bar6.TabStop = false;
-            this.bar6.Text = "bar6";
-            // 
-            // CurrentItemParts
-            // 
-            this.CurrentItemParts.FormattingEnabled = true;
-            this.CurrentItemParts.Items.AddRange(new object[] {
-            "Item Grade",
-            "Item Type",
-            "Body",
-            "Left Side",
-            "Right Side",
-            "Material",
-            "Manufacturer",
-            "Prefix",
-            "Title"});
-            this.CurrentItemParts.Location = new System.Drawing.Point(8, 31);
-            this.CurrentItemParts.Name = "CurrentItemParts";
-            this.CurrentItemParts.Size = new System.Drawing.Size(640, 121);
-            this.CurrentItemParts.TabIndex = 21;
-            this.CurrentItemParts.DoubleClick += new System.EventHandler(this.CurrentItemParts_DoubleClick);
-            // 
-            // Equipped
-            // 
-            this.Equipped.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Equipped.FormattingEnabled = true;
-            this.Equipped.Items.AddRange(new object[] {
-            "No",
-            "Yes"});
-            this.Equipped.Location = new System.Drawing.Point(254, 172);
-            this.Equipped.Name = "Equipped";
-            this.Equipped.Size = new System.Drawing.Size(121, 21);
-            this.Equipped.TabIndex = 28;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Location = new System.Drawing.Point(5, 155);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(46, 13);
-            this.label12.TabIndex = 25;
-            this.label12.Text = "Quantity";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Location = new System.Drawing.Point(251, 155);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(52, 13);
-            this.label15.TabIndex = 27;
-            this.label15.Text = "Equipped";
-            // 
-            // Quantity
-            // 
-            this.Quantity.Location = new System.Drawing.Point(6, 171);
-            this.Quantity.Maximum = new decimal(new int[] {
-            16777215,
-            0,
-            0,
-            0});
-            this.Quantity.Name = "Quantity";
-            this.Quantity.Size = new System.Drawing.Size(96, 20);
-            this.Quantity.TabIndex = 22;
-            // 
-            // ItemQualityLabel
-            // 
-            this.ItemQualityLabel.AutoSize = true;
-            this.ItemQualityLabel.BackColor = System.Drawing.Color.Transparent;
-            this.ItemQualityLabel.Location = new System.Drawing.Point(106, 155);
-            this.ItemQualityLabel.Name = "ItemQualityLabel";
-            this.ItemQualityLabel.Size = new System.Drawing.Size(39, 13);
-            this.ItemQualityLabel.TabIndex = 26;
-            this.ItemQualityLabel.Text = "Quality";
-            // 
-            // ItemQuality
-            // 
-            this.ItemQuality.BackColor = System.Drawing.Color.Transparent;
-            this.ItemQuality.LabelVisible = false;
-            this.ItemQuality.Location = new System.Drawing.Point(106, 170);
-            this.ItemQuality.Maximum = 5;
-            this.ItemQuality.Minimum = -1;
-            this.ItemQuality.Name = "ItemQuality";
-            this.ItemQuality.Size = new System.Drawing.Size(142, 23);
-            this.ItemQuality.TabIndex = 23;
-            this.ItemQuality.Text = "Quality";
-            this.ItemQuality.Value = 0;
-            this.ItemQuality.ValueChanged += new System.EventHandler(this.ItemQuality_ValueChanged);
-            // 
             // MainTab
             // 
             this.MainTab.Checked = true;
@@ -4819,7 +4819,7 @@
             this.XBoxFormat.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
             this.XBoxFormat.Name = "XBoxFormat";
             this.XBoxFormat.SubItemsExpandWidth = 24;
-            this.XBoxFormat.Text = "XBox 360";
+            this.XBoxFormat.Text = "Xbox 360";
             this.XBoxFormat.Click += new System.EventHandler(this.XBoxFormat_Click);
             // 
             // itemContainer8
@@ -4946,7 +4946,7 @@
             this.buttonItem34.SubItemsExpandWidth = 24;
             this.buttonItem34.Text = "E&xit";
             // 
-            // WillowTree
+            // WillowTreeMain
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4958,7 +4958,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "WillowTree";
+            this.Name = "WillowTreeMain";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = " WillowTree#";
             this.Load += new System.EventHandler(this.WillowTree_Load);
@@ -4979,34 +4979,6 @@
             this.ribbonPanel10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.UpdateBar)).EndInit();
             this.groupPanel7.ResumeLayout(false);
-            this.ribbonPanel1.ResumeLayout(false);
-            this.groupPanel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bar8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LocationTree)).EndInit();
-            this.groupPanel8.ResumeLayout(false);
-            this.groupPanel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BankSpace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Level)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Experience)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EquipSlots)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Cash)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SkillPoints)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BackpackSpace)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SaveNumber)).EndInit();
-            this.ribbonPanel11.ResumeLayout(false);
-            this.ribbonPanel11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LockerTreetry2)).EndInit();
-            this.ribbonPanel9.ResumeLayout(false);
-            this.groupPanel14.ResumeLayout(false);
-            this.groupPanel14.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LockerRemAmmo)).EndInit();
-            this.groupPanel1.ResumeLayout(false);
-            this.groupPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.overrideRemAmmo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bar11)).EndInit();
-            this.groupPanel13.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bar10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LockerTree)).EndInit();
             this.DLCValue1.ResumeLayout(false);
             this.groupPanel16.ResumeLayout(false);
             this.groupPanel16.PerformLayout();
@@ -5051,6 +5023,34 @@
             this.ItemPartsGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bar6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Quantity)).EndInit();
+            this.ribbonPanel1.ResumeLayout(false);
+            this.groupPanel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bar8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LocationTree)).EndInit();
+            this.groupPanel8.ResumeLayout(false);
+            this.groupPanel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BankSpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Level)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Experience)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EquipSlots)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Cash)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SkillPoints)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BackpackSpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SaveNumber)).EndInit();
+            this.ribbonPanel11.ResumeLayout(false);
+            this.ribbonPanel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LockerTreetry2)).EndInit();
+            this.ribbonPanel9.ResumeLayout(false);
+            this.groupPanel14.ResumeLayout(false);
+            this.groupPanel14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LockerRemAmmo)).EndInit();
+            this.groupPanel1.ResumeLayout(false);
+            this.groupPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.overrideRemAmmo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bar11)).EndInit();
+            this.groupPanel13.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bar10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LockerTree)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -5891,6 +5891,7 @@ namespace WillowTree
             CurrentWSG.Platform = "PS3";
             CurrentWSG.EndianWSG = ByteOrder.BigEndian;
             DoWindowTitle();
+            MessageBox.Show("This save data will be stored in the PS3 format. Please note that you will require \r\nproper SFO, PNG, and PFD files to be transfered back to the \r\nPS3. These can be acquired from another Borderlands save \r\nfor the same profile.");
         }
         private void XBoxFormat_Click(object sender, EventArgs e)
         {

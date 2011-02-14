@@ -1,3 +1,11 @@
+Changes made since 2.2:
+
+Enhanced the save format changing UI.  Better informational messages added and the dialog to get the xbox ID modified a bit.  Prevented save button from working after a format change so people won't accidentally overwrite their original save.
+
+Fixed a bug with Xbox saving related to an embedded resource not being properly loaded.  The class name in WillowTreeMain.cs was called WillowTree and so was the namespace.  This confused the Visual Studio and prevented embedded resources from working.  It also prevented new custom controls from being added to the main window.  The main window class is now called WillowTreeMain instead of WillowTree.
+
+Reorganized the save code so that most of it that is duplicated in the Save and Save As functions is contained in the function SaveToFile so that when a change has to be made, two copies do not need to be changed.
+
 Changes made since 2.1:
 
 Fixed a bug with the handling quality and level that would corrupt any negative Int16 values and cause savegames not to load anymore if the person had a scorpio weapon.

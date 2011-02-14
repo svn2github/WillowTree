@@ -177,9 +177,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\WT_CON.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <EmbeddedResource Include="Resources\WT_CON.png" />
     <Resource Include="Resources\background.png" />
     <Resource Include="Resources\bl.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

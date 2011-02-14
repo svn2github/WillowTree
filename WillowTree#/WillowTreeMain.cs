@@ -20,8 +20,6 @@ using System.Diagnostics;
 
 namespace WillowTree
 {
-
-
     public partial class WillowTreeMain : DevComponents.DotNetBar.Office2007RibbonForm
     {
         public bool Clicked = false; //Goes with the quest stuff. Really...ineffective.
@@ -2014,11 +2012,76 @@ namespace WillowTree
             catch { }
         }
 
-        private void Save_Click(object sender, EventArgs e)
+        private void BuildXboxPackage(string packageFileName, string saveFileName)
+        {
+            CreateSTFS Package = new CreateSTFS();
+
+            Package.STFSType = STFSType.Type1;
+            Package.HeaderData.ProfileID = CurrentWSG.ProfileID;
+            Package.HeaderData.DeviceID = CurrentWSG.DeviceID;
+
+            Assembly newAssembly = Assembly.GetExecutingAssembly();
+            Stream WT_Icon = newAssembly.GetManifestResourceStream("WillowTree.Resources.WT_CON.png");
+
+            Package.HeaderData.ContentImage = System.Drawing.Image.FromStream(WT_Icon);
+            Package.HeaderData.Title_Display = CurrentWSG.CharacterName + " - Level " + CurrentWSG.Level + " - " + CurrentLocation.Text;
+            Package.HeaderData.Title_Package = "Borderlands";
+            Package.HeaderData.TitleID = 1414793191;
+            Package.AddFile(saveFileName, "SaveGame.sav");
+
+            STFSPackage CON = new STFSPackage(Package, new RSAParams(AppDir + "\\Data\\KV.bin"), packageFileName, new X360.Other.LogRecord());
+
+            CON.FlushPackage(new RSAParams(AppDir + "\\Data\\KV.bin"));
+            CON.CloseIO();
+            WT_Icon.Close();
+        }
+        private void SaveToFile(string filename)
         {
             //Ini.IniFile Locations = new Ini.IniFile(AppDir + "\\Data\\Locations.ini");
             XmlFile Locations = new XmlFile(AppDir + "\\Data\\Locations.ini");
 
+            if (BankSpace.Enabled)
+                CurrentWSG.DLC.BankSize = (int)BankSpace.Value;
+
+            if (Class.SelectedIndex == 0) CurrentWSG.Class = "gd_Roland.Character.CharacterClass_Roland";
+            else if (Class.SelectedIndex == 1) CurrentWSG.Class = "gd_lilith.Character.CharacterClass_Lilith";
+            else if (Class.SelectedIndex == 2) CurrentWSG.Class = "gd_mordecai.Character.CharacterClass_Mordecai";
+            else if (Class.SelectedIndex == 3) CurrentWSG.Class = "gd_Brick.Character.CharacterClass_Brick";
+            CurrentWSG.CharacterName = CharacterName.Text;
+            CurrentWSG.Level = (int)Level.Value;
+            CurrentWSG.Experience = (int)Experience.Value;
+            CurrentWSG.SkillPoints = (int)SkillPoints.Value;
+            CurrentWSG.FinishedPlaythrough1 = PT2Unlocked.SelectedIndex;
+            CurrentWSG.Cash = (int)Cash.Value;
+            CurrentWSG.BackpackSize = (int)BackpackSpace.Value;
+            CurrentWSG.EquipSlots = (int)EquipSlots.Value;
+            CurrentWSG.SaveNumber = (int)SaveNumber.Value;
+            if (CurrentLocation.SelectedText != "" && CurrentLocation.SelectedText != null)
+                CurrentWSG.CurrentLocation = Locations.stListSectionNames()[CurrentLocation.SelectedIndex];
+
+            if (CurrentWSG.Platform == "PS3" || CurrentWSG.Platform == "PC")
+            {
+                using (BinaryWriter Save = new BinaryWriter(new FileStream(filename, FileMode.Create)))
+                {
+                    Save.Write(CurrentWSG.SaveWSG());
+                }
+            }
+
+            else if (CurrentWSG.Platform == "X360")
+            {
+                string tempSaveName = filename + ".temp";
+                using (BinaryWriter Save = new BinaryWriter(new FileStream(tempSaveName, FileMode.Create)))
+                {
+                    Save.Write(CurrentWSG.SaveWSG());
+                }
+
+                BuildXboxPackage(filename, tempSaveName);
+                File.Delete(tempSaveName);
+            }
+            CurrentWSG.OpenedWSG = filename;
+        }
+        private void Save_Click(object sender, EventArgs e)
+        {
             SaveFileDialog tempSave = new SaveFileDialog();
             tempSave.DefaultExt = "*.sav";
             tempSave.Filter = "WillowSaveGame(*.sav)|*.sav";
@@ -2027,71 +2090,17 @@ namespace WillowTree
 
             if (tempSave.ShowDialog() == DialogResult.OK)
             {
-                if (BankSpace.Enabled)
-                    CurrentWSG.DLC.BankSize = (int)BankSpace.Value;
-
-                if (Class.SelectedIndex == 0) CurrentWSG.Class = "gd_Roland.Character.CharacterClass_Roland";
-                else if (Class.SelectedIndex == 1) CurrentWSG.Class = "gd_lilith.Character.CharacterClass_Lilith";
-                else if (Class.SelectedIndex == 2) CurrentWSG.Class = "gd_mordecai.Character.CharacterClass_Mordecai";
-                else if (Class.SelectedIndex == 3) CurrentWSG.Class = "gd_Brick.Character.CharacterClass_Brick";
-                CurrentWSG.CharacterName = CharacterName.Text;
-                CurrentWSG.Level = (int)Level.Value;
-                CurrentWSG.Experience = (int)Experience.Value;
-                CurrentWSG.SkillPoints = (int)SkillPoints.Value;
-                CurrentWSG.FinishedPlaythrough1 = PT2Unlocked.SelectedIndex;
-                CurrentWSG.Cash = (int)Cash.Value;
-                CurrentWSG.BackpackSize = (int)BackpackSpace.Value;
-                CurrentWSG.EquipSlots = (int)EquipSlots.Value;
-                CurrentWSG.SaveNumber = (int)SaveNumber.Value;
-                if (CurrentLocation.SelectedText != "" && CurrentLocation.SelectedText != null)
-                    CurrentWSG.CurrentLocation = Locations.stListSectionNames()[CurrentLocation.SelectedIndex];
-
-                if (CurrentWSG.Platform == "PS3" || CurrentWSG.Platform == "PC")
+                try
                 {
-                    using (BinaryWriter Save = new BinaryWriter(new FileStream(tempSave.FileName, FileMode.Create)))
-                    {
-                        Save.Write(CurrentWSG.SaveWSG());
-                    }
+                    SaveToFile(tempSave.FileName);
+                    MessageBox.Show("Saved WSG to: " + CurrentWSG.OpenedWSG);
+                    Save.Enabled = true;
                 }
-
-                else if (CurrentWSG.Platform == "X360")
-                {
-                    using (BinaryWriter Save = new BinaryWriter(new FileStream(tempSave.FileName + ".temp", FileMode.Create)))
-                    {
-                        Save.Write(CurrentWSG.SaveWSG());
-                    }
-
-                    CreateSTFS Package = new CreateSTFS();
-
-                    Package.STFSType = STFSType.Type1;
-                    Package.HeaderData.ProfileID = CurrentWSG.ProfileID;
-                    Package.HeaderData.DeviceID = CurrentWSG.DeviceID;
-
-//                    Assembly newAssembly = Assembly.GetExecutingAssembly();
-//                    Stream WT_Icon = newAssembly.GetManifestResourceStream("WillowTree.WT_CON.png");
-                    Stream WT_Icon = File.Open(AppDir + "\\Resources\\WT_CON.png", FileMode.Open);
-
-                    Package.HeaderData.ContentImage = System.Drawing.Image.FromStream(WT_Icon);
-                    Package.HeaderData.Title_Display = CurrentWSG.CharacterName + " - Level " + CurrentWSG.Level + " - " + CurrentLocation.Text;
-                    Package.HeaderData.Title_Package = "Borderlands";
-                    Package.HeaderData.TitleID = 1414793191;
-                    Package.AddFile(tempSave.FileName + ".temp", "SaveGame.sav");
-
-                    STFSPackage CON = new STFSPackage(Package, new RSAParams(AppDir + "\\Data\\KV.bin"), tempSave.FileName, new X360.Other.LogRecord());
-
-                    CON.FlushPackage(new RSAParams(AppDir + "\\Data\\KV.bin"));
-                    CON.CloseIO();
-                    WT_Icon.Close();
-                    File.Delete(tempSave.FileName + ".temp");
-
-                }
-                CurrentWSG.OpenedWSG = tempSave.FileName;
-                MessageBox.Show("Saved WSG to: " + CurrentWSG.OpenedWSG);
+                catch { MessageBox.Show("Couldn't save WSG"); }
             }
         }
         private void Save_Click_1(object sender, EventArgs e)
         {
-            //if(File.Exists(CurrentWSG.OpenedWSG + ".bak") == false)
             try
             {
 
@@ -2109,65 +2118,8 @@ namespace WillowTree
 
             try
             {
-                //Ini.IniFile Locations = new Ini.IniFile(AppDir + "\\Data\\Locations.ini");
-                XmlFile Locations = new XmlFile(AppDir + "\\Data\\Locations.ini");
-
-                if (BankSpace.Enabled)
-                    CurrentWSG.DLC.BankSize = (int)BankSpace.Value;
-
-                if (Class.SelectedIndex == 0) CurrentWSG.Class = "gd_Roland.Character.CharacterClass_Roland";
-                else if (Class.SelectedIndex == 1) CurrentWSG.Class = "gd_lilith.Character.CharacterClass_Lilith";
-                else if (Class.SelectedIndex == 2) CurrentWSG.Class = "gd_mordecai.Character.CharacterClass_Mordecai";
-                else if (Class.SelectedIndex == 3) CurrentWSG.Class = "gd_Brick.Character.CharacterClass_Brick";
-                CurrentWSG.CharacterName = CharacterName.Text;
-                CurrentWSG.Level = (int)Level.Value;
-                CurrentWSG.Experience = (int)Experience.Value;
-                CurrentWSG.SkillPoints = (int)SkillPoints.Value;
-                CurrentWSG.FinishedPlaythrough1 = PT2Unlocked.SelectedIndex;
-                CurrentWSG.Cash = (int)Cash.Value;
-                CurrentWSG.BackpackSize = (int)BackpackSpace.Value;
-                CurrentWSG.EquipSlots = (int)EquipSlots.Value;
-                CurrentWSG.SaveNumber = (int)SaveNumber.Value;
-                if (CurrentLocation.SelectedText != "" && CurrentLocation.SelectedText != null)
-                    CurrentWSG.CurrentLocation = Locations.stListSectionNames()[CurrentLocation.SelectedIndex];
-
-                if (CurrentWSG.Platform == "PS3" || CurrentWSG.Platform == "PC")
-                {
-                    BinaryWriter Save = new BinaryWriter(new FileStream(CurrentWSG.OpenedWSG, FileMode.Create));
-                    Save.Write(CurrentWSG.SaveWSG());
-                    MessageBox.Show("Saved WSG to: " + CurrentWSG.OpenedWSG);
-                    Save.Close();
-                }
-
-                else if (CurrentWSG.Platform == "X360")
-                {
-                    BinaryWriter Save = new BinaryWriter(new FileStream(CurrentWSG.OpenedWSG + ".temp", FileMode.Create));
-                    Save.Write(CurrentWSG.SaveWSG());
-                    Save.Close();
-
-                    CreateSTFS Package = new CreateSTFS();
-
-                    Package.STFSType = STFSType.Type1;
-                    Package.HeaderData.ProfileID = CurrentWSG.ProfileID;
-                    Package.HeaderData.DeviceID = CurrentWSG.DeviceID;
-                    Assembly newAssembly = Assembly.GetExecutingAssembly();
-                    Stream WT_Icon = newAssembly.GetManifestResourceStream("WillowTree.WT_CON.png");
-                    Package.HeaderData.ContentImage = System.Drawing.Image.FromStream(WT_Icon);
-                    Package.HeaderData.Title_Display = CurrentWSG.CharacterName + " - Level " + CurrentWSG.Level + " - " + CurrentLocation.Text;
-                    Package.HeaderData.Title_Package = "Borderlands";
-                    Package.HeaderData.TitleID = 1414793191;
-                    Package.AddFile(CurrentWSG.OpenedWSG + ".temp", "SaveGame.sav");
-
-                    STFSPackage CON = new STFSPackage(Package, new RSAParams(AppDir + "\\Data\\KV.bin"), CurrentWSG.OpenedWSG, new X360.Other.LogRecord());
-
-
-                    CON.FlushPackage(new RSAParams(AppDir + "\\Data\\KV.bin"));
-
-
-                    CON.CloseIO();
-                    File.Delete(CurrentWSG.OpenedWSG + ".temp");
-                    MessageBox.Show("Saved WSG to: " + CurrentWSG.OpenedWSG);
-                }
+                SaveToFile(CurrentWSG.OpenedWSG);
+                MessageBox.Show("Saved WSG to: " + CurrentWSG.OpenedWSG);
             }
             catch { MessageBox.Show("Couldn't save WSG"); }
         }
@@ -5874,17 +5826,23 @@ namespace WillowTree
 
         private void PCFormat_Click(object sender, EventArgs e)
         {
+            if (CurrentWSG.Platform == "PC")
+                return;
             if ((CurrentWSG.ContainsRawData == true) && (CurrentWSG.EndianWSG != ByteOrder.LittleEndian))
             {
                 MessageBox.Show("This savegame contains raw data that could not be parsed so it cannot be exported to a different machine byte order.");
                 return;
             }
+                
             CurrentWSG.Platform = "PC";
             CurrentWSG.EndianWSG = ByteOrder.LittleEndian;
             DoWindowTitle();
+            Save.Enabled = false;
         }
         private void PS3Format_Click(object sender, EventArgs e)
         {
+            if (CurrentWSG.Platform == "PS3")
+                return;
             if ((CurrentWSG.ContainsRawData == true) && (CurrentWSG.EndianWSG != ByteOrder.BigEndian))
             {
                 MessageBox.Show("This savegame contains raw data that could not be parsed so it cannot be exported to a different machine byte order.");
@@ -5894,9 +5852,12 @@ namespace WillowTree
             CurrentWSG.EndianWSG = ByteOrder.BigEndian;
             DoWindowTitle();
             MessageBox.Show("This save data will be stored in the PS3 format. Please note that you will require \r\nproper SFO, PNG, and PFD files to be transfered back to the \r\nPS3. These can be acquired from another Borderlands save \r\nfor the same profile.");
+            Save.Enabled = false;
         }
         private void XBoxFormat_Click(object sender, EventArgs e)
         {
+            if (CurrentWSG.Platform == "X360")
+                return;
             if ((CurrentWSG.ContainsRawData == true) && (CurrentWSG.EndianWSG != ByteOrder.BigEndian))
             {
                 MessageBox.Show("This savegame contains raw data that could not be parsed so it cannot be exported to a different machine byte order.");
@@ -5919,6 +5880,8 @@ namespace WillowTree
             CurrentWSG.Platform = "X360";
             CurrentWSG.EndianWSG = ByteOrder.BigEndian;
             DoWindowTitle();
+            CurrentWSG.OpenedWSG = "";
+            Save.Enabled = false;
         }
 
         private void Class_SelectedIndexChanged(object sender, EventArgs e)

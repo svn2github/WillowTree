@@ -90,7 +90,6 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Please select an Xbox 360 save from the same profile (Gamertag) and device so tha" +
                 "t";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -101,7 +100,6 @@
             this.label2.Size = new System.Drawing.Size(215, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "WillowTree# can use their IDs as reference.";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // ProfileBox
             // 
@@ -129,7 +127,6 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Profile ID";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.label3.Click += new System.EventHandler(this.label2_Click);
             // 
             // label4
             // 
@@ -141,7 +138,6 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Device ID";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.label4.Click += new System.EventHandler(this.label2_Click);
             // 
             // label5
             // 
@@ -152,7 +148,6 @@
             this.label5.Size = new System.Drawing.Size(342, 13);
             this.label5.TabIndex = 6;
             this.label5.Text = "The save that you select as reference will NOT be modified in any way.";
-            this.label5.Click += new System.EventHandler(this.label2_Click);
             // 
             // XBoxIDDialog
             // 

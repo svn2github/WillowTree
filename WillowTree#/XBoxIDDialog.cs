@@ -53,7 +53,7 @@ namespace WillowTree
                 this.DialogResult = DialogResult.OK;
             }
             else
-                MessageBox.Show("Please select a valid Xbox 360 save to use, first.");
+                MessageBox.Show("Please select a valid Xbox 360 save to use first.");
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -61,15 +61,6 @@ namespace WillowTree
             this.DialogResult = DialogResult.Cancel;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
     public class XBoxUniqueID
     {
@@ -78,7 +69,7 @@ namespace WillowTree
 
         public XBoxUniqueID(string FileName)
         {
-            BinaryReader br = new BinaryReader(File.Open(FileName, FileMode.Open));
+            BinaryReader br = new BinaryReader(File.Open(FileName, FileMode.Open), Encoding.ASCII);
             string Magic = new string(br.ReadChars(3));
             if (Magic != "CON")
             {
@@ -93,5 +84,4 @@ namespace WillowTree
             CON.CloseIO();
         }
     }
-
 }

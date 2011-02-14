@@ -1,6 +1,6 @@
 bin\
 obj\
-Dist\
+dist\
 WillowTree_TemporaryKey.pfx
 WillowTreeSharp.suo
 willowtreesharp.sln.cache

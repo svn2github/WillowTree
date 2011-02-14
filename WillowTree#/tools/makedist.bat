@@ -23,6 +23,5 @@ jzip -a -r -p ..\..\dist\WillowTree#.zip @..\..\tools\bin_filelist.txt
 cd ..\..
 del tools\src_filelist.txt
 del tools\bin_filelist.txt
-rem del willowtreesharp.sln.cache
 explorer dist
 :end

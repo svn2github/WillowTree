@@ -23,21 +23,27 @@ namespace WillowTree
 
     public class WillowSaveGame
     {
-        private static string BytesToStringOrdinal(byte[] inBytes)
+        // Used for all single-byte string encodings.
+        private static Encoding _singleByteEncoding; // DO NOT REFERENCE THIS DIRECTLY!
+        private static Encoding SingleByteEncoding
         {
-            int count = inBytes.Count();
-            StringBuilder sb = new StringBuilder(count);
-            for (int i = 0; i < count; i++)
-                sb.Append((char)inBytes[i]);
-            return sb.ToString();
-        }
+            get
+            {
+                // Not really thread safe, but it doesn't matter (Encoding
+                // should be effectively sealed).
+                if (_singleByteEncoding == null)
+                {
+                    // Use ISO 8859-1 (Windows 1252) encoding for all single-
+                    // byte strings.
+                    _singleByteEncoding = Encoding.GetEncoding(1252);
+                    System.Diagnostics.Debug.Assert(_singleByteEncoding != null,
+                        "singleByteEncoding != null");
+                    System.Diagnostics.Debug.Assert(_singleByteEncoding.IsSingleByte,
+                        "Given string encoding is not a single-byte encoding.");
+                }
 
-        private static byte[] StringToBytesOrdinal(string inString)
-        {
-            byte[] outBytes = new byte[inString.Length];
-            for (int i = 0; i < inString.Length; i++)
-                outBytes[i] = (byte)inString[i];
-            return outBytes;
+                return _singleByteEncoding;
+            }
         }
 
         private static byte[] ReadBytes(BinaryReader br, int fieldSize, ByteOrder byteOrder)
@@ -61,11 +67,11 @@ namespace WillowTree
         }
         private static byte[] ReadBytes(byte[] inBytes, int fieldSize, ByteOrder byteOrder)
         {
-            byte[] outBytes = new byte[fieldSize];
-            Array.Copy(inBytes, outBytes, fieldSize);
-
             System.Diagnostics.Debug.Assert(inBytes != null, "inBytes != null");
             System.Diagnostics.Debug.Assert(inBytes.Length >= fieldSize, "inBytes.Length >= fieldSize");
+
+            byte[] outBytes = new byte[fieldSize];
+            Buffer.BlockCopy(inBytes, 0, outBytes, 0, fieldSize);
 
             if (BitConverter.IsLittleEndian)
             {
@@ -127,27 +133,33 @@ namespace WillowTree
 
             string value;
 
-            // Read string data (either ASCII or Unicode).
+            // Read string data (either single-byte or Unicode).
             if (tempLengthValue < 0)
             {
                 // Convert the length value into a unicode byte count.
                 tempLengthValue = -tempLengthValue * 2;
 
                 // Read the byte data (and ensure that the number of bytes
-                // read matches the number of bytes it was supposed to read--BinaryReader may not return the number of bytes read).
+                // read matches the number of bytes it was supposed to read--
+                // BinaryReader may not return the same number of bytes read).
                 byte[] data = reader.ReadBytes(tempLengthValue);
                 if (data.Length != tempLengthValue)
                     throw new EndOfStreamException();
 
+                // Convert the byte data into a string.
                 value = Encoding.Unicode.GetString(data);
             }
             else
             {
+                // Read the byte data (and ensure that the number of bytes
+                // read matches the number of bytes it was supposed to read--
+                // BinaryReader may not return the same number of bytes read).
                 byte[] data = reader.ReadBytes(tempLengthValue);
                 if (data.Length != tempLengthValue)
                     throw new EndOfStreamException();
 
-                value = BytesToStringOrdinal(data);
+                // Convert the byte data into a string.
+                value = SingleByteEncoding.GetString(data);
             }
 
             // Look for the null terminator character. If not found, return
@@ -162,7 +174,7 @@ namespace WillowTree
                 return string.Empty;
 
             // Return a portion of the string, excluding the null terminator
-            // and any character after the null terminator.
+            // and any characters after the null terminator.
             return value.Substring(0, nullTerminatorIndex);
         }
         private static void Write(BinaryWriter writer, string value, ByteOrder endian)
@@ -186,14 +198,14 @@ namespace WillowTree
                 }
             }
 
-            // Generate the bytes (either ASCII or Unicode, depending on input).
+            // Generate the bytes (either single-byte or Unicode, depending on input).
             if (!requiresUnicode)
             {
                 // Write character length (including null terminator).
                 Write(writer, value.Length + 1, endian);
 
-                // Write ASCII encoded string.
-                writer.Write(StringToBytesOrdinal(value));
+                // Write single-byte encoded string.
+                writer.Write(SingleByteEncoding.GetBytes(value));
 
                 // Write null terminator.
                 writer.Write((byte)0);
@@ -209,12 +221,6 @@ namespace WillowTree
                 // Write null terminator.
                 writer.Write((short)0);
             }
-        }
-
-        //Checks if the byte/array is null.
-        public static bool isNotNull<T>(T[] array)
-        {
-            return array != null && array.Length > 0;
         }
 
         public ByteOrder EndianWSG;
@@ -419,24 +425,20 @@ namespace WillowTree
                     if (byte1 == 'W' && byte2 == 'S' && byte3 == 'G')
                         return "X360";
                 }
-
-                return "Not WSG";
             }
             else if (byte1 == 'W' && byte2 == 'S' && byte3 == 'G')
             {
                 int wsgVersion = saveReader.ReadInt32();
 
-                // I get the little endian state from Bitconverter so that
-                // if someone manages to compile this code on a machine that uses 
-                // big endian byte order (like maybe an Xbox?) it will still work.  
-                // The PC is always little endian.
-                bool littleEndian = BitConverter.IsLittleEndian;
+                // BinaryReader.ReadInt32 always uses little-endian byte order.
+                bool littleEndian;
                 switch (wsgVersion)
                 {
                     case 0x02000000: // 33554432 decimal
-                        littleEndian = !littleEndian;
+                        littleEndian = false;
                         break;
                     case 0x00000002:
+                        littleEndian = true;
                         break;
                     default:
                         return "unknown";
@@ -451,7 +453,7 @@ namespace WillowTree
             return "Not WSG";
         }
 
-        ///<summary>Extracts a WSG from a CON (XBox 360 Container File).</summary>
+        ///<summary>Extracts a WSG from a CON (Xbox 360 Container File).</summary>
         public MemoryStream WSGExtract(Stream InputX360File)
         {
             BinaryReader br = new BinaryReader(InputX360File);
@@ -500,7 +502,10 @@ namespace WillowTree
 
                 if (string.Equals(Platform, "X360", StringComparison.Ordinal))
                 {
-                    ReadWSG(WSGExtract(fileStream));
+                    using (MemoryStream x360FileStream = WSGExtract(fileStream))
+                    {
+                        ReadWSG(x360FileStream);
+                    }
                 }
                 else if (string.Equals(Platform, "PS3", StringComparison.Ordinal) ||
                     string.Equals(Platform, "PC", StringComparison.Ordinal))
@@ -517,23 +522,35 @@ namespace WillowTree
         }
 
         ///<summary>Reads and decompiles the contents of a WSG</summary>
-        public void ReadWSG(Stream FileArray)
+        public void ReadWSG(Stream fileStream)
         {
-            BinaryReader TestReader = new BinaryReader(FileArray, Encoding.ASCII);
+            BinaryReader TestReader = new BinaryReader(fileStream, Encoding.ASCII);
 
             ContainsRawData = false;
             MagicHeader = new string(TestReader.ReadChars(3));
             VersionNumber = TestReader.ReadInt32();
 
-            bool LittleEndian = BitConverter.IsLittleEndian;
-            if (VersionNumber == 0x2000000)
+            // BinaryReader.ReadInt32 always uses little-endian byte order.
+            bool LittleEndian;
+            if (VersionNumber == 0x00000002)
+            {
+                LittleEndian = true;
+            }
+            else if (VersionNumber == 0x02000000)
             {
                 VersionNumber = 2;
-                LittleEndian = !LittleEndian;
+                LittleEndian = false;
+            }
+            else
+            {
+                throw new FileFormatException("WSG version number does match any known version (" + VersionNumber + ").");
             }
             EndianWSG = (LittleEndian ? ByteOrder.LittleEndian : ByteOrder.BigEndian);
 
             PLYR = new string(TestReader.ReadChars(4));
+            if (!string.Equals(PLYR, "PLYR", StringComparison.Ordinal))
+                throw new FileFormatException("Player header does not match expected value.");
+
             RevisionNumber = ReadInt32(TestReader, EndianWSG);
             Class = ReadString(TestReader, EndianWSG);
             Level = ReadInt32(TestReader, EndianWSG);
@@ -562,17 +579,24 @@ namespace WillowTree
             Weapons(TestReader, NumberOfWeapons);
 
             ChallengeDataBlockLength = ReadInt32(TestReader, EndianWSG);
-            ChallengeDataBlockId = ReadInt32(TestReader, EndianWSG);
-            ChallengeDataLength = ReadInt32(TestReader, EndianWSG);
-            ChallengeDataEntries = ReadInt16(TestReader, EndianWSG);
-            Challenges = new List<ChallengeDataEntry>();
-            for (int i = 0; i < ChallengeDataEntries; i++)
+            byte[] challengeDataBlock = TestReader.ReadBytes(ChallengeDataBlockLength);
+            if (challengeDataBlock.Length != ChallengeDataBlockLength)
+                throw new EndOfStreamException();
+
+            using (BinaryReader challengeReader = new BinaryReader(new MemoryStream(challengeDataBlock, false), Encoding.ASCII))
             {
-                ChallengeDataEntry challenge = new ChallengeDataEntry();
-                challenge.Id = ReadInt16(TestReader, EndianWSG);
-                challenge.TypeId = TestReader.ReadByte();
-                challenge.Value = ReadInt32(TestReader, EndianWSG);
-                Challenges.Add(challenge);
+                ChallengeDataBlockId = ReadInt32(challengeReader, EndianWSG);
+                ChallengeDataLength = ReadInt32(challengeReader, EndianWSG);
+                ChallengeDataEntries = ReadInt16(challengeReader, EndianWSG);
+                Challenges = new List<ChallengeDataEntry>();
+                for (int i = 0; i < ChallengeDataEntries; i++)
+                {
+                    ChallengeDataEntry challenge;
+                    challenge.Id = ReadInt16(challengeReader, EndianWSG);
+                    challenge.TypeId = challengeReader.ReadByte();
+                    challenge.Value = ReadInt32(challengeReader, EndianWSG);
+                    Challenges.Add(challenge);
+                }
             }
 
             TotalLocations = ReadInt32(TestReader, EndianWSG);
@@ -627,57 +651,61 @@ namespace WillowTree
 
             DLC.DataSections = new List<DLCSection>();
             DLC.DLC_Size = ReadInt32(TestReader, EndianWSG);
+            byte[] dlcDataBlock = TestReader.ReadBytes(DLC.DLC_Size);
+            if (dlcDataBlock.Length != DLC.DLC_Size)
+                throw new EndOfStreamException();
 
-            if (DLC.DLC_Size > 0)
+            using (BinaryReader dlcDataReader = new BinaryReader(new MemoryStream(dlcDataBlock, false), Encoding.ASCII))
             {
                 int RemainingBytes = DLC.DLC_Size;
                 while (RemainingBytes > 0)
                 {
                     DLCSection Section = new DLCSection();
-                    Section.Id = ReadInt32(TestReader, EndianWSG);
-                    int SectionLength = ReadInt32(TestReader, EndianWSG);
-                    long SectionStartPos = (int)TestReader.BaseStream.Position;
+                    Section.Id = ReadInt32(dlcDataReader, EndianWSG);
+                    int SectionLength = ReadInt32(dlcDataReader, EndianWSG);
+                    long SectionStartPos = (int)dlcDataReader.BaseStream.Position;
                     switch (Section.Id)
                     {
                         case DLC_Data.Section1Id:
                             DLC.HasSection1 = true;
-                            DLC.DLC_Unknown1 = TestReader.ReadByte();
-                            DLC.BankSize = ReadInt32(TestReader, EndianWSG);
-                            int bankEntriesCount = ReadInt32(TestReader, EndianWSG);
+                            DLC.DLC_Unknown1 = dlcDataReader.ReadByte();
+                            DLC.BankSize = ReadInt32(dlcDataReader, EndianWSG);
+                            int bankEntriesCount = ReadInt32(dlcDataReader, EndianWSG);
                             DLC.BankInventory = new List<BankEntry>();
                             for (int i = 0; i < bankEntriesCount; i++)
-                                DLC.BankInventory.Add(ReadBankEntry(TestReader, EndianWSG));
+                                DLC.BankInventory.Add(ReadBankEntry(dlcDataReader, EndianWSG));
                             break;
                         case DLC_Data.Section2Id:
                             DLC.HasSection2 = true;
-                            DLC.DLC_Unknown2 = ReadInt32(TestReader, EndianWSG);
-                            DLC.DLC_Unknown3 = ReadInt32(TestReader, EndianWSG);
-                            DLC.DLC_Unknown4 = ReadInt32(TestReader, EndianWSG);
-                            DLC.SkipDLC2Intro = ReadInt32(TestReader, EndianWSG);
+                            DLC.DLC_Unknown2 = ReadInt32(dlcDataReader, EndianWSG);
+                            DLC.DLC_Unknown3 = ReadInt32(dlcDataReader, EndianWSG);
+                            DLC.DLC_Unknown4 = ReadInt32(dlcDataReader, EndianWSG);
+                            DLC.SkipDLC2Intro = ReadInt32(dlcDataReader, EndianWSG);
                             break;
                         case DLC_Data.Section3Id:
                             DLC.HasSection3 = true;
-                            DLC.DLC_Unknown5 = TestReader.ReadByte();
+                            DLC.DLC_Unknown5 = dlcDataReader.ReadByte();
                             break;
                         case DLC_Data.Section4Id:
                             DLC.HasSection4 = true;
-                            DLC.SecondaryPackEnabled = TestReader.ReadByte();
-                            DLC.NumberOfItems = ReadInt32(TestReader, EndianWSG);
-                            Items(TestReader, DLC.NumberOfItems);
+                            DLC.SecondaryPackEnabled = dlcDataReader.ReadByte();
+                            DLC.NumberOfItems = ReadInt32(dlcDataReader, EndianWSG);
+                            Items(dlcDataReader, DLC.NumberOfItems);
                             NumberOfItems += DLC.NumberOfItems;
-                            DLC.NumberOfWeapons = ReadInt32(TestReader, EndianWSG);
-                            Weapons(TestReader, DLC.NumberOfWeapons);
+                            DLC.NumberOfWeapons = ReadInt32(dlcDataReader, EndianWSG);
+                            Weapons(dlcDataReader, DLC.NumberOfWeapons);
                             NumberOfWeapons += DLC.NumberOfWeapons;
                             break;
                         default:
+                            System.Diagnostics.Trace.TraceInformation("Unknown DLC data section found: 0x" + Section.Id.ToString("X8") + " size" + SectionLength);
                             break;
                     }
                     // I don't pretend to know if any of the DLC sections will ever expand
                     // and store more data.  RawData stores any extra data at the end of
                     // the known data in any section and stores the entirety of sections 
                     // with unknown ids in a buffer in its raw byte order dependent form.
-                    int RawDataCount = SectionLength - (int)(TestReader.BaseStream.Position - SectionStartPos);
-                    Section.RawData = TestReader.ReadBytes(RawDataCount);
+                    int RawDataCount = SectionLength - (int)(dlcDataReader.BaseStream.Position - SectionStartPos);
+                    Section.RawData = dlcDataReader.ReadBytes(RawDataCount);
                     if (RawDataCount > 0)
                         ContainsRawData = true;
                     RemainingBytes -= SectionLength + 8;
@@ -864,77 +892,6 @@ namespace WillowTree
             EchoStringsPT2 = TempEchoStrings;
             EchoValuesPT2 = TempEchoValues;
         }
-
-#if false
-        private static readonly char[] NullTerminatorCharArray = new char[1] { '\0' };
-
-        ///<summary>Writes a string in the format used by the WSG format</summary>
-        [Obsolete("WriteString(BinaryReader,String,ByteOrder) should be used instead.")]
-        public static byte[] WriteString(string InputString, ByteOrder Endian)
-        {
-            if (string.IsNullOrEmpty(InputString))
-            {
-                // Byte arrays are automatically zero-initialized.
-                return BitConverter.GetBytes(0);
-            }
-
-            char[] inputArray = InputString.ToCharArray();
-
-            // Look for any non-ASCII characters in the input.
-            bool requiresUnicode = false;
-            for (int i = 0; i < inputArray.Length; i++)
-            {
-                if (inputArray[i] > 256)
-                {
-                    requiresUnicode = true;
-                    break;
-                }
-            }
-
-            // Get the appropriate string data encoder.
-            Encoder encoder;
-            int count; // statically casted from an integer internally
-            if (!requiresUnicode)
-            {
-                encoder = Encoding.ASCII.GetEncoder();
-                count = inputArray.Length + NullTerminatorCharArray.Length;
-            }
-            else
-            {
-                encoder = Encoding.Unicode.GetEncoder();
-                count = -(inputArray.Length + NullTerminatorCharArray.Length);
-            }
-
-            // Determine data length and generate data buffer.
-            int dataLength = encoder.GetByteCount(inputArray, 0, inputArray.Length, false);
-            int nullTerminatorLength = encoder.GetByteCount(NullTerminatorCharArray, 0, NullTerminatorCharArray.Length, true);
-
-            byte[] data = new byte[sizeof(int) + dataLength + nullTerminatorLength];
-
-            // Encode count data.
-            if (Endian == ByteOrder.LittleEndian)
-            {
-                data[0] = (byte)(count & 0xFF);
-                data[1] = (byte)((count >> 8) & 0xFF);
-                data[2] = (byte)((count >> 16) & 0xFF);
-                data[3] = (byte)((count >> 24) & 0xFF);
-            }
-            else
-            {
-                data[0] = (byte)((count >> 24) & 0xFF);
-                data[1] = (byte)((count >> 16) & 0xFF);
-                data[2] = (byte)((count >> 8) & 0xFF);
-                data[3] = (byte)(count & 0xFF);
-            }
-
-            // Encode character data.
-            int byteCount;
-            byteCount = encoder.GetBytes(inputArray, 0, inputArray.Length, data, sizeof(int), false);
-            byteCount = encoder.GetBytes(NullTerminatorCharArray, 0, NullTerminatorCharArray.Length, data, sizeof(int) + byteCount, true);
-
-            return data;
-        }
-#endif
 
         ///<summary>Save the current data to a WSG as a byte[]</summary>
         public byte[] SaveWSG()

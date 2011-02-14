@@ -2048,16 +2048,18 @@ namespace WillowTree
 
                 if (CurrentWSG.Platform == "PS3" || CurrentWSG.Platform == "PC")
                 {
-                    BinaryWriter Save = new BinaryWriter(new FileStream(tempSave.FileName, FileMode.Create));
-                    Save.Write(CurrentWSG.SaveWSG());
-                    Save.Close();
+                    using (BinaryWriter Save = new BinaryWriter(new FileStream(tempSave.FileName, FileMode.Create)))
+                    {
+                        Save.Write(CurrentWSG.SaveWSG());
+                    }
                 }
 
                 else if (CurrentWSG.Platform == "X360")
                 {
-                    BinaryWriter Save = new BinaryWriter(new FileStream(tempSave.FileName + ".temp", FileMode.Create));
-                    Save.Write(CurrentWSG.SaveWSG());
-                    Save.Close();
+                    using (BinaryWriter Save = new BinaryWriter(new FileStream(tempSave.FileName + ".temp", FileMode.Create)))
+                    {
+                        Save.Write(CurrentWSG.SaveWSG());
+                    }
 
                     CreateSTFS Package = new CreateSTFS();
 

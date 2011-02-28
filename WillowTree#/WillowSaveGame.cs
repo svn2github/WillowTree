@@ -697,7 +697,6 @@ namespace WillowTree
                             NumberOfWeapons += DLC.NumberOfWeapons;
                             break;
                         default:
-                            System.Diagnostics.Trace.TraceInformation("Unknown DLC data section found: 0x" + Section.Id.ToString("X8") + " size" + SectionLength);
                             break;
                     }
                     // I don't pretend to know if any of the DLC sections will ever expand

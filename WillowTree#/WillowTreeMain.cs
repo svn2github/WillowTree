@@ -1721,16 +1721,11 @@ namespace WillowTree
                     }
                 }
             }
-            catch (WebException ex)
-            {
-                Trace.TraceError("Update check failed:" + Environment.NewLine + ex.ToString());
-            }
+            catch { }
         }
-
 
         private void TrySelectedNode(AdvTree DesiredTree, int SelectedIndex)
         {
-
             try
             {
                 DesiredTree.SelectedNode = DesiredTree.Nodes[SelectedIndex];
